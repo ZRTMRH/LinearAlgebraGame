@@ -1,4 +1,4 @@
-import Mathlib.Data.Analysis.Filter
+/-import Mathlib.Data.Analysis.Filter
 import Mathlib.Data.Analysis.Topology
 import Mathlib.Data.Array.Basic
 import Mathlib.Data.Array.Defs
@@ -65,7 +65,7 @@ import Mathlib.Data.Fin.Tuple.NatAntidiagonal
 import Mathlib.Data.Fin.Tuple.Reflection
 import Mathlib.Data.Fin.Tuple.Sort
 import Mathlib.Data.Fin.VecNotation
-import Mathlib.Data.FinEnum
+import Mathlib.Data.FinEnum-/
 import Mathlib.Data.Finite.Basic
 import Mathlib.Data.Finite.Card
 import Mathlib.Data.Finite.Defs
@@ -111,7 +111,7 @@ import Mathlib.Data.Finset.Sups
 import Mathlib.Data.Finset.Sym
 import Mathlib.Data.Finset.Union
 import Mathlib.Data.Finset.Update
-import Mathlib.Data.Finsupp.AList
+/-import Mathlib.Data.Finsupp.AList
 import Mathlib.Data.Finsupp.Antidiagonal
 import Mathlib.Data.Finsupp.Basic
 import Mathlib.Data.Finsupp.BigOperators
@@ -156,7 +156,7 @@ import Mathlib.Data.FunLike.Embedding
 import Mathlib.Data.FunLike.Equiv
 import Mathlib.Data.FunLike.Fintype
 import Mathlib.Data.HashMap
-import Mathlib.Data.Holor
+import Mathlib.Data.Holor-/
 import Mathlib.Data.Int.AbsoluteValue
 import Mathlib.Data.Int.Associated
 import Mathlib.Data.Int.Basic
@@ -189,7 +189,7 @@ import Mathlib.Data.Int.Sqrt
 import Mathlib.Data.Int.Star
 import Mathlib.Data.Int.SuccPred
 import Mathlib.Data.Int.Units
-import Mathlib.Data.LazyList.Basic
+/-import Mathlib.Data.LazyList.Basic
 import Mathlib.Data.List.AList
 import Mathlib.Data.List.Basic
 import Mathlib.Data.List.Card
@@ -242,7 +242,7 @@ import Mathlib.Data.MLList.BestFirst
 import Mathlib.Data.MLList.Dedup
 import Mathlib.Data.MLList.DepthFirst
 import Mathlib.Data.MLList.IO
-import Mathlib.Data.MLList.Split
+import Mathlib.Data.MLList.Split-/
 import Mathlib.Data.Matrix.Auto
 import Mathlib.Data.Matrix.Basic
 import Mathlib.Data.Matrix.Basis
@@ -259,10 +259,10 @@ import Mathlib.Data.Matrix.PEquiv
 import Mathlib.Data.Matrix.Rank
 import Mathlib.Data.Matrix.Reflection
 import Mathlib.Data.Matrix.RowCol
-import Mathlib.Data.Matroid.Basic
+/-import Mathlib.Data.Matroid.Basic
 import Mathlib.Data.Matroid.Dual
 import Mathlib.Data.Matroid.IndepAxioms
-import Mathlib.Data.Matroid.Init
+import Mathlib.Data.Matroid.Init-/
 import Mathlib.Data.Multiset.Antidiagonal
 import Mathlib.Data.Multiset.Basic
 import Mathlib.Data.Multiset.Bind
@@ -283,7 +283,7 @@ import Mathlib.Data.Multiset.Sections
 import Mathlib.Data.Multiset.Sort
 import Mathlib.Data.Multiset.Sum
 import Mathlib.Data.Multiset.Sym
-import Mathlib.Data.MvPolynomial.Basic
+/-import Mathlib.Data.MvPolynomial.Basic
 import Mathlib.Data.MvPolynomial.Cardinal
 import Mathlib.Data.MvPolynomial.Comap
 import Mathlib.Data.MvPolynomial.CommRing
@@ -303,7 +303,7 @@ import Mathlib.Data.MvPolynomial.Supported
 import Mathlib.Data.MvPolynomial.Variables
 import Mathlib.Data.NNRat.BigOperators
 import Mathlib.Data.NNRat.Defs
-import Mathlib.Data.NNRat.Lemmas
+import Mathlib.Data.NNRat.Lemmas-/
 import Mathlib.Data.Nat.Basic
 import Mathlib.Data.Nat.Bits
 import Mathlib.Data.Nat.Bitwise
@@ -379,7 +379,7 @@ import Mathlib.Data.Num.Bitwise
 import Mathlib.Data.Num.Lemmas
 import Mathlib.Data.Num.Prime
 import Mathlib.Data.Opposite
-import Mathlib.Data.Option.Basic
+/-import Mathlib.Data.Option.Basic
 import Mathlib.Data.Option.Defs
 import Mathlib.Data.Option.NAry
 import Mathlib.Data.Ordmap.Ordnode
@@ -390,7 +390,7 @@ import Mathlib.Data.PFunctor.Multivariate.Basic
 import Mathlib.Data.PFunctor.Multivariate.M
 import Mathlib.Data.PFunctor.Multivariate.W
 import Mathlib.Data.PFunctor.Univariate.Basic
-import Mathlib.Data.PFunctor.Univariate.M
+import Mathlib.Data.PFunctor.Univariate.M-/
 import Mathlib.Data.PNat.Basic
 import Mathlib.Data.PNat.Defs
 import Mathlib.Data.PNat.Factors
@@ -398,7 +398,7 @@ import Mathlib.Data.PNat.Find
 import Mathlib.Data.PNat.Interval
 import Mathlib.Data.PNat.Prime
 import Mathlib.Data.PNat.Xgcd
-import Mathlib.Data.PSigma.Order
+/-import Mathlib.Data.PSigma.Order
 import Mathlib.Data.Part
 import Mathlib.Data.Pi.Interval
 import Mathlib.Data.Pi.Lex
@@ -475,11 +475,11 @@ import Mathlib.Data.Rbtree.Find
 import Mathlib.Data.Rbtree.Init
 import Mathlib.Data.Rbtree.Insert
 import Mathlib.Data.Rbtree.Main
-import Mathlib.Data.Rbtree.MinMax
+import Mathlib.Data.Rbtree.MinMax-/
 import Mathlib.Data.Real.Archimedean
 import Mathlib.Data.Real.Basic
 import Mathlib.Data.Real.Cardinality
-import Mathlib.Data.Real.ConjExponents
+/-import Mathlib.Data.Real.ConjExponents
 import Mathlib.Data.Real.ENatENNReal
 import Mathlib.Data.Real.EReal
 import Mathlib.Data.Real.GoldenRatio
@@ -489,16 +489,16 @@ import Mathlib.Data.Real.NNReal
 import Mathlib.Data.Real.Pi.Bounds
 import Mathlib.Data.Real.Pi.Leibniz
 import Mathlib.Data.Real.Pi.Wallis
-import Mathlib.Data.Real.Pointwise
+import Mathlib.Data.Real.Pointwise-/
 import Mathlib.Data.Real.Sign
 import Mathlib.Data.Real.Sqrt
-import Mathlib.Data.Rel
+/-import Mathlib.Data.Rel
 import Mathlib.Data.SProd
 import Mathlib.Data.Semiquot
 import Mathlib.Data.Seq.Computation
 import Mathlib.Data.Seq.Parallel
 import Mathlib.Data.Seq.Seq
-import Mathlib.Data.Seq.WSeq
+import Mathlib.Data.Seq.WSeq-/
 import Mathlib.Data.Set.Accumulate
 import Mathlib.Data.Set.Basic
 import Mathlib.Data.Set.BoolIndicator
@@ -552,7 +552,7 @@ import Mathlib.Data.Set.Sigma
 import Mathlib.Data.Set.Subset
 import Mathlib.Data.Set.Sups
 import Mathlib.Data.Set.UnionLift
-import Mathlib.Data.SetLike.Basic
+/-import Mathlib.Data.SetLike.Basic
 import Mathlib.Data.SetLike.Fintype
 import Mathlib.Data.Setoid.Basic
 import Mathlib.Data.Setoid.Partition
@@ -581,7 +581,7 @@ import Mathlib.Data.TypeMax
 import Mathlib.Data.TypeVec
 import Mathlib.Data.UInt
 import Mathlib.Data.ULift
-import Mathlib.Data.UnionFind
+import Mathlib.Data.UnionFind-/
 import Mathlib.Data.Vector
 import Mathlib.Data.Vector.Basic
 import Mathlib.Data.Vector.MapLemmas
@@ -589,7 +589,7 @@ import Mathlib.Data.Vector.Mem
 import Mathlib.Data.Vector.Snoc
 import Mathlib.Data.Vector.Zip
 import Mathlib.Data.Vector3
-import Mathlib.Data.W.Basic
+/-import Mathlib.Data.W.Basic
 import Mathlib.Data.W.Cardinal
 import Mathlib.Data.W.Constructions
 import Mathlib.Data.ZMod.Algebra
@@ -601,4 +601,4 @@ import Mathlib.Data.ZMod.IntUnitsPower
 import Mathlib.Data.ZMod.Module
 import Mathlib.Data.ZMod.Parity
 import Mathlib.Data.ZMod.Quotient
-import Mathlib.Data.ZMod.Units
+import Mathlib.Data.ZMod.Units-/

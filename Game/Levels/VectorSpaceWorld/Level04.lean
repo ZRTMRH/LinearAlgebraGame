@@ -5,10 +5,9 @@ Level 4
 
 Title "Zero must belong"
 
-Introduction "Now that we understand what a vector space is, and have proven a simple theorem about
-them, let's define what a subspace is. Intuitively, a subspace is a subset of a vector space that
-can be considered as a vector space itself. We define this as a subset `W : Set V` that is nonempty,
-is closed under addition, and is closed under scalar multiplication.
+Introduction "Now that we understand more about vector spaces, let's define what a subspace is.
+Intuitively, a subspace is a subset of a vector space that can be considered as a vector space itself.
+We define this as a subset `W : Set V` that is nonempty, is closed under addition, and is closed under scalar multiplication.
 
 ### The `obtain` tactic
 A new tactic will help us solve problems with subspaces. While not necessary, and this tactic can
@@ -16,7 +15,7 @@ even be completely replaced by the `cases'` tactic, it will simplify your proofs
 tactic essentially acts as repeating `cases'`. In this level, it has two main uses. First, if `hw : isSubspace W`
 is a hypothesis, then `obtain ⟨h1, h2, h3⟩ := hW` will split the definition into the three parts,
 labeled h1, h2, and h3. The other important use for `obtain` is if you have a hypothesis `hW : W.Nonempty`,
-then `obtain ⟨w, hw⟩ := hW` will give you a `w : V`, and a hypothesis `hw : w ∈ W`. Also, the \"⟨\"
+then `obtain ⟨w, hw⟩ := hW` will give you a `w : V`, and a hypothesis `hw : w ∈ W`. The \"⟨\"
 character is written with \"\\langle\", and the \"⟩\" character is written with \"\\rangle\".
 
 ### Subspace contains zero
@@ -67,10 +66,15 @@ This is a proof that any subspace contains the zero vector.
 -/
 TheoremDoc subspace_contains_zero as "subspace_contains_zero" in "Vector Spaces"
 
+DisabledTactic simp linarith
+
+open VectorSpace
+variable (K V : Type) [Field K] [AddCommGroup V] [DecidableEq V] [VectorSpace K V]
+
 /--
 This is a proof that any subspace contains the zero vector.
 -/
-Statement subspace_contains_zero (fk : Field K) (acg : AddCommGroup V) (vs : VectorSpace K V) {W : Set V} (hW : isSubspace (K := K) (V := V) W) : (0 : V) ∈ W := by
+Statement subspace_contains_zero {W : Set V} (hW : isSubspace (K := K) (V := V) W) : (0 : V) ∈ W := by
   Hint "Try to expand out your hypotheses using `obtain`."
   Hint (hidden := true) "Try `obtain ⟨h1, h2, h3⟩ := hW`"
   obtain ⟨h1, _h2, h3⟩ := hW
@@ -79,9 +83,9 @@ Statement subspace_contains_zero (fk : Field K) (acg : AddCommGroup V) (vs : Vec
   obtain ⟨w, hw⟩ := h1
   Hint "We know that `0 • {w} ∈ W`. If this was our goal, the level would be easy to solve. Also,
   remember that if you have to use a theorem you have proven in a previous level, you have to write
-  `theorem_name fk acg vs theorem_args` to show Lean that K V is a vector space."
-  Hint (hidden := true) "Try `rw [(zero_smul_v fk acg vs {w}).symm]`"
-  rw [(zero_smul_v fk acg vs w).symm]
+  `theorem_name K V theorem_args` to show Lean that K V is a vector space."
+  Hint (hidden := true) "Try `rw [(zero_smul_v K V w).symm]`"
+  rw [(zero_smul_v K V w).symm]
   Hint "Now, apply the fact that subspaces are closed under scalar multiplication."
   Hint (hidden := true) "Try `apply {h3}`"
   apply h3

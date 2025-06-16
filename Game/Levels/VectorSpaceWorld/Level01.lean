@@ -1,4 +1,4 @@
-import Game.Metadata
+import Game.Metadata.Metadata
 
 World "VectorSpaceWorld"
 Level 1
@@ -26,19 +26,25 @@ NewTactic symm
 Introduction "
 ## Vector Space Definition
 
-We begin by defining a vector space over a field `K` with an abelian group `V`. This class includes four key axioms:
+We begin by defining a vector space `V` over a field `K` as an abelian group with four key axioms:
 
 ```
-class VectorSpace (K V : Type) [Field K] [AddCommGroup V] extends SMul K V where
-  smul_add : ∀ (a : K) (x y : V), a • (x + y) = a • x + a • y           -- distributivity of scalar over vector addition
-  add_smul : ∀ (a b : K) (x : V), (a + b) • x = a • x + b • x           -- distributivity of scalar addition
-  mul_smul : ∀ (a b : K) (x : V), (a * b) • x = a • (b • x)             -- compatibility of scalar multiplication
-  one_smul : ∀ (x : V), (1 : K) • x = x                                -- identity scalar acts as identity
+class VectorSpace (K V : Type) [Field K] [AddCommGroup V] extends Module K V where
+  smul_add_explicit : ∀ (a : K) (x y : V), a • (x + y) = a • x + a • y := smul_add -- Distributivity over vector addition
+  add_smul_explicit : ∀ (a b : K) (x : V), (a + b) • x = a • x + b • x := add_smul -- Distributivity over scalar addition
+  mul_smul_explicit : ∀ (a b : K) (x : V), (a * b) • x = a • (b • x) := mul_smul -- Associativity of `•` and `*`
+  one_smul_explicit : ∀ (x : V), (1 : K) • x = x := one_smul -- The multiplicitave identity acts as an identity
 ```
 
-This foundational structure will be used throughout all future levels. No proof is needed here
-— just understand the axioms and how they're represented. Note that to write the `•` character, type
-\"\\smul\"
+This foundational structure will be used throughout all future levels. We are also using Mathlib's `Module`,
+`Field`, and `AddCommGroup` definitions, which lets us use notation such as `-a` and `a⁻¹`, and includes
+many helpful theorems that we will not need to prove ourselves.
+
+Note that to write the `•` character, type
+\"\\smul\".
+
+Also, note that there is some strange `inst†` text in your objects. This simply means that your objects
+are instances of certain classes, for example that K V is a vector space.
 
 ## Goal for this level
 
@@ -65,6 +71,11 @@ in this case, Lean doesn't know what value you want to add. You can tell Lean wh
 equation by `apply add_right_cancel (b := ????)`, replacing the question marks with whatever you
 want to add.
 
+### zero_add
+
+We also need to know some basic theorems about addition. For both the scalars and vectors, adding any
+vector to `0` will result in that vector. Simply `rw [zero_add]` will show this.
+
 ### symm
 
 You will also need the `symm` tactic. `symm` stands for symmetry of equality, and it can be used to
@@ -80,15 +91,21 @@ specify what `a` and `b` you mean to use before using `.symm`. For example, you 
 One last hint is that when writing `0`, you often want to specify which zero you are talking about.
 We know that the natural numbers, for example, has a `0`, but so do the Field K and the Abelian Group
 V, and those `0`s are different. To specify which `0` you are talking about, write `(0 : K)` or `(0 : V)`.
+
+### Note on simp and linarith
+
+In this world, we are primarilly proving simple statements about vector spaces. This is exactly what
+the `simp` and `linarith` tactics are meant to do. In fact, the `simp` tactic alone would be able to
+solve the first three levels of this world. Because of this, you will not be able to use those tactics
+in this world.
 "
 
 -- A vector space over field K with additive group V
-class VectorSpace (K V : Type) [Field K] [AddCommGroup V] extends SMul K V where
-  smul_add : ∀ (a : K) (x y : V), a • (x + y) = a • x + a • y           -- distributivity of scalar over vector addition
-  add_smul : ∀ (a b : K) (x : V), (a + b) • x = a • x + b • x           -- distributivity of scalar addition
-  mul_smul : ∀ (a b : K) (x : V), (a * b) • x = a • (b • x)             -- compatibility of scalar multiplication
-  one_smul : ∀ (x : V) , (1 : K) • x = x
-
+class VectorSpace (K V : Type) [Field K] [AddCommGroup V] extends Module K V where
+  smul_add_explicit : ∀ (a : K) (x y : V), a • (x + y) = a • x + a • y := smul_add
+  add_smul_explicit : ∀ (a b : K) (x : V), (a + b) • x = a • x + b • x := add_smul
+  mul_smul_explicit : ∀ (a b : K) (x : V), (a * b) • x = a • (b • x) := mul_smul
+  one_smul_explicit : ∀ (x : V), (1 : K) • x = x := one_smul
 /--
 A vector space is a space over a field K with an abelian group V. It has four main properties:
 - Distributivity over vector addition,
@@ -98,9 +115,9 @@ A vector space is a space over a field K with an abelian group V. It has four ma
 
 These properties can be found in the theorems tab as "smul_add", "add_smul", "mul_smul", and "one_smul".
 -/
-DefinitionDoc VectorSpace as "Vector Space"
+DefinitionDoc VectorSpace_w1 as "Vector Space"
 
-NewDefinition VectorSpace
+NewDefinition VectorSpace_w1
 
 /--
 This is a proof that `0 • w = 0`, or that scaling any vector by `0` gives the zero vector.
@@ -123,43 +140,58 @@ TheoremDoc add_right_cancel as "add_right_cancel" in "Groups"
 then `∀ (a : K) (x y : V), a • (x + y) = a • x + a • y`. It can be considered as right distributivity
 of scalar multiplication
 -/
-TheoremDoc VectorSpace.smul_add as "smul_add" in "Vector Spaces"
+TheoremDoc smul_add as "smul_add" in "Vector Spaces"
 
 /--
 `add_smul` is one of the axioms of a vector space. It is a proof that if we know `vs : VectorSpace K V`,
 then `∀ (a b : K) (x : V), (a + b) • x = a • x + b • x`. It can be considered as left distributivity
 of scalar multiplication.
 -/
-TheoremDoc VectorSpace.add_smul as "add_smul" in "Vector Spaces"
+TheoremDoc add_smul as "add_smul" in "Vector Spaces"
 
 /--∀ (a b : K) (x : V), (a * b) • x = a • (b • x)
 `mul_smul` is one of the axioms of a vector space. It is a proof that if we know `vs : VectorSpace K V`,
 then `∀ (a b : K) (x : V), (a * b) • x = a • (b • x)`. It can be considered as associativity of scalar
 multiplication.
 -/
-TheoremDoc VectorSpace.mul_smul as "mul_smul" in "Vector Spaces"
+TheoremDoc MulAction.mul_smul as "mul_smul" in "Vector Spaces"
 
 /--
 `one_smul` is one of the axioms of a vector space. It is a proof that if we know `vs : VectorSpace K V`,
 then `∀ (x : V), (1 : K) • x = x`. It can be thought of as `1` being a multiplicative identity not
 only in `K`, but also through scalar multiplication in `V`.
 -/
-TheoremDoc VectorSpace.one_smul as "one_smul" in "Vector Spaces"
+TheoremDoc one_smul as "one_smul" in "Vector Spaces"
 
 /--
-This is just so Lean doesn't get mad at me for having `symm` as a tactic when it is considered a theorem.
+`symm` is a proof that `a = b` if and only if `b = a`
 -/
 TheoremDoc symm as "symm" in "Lean"
+/--
+`zero_add` is a proof that `0 + x = x`. This holds whether `x` is in `K` or `V`.
+-/
+TheoremDoc zero_add as "zero_add" in "Groups"
 
-NewTheorem add_right_cancel VectorSpace.smul_add VectorSpace.add_smul VectorSpace.mul_smul VectorSpace.one_smul symm
+/--
+`add_zero` is a proof that `x + 0 = x`. This holds whether `x` is in `K` or `V`.
+-/
+TheoremDoc add_zero as "add_zero" in "Groups"
+
+NewTheorem add_right_cancel smul_add add_smul MulAction.mul_smul one_smul symm zero_add add_zero
 
 TheoremTab "Groups"
 
+DisabledTactic simp linarith
+
 open VectorSpace
+
+open VectorSpace Finset
+variable (K V : Type) [Field K] [AddCommGroup V] [DecidableEq V] [VectorSpace K V]
+
 /--
 In any vector space V over K, the scalar 0 multiplied by any vector gives the zero vector.
 -/
-Statement zero_smul_v (fk : Field K) (acg : AddCommGroup V) (vs : VectorSpace K V) (w : V) : (0 : K) • w = (0 : V) := by
+Statement zero_smul_v (w : V) : (0 : K) • w = (0 : V) := by
   Hint "Remember, we are trying to prove this backwards. The last step in the normal proof was to
   cancel out 0 • w from both sides, so what should the first step of the backwards proof be?"
   Hint (hidden := true) "Try `apply add_right_cancel (b := (0 : K) • w)`"
@@ -169,13 +201,12 @@ Statement zero_smul_v (fk : Field K) (acg : AddCommGroup V) (vs : VectorSpace K 
   use `.symm` here."
   Hint (hidden := true) "Try `rw[(add_smul (0 : K) (0 : K) w).symm]`"
   rw[(add_smul (0 : K) (0 : K) w).symm]
-  Hint "Now, we just have to cancel out zeros. You can prove this using some theorems, or there is a
-  tactic we have already learned that can simplify everything and close the goal."
-  Hint (hidden := true) "Try `simp`"
-  simp
+  Hint "Now, we just have to cancel out zeros."
+  Hint (hidden := true) "Try rw[zero_add]"
+  rw[zero_add]
+  Hint (hidden := true) "Try rw[zero_add]"
+  rw[zero_add]
 
 Conclusion "You have now proven your first theorem about vector spaces! One note: if you want to use
-one of the theorems you prove in one level in another level, the syntax will be
-`theorem_name fk acg vs theorem_args`. This is because we take as hypotheses in each level that
-K is a Field, V is an abelian group, and K V is a vector space. To use a theorem, we need to include
-proofs of those statements."
+one of the theorems you prove in one level in another level, the syntax will often be
+`theorem_name K V theorem_args`. This lets Lean know what vector space you are working with."

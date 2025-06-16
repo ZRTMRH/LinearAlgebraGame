@@ -1,4 +1,4 @@
-import Game.Metadata
+import Game.Metadata.Metadata
 
 World "TutorialWorld"
 Level 1

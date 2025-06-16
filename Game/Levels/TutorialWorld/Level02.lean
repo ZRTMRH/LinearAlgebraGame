@@ -1,4 +1,4 @@
-import Game.Metadata
+import Game.Metadata.Metadata
 
 World "TutorialWorld"
 Level 2
@@ -24,7 +24,7 @@ get the `⊢` symbol with `\|-`.)
 * `repeat rw [add_zero]` will keep changing `? + 0` to `?`
 until there are no more matches for `? + 0`.
 
-* `nth_rewrite 2 [h]` will change only the second `X` in the goal to `Y`.
+* `nth_rw 2 [h]` will change only the second `X` in the goal to `Y`.
 
 ### Example:
 
@@ -99,7 +99,7 @@ that `a + ? = ? + a`, and `add_comm a c` is a proof that `a + c = c + a`.
 
 If `h : X = Y` then `rw [h]` will turn all `X`s into `Y`s.
 If you only want to change the 37th occurrence of `X`
-to `Y` then do `nth_rewrite 37 [h]`.
+to `Y` then do `nth_rw 37 [h]`.
 -/
 TacticDoc rw
 
@@ -118,15 +118,15 @@ into the goal
 `a = b`.
 "
 
-TacticDoc nth_rewrite "
+TacticDoc nth_rw "
 ## Summary
 
 If `h : X = Y` and there are several `X`s in the goal, then
-`nth_rewrite 3 [h]` will just change the third `X` to a `Y`.
+`nth_rw 3 [h]` will just change the third `X` to a `Y`.
 
 ## Example
 
-If the goal is `2 + 2 = 4` then `nth_rewrite 2 [two_eq_succ_one]`
+If the goal is `2 + 2 = 4` then `nth_rw 2 [two_eq_succ_one]`
 will change the goal to `2 + succ 1 = 4`. In contrast, `rw [two_eq_succ_one]`
 will change the goal to `succ 1 + succ 1 = 4`.
 -/
@@ -136,19 +136,19 @@ TacticDoc «repeat»
 ## Summary
 
 If `h : X = Y` and there are several `X`s in the goal, then
-`nth_rewrite 3 [h]` will just change the third `X` to a `Y`.
+`nth_rw 3 [h]` will just change the third `X` to a `Y`.
 
 ## Example
 
-If the goal is `2 + 2 = 4` then `nth_rewrite 2 [two_eq_succ_one]`
+If the goal is `2 + 2 = 4` then `nth_rw 2 [two_eq_succ_one]`
 will change the goal to `2 + succ 1 = 4`. In contrast, `rw [two_eq_succ_one]`
 will change the goal to `succ 1 + succ 1 = 4`.
 -/
-TacticDoc nth_rewrite
+TacticDoc nth_rw
 
 NewTactic rw
 
-NewHiddenTactic «repeat» nth_rewrite
+NewHiddenTactic «repeat» nth_rw
 
 Introduction "
 The second tactic we will look at is the rewrite tactic. This tactic is how you \"substitute in\"

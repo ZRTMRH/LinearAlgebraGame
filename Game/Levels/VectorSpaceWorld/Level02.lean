@@ -21,14 +21,20 @@ scalar multiplication of a vector.
 -/
 TheoremDoc smul_zero_v as "smul_zero_v" in "Vector Spaces"
 
+DisabledTactic simp linarith
+
 open VectorSpace
+variable (K V : Type) [Field K] [AddCommGroup V] [DecidableEq V] [VectorSpace K V]
+
 /--
 In any vector space V over K, any scalar a multiplied by the zero vector gives the zero vector.
 -/
-Statement smul_zero_v (fk : Field K) (acg : AddCommGroup V) (vs : VectorSpace K V) (a : K) : a • (0 : V) = (0 : V) := by
+Statement smul_zero_v (a : K) : a • (0 : V) = (0 : V) := by
   Hint (hidden := true) "Try `apply add_right_cancel (b := a • (0 : V))`"
   apply add_right_cancel (b := a • (0 : V))
   Hint (hidden := true) "Try `rw[(smul_add a (0 : V) (0 : V)).symm]`"
   rw[(smul_add a (0 : V) (0 : V)).symm]
-  Hint (hidden := true) "Try `simp`"
-  simp
+  Hint (hidden := true) "Try `rw[zero_add]`"
+  rw[zero_add]
+  Hint (hidden := true) "Try `rw[zero_add]`"
+  rw[zero_add]
