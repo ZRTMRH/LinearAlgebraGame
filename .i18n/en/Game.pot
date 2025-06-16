@@ -1,7 +1,10 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.7.0\n"
 "Report-Msgid-Bugs-To: \n"
+<<<<<<< HEAD
 "POT-Creation-Date: Mon Jul  7 14:45:38 2025\n"
+=======
+>>>>>>> 814b3fe (Starting work on new world)
 "POT-Creation-Date: Mon Jun 16 14:09:16 2025\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
@@ -1276,6 +1279,40 @@ msgstr ""
 #: Game.Levels.VectorSpaceWorld
 msgid "Welcome to Vector Space World! In this world, you'll build up the basic theory of vector spaces\n"
 "through formal proofs in Lean."
+#: Game.Levels.LinearIndependenceSpanWorld.Level01
+msgid "Hello World"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level01
+msgid "This text is shown as first message when the level is played.\n"
+"You can insert hints in the proof below. They will appear in this side panel\n"
+"depending on the proof a user provides."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level01
+msgid "You can either start using `«{h}»` or `«{g}»`."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level01
+msgid "You should use `«{h}»` now."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level01
+msgid "You should use `«{g}»` now."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level01
+msgid "This last message appears if the level is solved."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld
+msgid "Linear Independence and Span World"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld
+msgid "Welcome to Linear Independence and Span World! This world introduces the ideas of linear\n"
+"independence/dependence and the span of a set of vectors. You will prove theorems, for example that\n"
+"any subset of a linearly independent set of vectors is still linearly independent."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level01
