@@ -1,0 +1,54 @@
+import Game.Levels.LinearIndependenceSpanWorld.VectorSpaceThms
+
+variable (K V : Type) [Field K] [AddCommGroup V] [DecidableEq V] [VectorSpace K V]
+
+
+open VectorSpace
+/--  Linear Combination**
+A vector $x$ is called a **linear combination** of a set $S$ if it can be expressed as a finite sum of elements of $S$ scaled by scalars in the field. Here we formalize this concept. ∑ v in s, f v • v-/
+def is_linear_combination (S : Set V) (x : V) : Prop :=
+∃ (s : Finset V) (f : V → K), (↑s ⊆ S) ∧ (∀ v ∉ s, f v = 0) ∧ (x = Finset.sum s (fun v => f v • v))
+
+open Finset
+theorem linear_combination_of_mem {S : Set V} {v : V} (hv : v ∈ S) : is_linear_combination K V S v := by
+  unfold is_linear_combination
+  use {v}
+  use (λ w => if w = v then (1 : K) else 0)
+  simp
+  constructor
+  exact hv
+  exact (one_smul v).symm
+
+/-- **Level 7: Span**
+The **span** of a set $S$ is the set of all linear combinations of elements of $S`. It is the smallest subspace containing $S`. -/
+def span (S : Set V) : Set V :=
+  { x : V | is_linear_combination K V S x }
+
+theorem mem_span_of_mem {S : Set V} {v : V} (hv : v ∈ S) : v ∈ span K V S := by
+  unfold span
+  exact linear_combination_of_mem K V hv
+
+/-- **Level 8: Monotonicity of Span**
+If $A \subseteq B$ are sets of vectors, then `span A ⊆ span B`. In other words, a larger set of vectors can only have a larger (or equal) span. -/
+theorem my_span_mono {K V :Type} [Field K] [AddCommGroup V][VectorSpace K V]{A B : Set V} (hAB : A ⊆ B) : span K V A ⊆ span K V B := by
+  intro x hxA
+  unfold span at *
+  unfold is_linear_combination at *
+  simp at *
+  obtain ⟨s, hsA, f, h1, h2⟩ := hxA
+  use s
+  constructor
+  exact hsA.trans hAB
+  use f
+
+/-- Linear Independence**
+A set of vectors $S$ is **linearly independent** if no vector in $S$ can be written as a linear combination of the others. Equivalently, the only solution to a linear combination of elements of $S$ equaling zero is the trivial solution (all coefficients zero). Here we formalize this condition. -/
+def linear_independent_1 (S : Set V) : Prop :=
+∀ (s : Finset V) (f : V → K),
+(↑s ⊆ S) → (Finset.sum s (fun v ↦ f v • v) = 0) → (∀ v ∈ s, f v = 0)
+
+/-- Independence of Empty Set and Singletons**
+Proposition 2.6(a): The empty set is linearly independent (vacuously, since there are no vectors to depend on). -/
+theorem linear_independent_empty (K V : Type) [Field K] [AddCommGroup V] [VectorSpace K V] : linear_independent_1 K V (∅ : Set V) := by
+  intros s f hs sum_zero v hv
+  exact False.elim (hs hv)

@@ -2,6 +2,7 @@ msgid ""
 msgstr "Project-Id-Version: Game v4.7.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: Mon Jul  7 14:45:38 2025\n"
+"POT-Creation-Date: Mon Jun 16 14:09:16 2025\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -2429,6 +2430,30 @@ msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level08
 msgid "Try `exact «{hS}» «{s}» «{f}» «{s_subset_S}» «{hf}» «{w}» «{hw}»`"
+#: Game.Levels.LinearIndependenceSpanWorld.Level01
+msgid "Hello World"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level01
+msgid "This text is shown as first message when the level is played.\n"
+"You can insert hints in the proof below. They will appear in this side panel\n"
+"depending on the proof a user provides."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level01
+msgid "You can either start using `«{h}»` or `«{g}»`."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level01
+msgid "You should use `«{h}»` now."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level01
+msgid "You should use `«{g}»` now."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level01
+msgid "This last message appears if the level is solved."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld
