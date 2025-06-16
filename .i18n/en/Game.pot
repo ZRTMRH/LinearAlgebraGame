@@ -2,10 +2,14 @@ msgid ""
 msgstr "Project-Id-Version: Game v4.7.0\n"
 "Report-Msgid-Bugs-To: \n"
 <<<<<<< HEAD
+<<<<<<< HEAD
 "POT-Creation-Date: Mon Jul  7 14:45:38 2025\n"
 =======
 >>>>>>> 814b3fe (Starting work on new world)
 "POT-Creation-Date: Mon Jun 16 14:09:16 2025\n"
+=======
+"POT-Creation-Date: Mon Jun 16 15:53:32 2025\n"
+>>>>>>> eba929c (Simplifying proofs)
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -1279,6 +1283,7 @@ msgstr ""
 #: Game.Levels.VectorSpaceWorld
 msgid "Welcome to Vector Space World! In this world, you'll build up the basic theory of vector spaces\n"
 "through formal proofs in Lean."
+<<<<<<< HEAD
 #: Game.Levels.LinearIndependenceSpanWorld.Level01
 msgid "Hello World"
 msgstr ""
@@ -1313,6 +1318,8 @@ msgstr ""
 msgid "Welcome to Linear Independence and Span World! This world introduces the ideas of linear\n"
 "independence/dependence and the span of a set of vectors. You will prove theorems, for example that\n"
 "any subset of a linearly independent set of vectors is still linearly independent."
+=======
+>>>>>>> eba929c (Simplifying proofs)
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level01
