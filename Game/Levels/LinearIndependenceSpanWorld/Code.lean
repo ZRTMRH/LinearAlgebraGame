@@ -2,22 +2,17 @@ import Game.Levels.LinearIndependenceSpanWorld.VectorSpaceThms
 
 variable (K V : Type) [Field K] [AddCommGroup V] [DecidableEq V] [VectorSpace K V]
 
-
-open VectorSpace
 /--  Linear Combination**
 A vector $x$ is called a **linear combination** of a set $S$ if it can be expressed as a finite sum of elements of $S$ scaled by scalars in the field. Here we formalize this concept. ∑ v in s, f v • v-/
 def is_linear_combination (S : Set V) (x : V) : Prop :=
 ∃ (s : Finset V) (f : V → K), (↑s ⊆ S) ∧ (∀ v ∉ s, f v = 0) ∧ (x = Finset.sum s (fun v => f v • v))
 
-open Finset
 theorem linear_combination_of_mem {S : Set V} {v : V} (hv : v ∈ S) : is_linear_combination K V S v := by
   unfold is_linear_combination
   use {v}
   use (λ w => if w = v then (1 : K) else 0)
   simp
-  constructor
   exact hv
-  exact (one_smul v).symm
 
 /-- **Level 7: Span**
 The **span** of a set $S$ is the set of all linear combinations of elements of $S`. It is the smallest subspace containing $S`. -/
@@ -75,3 +70,42 @@ theorem superset_span_full {A B T: Set V} (hT: ∀ (x: V), x ∈ T)(hA : T = spa
   exact span_mono hAsubB
   intros x _ssg
   exact hT x
+
+theorem help (f g : V → K): (fun v => (f - g) v • v) = (fun v => (f v - g v) • v) := by
+  rfl
+
+theorem help2 (f g : V → K) : (fun v => ((f v) - (g v)) • v) = (fun (v : V) => ((f v) • v) - ((g v) • v)) := by
+  funext v
+  exact sub_smul (f v) (g v) v
+
+theorem linear_combination_unique
+{S : Set V} (hS : linear_independent_v K V S)
+(s t : Finset V) (hs : ↑s ⊆ S) (ht : ↑t ⊆ S)
+(f g : V → K) (hf0 : ∀ v ∉ s, f v = 0) (hg0 : ∀ v ∉ t, g v = 0)
+(heq : Finset.sum s (fun v => f v • v) = Finset.sum t (fun v => g v • v)) :
+∀ (v : V), f v = g v := by
+  intro v
+  cases' Decidable.em (v ∈ (s ∪ t)) with hIn hOut
+  unfold linear_independent_v at hS
+  specialize hS (s ∪ t) (f - g)
+  rw[Finset.coe_union] at hS
+  specialize hS (Set.union_subset hs ht)
+  have hShyp : (Finset.sum (s ∪ t) fun v => (f - g) v • v) = 0 := by
+    rw[help, help2, Finset.sum_sub_distrib]
+    have hfprod0 : ∀ v ∉ s, f v • v = 0 := by
+      intros v hv
+      rw[hf0 v hv]
+      exact zero_smul K v
+    have hgprod0 : ∀ v ∉ t, g v • v = 0 := by
+      intros v hv
+      rw[hg0 v hv]
+      exact zero_smul K v
+    rw [(Finset.sum_subset (f := fun x => f x • x) (Finset.subset_union_left s t) (by intro x _hx; exact hfprod0 x)).symm]
+    rw [(Finset.sum_subset (f := fun x => g x • x) (Finset.subset_union_right s t) (by intro x _hx; exact hgprod0 x)).symm]
+    rw[heq]
+    simp
+  specialize hS hShyp v hIn
+  exact sub_eq_zero.1 hS
+  rw[Finset.not_mem_union] at hOut
+  cases' hOut with hS hT
+  rw[hf0 v hS, hg0 v hT]

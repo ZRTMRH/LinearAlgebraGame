@@ -31,9 +31,6 @@ W.Nonempty ∧ (∀ (x y : V), x ∈ W → y ∈ W → x + y ∈ W) ∧ (∀ (a 
 #check Finset.sum
 #check singleton_subset_iff
 
-variable (K V : Type) [Field K] [AddCommGroup V] [VectorSpace K V]
-
-
 /--  Linear Combination**
 A vector $x$ is called a **linear combination** of a set $S$ if it can be expressed as a finite sum of elements of $S$ scaled by scalars in the field. Here we formalize this concept. ∑ v in s, f v • v-/
 def is_linear_combination (S : Set V) (x : V) : Prop :=
