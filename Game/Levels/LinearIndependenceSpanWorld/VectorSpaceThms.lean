@@ -1,4 +1,4 @@
-import Mathlib
+import Mathlib.Tactic
 
 
 class VectorSpace (K V : Type) [Field K] [AddCommGroup V] extends Module K V where
