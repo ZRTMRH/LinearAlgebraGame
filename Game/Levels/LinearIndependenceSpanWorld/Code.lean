@@ -1,11 +1,12 @@
-import Game.Levels.LinearIndependenceSpanWorld.VectorSpaceThms
+import Game.Levels.VectorSpaceWorld.Level05
+
 open VectorSpace
 variable (K V : Type) [Field K] [AddCommGroup V] [DecidableEq V] [VectorSpace K V]
 
 /--  Linear Combination**
 A vector $x$ is called a **linear combination** of a set $S$ if it can be expressed as a finite sum of elements of $S$ scaled by scalars in the field. Here we formalize this concept. ∑ v in s, f v • v-/
 def is_linear_combination (S : Set V) (x : V) : Prop :=
-∃ (s : Finset V) (f : V → K), (↑s ⊆ S) ∧ (x = Finset.sum s (fun v => f v • v))
+  ∃ (s : Finset V) (f : V → K), (↑s ⊆ S) ∧ (x = Finset.sum s (fun v => f v • v))
 
 theorem linear_combination_of_mem {S : Set V} {v : V} (hv : v ∈ S) : is_linear_combination K V S v := by
   unfold is_linear_combination

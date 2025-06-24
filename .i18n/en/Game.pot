@@ -3,6 +3,7 @@ msgstr "Project-Id-Version: Game v4.7.0\n"
 "Report-Msgid-Bugs-To: \n"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 "POT-Creation-Date: Mon Jul  7 14:45:38 2025\n"
 =======
 >>>>>>> 814b3fe (Starting work on new world)
@@ -10,6 +11,9 @@ msgstr "Project-Id-Version: Game v4.7.0\n"
 =======
 "POT-Creation-Date: Mon Jun 16 15:53:32 2025\n"
 >>>>>>> eba929c (Simplifying proofs)
+=======
+"POT-Creation-Date: Tue Jun 24 11:42:35 2025\n"
+>>>>>>> 90d4b8f (Updated to module definition of subspace, finished proofs of world 2, started world 2 level 1)
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -969,6 +973,14 @@ msgid "`add_zero` is a proof that `x + 0 = x`. This holds whether `x` is in `K` 
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level01
+msgid "`zero_add` is a proof that `0 + x = x`. This holds whether `x` is in `K` or `V`."
+msgstr ""
+
+#: Game.Levels.VectorSpaceWorld.Level01
+msgid "`add_zero` is a proof that `x + 0 = x`. This holds whether `x` is in `K` or `V`."
+msgstr ""
+
+#: Game.Levels.VectorSpaceWorld.Level01
 msgid "In any vector space V over K, the scalar 0 multiplied by any vector gives the zero vector."
 msgstr ""
 
@@ -1289,6 +1301,7 @@ msgid "Hello World"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level01
+<<<<<<< HEAD
 msgid "This text is shown as first message when the level is played.\n"
 "You can insert hints in the proof below. They will appear in this side panel\n"
 "depending on the proof a user provides."
@@ -2476,12 +2489,27 @@ msgstr ""
 msgid "Try `exact «{hS}» «{s}» «{f}» «{s_subset_S}» «{hf}» «{w}» «{hw}»`"
 #: Game.Levels.LinearIndependenceSpanWorld.Level01
 msgid "Hello World"
+=======
+msgid "Linear Combinations"
+>>>>>>> 90d4b8f (Updated to module definition of subspace, finished proofs of world 2, started world 2 level 1)
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level01
-msgid "This text is shown as first message when the level is played.\n"
-"You can insert hints in the proof below. They will appear in this side panel\n"
-"depending on the proof a user provides."
+msgid "The first level of this world will introduce the definition of a linear combination. Let's\n"
+"say we want to express that some vector `x` is a linear combination of some set `S ⊆ V`. This means\n"
+"that there is some number of elements in `S`, that after some scalar multiplication, sums to `x`. We can\n"
+"call this set of elements summing to `x` `s`, where `s : Finset V`, and `↑s ⊆ S`. We are using Finset\n"
+"here, which means that `s` is a finite subset of V. This is because we can only sum in a way that makes\n"
+"sense over a finite set. If `s` was infinite, there could be multiple ways of summing it to get different\n"
+"answers., or a sum might not even exist. We also need to multiply every element of `s` by a scalar before\n"
+"summing, whether that scalar be `1`, `0`, or anything else. We can represent this by a function `f : V → K`,\n"
+"where each element of `s` gets mapped to the scalar we multiply by. Now, we are able to understand the\n"
+"definition of linear combinations:\n"
+"\n"
+"'''\n"
+"def is_linear_combination (S : Set V) (x : V) : Prop :=\n"
+"  ∃ (s : Finset V) (f : V → K), (↑s ⊆ S) ∧ (x = Finset.sum s (fun v => f v • v))\n"
+"'''"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level01

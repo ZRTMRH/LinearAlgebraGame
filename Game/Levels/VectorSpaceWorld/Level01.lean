@@ -173,6 +173,14 @@ TheoremDoc symm as "symm" in "Lean"
 TheoremDoc zero_add as "zero_add" in "Groups"
 
 /--
+<<<<<<< HEAD
+=======
+`zero_add` is a proof that `0 + x = x`. This holds whether `x` is in `K` or `V`.
+-/
+TheoremDoc zero_add as "zero_add" in "Groups"
+
+/--
+>>>>>>> 90d4b8f (Updated to module definition of subspace, finished proofs of world 2, started world 2 level 1)
 `add_zero` is a proof that `x + 0 = x`. This holds whether `x` is in `K` or `V`.
 -/
 TheoremDoc add_zero as "add_zero" in "Groups"
