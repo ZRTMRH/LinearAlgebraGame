@@ -22,6 +22,7 @@ def span (S : Set V) : Set V :=
 
 theorem mem_span_of_mem {S : Set V} {v : V} (hv : v ∈ S) : v ∈ span K V S := by
   unfold span
+  simp
   exact linear_combination_of_mem K V hv
 
 /-- **Level 8: Monotonicity of Span**
@@ -34,7 +35,7 @@ theorem span_mono {K V :Type} [Field K] [AddCommGroup V][VectorSpace K V]{A B : 
   obtain ⟨s, hsA, f, h1, h2⟩ := hxA
   use s
   constructor
-  exact hsA.trans hAB
+  exact subset_trans hsA hAB
   use f
 
 /-- Linear Independence**
@@ -53,7 +54,7 @@ theorem linear_independent_empty (K V : Type) [Field K] [AddCommGroup V] [Vector
 
 /--  Independence of Subsets**
 **Proposition 2.7(a):** Any subset of a linearly independent set is also linearly independent. -/
-theorem subset_linear_independents [Field K] [AddCommGroup V][VectorSpace K V] {A B : Set V} (hBsubA : B ⊆ A) (hA : linear_independent_v K V A) :
+theorem subset_linear_independent [Field K] [AddCommGroup V][VectorSpace K V] {A B : Set V} (hBsubA : B ⊆ A) (hA : linear_independent_v K V A) :
     linear_independent_v K V B := by
   unfold linear_independent_v at *
   intros s f hsB sum_zero v hv
@@ -96,9 +97,7 @@ theorem linear_combination_unique
   -- This solves the first requirement in hS
   specialize hS (Set.union_subset hs ht)
 
-  -- Now, we want to prove the second requirement in hS
-  specialize hS (by
-    -- This allows us to simplify the function we are summing, and eventuall split it into two sums
+  have lemmaSumDiffEqZero : (Finset.sum (s ∪ t) fun v => (f - g) v • v) = 0 := by
     have fun_dist : (fun v => (f - g) v • v) = (fun (v : V) => ((f v) • v) - ((g v) • v)) := by
 
       -- funext allows us to change a goal of the form f = g to ∀ x, f x = g x
@@ -127,7 +126,10 @@ theorem linear_combination_unique
 
     -- Now, we use the fact that the two sums are equal to finish the proof
     rw[heq]
-    simp)
+    simp
+
+  -- Now, we want to prove the second requirement in hS
+  specialize hS lemmaSumDiffEqZero
 
   --Now, we change the form of hS to fit our goal
   specialize hS v h
@@ -283,7 +285,7 @@ theorem remove_redundant_span
   rw[Finset.coe_union]
   apply Set.union_subset hsw
   simp
-  exact fun ⦃a⦄ a_1 => (Set.subset_insert w S) (hsx a_1)
+  exact subset_trans hsx (Set.subset_insert w S)
 
   -- Now, in order to simplify the set we are summing over, we want to prove sw ∪ (sx \ {w}) = (sw ∪ sx) \ {w}
   -- This will allow us to more easily manipulate the sums in the future.

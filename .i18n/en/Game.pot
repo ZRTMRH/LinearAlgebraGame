@@ -4,6 +4,7 @@ msgstr "Project-Id-Version: Game v4.7.0\n"
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 "POT-Creation-Date: Mon Jul  7 14:45:38 2025\n"
 =======
 >>>>>>> 814b3fe (Starting work on new world)
@@ -14,6 +15,9 @@ msgstr "Project-Id-Version: Game v4.7.0\n"
 =======
 "POT-Creation-Date: Tue Jun 24 11:42:35 2025\n"
 >>>>>>> 90d4b8f (Updated to module definition of subspace, finished proofs of world 2, started world 2 level 1)
+=======
+"POT-Creation-Date: Fri Jun 27 11:48:51 2025\n"
+>>>>>>> b5c58a1 (Levels 2-7 (7 not done yet))
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -1344,6 +1348,7 @@ msgid "The first level of this world will introduce the definition of a linear c
 "say we want to express that some vector `x` is a linear combination of some set `S ⊆ V`. This means\n"
 "that there is some number of elements in `S`, that after some scalar multiplication, sums to `x`. We can\n"
 "call this set of elements summing to `x` `s`, where `s : Finset V`, and `↑s ⊆ S`. We are using `Finset`\n"
+<<<<<<< HEAD
 "here, which means that `s` is a finite subset of V. This is because we can only sum in a way that makes\n"
 "sense over a finite set. If `s` was infinite, there could be multiple ways of summing it to get different\n"
 "answers, or a sum might not even exist. We also need to multiply every element of `s` by a scalar before\n"
@@ -2499,33 +2504,418 @@ msgid "The first level of this world will introduce the definition of a linear c
 "say we want to express that some vector `x` is a linear combination of some set `S ⊆ V`. This means\n"
 "that there is some number of elements in `S`, that after some scalar multiplication, sums to `x`. We can\n"
 "call this set of elements summing to `x` `s`, where `s : Finset V`, and `↑s ⊆ S`. We are using Finset\n"
+=======
+>>>>>>> b5c58a1 (Levels 2-7 (7 not done yet))
 "here, which means that `s` is a finite subset of V. This is because we can only sum in a way that makes\n"
 "sense over a finite set. If `s` was infinite, there could be multiple ways of summing it to get different\n"
-"answers., or a sum might not even exist. We also need to multiply every element of `s` by a scalar before\n"
+"answers, or a sum might not even exist. We also need to multiply every element of `s` by a scalar before\n"
 "summing, whether that scalar be `1`, `0`, or anything else. We can represent this by a function `f : V → K`,\n"
 "where each element of `s` gets mapped to the scalar we multiply by. Now, we are able to understand the\n"
 "definition of linear combinations:\n"
 "\n"
-"'''\n"
+"```\n"
 "def is_linear_combination (S : Set V) (x : V) : Prop :=\n"
 "  ∃ (s : Finset V) (f : V → K), (↑s ⊆ S) ∧ (x = Finset.sum s (fun v => f v • v))\n"
-"'''"
+"```\n"
+"\n"
+"### The Goal\n"
+"The goal of this level is to prove that if `v ∈ S`, then `v` is a linear combination of `s`. This can\n"
+"be done simply by summing over the set `{v}`, with only multiplying by the scalar 1.\n"
+"\n"
+"### Defining functions\n"
+"In this level, we need to use the `use` tactic to specify a function `f`. A very versatile way of doing\n"
+"this is with the `fun` keyword. This allows you to wrtie the function, and for Lean to accept it as a function.\n"
+"For example, to write `f(x) = x²`, we can say `fun x => x * x`.\n"
+"\n"
+"### The return of the `simp` tactic\n"
+"Since the levels in this world will become more difficult than in the last world, you are again allowed\n"
+"to use the `simp` tactic. It is able to solve most simple equalities with vectors, and helps greatly\n"
+"when trying to simplify properties of sets."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level01
-msgid "You can either start using `«{h}»` or `«{g}»`."
+msgid "`is_linear_combination` is how we define a vector `x` to be a linear combination of some set `S ⊆ V`.\n"
+"To say this, we write `is_linear_combination K V S x`. It is defined by the existance of some set `s ⊆ S`,\n"
+"and a function `f : V → K`, such that `x` is the sum over `s` of `f(v) • v`."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level01
-msgid "You should use `«{h}»` now."
+msgid "`linear_combination_of_mem` is a proof that if `v ∈ S` then `is_linear_combination K V S v`."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level01
-msgid "You should use `«{g}»` now."
+msgid "If `v ∈ S`, then `v` is a linear combination of `S`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level01
-msgid "This last message appears if the level is solved."
+msgid "It is generally helpful to unfold definitions you are unfamiliar with"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level01
+msgid "Try `unfold is_linear_combination`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level01
+msgid "Now, you have to specify what set you are summing over"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level01
+msgid "Try `use {v}`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level01
+msgid "Now, you have to specify the function you are using to map vectors to the scalars they will be multiplied by"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level01
+msgid "Try `use (fun x => 1)`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level01
+msgid "This is an and statement, so you could use the `constructor` tactic and work from there. Instead, try `simp` and see what happens"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level01
+msgid "Try `simp`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level01
+msgid "Try `exact hv`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level01
+msgid "You have completed your first proof in Linear Independence and Span World!"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level02
+msgid "Introducing Span"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level02
+msgid "In this level, we will introduce the span of a set of vectors. The span of a set of vectors is simply\n"
+"all the vectors that can be written as a linear combination of that set. In Lean, we define it as such:\n"
+"\n"
+"```\n"
+"def span (S : Set V) : Set V :=\n"
+"  { x : V | is_linear_combination K V S x }\n"
+"```\n"
+"\n"
+"### The Goal\n"
+"The goal of this level is to prove that if a vector `v ∈ S`, then `v` is in the span of `S`. This feels\n"
+"very similar to the previous level, so you can use the theorem proved in the previous level in this one."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level02
+msgid "`mem_span_of_mem` is a proof that if a vector `v ∈ S`, then `v ∈ span K V S`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level02
+msgid "The span of a set of vectors `S`, denoted `span K V S` is the set of all vectors that are a linear\n"
+"combination of `S`. It is represented in Lean as\n"
+"\n"
+"``` { x : V | is_linear_combination K V S x } ```"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level02
+msgid "If `v ∈ S`, then `v ∈ span K V S`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level02
+msgid "Once again, we have a definition we are unfamiliar with in the goal. Try to change it to terms\n"
+"we are familiar with"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level02
+msgid "Try `unfold span`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level02
+msgid "The `simp` tactic is very helpful when dealing with sets."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level02
+msgid "Try `simp`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level02
+msgid "This seems familiar"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level02
+msgid "Try 'exact linear_combination_of_mem K V hv`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level02
+msgid "You could have actually solved this level with simply an `exact linear_combination_of_mem K V hv`.\n"
+"This is because the way set-builder notation is defined in lean is that `x ∈ { x : V | is_linear_combination K V S x }`\n"
+"is the same as saying `is_linear_combination K V S x`. The `simp` tactic only directly shows you this."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level03
+msgid "Monotonicity of Span"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level03
+msgid "### The Goal\n"
+"In this level, you will prove that the span of a set of vectors is monotonic. That is, that if `A ⊆ B`,\n"
+"then `span K V A ⊆ span K V B`. To understand why this is true, think about any arbitrary vector `x ∈ span K V A`.\n"
+"`x` must be a linear combination of vectors of `A`, and since all those vectors are in `A`, they must\n"
+"also be in `B`, so `x` is a linear combination of vectors in `B`, and must be in `span K V B`.\n"
+"\n"
+"### `subset_trans`\n"
+"To solve this level, we need a theorem `subset_trans`. This theorem shows that subsets are transitive,\n"
+"so if you have `h1 : A ⊆ B` and `h2 : B ⊆ C`, then `subset_trans h1 h2` is a proof that `A ⊆ C`. This can be proven quite easily, but since we have\n"
+"a theorem already proving it, why not use it?"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level03
+msgid "`subset_trans` is a proof that subsets are transitive. The syntax is that if you have `h1 : A ⊆ B`\n"
+"and `h2 : B ⊆ C`, then `subset_trans h1 h2` is a proof that `A ⊆ C`."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level03
+msgid "`span_mono` is a proof that the span of sets is monotonic. Simply, this means that if you have `h : A ⊆ B`,\n"
+"then `span_mono K V h` is a proof that `span K V A ⊆ span K V B`."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level03
+msgid "The span of sets is monotonic. Simply, this means that if you have `h : A ⊆ B`,\n"
+"then `span_mono K V h` is a proof that `span K V A ⊆ span K V B`."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level03
+msgid "First, I would take an arbitrary `x`, then unfold and simplify our goals."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level03
+msgid "Try `intro x hxA`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level03
+msgid "Try `unfold span at *`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level03
+msgid "Try `unfold is_linear_combination at *`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level03
+msgid "Try `simp at *`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level03
+msgid "Now, what information can we get out of «{hxA}»?"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level03
+msgid "Try `obtain ⟨s, hsA, f, h1, h2⟩ := «{hxA}»`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level03
+msgid "What set should we be summing over?"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level03
+msgid "Try `use «{s}»`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level03
+msgid "Try `constructor`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level03
+msgid "Try `exact subset_trans «{hsA}» «{hAB}»`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level03
+msgid "What function should we be using?"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level03
+msgid "Try `use f`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level03
+msgid "The idea of unfolding all the definitions and then using `simp at *` is very helpful. I\n"
+"would recommend using this sequence of tactics at the start of most levels.\n"
+"\n"
+"Also, note that `use f` closed the goal. This is because the `use` tactic attempts `rfl` after it\n"
+"executes, similarly to `rw`."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level04
+msgid "Linear Independence"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level04
+msgid "This level will introduce linear independence of a set of vectors. A set `S` of vectors is linearly\n"
+"independent if no vector in `S` can be written as a linear combination of the others. Equivalently,\n"
+"we can say that `S` is linearly independent if any combination of vectors in `S` summing to `0` must\n"
+"be all `0`s. In Lean, it is written as:\n"
+"\n"
+"```\n"
+"def linear_independent_v (S : Set V) : Prop :=\n"
+"∀ (s : Finset V) (f : V → K),\n"
+"(↑s ⊆ S) → (Finset.sum s (fun v ↦ f v • v) = 0) → (∀ v ∈ s, f v = 0)\n"
+"```\n"
+"\n"
+"Note that we use the same idea as in linear combinations, where we have a Finset `s`, a function\n"
+"mapping vectors to the scalars that multiply those vectors, and use `Finset.sum`.\n"
+"\n"
+"### The Goal\n"
+"The goal of this level is to prove that the empty set is linearly independent. This makes sense,\n"
+"because there are no vectors in the empty set that can be scaled be a non-zero factor."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level04
+msgid "This is a proof that the empty set is linearly independent."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level04
+msgid "`linear_independent_v` means that a set of vectors is linearly independent. To say a set `S : Set V`\n"
+"is linearly independent, we write `linear_independent_v K V S`. This is defined that any finite set of scalar\n"
+"multiples of vectors in `S` that sum to `0` must all be `0`. It is written in Lean as\n"
+"\n"
+"```\n"
+"def linear_independent_v (S : Set V) : Prop :=\n"
+"∀ (s : Finset V) (f : V → K),\n"
+"(↑s ⊆ S) → (Finset.sum s (fun v ↦ f v • v) = 0) → (∀ v ∈ s, f v = 0)\n"
+"```\n"
+"\n"
+"Note that we use `Finset` here, which means that even though `S` can be infinite, `s` must be finite."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level04
+msgid "The empty set is linearly independent."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level04
+msgid "Try `unfold linear_independent_v`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level04
+msgid "Here, we have many ∀ and → statements in the goal. Try to move these variables to the hypotheses"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level04
+msgid "Try `intros s f hs sum_zero v hv`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level04
+msgid "We now have a hypothesis `«{hv}»: v ∈ «{_s}»` and `«{hs}» : `↑«{_s}» ⊆ ∅`. This may be a contradiction,\n"
+"so maybe we can chang eour goal to `False` and prove that"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level04
+msgid "Try `exfalso`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level04
+msgid "If you can figure out a way to get a proof of the form `«{v}» ∈ ∅`, that statement is equivalent\n"
+"to `False`, so an `exact` statement could work. (Actually, `exact?` should solve the goal)"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level04
+msgid "Try `exact hs hv`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level04
+msgid "We won't prove it in this game (although it isn't too difficult), but any set containing\n"
+"a single vector is also linearly independent."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level05
+msgid "Linear Independence of Subsets"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level05
+msgid "### The Goal\n"
+"In this level, we will prove that subsets of linearly independent sets are also linearly independent.\n"
+"This is because if any set of nonzero vectors in the smaller set were to sum to zero, then the same set\n"
+"of vectors would be in the larger set, and also must sum to zero.\n"
+"\n"
+"### The `have` tactic\n"
+"One very powerful tactic that you have not learned yet is the `have` tactic. This tactic allows you\n"
+"to create your own hypotheses, as long as you can prove that they are correct. This allows you to take\n"
+"more of a \"forward reasoning\" approach to Lean proofs, as you can create new hypotheses from your old\n"
+"ones, slowly changing your hypotheses to the goal, instead of changing your goal to the hypotheses.\n"
+"The syntax for a `have` statement is `have h : 0 • v = 0 := zero_smul_v v`. The `h` is the name of your\n"
+"new hypothesis, `0 • v = 0` is the statement of the hypothesis, and `zero_smul_v v` is the proof of the\n"
+"new hypothesis. You can also replace the proof with a `by` statement, which changes the goal to your\n"
+"new hypothesis, and lets you prove it as a normal goal. Using `by` is very helpful for more difficult\n"
+"statements. Also note that after using `by`, the tactics used to prove the hypothesis need to all be indented.\n"
+"However, while this does seem incredibly useful, and it is when you get stuck on a proof, it has many\n"
+"drawbacks. Firstly, `have` often creates unnecessarily complex proofs, where multiple steps are often\n"
+"taken when one step would work. Additionally, it is very easy to get lost in a sea of `have` statements,\n"
+"where you eventually are trying to prove a `have` statement within a `have` statement within a `have`\n"
+"statement, and you lose track of the actual goal, and forget how your `have` statements will actually help.\n"
+"Lastly, this game template does not work well with `have` statements. Since you often need to include\n"
+"a multiple line proof after using `by`, the game may get confused, as it prefers tactics to only be one\n"
+"line. To fix this, you can enter editor mode (click the top right button that looks like \"<\\>\"). This\n"
+"allows you to write the entire proof at once, and allows you to do multiple line steps (although remember\n"
+"to indent the proof following the `by` statement)."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level05
+msgid "## Summary\n"
+"`have` allows you to create your own statements. It allows you to prove hypotheses which you can then\n"
+"use to prove the goal.\n"
+"\n"
+"The syntax for `have` is `have h : Hypothesis := proof` to create a hypothesis `h : Hypothesis` where\n"
+"`proof` is a proof of the hypothesis\n"
+"\n"
+"## `by`\n"
+"`by` allows you to write muli-line proofs. When your have statement is a lemma that will take multiple\n"
+"steps to prove, replacing your proof with `by` will add a subgoal to prove your hypothesis. All the\n"
+"lines proving this hypothesis will need to be indented.\n"
+"\n"
+"Using `by` can also only be done in editor mode, which can be accessed by clicking the \"<\\>\" button in the\n"
+"top right.\n"
+"\n"
+"## Example\n"
+"If you want to have a hypothesis `h : 0 • v = 0`, then `have h : 0 • v = 0 := zero_smul_v v` will create\n"
+"that hypothesis\n"
+"\n"
+"## Example\n"
+"If you want to prove a lemma `simple_lemma : ∀ (a b c n : ℕ+), n > 2 → a ^ n + b ^ n ≠ c ^ n`, then\n"
+"`have simple_lemma : ∀ (a b c n : ℕ+), n > 2 → a ^ n + b ^ n ≠ c ^ n := by` will change the goal to\n"
+"proving your lemma, and once you prove it, you can then use the lemma."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level05
+msgid "`subset_linear_independent` is a proof that if `A` is a linearly independent set, and we have `B ⊆ A`,\n"
+"then `B` is also linearly independent. The syntax is as follows: if `hBsubA : B ⊆ A` and `hA : linear_independent_v K V A`\n"
+"are hypotheses, then `subset_linear_independent hBsubA hA` is a proof that `linear_independent_v K V B`."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level05
+msgid "If `A` is a linearly independent set, and we have `B ⊆ A`, then `B` is also linearly independent."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level05
+msgid "Try `unfold linear_independent_v at *`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level05
+msgid "Try `intros s f hsB sum_zero v hv`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level05
+msgid "Look at hA. When all the assumptions are met, we get `f v = 0`, which is our goal. This means\n"
+"that if we are able to get all of the assumptions as hypotheses, we can solve with an exact statement.\n"
+"However, we still don't have a hypothesis that `↑s ⊆ A`."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level05
+msgid "Try `have hsA : ↑s ⊆ A := subset_trans hsB hBsubA`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level05
+msgid "Now, the level can be solved with a (slightly long) `exact` statement"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level05
+msgid "Try `exact hA s f hsA sum_zero v hv`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld
