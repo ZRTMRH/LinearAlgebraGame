@@ -6,6 +6,7 @@ msgstr "Project-Id-Version: Game v4.7.0\n"
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 "POT-Creation-Date: Mon Jul  7 14:45:38 2025\n"
 =======
 >>>>>>> 814b3fe (Starting work on new world)
@@ -22,6 +23,9 @@ msgstr "Project-Id-Version: Game v4.7.0\n"
 =======
 "POT-Creation-Date: Tue Jul  1 16:55:34 2025\n"
 >>>>>>> 31e299b (Levels 7-8 done)
+=======
+"POT-Creation-Date: Wed Jul  2 14:42:54 2025\n"
+>>>>>>> 88f76f4 (Edits to worlds 1 and 2)
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -970,6 +974,7 @@ msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level01
 msgid "`symm` is a proof that `a = b` if and only if `b = a`"
+<<<<<<< HEAD
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level01
@@ -978,6 +983,8 @@ msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level01
 msgid "`add_zero` is a proof that `x + 0 = x`. This holds whether `x` is in `K` or `V`."
+=======
+>>>>>>> 88f76f4 (Edits to worlds 1 and 2)
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level01
@@ -3102,11 +3109,11 @@ msgid "`sum_sub_distrib` is a proof that you can distribute subtraction over sum
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level07
-msgid "`subset_union_left` is a proof that if `a b : Finset S` are sets, then `a ⊆ a ∪ b`."
+msgid "`Finset.subset_union_left` is a proof that if `a b : Finset S` are sets, then `a ⊆ a ∪ b`."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level07
-msgid "`subset_union_right` is a proof that if `a b : Finset S` are sets, then `b ⊆ a ∪ b`."
+msgid "`Finset.subset_union_right` is a proof that if `a b : Finset S` are sets, then `b ⊆ a ∪ b`."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level07
@@ -3237,7 +3244,7 @@ msgid "Try `    rw[hf0 v hv2]`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level07
-msgid "Try `    exact zero_smul K v`"
+msgid "Try `    exact zero_smul_v K V v`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level07
@@ -3253,7 +3260,7 @@ msgid "Try `    rw[hg0 v hv2]`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level07
-msgid "Try `    exact zero_smul K v`"
+msgid "Try `    exact zero_smul_v K V v`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level07
