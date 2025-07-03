@@ -1,5 +1,6 @@
 import Game.Levels.TutorialWorld
 import Game.Levels.VectorSpaceWorld
+import Game.Levels.LinearMapsWorld
 
 
 -- Here's what we'll put on the title screen
