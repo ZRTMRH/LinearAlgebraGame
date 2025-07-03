@@ -1,0 +1,7 @@
+LinearAlgebraGame.VectorSpace
+LinearAlgebraGame.zero_smul_v
+LinearAlgebraGame.smul_zero_v
+LinearAlgebraGame.neg_one_smul_v
+LinearAlgebraGame.isSubspace
+LinearAlgebraGame.subspace_contains_zero
+LinearAlgebraGame.subspace_neg

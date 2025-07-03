@@ -1,5 +1,7 @@
 import Game.Levels.LinearIndependenceSpanWorld.Level01
 
+namespace LinearAlgebraGame
+
 World "LinearIndependenceSpanWorld"
 Level 2
 
@@ -22,7 +24,7 @@ very similar to the previous level, so you can use the theorem proved in the pre
 /--
 `mem_span_of_mem` is a proof that if a vector `v ∈ S`, then `v ∈ span K V S`
 -/
-TheoremDoc mem_span_of_mem as "mem_span_of_mem" in "Vector Spaces"
+TheoremDoc LinearAlgebraGame.mem_span_of_mem as "mem_span_of_mem" in "Vector Spaces"
 
 /--
 The span of a set of vectors `S`, denoted `span K V S` is the set of all vectors that are a linear

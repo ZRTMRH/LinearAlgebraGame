@@ -1,5 +1,7 @@
 import Game.Levels.LinearIndependenceSpanWorld.Level07
 
+namespace LinearAlgebraGame
+
 World "LinearIndependenceSpanWorld"
 Level 8
 
@@ -71,7 +73,7 @@ you insert an element not in the span of that set, the new set is also linearly 
 is as follows: if you have hypotheses `hS : linear_independent_v K V S`, and `hv_not_span : v ∉ span K V S`,
 then `linear_independent_insert_of_not_in_span hS hv_not_span` is a proof of `linear_independent_v K V (S ∪ {v})`.
 -/
-TheoremDoc linear_independent_insert_of_not_in_span as "linear_independent_insert_of_not_in_span" in "Vector Spaces"
+TheoremDoc LinearAlgebraGame.linear_independent_insert_of_not_in_span as "linear_independent_insert_of_not_in_span" in "Vector Spaces"
 
 NewTactic «sorry» by_contra
 

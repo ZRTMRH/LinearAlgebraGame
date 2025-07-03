@@ -1,5 +1,7 @@
 import Game.Levels.VectorSpaceWorld.Level01
 
+namespace LinearAlgebraGame
+
 World "VectorSpaceWorld"
 Level 2
 
@@ -19,7 +21,7 @@ This is a proof that `a • 0 = 0`, or that scaling the zero vector by any scala
 It is called "smul_zero_v", since you perform scalar multiplication by the zero vector. The "v" means that it is
 scalar multiplication of a vector.
 -/
-TheoremDoc smul_zero_v as "smul_zero_v" in "Vector Spaces"
+TheoremDoc LinearAlgebraGame.smul_zero_v as "smul_zero_v" in "Vector Spaces"
 
 DisabledTactic simp linarith
 

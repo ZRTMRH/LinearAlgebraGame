@@ -1,5 +1,7 @@
 import Game.Metadata.Metadata
 
+namespace LinearAlgebraGame
+
 World "VectorSpaceWorld"
 Level 1
 
@@ -125,7 +127,7 @@ This is a proof that `0 • w = 0`, or that scaling any vector by `0` gives the 
 It is called "zero_smul_v", since you perform scalar multiplication by zero. The "v" means that it is
 scalar multiplication of a vector.
 -/
-TheoremDoc zero_smul_v as "zero_smul_v" in "Vector Spaces"
+TheoremDoc LinearAlgebraGame.zero_smul_v as "zero_smul_v" in "Vector Spaces"
 
 TheoremTab "Vector Spaces"
 

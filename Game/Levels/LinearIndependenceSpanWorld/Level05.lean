@@ -1,5 +1,7 @@
 import Game.Levels.LinearIndependenceSpanWorld.Level04
 
+namespace LinearAlgebraGame
+
 World "LinearIndependenceSpanWorld"
 Level 5
 
@@ -53,7 +55,7 @@ TacticDoc «have»
 then `B` is also linearly independent. The syntax is as follows: if `hBsubA : B ⊆ A` and `hA : linear_independent_v K V A`
 are hypotheses, then `subset_linear_independent hBsubA hA` is a proof that `linear_independent_v K V B`.
 -/
-TheoremDoc subset_linear_independent as "subset_linear_independent" in "Vector Spaces"
+TheoremDoc LinearAlgebraGame.subset_linear_independent as "subset_linear_independent" in "Vector Spaces"
 
 NewTactic «have»
 

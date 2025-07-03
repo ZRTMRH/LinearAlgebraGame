@@ -7,6 +7,7 @@ msgstr "Project-Id-Version: Game v4.7.0\n"
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 "POT-Creation-Date: Mon Jul  7 14:45:38 2025\n"
 =======
 >>>>>>> 814b3fe (Starting work on new world)
@@ -26,6 +27,9 @@ msgstr "Project-Id-Version: Game v4.7.0\n"
 =======
 "POT-Creation-Date: Wed Jul  2 14:42:54 2025\n"
 >>>>>>> 88f76f4 (Edits to worlds 1 and 2)
+=======
+"POT-Creation-Date: Thu Jul  3 12:18:40 2025\n"
+>>>>>>> 30d1417 (LBP Vector Spaces)
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -2548,6 +2552,12 @@ msgstr ""
 msgid "`is_linear_combination` is how we define a vector `x` to be a linear combination of some set `S ⊆ V`.\n"
 "To say this, we write `is_linear_combination K V S x`. It is defined by the existance of some set `s ⊆ S`,\n"
 "and a function `f : V → K`, such that `x` is the sum over `s` of `f(v) • v`."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level01
+msgid "`Finset.sum` is how we difine summing over a set. It uses Mathlib's `Finset` Type, which means that we\n"
+"can only sum over arbitrary finite sets. The syntax is as follows: With a additive group or field `K`, some Type `T`,\n"
+"some `s : Finset T`, and some `f : T → K`, `Finset.sum s (fun x => f x)` sums `f x` over all `x ∈ s`."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level01

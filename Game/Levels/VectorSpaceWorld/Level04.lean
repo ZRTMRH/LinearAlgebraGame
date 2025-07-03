@@ -1,5 +1,7 @@
 import Game.Levels.VectorSpaceWorld.Level03
 
+namespace LinearAlgebraGame
+
 World "VectorSpaceWorld"
 Level 4
 
@@ -64,7 +66,7 @@ NewTactic obtain
 /--
 This is a proof that any subspace contains the zero vector.
 -/
-TheoremDoc subspace_contains_zero as "subspace_contains_zero" in "Vector Spaces"
+TheoremDoc LinearAlgebraGame.subspace_contains_zero as "subspace_contains_zero" in "Vector Spaces"
 
 DisabledTactic simp linarith
 

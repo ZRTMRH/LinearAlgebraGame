@@ -1,0 +1,26 @@
+\section{ZeroScalarMultiplication}Add commentMore actions
+
+\begin{definition}
+  \label{definition : VectorSpace}
+  \lean{LinearAlgebraGame.VectorSpace}
+  \leanok
+  A \emph{vector space} is a space over a field K with an abelian group V. It has four main properties:
+  \begin{itemize}
+    \item \textbf{smul\_add}:
+    $\forall (a : K) (x y : V), a \bullet (x + y) = a \bullet x + a \bullet y $
+    \item \textbf{add\_smul}:
+    $\forall (a b : K) (x : V), (a + b) \bullet x = a \bullet x + b \bullet x $
+    \item \textbf{mul\_smul}:
+    $\forall (a b : K) (x : V), (a * b) \bullet x = a \bullet (b \bullet x) $
+    \item \textbf{one\_smul}:
+    $\forall (x : V), (1 : K) \bullet x = x $
+  \end{itemize}
+\end{definition}
+
+\begin{theorem}
+  \label{theorem : zero_smul}
+  \lean{LinearAlgebraGame.zero_smul_v}
+  \leanok
+  \uses{definition : VectorSpace}
+  In any vector space V over K, the scalar 0 multiplied by any vector gives the zero vector: (0 : K) • w = (0 : V)
+\end{theorem}
