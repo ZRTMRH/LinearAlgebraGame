@@ -17,7 +17,12 @@ This is a proof that if a subspace contains a vector `x`, it also contains `-x`.
 -/
 TheoremDoc subspace_neg as "subspace_neg" in "Vector Spaces"
 
-Statement subspace_neg (fk : Field K) (acg : AddCommGroup V) (vs : VectorSpace K V) {W : Set V} (hW : isSubspace (K := K) (V := V) W) : ∀ (x : V), x ∈ W → (-x) ∈ W := by
+DisabledTactic simp linarith
+
+open VectorSpace
+variable (K V : Type) [Field K] [AddCommGroup V] [DecidableEq V] [VectorSpace K V]
+
+Statement subspace_neg {W : Set V} (hW : isSubspace (K := K) (V := V) W) : ∀ (x : V), x ∈ W → (-x) ∈ W := by
   Hint (hidden := true) "Try `obtain ⟨h1, h2, h3⟩ := hW`"
   Branch
     intros _x _hx
@@ -25,8 +30,8 @@ Statement subspace_neg (fk : Field K) (acg : AddCommGroup V) (vs : VectorSpace K
   obtain ⟨_h1, _h2, h3⟩ := hW
   Hint (hidden := true) "Try `intros x hx`"
   intros x hx
-  Hint (hidden := true) "Try `rw [(neg_one_smul_v fk acg vs {x}).symm]`"
-  rw [(neg_one_smul_v fk acg vs x).symm]
+  Hint (hidden := true) "Try `rw [(neg_one_smul_v K V {x}).symm]`"
+  rw [(neg_one_smul_v K V x).symm]
   Hint (hidden := true) "Try `apply {h3}`"
   apply h3
   Hint (hidden := true) "Try `exact {hx}`"

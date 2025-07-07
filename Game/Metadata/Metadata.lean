@@ -1,6 +1,6 @@
 import GameServer.Commands
 import Game.Data
-import Mathlib.Tactic
+import Game.MyTactic
 
 /-! Use this file to add things that should be available in all levels.
 
