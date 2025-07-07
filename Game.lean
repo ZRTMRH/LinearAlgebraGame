@@ -49,11 +49,7 @@ CaptionLong "You should use this game as a template for your own game and add yo
 -- Prerequisites "" -- add this if your game depends on other games
 -- CoverImage "images/cover.png"
 
-<<<<<<< HEAD
 -- Dependency VectorSpaceWorld → LinearIndependenceSpanWorld
-=======
-Dependency VectorSpaceWorld → LinearIndependenceSpanWorld
->>>>>>> b5c58a1 (Levels 2-7 (7 not done yet))
 
 /-! Build the game. Show's warnings if it found a problem with your game. -/
 MakeGame
