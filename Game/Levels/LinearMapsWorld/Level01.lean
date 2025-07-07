@@ -24,21 +24,37 @@ def isBasis (B : Set V) : Prop :=
 Prove that the definition above is equivalent to saying $B$ is linearly independent and spans $V$.
 "
 
+open VectorSpace Finset
+variable (K V : Type) [Field K] [AddCommGroup V] [DecidableEq V] [VectorSpace K V]
 
 /--
 `isBasis K V B` means $B$ is a basis: linearly independent and spans $V$.
 -/
 def isBasis (B : Set V) : Prop :=
-  linear_independent K V B ∧ span K V B = ⊤
+  linear_independent_v K V B ∧ span K V B = ⊤
+
+/--
+`isBasis K V B` means $B$ is a basis: linearly independent and spans $V$.
+-/
+DefinitionDoc isBasis as "isBasis"
+
+NewDefinition isBasis
+
+/--
+The definition of a basis is just linear independence and spanning.
+-/
+TheoremDoc basis_iff_independent_and_spanning as "basis_iff_independent_and_spanning" in "Bases"
+
+TheoremTab "Bases"
 
 /--
 The definition of a basis is just linear independence and spanning.
 -/
 Statement basis_iff_independent_and_spanning (B : Set V) :
-    isBasis K V B ↔ (linear_independent K V B ∧ span K V B = ⊤) := by
+    isBasis K V B ↔ (linear_independent_v K V B ∧ span K V B = ⊤) := by
   Hint "Try `unfold isBasis` to see the definition directly."
   unfold isBasis
-  exact Iff.rfl
+  rfl
 
 Conclusion "
 You have formalized the mathematical definition of a basis for a vector space.
