@@ -63,6 +63,66 @@
 <div id="statements">
 
     
+    <div class="dep-modal-container" id="definition : linear_combination_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="definition : linear_combination" style="display: none">
+    <div class="thm_thmheading">
+      <span class="definition_thmcaption">
+      Definition
+      </span>
+      <span class="definition_thmlabel">8</span></div>
+    <div class="thm_thmcontent"><p>  \(\exists (s : Finset V) (f : V → K), (↑s ⊆ S) ∧ (x = Finset.sum s (fun v \Rightarrow f v \bullet v))\) </p>
+</div>
+
+    <a class="latex_link" href="sect0002.html#definition : linear_combination">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.is_linear_combination">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="definition : span_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="definition : span" style="display: none">
+    <div class="thm_thmheading">
+      <span class="definition_thmcaption">
+      Definition
+      </span>
+      <span class="definition_thmlabel">10</span></div>
+    <div class="thm_thmcontent"><p>   \({ x \in V | linear_combination K V S x }\) </p>
+</div>
+
+    <a class="latex_link" href="sect0002.html#definition : span">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.is_linear_combination">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
     <div class="dep-modal-container" id="definition : Subspace_modal">
       <div class="dep-modal-content">
           <button class="dep-closebtn">
@@ -130,6 +190,66 @@
     
     
   <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.VectorSpace">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="theorem : linear_combination_of_mem_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="theorem : linear_combination_of_mem" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">9</span></div>
+    <div class="thm_thmcontent"><p>   If v \(\in \) S, then v is a linear combination of S: \({S : Set V} {v : V} (hv : v \in S) : is_linear_combination K V S v\) </p>
+</div>
+
+    <a class="latex_link" href="sect0002.html#theorem : linear_combination_of_mem">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.linear_combination_of_mem">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="theorem : mem_span_of_mem_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="theorem : mem_span_of_mem" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">11</span></div>
+    <div class="thm_thmcontent"><p>   If \(v \in S\), then \(v \in span K V S\): \({S : Set V} {v : V} (hv : v \in S) : v \in span K V S\) </p>
+</div>
+
+    <a class="latex_link" href="sect0002.html#theorem : mem_span_of_mem">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.mem_span_of_mem">Lean</a>
     
     
   
@@ -307,7 +427,7 @@ graphContainer.graphviz({useWorker: true})
     .width(width)
     .height(height)
     .fit(true)
-    .renderDot(`strict digraph "" {	graph [bgcolor=transparent];	node [label="\N",		penwidth=1.8	];	edge [arrowhead=vee];	"theorem : zero_smul"	[color=green,		label=" zero_smul",		shape=ellipse];	"theorem : subspace_contains_zero"	[color=green,		label=" subspace_contains_zero",		shape=ellipse];	"theorem : zero_smul" -> "theorem : subspace_contains_zero"	[style=dashed];	"definition : VectorSpace"	[color=green,		fillcolor="#B0ECA3",		label=" VectorSpace",		shape=box,		style=filled];	"definition : VectorSpace" -> "theorem : zero_smul"	[style=dashed];	"theorem : smul_zero"	[color=green,		label=" smul_zero",		shape=ellipse];	"definition : VectorSpace" -> "theorem : smul_zero"	[style=dashed];	"theorem : neg_one_smul"	[color=green,		label=" neg_one_smul",		shape=ellipse];	"definition : VectorSpace" -> "theorem : neg_one_smul"	[style=dashed];	"theorem : subspace_neg"	[color=green,		label=" subspace_neg",		shape=ellipse];	"theorem : neg_one_smul" -> "theorem : subspace_neg"	[style=dashed];	"definition : Subspace"	[color=green,		fillcolor="#B0ECA3",		label=" Subspace",		shape=box,		style=filled];	"definition : Subspace" -> "theorem : subspace_contains_zero"	[style=dashed];	"definition : Subspace" -> "theorem : subspace_neg"	[style=dashed];}`)
+    .renderDot(`strict digraph "" {	graph [bgcolor=transparent];	node [label="\N",		penwidth=1.8	];	edge [arrowhead=vee];	"theorem : zero_smul"	[color=green,		label=" zero_smul",		shape=ellipse];	"theorem : subspace_contains_zero"	[color=green,		label=" subspace_contains_zero",		shape=ellipse];	"theorem : zero_smul" -> "theorem : subspace_contains_zero"	[style=dashed];	"definition : linear_combination"	[color=green,		fillcolor="#B0ECA3",		label=" linear_combination",		shape=box,		style=filled];	"theorem : mem_span_of_mem"	[color=green,		label=" mem_span_of_mem",		shape=ellipse];	"definition : linear_combination" -> "theorem : mem_span_of_mem"	[style=dashed];	"definition : span"	[color=green,		fillcolor="#B0ECA3",		label=" span",		shape=box,		style=filled];	"definition : linear_combination" -> "definition : span"	[style=dashed];	"theorem : linear_combination_of_mem"	[color=green,		label=" linear_combination_of_mem",		shape=ellipse];	"definition : linear_combination" -> "theorem : linear_combination_of_mem"	[style=dashed];	"definition : VectorSpace"	[color=green,		fillcolor="#B0ECA3",		label=" VectorSpace",		shape=box,		style=filled];	"definition : VectorSpace" -> "theorem : zero_smul"	[style=dashed];	"theorem : smul_zero"	[color=green,		label=" smul_zero",		shape=ellipse];	"definition : VectorSpace" -> "theorem : smul_zero"	[style=dashed];	"theorem : neg_one_smul"	[color=green,		label=" neg_one_smul",		shape=ellipse];	"definition : VectorSpace" -> "theorem : neg_one_smul"	[style=dashed];	"theorem : subspace_neg"	[color=green,		label=" subspace_neg",		shape=ellipse];	"theorem : neg_one_smul" -> "theorem : subspace_neg"	[style=dashed];	"definition : Subspace"	[color=green,		fillcolor="#B0ECA3",		label=" Subspace",		shape=box,		style=filled];	"definition : Subspace" -> "theorem : subspace_contains_zero"	[style=dashed];	"definition : Subspace" -> "theorem : subspace_neg"	[style=dashed];}`)
     .on("end", interactive);
 
 latexLabelEscaper = function(label) {

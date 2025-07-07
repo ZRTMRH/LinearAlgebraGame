@@ -4,7 +4,7 @@
   \label{definition : linear_combination}
   \lean{LinearAlgebraGame.is_linear_combination}
   \leanok
-  \exists (s : Finset V) (f : V → K), (↑s ⊆ S) ∧ (x = Finset.sum s (fun v \Rightarrow f v \bullet v))
+  $\exists (s : Finset V) (f : V → K), (↑s ⊆ S) ∧ (x = Finset.sum s (fun v \Rightarrow f v \bullet v))$
 \end{definition}
 
 \begin{theorem}
@@ -12,5 +12,5 @@
   \lean{LinearAlgebraGame.linear_combination_of_mem}
   \leanok
   \uses{definition : linear_combination}
-  If v $\in$ S, then v is a linear combination of S: {S : Set V} {v : V} (hv : v ∈ S) : is_linear_combination K V S v
+  If v $\in$ S, then v is a linear combination of S: ${S : Set V} {v : V} (hv : v \in S) : is_linear_combination K V S v$
 \end{theorem}

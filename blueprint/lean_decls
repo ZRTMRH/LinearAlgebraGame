@@ -5,3 +5,7 @@ LinearAlgebraGame.neg_one_smul_v
 LinearAlgebraGame.isSubspace
 LinearAlgebraGame.subspace_contains_zero
 LinearAlgebraGame.subspace_neg
+LinearAlgebraGame.is_linear_combination
+LinearAlgebraGame.linear_combination_of_mem
+LinearAlgebraGame.is_linear_combination
+LinearAlgebraGame.mem_span_of_mem

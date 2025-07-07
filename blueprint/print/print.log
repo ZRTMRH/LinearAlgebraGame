@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.6.28)  7 JUL 2025 10:09
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.6.28)  7 JUL 2025 16:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -718,10 +718,18 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 (Font)              scaled to size 4.99947pt on input line 10.
 ) (./chapters/chapter1/sheet2.tex)
-(./chapters/chapter1/sheet3.tex) (./chapters/chapter1/sheet4.tex [1
+(./chapters/chapter1/sheet3.tex) (./chapters/chapter1/sheet4.tex)
+(./chapters/chapter1/sheet5.tex [1
 
-])
-(./chapters/chapter1/sheet5.tex))) [2]
+])) (./chapters/chapter2.tex [2]
+Chapter 2.
+(./chapters/chapter2/sheet1.tex) (./chapters/chapter2/sheet2.tex)
+(./chapters/chapter2/sheet3.tex) (./chapters/chapter2/sheet4.tex)
+(./chapters/chapter2/sheet5.tex) (./chapters/chapter2/sheet6.tex)
+(./chapters/chapter2/sheet7.tex) (./chapters/chapter2/sheet8.tex)
+(./chapters/chapter2/sheet9.tex))) [3
+
+]
 (/Users/adamkern/Desktop/Duke/Sophmore Summer/LinearAlgebraGame/blueprint/print
 /print.aux)
  ***********
@@ -729,16 +737,16 @@ LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
 Package rerunfilecheck Info: File `print.out' has not changed.
-(rerunfilecheck)             Checksum: 88737D91482FFF69F87322A095FB5FCD;888.
+(rerunfilecheck)             Checksum: 03E2A03C037CD8693190AB6AEE1816BA;2599.
  ) 
 Here is how much of TeX's memory you used:
- 16873 strings out of 474773
- 311778 string characters out of 5757724
- 1928839 words of memory out of 5000000
- 38805 multiletter control sequences out of 15000+600000
+ 16954 strings out of 474773
+ 314306 string characters out of 5757724
+ 1930839 words of memory out of 5000000
+ 38860 multiletter control sequences out of 15000+600000
  563424 words of font info for 83 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 90i,6n,114p,542b,431s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 90i,6n,114p,542b,481s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on /Users/adamkern/Desktop/Duke/Sophmore Summer/LinearAlgebraGam
-e/blueprint/print/print.pdf (3 pages).
+e/blueprint/print/print.pdf (4 pages).
