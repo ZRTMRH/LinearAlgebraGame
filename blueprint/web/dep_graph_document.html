@@ -115,13 +115,13 @@
       <span class="definition_thmlabel">1</span></div>
     <div class="thm_thmcontent"><p>  A <em>vector space</em> is a space over a field K with an abelian group V. It has four main properties: </p>
 <ul class="itemize">
-  <li><p><b class="bfseries">smul_add</b>: \(\forall (a : K) (x y : V), a \bullet (x + y) = a \bullet x + a \bullet y \) </p>
+  <li><p><b class="bfseries">smul_add</b>: \(\forall a \in K, x,y \in V , a \bullet (x + y) = a \bullet x + a \bullet y \) </p>
 </li>
-  <li><p><b class="bfseries">add_smul</b>: \(\forall (a b : K) (x : V), (a + b) \bullet x = a \bullet x + b \bullet x \) </p>
+  <li><p><b class="bfseries">add_smul</b>: \(\forall a,b \in K, x \in V, (a + b) \bullet x = a \bullet x + b \bullet x \) </p>
 </li>
-  <li><p><b class="bfseries">mul_smul</b>: \(\forall (a b : K) (x : V), (a * b) \bullet x = a \bullet (b \bullet x) \) </p>
+  <li><p><b class="bfseries">mul_smul</b>: \(\forall a,b \in K, x \in V, (a * b) \bullet x = a \bullet (b \bullet x) \) </p>
 </li>
-  <li><p><b class="bfseries">one_smul</b>: \(\forall (x : V), (1 : K) \bullet x = x \) </p>
+  <li><p><b class="bfseries">one_smul</b>: \(\forall x \in V, 1 \in K \bullet x = x \) </p>
 </li>
 </ul>
 </div>
@@ -307,7 +307,7 @@ graphContainer.graphviz({useWorker: true})
     .width(width)
     .height(height)
     .fit(true)
-    .renderDot(`strict digraph "" {	graph [bgcolor=transparent];	node [label="\N",		penwidth=1.8	];	edge [arrowhead=vee];	"definition : Subspace"	[color=green,		fillcolor="#B0ECA3",		label=" Subspace",		shape=box,		style=filled];	"theorem : subspace_contains_zero"	[color=green,		label=" subspace_contains_zero",		shape=ellipse];	"definition : Subspace" -> "theorem : subspace_contains_zero"	[style=dashed];	"theorem : subspace_neg"	[color=green,		label=" subspace_neg",		shape=ellipse];	"definition : Subspace" -> "theorem : subspace_neg"	[style=dashed];	"theorem : neg_one_smul"	[color=green,		label=" neg_one_smul",		shape=ellipse];	"theorem : neg_one_smul" -> "theorem : subspace_neg"	[style=dashed];	"theorem : smul_zero"	[color=green,		label=" smul_zero",		shape=ellipse];	"definition : VectorSpace"	[color=green,		fillcolor="#B0ECA3",		label=" VectorSpace",		shape=box,		style=filled];	"definition : VectorSpace" -> "theorem : neg_one_smul"	[style=dashed];	"definition : VectorSpace" -> "theorem : smul_zero"	[style=dashed];	"theorem : zero_smul"	[color=green,		label=" zero_smul",		shape=ellipse];	"definition : VectorSpace" -> "theorem : zero_smul"	[style=dashed];	"theorem : zero_smul" -> "theorem : subspace_contains_zero"	[style=dashed];}`)
+    .renderDot(`strict digraph "" {	graph [bgcolor=transparent];	node [label="\N",		penwidth=1.8	];	edge [arrowhead=vee];	"theorem : zero_smul"	[color=green,		label=" zero_smul",		shape=ellipse];	"theorem : subspace_contains_zero"	[color=green,		label=" subspace_contains_zero",		shape=ellipse];	"theorem : zero_smul" -> "theorem : subspace_contains_zero"	[style=dashed];	"definition : VectorSpace"	[color=green,		fillcolor="#B0ECA3",		label=" VectorSpace",		shape=box,		style=filled];	"definition : VectorSpace" -> "theorem : zero_smul"	[style=dashed];	"theorem : smul_zero"	[color=green,		label=" smul_zero",		shape=ellipse];	"definition : VectorSpace" -> "theorem : smul_zero"	[style=dashed];	"theorem : neg_one_smul"	[color=green,		label=" neg_one_smul",		shape=ellipse];	"definition : VectorSpace" -> "theorem : neg_one_smul"	[style=dashed];	"theorem : subspace_neg"	[color=green,		label=" subspace_neg",		shape=ellipse];	"theorem : neg_one_smul" -> "theorem : subspace_neg"	[style=dashed];	"definition : Subspace"	[color=green,		fillcolor="#B0ECA3",		label=" Subspace",		shape=box,		style=filled];	"definition : Subspace" -> "theorem : subspace_contains_zero"	[style=dashed];	"definition : Subspace" -> "theorem : subspace_neg"	[style=dashed];}`)
     .on("end", interactive);
 
 latexLabelEscaper = function(label) {

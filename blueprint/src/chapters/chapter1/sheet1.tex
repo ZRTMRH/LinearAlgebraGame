@@ -7,13 +7,13 @@
   A \emph{vector space} is a space over a field K with an abelian group V. It has four main properties:
   \begin{itemize}
     \item \textbf{smul\_add}:
-    $\forall (a : K) (x y : V), a \bullet (x + y) = a \bullet x + a \bullet y $
+    $\forall a \in K, x,y \in V , a \bullet (x + y) = a \bullet x + a \bullet y $
     \item \textbf{add\_smul}:
-    $\forall (a b : K) (x : V), (a + b) \bullet x = a \bullet x + b \bullet x $
+    $\forall a,b \in K, x \in V, (a + b) \bullet x = a \bullet x + b \bullet x $
     \item \textbf{mul\_smul}:
-    $\forall (a b : K) (x : V), (a * b) \bullet x = a \bullet (b \bullet x) $
+    $\forall a,b \in K, x \in V, (a * b) \bullet x = a \bullet (b \bullet x) $
     \item \textbf{one\_smul}:
-    $\forall (x : V), (1 : K) \bullet x = x $
+    $\forall x \in V, 1 \in K \bullet x = x $
   \end{itemize}
 \end{definition}
 

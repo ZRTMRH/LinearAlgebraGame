@@ -8,6 +8,7 @@ msgstr "Project-Id-Version: Game v4.7.0\n"
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 "POT-Creation-Date: Mon Jul  7 14:45:38 2025\n"
 =======
 >>>>>>> 814b3fe (Starting work on new world)
@@ -30,6 +31,9 @@ msgstr "Project-Id-Version: Game v4.7.0\n"
 =======
 "POT-Creation-Date: Thu Jul  3 12:18:40 2025\n"
 >>>>>>> 30d1417 (LBP Vector Spaces)
+=======
+"POT-Creation-Date: Mon Jul  7 10:08:51 2025\n"
+>>>>>>> 6fa142a (\in partial)
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"

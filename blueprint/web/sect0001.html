@@ -106,13 +106,13 @@
   <div class="definition_thmcontent">
   <p>  A <em>vector space</em> is a space over a field K with an abelian group V. It has four main properties: </p>
 <ul class="itemize">
-  <li><p><b class="bfseries">smul_add</b>: \(\forall (a : K) (x y : V), a \bullet (x + y) = a \bullet x + a \bullet y \) </p>
+  <li><p><b class="bfseries">smul_add</b>: \(\forall a \in K, x,y \in V , a \bullet (x + y) = a \bullet x + a \bullet y \) </p>
 </li>
-  <li><p><b class="bfseries">add_smul</b>: \(\forall (a b : K) (x : V), (a + b) \bullet x = a \bullet x + b \bullet x \) </p>
+  <li><p><b class="bfseries">add_smul</b>: \(\forall a,b \in K, x \in V, (a + b) \bullet x = a \bullet x + b \bullet x \) </p>
 </li>
-  <li><p><b class="bfseries">mul_smul</b>: \(\forall (a b : K) (x : V), (a * b) \bullet x = a \bullet (b \bullet x) \) </p>
+  <li><p><b class="bfseries">mul_smul</b>: \(\forall a,b \in K, x \in V, (a * b) \bullet x = a \bullet (b \bullet x) \) </p>
 </li>
-  <li><p><b class="bfseries">one_smul</b>: \(\forall (x : V), (1 : K) \bullet x = x \) </p>
+  <li><p><b class="bfseries">one_smul</b>: \(\forall x \in V, 1 \in K \bullet x = x \) </p>
 </li>
 </ul>
 
