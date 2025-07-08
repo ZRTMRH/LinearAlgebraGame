@@ -432,6 +432,26 @@
     <a class="icon proof" href="sect0002.html#definition : linear_independent">#</a>
     
     
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0001.html#definition : VectorSpace">Definition 1</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
     
     <button class="modal lean">L∃∀N</button>
         <div class="modal-container">
@@ -455,7 +475,7 @@
         </div>
   </div>
   <div class="definition_thmcontent">
-  <p>  A set of vectors \(S\) is **linearly independent** if no vector in \(S\) can be written as a linear combination of the others. Equivalently, the only solution to a linear combination of elements of \(S\) equaling zero is the trivial solution (all coefficients zero). Here we formalize this condition: \(\forall (s : Finset V) (f : V \rightarrow K), (↑s \subseteq S) \rightarrow (Finset.sum s (fun v \mapsto f v \bullet v) = 0) \rightarrow (\forall v \in s, f v = 0)\) </p>
+  <p>   A set of vectors \(S\) is **linearly independent** if no vector in \(S\) can be written as a linear combination of the others. Equivalently, the only solution to a linear combination of elements of \(S\) equaling zero is the trivial solution (all coefficients zero). Here we formalize this condition: \(\forall (s : Finset V) (f : V \rightarrow K), (↑s \subseteq S) \rightarrow (Finset.sum s (fun v \mapsto f v \bullet v) = 0) \rightarrow (\forall v \in s, f v = 0)\) </p>
 
   </div>
 </div>
