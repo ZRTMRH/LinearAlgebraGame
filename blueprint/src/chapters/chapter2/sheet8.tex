@@ -1,1 +1,12 @@
 \section{LinearIndependenceOfSetWithInsertion}
+
+\begin{theorem}
+  \label{theorem : linear_independent_insert_of_not_in_span}
+  \lean{LinearAlgebraGame.linear_independent_insert_of_not_in_span}
+  \leanok
+  \uses{definition : linear_combination, definition : linear_independent}
+  ${S : Set V} {v : V}
+  (hS : linear_independent_v K V S)
+  (hv_not_span : v \notin span K V S):
+  linear_independent_v K V (S \cup {v})$
+\end{theorem}

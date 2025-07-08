@@ -75,10 +75,70 @@
       Definition
       </span>
       <span class="definition_thmlabel">8</span></div>
-    <div class="thm_thmcontent"><p>  \(\exists (s : Finset V) (f : V → K), (↑s ⊆ S) ∧ (x = Finset.sum s (fun v \Rightarrow f v \bullet v))\) </p>
+    <div class="thm_thmcontent"><p>   \(\exists (s : Finset V) (f : V → K), (↑s ⊆ S) ∧ (x = Finset.sum s (fun v \Rightarrow f v \bullet v))\) </p>
 </div>
 
     <a class="latex_link" href="sect0002.html#definition : linear_combination">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.is_linear_combination">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="definition : linear_independent_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="definition : linear_independent" style="display: none">
+    <div class="thm_thmheading">
+      <span class="definition_thmcaption">
+      Definition
+      </span>
+      <span class="definition_thmlabel">13</span></div>
+    <div class="thm_thmcontent"><p>  A set of vectors \(S\) is **linearly independent** if no vector in \(S\) can be written as a linear combination of the others. Equivalently, the only solution to a linear combination of elements of \(S\) equaling zero is the trivial solution (all coefficients zero). Here we formalize this condition: \(\forall (s : Finset V) (f : V \rightarrow K), (↑s \subseteq S) \rightarrow (Finset.sum s (fun v \mapsto f v \bullet v) = 0) \rightarrow (\forall v \in s, f v = 0)\) </p>
+</div>
+
+    <a class="latex_link" href="sect0002.html#definition : linear_independent">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.linear_independent_v">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="definition : span_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="definition : span" style="display: none">
+    <div class="thm_thmheading">
+      <span class="definition_thmcaption">
+      Definition
+      </span>
+      <span class="definition_thmlabel">10</span></div>
+    <div class="thm_thmcontent"><p>   \({ x \in V | linear_combination K V S x }\) </p>
+</div>
+
+    <a class="latex_link" href="sect0002.html#definition : span">LaTeX</a>
     
     
   <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.is_linear_combination">Lean</a>
@@ -104,7 +164,7 @@
       <span class="definition_thmcaption">
       Definition
       </span>
-      <span class="definition_thmlabel">10</span></div>
+      <span class="definition_thmlabel">19</span></div>
     <div class="thm_thmcontent"><p>   \({ x \in V | linear_combination K V S x }\) </p>
 </div>
 
@@ -231,6 +291,126 @@
 
 
     
+    <div class="dep-modal-container" id="theorem : linear_combination_unique_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="theorem : linear_combination_unique" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">17</span></div>
+    <div class="thm_thmcontent"><p>   \({S : Set V} (hS : linear_independent_v K V S) (s t : Finset V) (hs : ↑s \subseteq S) (ht : ↑t \subseteq S) (f g : V \rightarrow K) (hf\emptyset : \forall v \notin s, f v = 0) (hg0 : ∀ v \notin t, g v = 0) (heq : Finset.sum s (fun v \Rightarrow f v \bullet v) = Finset.sum t (fun v \Rightarrow g v \bullet v)) : f = g \) </p>
+</div>
+
+    <a class="latex_link" href="sect0002.html#theorem : linear_combination_unique">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.linear_combination_unique">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="theorem : linear_independent_empty_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="theorem : linear_independent_empty" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">14</span></div>
+    <div class="thm_thmcontent"><p>   The empty set is linearly independent: \(linear_independent_v K V (\emptyset : Set V)\) </p>
+</div>
+
+    <a class="latex_link" href="sect0002.html#theorem : linear_independent_empty">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.linear_independent_empty">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="theorem : linear_independent_insert_of_not_in_span_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="theorem : linear_independent_insert_of_not_in_span" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">18</span></div>
+    <div class="thm_thmcontent"><p>   \({S : Set V} {v : V} (hS : linear_independent_v K V S) (hv_not_span : v \notin span K V S): linear_independent_v K V (S \cup {v})\) </p>
+</div>
+
+    <a class="latex_link" href="sect0002.html#theorem : linear_independent_insert_of_not_in_span">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.linear_independent_insert_of_not_in_span">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="theorem : linear_independent_insert_of_not_in_span_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="theorem : linear_independent_insert_of_not_in_span" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">20</span></div>
+    <div class="thm_thmcontent"><p>   \({S : Set V} {v : V} (hS : linear_independent_v K V S) (hv_not_span : v \notin span K V S): linear_independent_v K V (S ∪ {v})\) </p>
+</div>
+
+    <a class="latex_link" href="sect0002.html#theorem : linear_independent_insert_of_not_in_span">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.linear_independent_insert_of_not_in_span">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
     <div class="dep-modal-container" id="theorem : mem_span_of_mem_modal">
       <div class="dep-modal-content">
           <button class="dep-closebtn">
@@ -321,6 +501,66 @@
 
 
     
+    <div class="dep-modal-container" id="theorem : span_mono_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="theorem : span_mono" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">12</span></div>
+    <div class="thm_thmcontent"><p>   The span of sets is monotonic. Simply, this means that if you have \(h : A \subseteq B\), then \(span_mono\) K V h is a proof that \(span K V A \subseteq span K V B\).: \({A B : Set V} (hAB : A \subseteq B) : span K V A \subseteq span K V B\) </p>
+</div>
+
+    <a class="latex_link" href="sect0002.html#theorem : span_mono">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.span_mono">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
+    <div class="dep-modal-container" id="theorem : subset_linear_independent_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="theorem : subset_linear_independent" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">15</span></div>
+    <div class="thm_thmcontent"><p>   If \(A\) is a linearly independent set, and we have \(B \subseteq A\), then \(B\) is also linearly independent: \({A B : Set V} (hBsubA : B \subseteq A) (hA : linear_independent_v K V A)\) </p>
+</div>
+
+    <a class="latex_link" href="sect0002.html#theorem : subset_linear_independent">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.subset_linear_independent">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
     <div class="dep-modal-container" id="theorem : subspace_contains_zero_modal">
       <div class="dep-modal-content">
           <button class="dep-closebtn">
@@ -381,6 +621,36 @@
 
 
     
+    <div class="dep-modal-container" id="theorem : superset_span_full_modal">
+      <div class="dep-modal-content">
+          <button class="dep-closebtn">
+<svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        
+  <div class="thm" id="theorem : superset_span_full" style="display: none">
+    <div class="thm_thmheading">
+      <span class="theorem_thmcaption">
+      Theorem
+      </span>
+      <span class="theorem_thmlabel">16</span></div>
+    <div class="thm_thmcontent"><p>   If a set \(A\) spans the whole space \(V\), then any superset of \(A\) also spans \(V\): \({A B T: Set V} (hT: ∀ (x : V), x \in T)(hA : T = span K V A) (hAsubB : A \subseteq B) : T = span K V B\) </p>
+</div>
+
+    <a class="latex_link" href="sect0002.html#theorem : superset_span_full">LaTeX</a>
+    
+    
+  <a class="lean_link lean_decl" href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.superset_span_full">Lean</a>
+    
+    
+  
+    
+  </div>
+    
+      </div>
+    </div>
+
+
+    
     <div class="dep-modal-container" id="theorem : zero_smul_modal">
       <div class="dep-modal-content">
           <button class="dep-closebtn">
@@ -427,7 +697,7 @@ graphContainer.graphviz({useWorker: true})
     .width(width)
     .height(height)
     .fit(true)
-    .renderDot(`strict digraph "" {	graph [bgcolor=transparent];	node [label="\N",		penwidth=1.8	];	edge [arrowhead=vee];	"theorem : zero_smul"	[color=green,		label=" zero_smul",		shape=ellipse];	"theorem : subspace_contains_zero"	[color=green,		label=" subspace_contains_zero",		shape=ellipse];	"theorem : zero_smul" -> "theorem : subspace_contains_zero"	[style=dashed];	"definition : linear_combination"	[color=green,		fillcolor="#B0ECA3",		label=" linear_combination",		shape=box,		style=filled];	"theorem : mem_span_of_mem"	[color=green,		label=" mem_span_of_mem",		shape=ellipse];	"definition : linear_combination" -> "theorem : mem_span_of_mem"	[style=dashed];	"definition : span"	[color=green,		fillcolor="#B0ECA3",		label=" span",		shape=box,		style=filled];	"definition : linear_combination" -> "definition : span"	[style=dashed];	"theorem : linear_combination_of_mem"	[color=green,		label=" linear_combination_of_mem",		shape=ellipse];	"definition : linear_combination" -> "theorem : linear_combination_of_mem"	[style=dashed];	"definition : VectorSpace"	[color=green,		fillcolor="#B0ECA3",		label=" VectorSpace",		shape=box,		style=filled];	"definition : VectorSpace" -> "theorem : zero_smul"	[style=dashed];	"theorem : smul_zero"	[color=green,		label=" smul_zero",		shape=ellipse];	"definition : VectorSpace" -> "theorem : smul_zero"	[style=dashed];	"theorem : neg_one_smul"	[color=green,		label=" neg_one_smul",		shape=ellipse];	"definition : VectorSpace" -> "theorem : neg_one_smul"	[style=dashed];	"theorem : subspace_neg"	[color=green,		label=" subspace_neg",		shape=ellipse];	"theorem : neg_one_smul" -> "theorem : subspace_neg"	[style=dashed];	"definition : Subspace"	[color=green,		fillcolor="#B0ECA3",		label=" Subspace",		shape=box,		style=filled];	"definition : Subspace" -> "theorem : subspace_contains_zero"	[style=dashed];	"definition : Subspace" -> "theorem : subspace_neg"	[style=dashed];}`)
+    .renderDot(`strict digraph "" {	graph [bgcolor=transparent];	node [label="\N",		penwidth=1.8	];	edge [arrowhead=vee];	"theorem : linear_independent_insert_of_not_in_span"	[color=green,		label=" linear_independent_insert_of_not_in_span",		shape=ellipse];	"theorem : smul_zero"	[color=green,		label=" smul_zero",		shape=ellipse];	"theorem : subspace_neg"	[color=green,		label=" subspace_neg",		shape=ellipse];	"theorem : linear_combination_of_mem"	[color=green,		label=" linear_combination_of_mem",		shape=ellipse];	"theorem : span_mono"	[color=green,		label=" span_mono",		shape=ellipse];	"theorem : superset_span_full"	[color=green,		label=" superset_span_full",		shape=ellipse];	"theorem : span_mono" -> "theorem : superset_span_full"	[style=dashed];	"theorem : linear_combination_unique"	[color=green,		label=" linear_combination_unique",		shape=ellipse];	"definition : span"	[color=green,		fillcolor="#B0ECA3",		label=" span",		shape=box,		style=filled];	"definition : span" -> "theorem : span_mono"	[style=dashed];	"theorem : subspace_contains_zero"	[color=green,		label=" subspace_contains_zero",		shape=ellipse];	"theorem : neg_one_smul"	[color=green,		label=" neg_one_smul",		shape=ellipse];	"theorem : neg_one_smul" -> "theorem : subspace_neg"	[style=dashed];	"theorem : zero_smul"	[color=green,		label=" zero_smul",		shape=ellipse];	"theorem : zero_smul" -> "theorem : linear_combination_unique"	[style=dashed];	"theorem : zero_smul" -> "theorem : subspace_contains_zero"	[style=dashed];	"definition : linear_independent"	[color=green,		fillcolor="#B0ECA3",		label=" linear_independent",		shape=box,		style=filled];	"definition : linear_independent" -> "theorem : linear_independent_insert_of_not_in_span"	[style=dashed];	"definition : linear_independent" -> "theorem : linear_combination_unique"	[style=dashed];	"theorem : linear_independent_empty"	[color=green,		label=" linear_independent_empty",		shape=ellipse];	"definition : linear_independent" -> "theorem : linear_independent_empty"	[style=dashed];	"theorem : subset_linear_independent"	[color=green,		label=" subset_linear_independent",		shape=ellipse];	"definition : linear_independent" -> "theorem : subset_linear_independent"	[style=dashed];	"definition : Subspace"	[color=green,		fillcolor="#B0ECA3",		label=" Subspace",		shape=box,		style=filled];	"definition : Subspace" -> "theorem : subspace_neg"	[style=dashed];	"definition : Subspace" -> "theorem : subspace_contains_zero"	[style=dashed];	"definition : linear_combination"	[color=green,		fillcolor="#B0ECA3",		label=" linear_combination",		shape=box,		style=filled];	"definition : linear_combination" -> "theorem : linear_independent_insert_of_not_in_span"	[style=dashed];	"definition : linear_combination" -> "theorem : linear_combination_of_mem"	[style=dashed];	"definition : linear_combination" -> "definition : span"	[style=dashed];	"theorem : mem_span_of_mem"	[color=green,		label=" mem_span_of_mem",		shape=ellipse];	"definition : linear_combination" -> "theorem : mem_span_of_mem"	[style=dashed];	"definition : VectorSpace"	[color=green,		fillcolor="#B0ECA3",		label=" VectorSpace",		shape=box,		style=filled];	"definition : VectorSpace" -> "theorem : smul_zero"	[style=dashed];	"definition : VectorSpace" -> "theorem : neg_one_smul"	[style=dashed];	"definition : VectorSpace" -> "theorem : zero_smul"	[style=dashed];	"definition : VectorSpace" -> "definition : linear_combination"	[style=dashed];}`)
     .on("end", interactive);
 
 latexLabelEscaper = function(label) {
