@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: Wed Jul  9 11:52:44 2025\n"
+"POT-Creation-Date: Thu Jul 10 16:06:45 2025\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -2446,6 +2446,459 @@ msgstr ""
 msgid "Welcome to Linear Independence and Span World! This world introduces the ideas of linear\n"
 "independence/dependence and the span of a set of vectors. You will prove theorems, for example that\n"
 "any subset of a linearly independent set of vectors is still linearly independent."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Challenge Level - Span After Removing Elements"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "This is the second challenge level, and the last level of the Linear Independence and Span World! Similar\n"
+"to the first challenge level, this level is optional and can be skipped with the `sorry` tactic, but you can\n"
+"play through it if you want more practice.\n"
+"\n"
+"### The Goal\n"
+"The goal of this level is to prove that if you have some set `S`, and some vector `w` inside the span\n"
+"of `S \\ {w}`, the span of `S` is the same as the span of `S \\ {w}`. This is because `w` can be written\n"
+"as a sum of vectors of `S \\ {w}`, so any time you have `w` appear in a linear combination of `S`, you\n"
+"can simply replace it with a sum of vectors in `S \\ {w}`.\n"
+"\n"
+"### Proof overview\n"
+"The most difficult part of this proof is showing that given a linear representation of a vector in the\n"
+"span of `S`, we can represent it as a sum of vectors in `S \\ {w}`. You are able to represent a sum over\n"
+"`S` as a sum over `S \\ {w}` plus the function applied to `w`. Then, rewrite `w` as a sum of vectors\n"
+"in `S \\ {w}`, and recombine the sums."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "`subset_insert` is a proof that any set is a subset of itself with an element inserted. In Lean, the\n"
+"syntax is as follows: if `s : Set T` is a set, and you have `x : T`, then `s ⊆ Set.insert x s`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "`Finset.Subset.antisymm_iff` is a proof that two Finsets are equal if and only if they are subsets of each other."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "`sum_eq_sum_diff_singleton_add` is a proof that if you have some set `s`, with `h : i ∈ s`, then\n"
+"`Finset.sum s (fun x => f x) = Finset.sum (s / {i}) (fun x => f x) + f i. The syntax is `sum_eq_sum_diff_singleton_add h f`."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "`mem_union_right` is a proof that if `a ∈ t`, then `a ∈ s ∪ t`. The syntax is `mem_union_right s h`."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "`subset_diff_singleton` is a proof that if `h : s ⊆ t`, and `hx : x ∉ s`, then `s ⊆ t \\ {x}`. The syntax\n"
+"is `subset_diff_singleton h hx`."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "`diff_subset` is a proof that `s ⊆ s \\ t`. The syntax is `diff_subset s t`."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "## Summary\n"
+"`tauto` solves goals using simple logic. It works similarly to the `simp` and `linarith` tactics, in\n"
+"that there is not just one use case. If there is a contradiction that can be easily inferred, or if\n"
+"the goal is a direct result of the hypotheses, `tauto` will solve the goal.\n"
+"\n"
+"## Example\n"
+"If your goal is of the form `P ∨ ¬P`, then `tauto will solve the goal.\n"
+"\n"
+"## Example\n"
+"If your goal is of the form `A ∨ B`, and you have a hypothesis `h : A ∨ (B ∧ C)`, then `tauto` will\n"
+"solve the goal."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "## Summary\n"
+"`left` is one of the ways of proving `or` statements. If your goal is `P ∨ Q`, then `left` changes the\n"
+"goal to `P`."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "## Summary\n"
+"`right` is one of the ways of proving `or` statements. If your goal is `P ∨ Q`, then `right` changes the\n"
+"goal to `Q`."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "## Summary\n"
+"`let` acts very similarly to `have`. Instead of allowing you to create new hypotheses, `let` allows you\n"
+"to create new objects.\n"
+"\n"
+"## Using `rw` after `let` statements\n"
+"You may want to use `rw` with the equalities you choose in a `let` statement. To do this, you must create\n"
+"a new lemma stating this equality with `have`. The proof will simply be `rfl`.\n"
+"\n"
+"## Example\n"
+"If you have objects `x y : V`, then you can say `let z := x + y`, and you will have a new object `z`,\n"
+"where `z = x + y` can be solvedd by `rfl`\n"
+"\n"
+"## Example\n"
+"If you have a function `f : V → K`, and `v : V`, you can say `let f := fun x => f x • v`."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "`ite` stands for `if then else`. If is used when creating functions. You can think of `ite P f1 f2` as\n"
+"\"If P then f1 else f2\". This function gives you f1 when P is True, and f2 otherwise. This can help you\n"
+"design functions that are 0 outside of certain sets."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid ""
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "We want to prove two sets are equal. What theorem can help us with this?"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `apply Set.eq_of_subset_of_subset`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "First, introduce an arbitrary element, unfold definitions and simp"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `intro x hx`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `unfold span at *`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `unfold is_linear_combination at *`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `simp at *`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Now, we have two helpful statements. We can use `obtain` to get sets and functions from them"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `obtain ⟨sw, hsw, fw, hfw⟩ := hcomb`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `obtain ⟨sx, hsx, fx, hfx⟩ := «{hx}»`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Here, we can split into two cases: whether or not `w ∈ «{sx}»`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `by_cases hw : w ∈ «{sx}»`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "What set should we be summing over? Note that you have two different sets where functions are\n"
+"defined, «{sw}» and «{sx}»"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `use «{sw}» ∪ («{sx}» \\ {w})`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `constructor`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `rw[coe_union]`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `apply Set.union_subset «{hsw}»`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `simp`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `exact subset_trans «{hsx}» (subset_insert w S)`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "In order to manipulate the sum better, it would be nice to rewrite the set you are summing over.\n"
+"You can use a `have` statement to show that this set is equal to `(«{sw}» ∪ «{sw}» \\ {w})`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `have set_eq : «{sw}» ∪ («{sx}» \\ {w}) = («{sw}» ∪ «{sx}») \\ {w} := by`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `apply Finset.Subset.antisymm_iff.2`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `constructor`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `intro x hx`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `simp`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `simp at «{hx}»`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `constructor`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `tauto`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `cases' «{hx}» with hInsw hInsx`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `intro hEqW`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `rw[«{hEqW}»] at «{hInsw}»`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `have hContra := «{hsw}» «{hInsw}»`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try simp at «{hContra}»``"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `exact «{hInsx}».2`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `intro x hx`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `simp`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `simp at «{hx}»`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `cases' «{hx}» with hl hr`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `cases' «{hl}» with hInsw hInsx`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `left`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `exact «{hInsw}»`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `right`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `constructor`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `exact «{hInsx}»`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `exacr «{hr}»`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Now, let's consider the function we will be summing. To get a sum of `«{x}»`, we need two parts:\n"
+"the sum over `S` getting `«{x}»`, and the sum over `S \\ {w}` to get `w`. This can be thought of as\n"
+"two seperate functions. The first function will be similar to `«{fx}»`, but since we do not know what\n"
+"`«{fx}»` is outside of `«{sx}»`, we must make this function `0` outside of `sx`. We can define this first\n"
+"function with a `let` statement"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `let fx' := fun v => (ite (v ∈ «{sx}») («{fx}» v) 0)`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `have hfx' : «{fx'}» = (fun v => (ite (v ∈ «{sx}») («{fx}» v) 0)) := rfl`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Now, you can prove that summing `«{fx'}»` over our set gives the correct value. Prove this with\n"
+"a `have` statement"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `have fx'_sum : «{x}» - («{fx}» w • w) = («{sw}» ∪ («{sx}» \\ {w})).sum (fun v => «{fx'}» v • v) := by`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `rw[set_eq]`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `apply add_right_cancel (b := «{fx}» w • w)`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `simp`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `have hfx'w : «{fx}» w = «{fx'}» w := by`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `rw[«{hfx'}»]`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `simp only [«{hw}»]`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `simp`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `rw[«{hfx'w}»]`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `rw[(sum_eq_sum_diff_singleton_add (mem_union_right «{sw}» «{hw}») (fun v => «{fx'}» v • v)).symm]`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `rw[«{hfx'}»]`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `simp`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `exact «{hfx}»`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Now, we can create the second function, which will be added to get the missing `«{fx}» w • w`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `let fw' := fun v => ite (v ∈ «{sw}») («{fx}» w * «{fw}» v) 0`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `have hfw' : «{fw'}» = (fun v => ite (v ∈ «{sw}») («{fx}» w * «{fw}» v) 0) := rfl`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Again, prove that the function sums to the correct value"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `have fw'_sum : «{fx}» w • w = («{sw}» ∪ («{sx}» \\ {w})).sum (fun v => «{fw'}» v • v) := by`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `rw[«{hfw'}»]`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `simp`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `simp only [mul_smul]`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `rw[(smul_sum (r := «{fx}» w) (s := «{sw}») (f := fun v => «{fw}» v • v)).symm]`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `rw[«{hfw}»]`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Now, use the functions we have defined"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `use fun v => «{fx'}» v + «{fw'}» v`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `simp only [add_smul]`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `rw[sum_add_distrib, «{fx'_sum}».symm, «{fw'_sum}».symm]`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `simp`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Now, we are on the second case, when `w ∉ «{sx}»."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `use «{sx}»`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `constructor`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `exact subset_diff_singleton «{hsx}» «{hw}»`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `use fx`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Lastly, we must prove that `span K V (S \\ {w}) ⊆ span K V S`. This is simple with span_mono"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `apply span_mono`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `exact diff_subset S {w}`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "You have now finished the Linear Independence and Span World!"
 msgstr ""
 
 #: Game

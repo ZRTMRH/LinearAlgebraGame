@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.6.28)  9 JUL 2025 12:06
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.6.28)  10 JUL 2025 16:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -737,7 +737,11 @@ Chapter 2.
 
 ])
 (./chapters/chapter2/sheet7.tex) (./chapters/chapter2/sheet8.tex)
-(./chapters/chapter2/sheet9.tex))) [4]
+(./chapters/chapter2/sheet9.tex)) (./chapters/chapter6.tex [4]
+Chapter 3.
+(./chapters/chapter6/sheet1.tex))) [5
+
+]
 (/Users/adamkern/Desktop/Duke/Sophmore Summer/LinearAlgebraGame/blueprint/print
 /print.aux)
  ***********
@@ -749,16 +753,16 @@ L3 programming layer <2024-02-20>
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `print.out' has not changed.
-(rerunfilecheck)             Checksum: 27BAFC0A6C3F392226CEBC33EFDBD551;2887.
+(rerunfilecheck)             Checksum: C3D8BA4969F06E06B8FD5F70BA500CFB;3201.
  ) 
 Here is how much of TeX's memory you used:
- 16972 strings out of 474773
- 314851 string characters out of 5757724
- 1933839 words of memory out of 5000000
- 38871 multiletter control sequences out of 15000+600000
+ 17009 strings out of 474773
+ 315828 string characters out of 5757724
+ 1934839 words of memory out of 5000000
+ 38902 multiletter control sequences out of 15000+600000
  563456 words of font info for 87 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  90i,6n,114p,542b,483s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on /Users/adamkern/Desktop/Duke/Sophmore Summer/LinearAlgebraGam
-e/blueprint/print/print.pdf (5 pages).
+e/blueprint/print/print.pdf (6 pages).

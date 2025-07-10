@@ -271,6 +271,16 @@ INPUT ./chapters/chapter2/sheet9.tex
 INPUT ./chapters/chapter2/sheet9.tex
 INPUT ./chapters/chapter2/sheet9.tex
 INPUT chapters/chapter2/sheet9.tex
+INPUT ./chapters/chapter6.tex
+INPUT ./chapters/chapter6.tex
+INPUT ./chapters/chapter6.tex
+INPUT ./chapters/chapter6.tex
+INPUT chapters/chapter6.tex
+INPUT ./chapters/chapter6/sheet1.tex
+INPUT ./chapters/chapter6/sheet1.tex
+INPUT ./chapters/chapter6/sheet1.tex
+INPUT ./chapters/chapter6/sheet1.tex
+INPUT chapters/chapter6/sheet1.tex
 INPUT /Users/adamkern/Desktop/Duke/Sophmore Summer/LinearAlgebraGame/blueprint/print/print.aux
 INPUT /Users/adamkern/Desktop/Duke/Sophmore Summer/LinearAlgebraGame/blueprint/print/print.out
 INPUT /Users/adamkern/Desktop/Duke/Sophmore Summer/LinearAlgebraGame/blueprint/print/print.out
