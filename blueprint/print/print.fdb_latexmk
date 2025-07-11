@@ -1,7 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1752178392.55293 "print.tex" "/Users/adamkern/Desktop/Duke/Sophmore Summer/LinearAlgebraGame/blueprint/print/print.pdf" "print" 1752178393.48672 0
-  "/Users/adamkern/Desktop/Duke/Sophmore Summer/LinearAlgebraGame/blueprint/print/print.aux" 1752178393.26899 4984 0820cd5c16bdf37ddf7697d4252fad89 "pdflatex"
-  "/Users/adamkern/Desktop/Duke/Sophmore Summer/LinearAlgebraGame/blueprint/print/print.out" 1752178393.26949 3201 c3d8ba4969f06e06b8fd5f70ba500cfb "pdflatex"
+["pdflatex"] 1752248850.98698 "print.tex" "/Users/adamkern/Desktop/Duke/Sophmore Summer/LinearAlgebraGame/blueprint/print/print.pdf" "print" 1752248851.93914 0
+  "/Users/adamkern/Desktop/Duke/Sophmore Summer/LinearAlgebraGame/blueprint/print/print.aux" 1752248851.72306 5540 ae1a840bb741fd0971499b8a29e6bba8 "pdflatex"
+  "/Users/adamkern/Desktop/Duke/Sophmore Summer/LinearAlgebraGame/blueprint/print/print.out" 1752248851.72361 3209 a9e28ae59d1414bce19883b93dc2249c "pdflatex"
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -87,7 +87,7 @@
   "chapters/chapter1.tex" 1752160361.99908 190 919eed5f0420c1de92cdfadb6e4fd707 ""
   "chapters/chapter1/sheet1.tex" 1752160361.99933 989 d23f615e169316dd1b7b2337746937fc ""
   "chapters/chapter1/sheet2.tex" 1752160361.99952 330 33024b4c5ca9c0655bee9373fbb8351e ""
-  "chapters/chapter1/sheet3.tex" 1752160361.99972 305 4aec194698633831b9780643b0d29e84 ""
+  "chapters/chapter1/sheet3.tex" 1752246023.97568 306 6a32c1a6305228816e5b9e6ef81abe65 ""
   "chapters/chapter1/sheet4.tex" 1752160361.99993 895 0030b8fed0d058236d72544ccc1f32ec ""
   "chapters/chapter1/sheet5.tex" 1752160362.00014 360 3e92b78c54b669420ff38f0426ca0c9d ""
   "chapters/chapter2.tex" 1752170697.52496 333 943bccb1cb3d58f007951b03ed390040 ""
@@ -101,7 +101,7 @@
   "chapters/chapter2/sheet8.tex" 1752160362.00219 435 5c037e1e2c372ba9986d652d601ce716 ""
   "chapters/chapter2/sheet9.tex" 1752160362.00238 633 9ab9fbd1b710e5fffb176afce125c2f5 ""
   "chapters/chapter6.tex" 1752170677.31119 64 5a136b063e0b9c83ae92cfa63b8c704b ""
-  "chapters/chapter6/sheet1.tex" 1752178385.75413 2906 529ab30935e59fd781bfb8d64b146207 ""
+  "chapters/chapter6/sheet1.tex" 1752247815.02684 5301 5429036e485d7e90f337c1cfed5f2f40 ""
   "content.tex" 1752174698.20165 442 46c0a06ef66ff236181cd6fb1b15a4fa ""
   "macros/common.tex" 1752160362.00315 820 60fafcc3aa944a5e60030581a943ef6b ""
   "macros/print.tex" 1752160362.00328 1101 87627b2ec24fef68edc71c13f43f7bab ""

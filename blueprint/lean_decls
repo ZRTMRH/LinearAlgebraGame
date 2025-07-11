@@ -36,3 +36,13 @@ LinearAlgebraGame.orthogonal
 LinearAlgebraGame.left_smul_ortho
 LinearAlgebraGame.ortho_swap
 LinearAlgebraGame.norm_nonneg_v
+LinearAlgebraGame.norm_zero_v
+LinearAlgebraGame.sca_mul
+LinearAlgebraGame.ortho_zero
+LinearAlgebraGame.ortho_self_zero
+LinearAlgebraGame.pythagorean
+LinearAlgebraGame.norm_sq_eq
+LinearAlgebraGame.ortho_decom
+LinearAlgebraGame.le_of_sq_le_sq
+LinearAlgebraGame.Cauchy_Schwarz
+LinearAlgebraGame.triangle_v
