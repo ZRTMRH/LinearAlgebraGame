@@ -1,0 +1,4 @@
+-- This file should list all the lean declarations that are referenced in the blueprint.
+-- Since the blueprint is currently empty (content.tex has no actual content), 
+-- this file is empty for now.
+-- Add lean declarations here as they are referenced in the blueprint content.
