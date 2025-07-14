@@ -57,7 +57,7 @@ package Game where
 @[default_target]
 lean_lib Game
 
-require checkdecls from git "https://github.com/PatrickMassot/checkdecls.git" @ "main"
+require checkdecls from git "https://github.com/PatrickMassot/checkdecls.git" @ "lean4.7.0"
 
 meta if get_config? env = some "dev" then
 require «doc-gen4» from git
