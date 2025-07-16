@@ -1,5 +1,7 @@
 import Game.Levels.LinearIndependenceSpanWorld.Level03
 
+namespace LinearAlgebraGame
+
 World "LinearIndependenceSpanWorld"
 Level 4
 
@@ -28,7 +30,7 @@ because there are no vectors in the empty set that can be scaled be a non-zero f
 /--
 This is a proof that the empty set is linearly independent.
 -/
-TheoremDoc linear_independent_empty as "linear_independent_empty" in "Vector Spaces"
+TheoremDoc LinearAlgebraGame.linear_independent_empty as "linear_independent_empty" in "Vector Spaces"
 
 /--
 `linear_independent_v` means that a set of vectors is linearly independent. To say a set `S : Set V`

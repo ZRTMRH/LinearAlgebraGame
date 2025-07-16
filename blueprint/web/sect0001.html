@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  MathJax = { 
+    tex: {
+		    inlineMath: [['$','$'], ['\\(','\\)']]
+	} }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<meta name="generator" content="plasTeX" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vector Spaces</title>
+<link rel="next" href="sect0002.html" title="Linear Independence Span" />
+<link rel="prev" href="index.html" title="Linear Algebra Game" />
+<link rel="up" href="index.html" title="Linear Algebra Game" />
+<link rel="stylesheet" href="styles/theme-white.css" />
+<link rel="stylesheet" href="styles/amsthm.css" />
+<link rel="stylesheet" href="styles/showmore.css" />
+<link rel="stylesheet" href="styles/blueprint.css" />
+<link rel="stylesheet" href="styles/extra_styles.css" />
+</head>
+
+<body>
+<header>
+<svg  id="toc-toggle" class="icon icon-list-numbered "><use xlink:href="symbol-defs.svg#icon-list-numbered"></use></svg>
+<h1 id="doc_title"><a href="index.html">Linear Algebra Game</a></h1>
+</header>
+
+<div class="wrapper">
+<nav class="toc">
+<ul class="sub-toc-0">
+<li class=" active current">
+  <a href="sect0001.html"><span class="toc_ref">1</span> <span class="toc_entry">Vector Spaces</span></a>
+  <span class="expand-toc">▼</span>
+  <ul class="sub-toc-1 active">
+     <li class="">
+  <a href="sect0001.html#a0000000005"><span class="toc_ref">1.1</span> <span class="toc_entry">Zero Scalar Multiplication</span></a>
+ </li>
+<li class="">
+  <a href="sect0001.html#a0000000006"><span class="toc_ref">1.2</span> <span class="toc_entry">Multiplying By The Zero Vector</span></a>
+ </li>
+<li class="">
+  <a href="sect0001.html#a0000000007"><span class="toc_ref">1.3</span> <span class="toc_entry">Scaling By Negative One</span></a>
+ </li>
+<li class="">
+  <a href="sect0001.html#a0000000008"><span class="toc_ref">1.4</span> <span class="toc_entry">Zero Must Belong</span></a>
+ </li>
+<li class="">
+  <a href="sect0001.html#a0000000009"><span class="toc_ref">1.5</span> <span class="toc_entry">Negatives In Subspace</span></a>
+ </li>
+
+  </ul>
+ </li>
+<li class="">
+  <a href="sect0002.html"><span class="toc_ref">2</span> <span class="toc_entry">Linear Independence Span</span></a>
+  <span class="expand-toc">▶</span>
+  <ul class="sub-toc-1">
+     <li class="">
+  <a href="sect0002.html#a0000000010"><span class="toc_ref">2.1</span> <span class="toc_entry">Linear Combinations</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html#a0000000011"><span class="toc_ref">2.2</span> <span class="toc_entry">Introducing Span</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html#a0000000012"><span class="toc_ref">2.3</span> <span class="toc_entry">Monotonicity Of Span</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html#a0000000013"><span class="toc_ref">2.4</span> <span class="toc_entry">Linear Independence</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html#a0000000014"><span class="toc_ref">2.5</span> <span class="toc_entry">Linear Independence Of Subsets</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html#a0000000015"><span class="toc_ref">2.6</span> <span class="toc_entry">Supersets Span The Whole Space</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html#a0000000016"><span class="toc_ref">2.7</span> <span class="toc_entry">Uniqueness Of Linear Combinations</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html#a0000000017"><span class="toc_ref">2.8</span> <span class="toc_entry">Linear Independence Of Set With Insertion</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html#a0000000018"><span class="toc_ref">2.9</span> <span class="toc_entry">Span After Removing Elements</span></a>
+ </li>
+
+  </ul>
+ </li>
+<li class="">
+  <a href="sect0003.html"><span class="toc_ref">3</span> <span class="toc_entry">Inner Product World</span></a>
+  <span class="expand-toc">▶</span>
+  <ul class="sub-toc-1">
+     <li class="">
+  <a href="sect0003.html#a0000000019"><span class="toc_ref">3.1</span> <span class="toc_entry">Linear Combinations</span></a>
+ </li>
+
+  </ul>
+ </li>
+<li ><a href="dep_graph_document.html">Dependency graph</a></li>
+</ul>
+</nav>
+
+<div class="content">
+<div class="content-wrapper">
+
+
+<div class="main-text">
+<h1 id="a0000000002">1 Vector Spaces</h1>
+<h1 id="a0000000005">1.1 Zero Scalar Multiplication</h1>
+<div class="definition_thmwrapper theorem-style-definition" id="definition : VectorSpace">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    Definition
+    </span>
+    <span class="definition_thmlabel">1</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0001.html#definition : VectorSpace">#</a>
+    
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.VectorSpace" class="lean_decl">LinearAlgebraGame.VectorSpace</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+  <p>  We begin by defining a <em>vector space</em> V over a field K as an abelian group with four key axioms: </p>
+<ul class="itemize">
+  <li><p><b class="bfseries">smul_add</b>: \(\forall a \in K,\) \(x,y \in V , a \bullet (x + y) = a \bullet x + a \bullet y \) </p>
+</li>
+  <li><p><b class="bfseries">add_smul</b>: \(\forall a,b \in K,\) \(x \in V, (a + b) \bullet x = a \bullet x + b \bullet x \) </p>
+</li>
+  <li><p><b class="bfseries">mul_smul</b>: \(\forall a,b \in K,\) \(x \in V, (a * b) \bullet x = a \bullet (b \bullet x) \) </p>
+</li>
+  <li><p><b class="bfseries">one_smul</b>: \(\forall x \in V, (1 : K) \bullet x = x \) </p>
+</li>
+</ul>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="theorem : zero_smul">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">2</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0001.html#theorem : zero_smul">#</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0001.html#definition : VectorSpace">Definition 1</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.zero_smul_v" class="lean_decl">LinearAlgebraGame.zero_smul_v</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>   In any vector space V over K, the scalar 0 multiplied by any vector gives the zero vector:\(\forall w \in V, (0 : K) • w = (0 : V)\) </p>
+
+  </div>
+</div>
+<h1 id="a0000000006">1.2 Multiplying By The Zero Vector</h1>
+<div class="theorem_thmwrapper theorem-style-plain" id="theorem : smul_zero">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">3</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0001.html#theorem : smul_zero">#</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0001.html#definition : VectorSpace">Definition 1</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.smul_zero_v" class="lean_decl">LinearAlgebraGame.smul_zero_v</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>   In any vector space V over K, any scalar a multiplied by the zero vector gives the zero vector:\( \forall a \in K, a \bullet (0 : V) = (0 : V)\) </p>
+
+  </div>
+</div>
+<h1 id="a0000000007">1.3 Scaling By Negative One</h1>
+<div class="theorem_thmwrapper theorem-style-plain" id="theorem : neg_one_smul">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">4</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0001.html#theorem : neg_one_smul">#</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0001.html#definition : VectorSpace">Definition 1</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.neg_one_smul_v" class="lean_decl">LinearAlgebraGame.neg_one_smul_v</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>   In any vector space V over K, multiplying a vector by -1 gives its additive inverse: \(v \in V: (-1 : K) \bullet v = -v\) </p>
+
+  </div>
+</div>
+<h1 id="a0000000008">1.4 Zero Must Belong</h1>
+<div class="definition_thmwrapper theorem-style-definition" id="definition : Subspace">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    Definition
+    </span>
+    <span class="definition_thmlabel">5</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0001.html#definition : Subspace">#</a>
+    
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.isSubspace" class="lean_decl">LinearAlgebraGame.isSubspace</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+  <p>  A <em>subspace</em> is a subset of a vector space that acts similarly to a vector space itself. It has three main properties: </p>
+<ul class="itemize">
+  <li><p><b class="bfseries">Nonempty</b>: W.Nonempty </p>
+</li>
+  <li><p><b class="bfseries">Closure_Under_Addition</b>: \(\forall (x, y \in V), x ∈ W \rightarrow y \in W \rightarrow x + y \in W\) </p>
+</li>
+  <li><p><b class="bfseries">Closure_Under_Scalar_Multiplication</b>: \(\forall (a \in K) (x \in V), x \in W \rightarrow a \bullet x \in W\) </p>
+</li>
+</ul>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="theorem : subspace_contains_zero">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">6</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0001.html#theorem : subspace_contains_zero">#</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0001.html#definition : VectorSpace">Definition 1</a></li>
+          
+          <li><a href="sect0001.html#definition : Subspace">Definition 5</a></li>
+          
+          <li><a href="sect0001.html#theorem : zero_smul">Theorem 2</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.subspace_contains_zero" class="lean_decl">LinearAlgebraGame.subspace_contains_zero</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>   This is a proof that any subspace contains the zero vector:\((0 : V) \in W\) </p>
+
+  </div>
+</div>
+<h1 id="a0000000009">1.5 Negatives In Subspace</h1>
+<div class="theorem_thmwrapper theorem-style-plain" id="theorem : subspace_neg">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">7</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0001.html#theorem : subspace_neg">#</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0001.html#definition : VectorSpace">Definition 1</a></li>
+          
+          <li><a href="sect0001.html#definition : Subspace">Definition 5</a></li>
+          
+          <li><a href="sect0001.html#theorem : neg_one_smul">Theorem 4</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.subspace_neg" class="lean_decl">LinearAlgebraGame.subspace_neg</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>   This is a proof that if a subspace contains a vector ‘x‘, it also contains ‘-x‘:\( \forall x \in V, x \in W \rightarrow (-x) \in W\) </p>
+
+  </div>
+</div>
+
+</div> <!--main-text -->
+</div> <!-- content-wrapper -->
+</div> <!-- content -->
+</div> <!-- wrapper -->
+
+<nav class="prev_up_next">
+  <svg  id="showmore-minus" class="icon icon-eye-minus showmore"><use xlink:href="symbol-defs.svg#icon-eye-minus"></use></svg>
+
+  <svg  id="showmore-plus" class="icon icon-eye-plus showmore"><use xlink:href="symbol-defs.svg#icon-eye-plus"></use></svg>
+
+  <a href="index.html" title="Linear Algebra Game"><svg  class="icon icon-arrow-left "><use xlink:href="symbol-defs.svg#icon-arrow-left"></use></svg>
+</a>
+  <a href="index.html" title="Linear Algebra Game"><svg  class="icon icon-arrow-up "><use xlink:href="symbol-defs.svg#icon-arrow-up"></use></svg>
+</a>
+  <a href="sect0002.html" title="Linear Independence Span"><svg  class="icon icon-arrow-right "><use xlink:href="symbol-defs.svg#icon-arrow-right"></use></svg>
+</a>
+</nav>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/plastex.js"></script>
+<script type="text/javascript" src="js/svgxuse.js"></script>
+<script type="text/javascript" src="js/js.cookie.min.js"></script>
+<script type="text/javascript" src="js/showmore.js"></script>
+</body>
+</html>

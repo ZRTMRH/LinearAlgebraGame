@@ -1,5 +1,7 @@
 import Game.Levels.LinearIndependenceSpanWorld.Level02
 
+namespace LinearAlgebraGame
+
 World "LinearIndependenceSpanWorld"
 Level 3
 
@@ -28,7 +30,7 @@ TheoremDoc subset_trans as "subset_trans" in "Sets"
 `span_mono` is a proof that the span of sets is monotonic. Simply, this means that if you have `h : A ⊆ B`,
 then `span_mono K V h` is a proof that `span K V A ⊆ span K V B`.
 -/
-TheoremDoc span_mono as "span_mono" in "Vector Spaces"
+TheoremDoc LinearAlgebraGame.span_mono as "span_mono" in "Vector Spaces"
 
 NewTheorem subset_trans
 

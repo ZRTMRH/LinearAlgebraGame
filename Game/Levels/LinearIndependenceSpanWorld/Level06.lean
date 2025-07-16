@@ -1,5 +1,7 @@
 import Game.Levels.LinearIndependenceSpanWorld.Level05
 
+namespace LinearAlgebraGame
+
 World "LinearIndependenceSpanWorld"
 Level 6
 
@@ -30,7 +32,7 @@ also spans `V`. The syntax requires a set `T : Set V` with the property `hT: ∀
 `T` is a subset that is actually the entire space. With other hypotheses `hA : T = span K V A`, and
 `hAsubB : A ⊆ B`, then `superset_span_full` is a proof that `T = span K V B`.
 -/
-TheoremDoc superset_span_full as "superset_span_full" in "Vector Spaces"
+TheoremDoc LinearAlgebraGame.superset_span_full as "superset_span_full" in "Vector Spaces"
 
 /--
 `Set.eq_of_subset_of_subset` is a proof that `A = B` if and only if `A ⊆ B` and `B ⊆ A`. If you have

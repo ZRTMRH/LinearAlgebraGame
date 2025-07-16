@@ -1,5 +1,7 @@
 import Game.Levels.VectorSpaceWorld.Level05
 
+namespace LinearAlgebraGame
+
 World "LinearIndependenceSpanWorld"
 Level 1
 
@@ -63,7 +65,7 @@ NewDefinition is_linear_combination Finset.sum
 /--
 `linear_combination_of_mem` is a proof that if `v ∈ S` then `is_linear_combination K V S v`.
 -/
-TheoremDoc linear_combination_of_mem as "linear_combination_of_mem" in "Vector Spaces"
+TheoremDoc LinearAlgebraGame.linear_combination_of_mem as "linear_combination_of_mem" in "Vector Spaces"
 
 /-- If `v ∈ S`, then `v` is a linear combination of `S`-/
 Statement linear_combination_of_mem {S : Set V} {v : V} (hv : v ∈ S) : is_linear_combination K V S v := by

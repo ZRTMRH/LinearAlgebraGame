@@ -18,6 +18,8 @@ if then else
 -/
 import Game.Levels.LinearIndependenceSpanWorld.Level08
 
+namespace LinearAlgebraGame
+
 World "LinearIndependenceSpanWorld"
 Level 9
 
@@ -135,6 +137,8 @@ TacticDoc ite
 NewTactic tauto left right «let» ite
 
 NewTheorem Set.subset_insert Finset.Subset.antisymm_iff Finset.sum_eq_sum_diff_singleton_add Finset.mem_union_right Finset.sum_add_distrib Set.subset_diff_singleton Set.diff_subset
+
+TheoremDoc LinearAlgebraGame.remove_redundant_span as "remove_redundant_span" in "Vector Spaces"
 
 Statement remove_redundant_span
   {S : Set V} {w : V} (hcomb : w ∈ span K V (S \ {w})) :

@@ -1,5 +1,7 @@
 import Game.Levels.LinearIndependenceSpanWorld.Level06
 
+namespace LinearAlgebraGame
+
 World "LinearIndependenceSpanWorld"
 Level 7
 
@@ -173,7 +175,7 @@ set of vectors is unique. It takes in two subsets of a linearly independent set,
 representing the linear combinations. The functions must be zero outside of the sets, and their sums
 must be equal. In this case, this prooves that functions will be equal.
 -/
-TheoremDoc linear_combination_unique as "linear_combination_unique" in "Vector Spaces"
+TheoremDoc LinearAlgebraGame.linear_combination_unique as "linear_combination_unique" in "Vector Spaces"
 
 NewTheorem Finset.coe_union Set.union_subset Finset.sum_add_distrib Finset.sum_sub_distrib Finset.subset_union_left Finset.subset_union_right Finset.sum_subset sub_smul sub_eq_zero Finset.not_mem_union
 

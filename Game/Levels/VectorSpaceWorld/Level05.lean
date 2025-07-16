@@ -1,5 +1,7 @@
 import Game.Levels.VectorSpaceWorld.Level04
 
+namespace LinearAlgebraGame
+
 World "VectorSpaceWorld"
 Level 5
 
@@ -15,7 +17,7 @@ get the next step.
 /--
 This is a proof that if a subspace contains a vector `x`, it also contains `-x`.
 -/
-TheoremDoc subspace_neg as "subspace_neg" in "Vector Spaces"
+TheoremDoc LinearAlgebraGame.subspace_neg as "subspace_neg" in "Vector Spaces"
 
 DisabledTactic simp linarith
 

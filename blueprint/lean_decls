@@ -1,4 +1,48 @@
--- This file should list all the lean declarations that are referenced in the blueprint.
--- Since the blueprint is currently empty (content.tex has no actual content), 
--- this file is empty for now.
--- Add lean declarations here as they are referenced in the blueprint content.
+LinearAlgebraGame.VectorSpace
+LinearAlgebraGame.zero_smul_v
+LinearAlgebraGame.smul_zero_v
+LinearAlgebraGame.neg_one_smul_v
+LinearAlgebraGame.isSubspace
+LinearAlgebraGame.subspace_contains_zero
+LinearAlgebraGame.subspace_neg
+LinearAlgebraGame.is_linear_combination
+LinearAlgebraGame.linear_combination_of_mem
+LinearAlgebraGame.is_linear_combination
+LinearAlgebraGame.mem_span_of_mem
+LinearAlgebraGame.span_mono
+LinearAlgebraGame.linear_independent_v
+LinearAlgebraGame.linear_independent_empty
+LinearAlgebraGame.subset_linear_independent
+LinearAlgebraGame.superset_span_full
+LinearAlgebraGame.linear_combination_unique
+LinearAlgebraGame.linear_independent_insert_of_not_in_span
+LinearAlgebraGame.is_linear_combination
+LinearAlgebraGame.linear_independent_insert_of_not_in_span
+LinearAlgebraGame.InnerProductSpace_real_v
+LinearAlgebraGame.InnerProductSpace_v
+LinearAlgebraGame.inner_self_real
+LinearAlgebraGame.inner_minus_left
+LinearAlgebraGame.conj_inj
+LinearAlgebraGame.conj_add
+LinearAlgebraGame.conj_mull
+LinearAlgebraGame.conj_zero
+LinearAlgebraGame.inner_self_re_v
+LinearAlgebraGame.inner_add_right_v
+LinearAlgebraGame.inner_zero_left_v
+LinearAlgebraGame.inner_zero_right_v
+LinearAlgebraGame.inner_smul_right_v
+LinearAlgebraGame.norm_v
+LinearAlgebraGame.orthogonal
+LinearAlgebraGame.left_smul_ortho
+LinearAlgebraGame.ortho_swap
+LinearAlgebraGame.norm_nonneg_v
+LinearAlgebraGame.norm_zero_v
+LinearAlgebraGame.sca_mul
+LinearAlgebraGame.ortho_zero
+LinearAlgebraGame.ortho_self_zero
+LinearAlgebraGame.pythagorean
+LinearAlgebraGame.norm_sq_eq
+LinearAlgebraGame.ortho_decom
+LinearAlgebraGame.le_of_sq_le_sq
+LinearAlgebraGame.Cauchy_Schwarz
+LinearAlgebraGame.triangle_v

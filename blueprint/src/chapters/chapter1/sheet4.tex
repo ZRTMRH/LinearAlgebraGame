@@ -1,0 +1,25 @@
+\section{Zero Must Belong}
+
+
+\begin{definition}
+  \label{definition : Subspace}
+  \lean{LinearAlgebraGame.isSubspace}
+  \leanok
+  A \emph{subspace} is a subset of a vector space that acts similarly to a vector space itself. It has three main properties:
+  \begin{itemize}
+    \item \textbf{Nonempty}:
+    W.Nonempty
+    \item \textbf{Closure\_Under\_Addition}:
+    $\forall (x, y \in V), x ∈ W \rightarrow y \in W \rightarrow x + y \in W$
+    \item \textbf{Closure\_Under\_Scalar\_Multiplication}:
+    $\forall (a \in K) (x \in V), x \in W \rightarrow a \bullet x \in W$
+  \end{itemize}
+\end{definition}
+
+\begin{theorem}
+  \label{theorem : subspace_contains_zero}
+  \lean{LinearAlgebraGame.subspace_contains_zero}
+  \leanok
+  \uses{definition : VectorSpace, definition : Subspace, theorem : zero_smul}
+  This is a proof that any subspace contains the zero vector:$(0 : V) \in W$
+\end{theorem}

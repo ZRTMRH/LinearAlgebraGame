@@ -1,5 +1,7 @@
 import Game.Metadata.Metadata
 
+namespace LinearAlgebraGame
+
 World "VectorSpaceWorld"
 Level 1
 
@@ -125,7 +127,7 @@ This is a proof that `0 • w = 0`, or that scaling any vector by `0` gives the 
 It is called "zero_smul_v", since you perform scalar multiplication by zero. The "v" means that it is
 scalar multiplication of a vector.
 -/
-TheoremDoc zero_smul_v as "zero_smul_v" in "Vector Spaces"
+TheoremDoc LinearAlgebraGame.zero_smul_v as "zero_smul_v" in "Vector Spaces"
 
 TheoremTab "Vector Spaces"
 
@@ -173,6 +175,14 @@ TheoremDoc symm as "symm" in "Lean"
 TheoremDoc zero_add as "zero_add" in "Groups"
 
 /--
+<<<<<<< HEAD
+=======
+`zero_add` is a proof that `0 + x = x`. This holds whether `x` is in `K` or `V`.
+-/
+TheoremDoc zero_add as "zero_add" in "Groups"
+
+/--
+>>>>>>> 90d4b8f (Updated to module definition of subspace, finished proofs of world 2, started world 2 level 1)
 `add_zero` is a proof that `x + 0 = x`. This holds whether `x` is in `K` or `V`.
 -/
 TheoremDoc add_zero as "add_zero" in "Groups"

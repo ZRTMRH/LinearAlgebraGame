@@ -1,5 +1,7 @@
 import Game.Levels.VectorSpaceWorld.Level02
 
+namespace LinearAlgebraGame
+
 World "VectorSpaceWorld"
 Level 3
 
@@ -8,7 +10,7 @@ Title "Scaling by -1"
 /--
 This is a proof that `-1 • v = -v`, that multiplying by the -1 scalar gives the inverse vector.
 -/
-TheoremDoc neg_one_smul_v as "neg_one_smul_v" in "Vector Spaces"
+TheoremDoc LinearAlgebraGame.neg_one_smul_v as "neg_one_smul_v" in "Vector Spaces"
 
 Introduction "We now understand scaling by `0` very well. We also have an axiom that scaling by `1`
 acts as the identity. The next step is to see what scaling by `-1` does. Intuitively, it should

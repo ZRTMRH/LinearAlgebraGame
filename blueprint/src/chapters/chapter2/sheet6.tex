@@ -1,0 +1,10 @@
+\section{Supersets Span The Whole Space}
+
+\begin{theorem}
+  \label{theorem : superset_span_full}
+  \lean{LinearAlgebraGame.superset_span_full}
+  \leanok
+  \uses{definition : span, theorem : span_mono}
+  If a set $A$ spans the whole space $V$, then any superset of $A$ also spans $V$: ${A B T: Set V} (hT: ∀ (x : V), x \in T)(hA : T = span K V A) (hAsubB : A \subseteq B) :
+    T = span K V B$
+\end{theorem}

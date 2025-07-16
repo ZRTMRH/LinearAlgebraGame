@@ -18,14 +18,14 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Linear Algebra Game D
+title: Linear Algebra Game
 #email: your-email@example.com
-description: by Daniel and Adam and Bill and Emily and Justin
+description: by Adam Kern and Justin Morrill and Letian Yang and Huiyu Chen
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://ZRTMRH.github.io/LinearAlgebraGame" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://AdamJasonKern.github.io/LinearAlgebraGame" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username:
-github_username: ZRTMRH
-repository: ZRTMRH/LinearAlgebraGame
+github_username: AdamJasonKern
+repository: AdamJasonKern/LinearAlgebraGame
 
 # Build settings
 remote_theme: pages-themes/cayman@v0.2.0 

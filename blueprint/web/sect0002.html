@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  MathJax = { 
+    tex: {
+		    inlineMath: [['$','$'], ['\\(','\\)']]
+	} }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<meta name="generator" content="plasTeX" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Linear Independence Span</title>
+<link rel="next" href="sect0003.html" title="Inner Product World" />
+<link rel="prev" href="sect0001.html" title="Vector Spaces" />
+<link rel="up" href="index.html" title="Linear Algebra Game" />
+<link rel="stylesheet" href="styles/theme-white.css" />
+<link rel="stylesheet" href="styles/amsthm.css" />
+<link rel="stylesheet" href="styles/showmore.css" />
+<link rel="stylesheet" href="styles/blueprint.css" />
+<link rel="stylesheet" href="styles/extra_styles.css" />
+</head>
+
+<body>
+<header>
+<svg  id="toc-toggle" class="icon icon-list-numbered "><use xlink:href="symbol-defs.svg#icon-list-numbered"></use></svg>
+<h1 id="doc_title"><a href="index.html">Linear Algebra Game</a></h1>
+</header>
+
+<div class="wrapper">
+<nav class="toc">
+<ul class="sub-toc-0">
+<li class="">
+  <a href="sect0001.html"><span class="toc_ref">1</span> <span class="toc_entry">Vector Spaces</span></a>
+  <span class="expand-toc">▶</span>
+  <ul class="sub-toc-1">
+     <li class="">
+  <a href="sect0001.html#a0000000005"><span class="toc_ref">1.1</span> <span class="toc_entry">Zero Scalar Multiplication</span></a>
+ </li>
+<li class="">
+  <a href="sect0001.html#a0000000006"><span class="toc_ref">1.2</span> <span class="toc_entry">Multiplying By The Zero Vector</span></a>
+ </li>
+<li class="">
+  <a href="sect0001.html#a0000000007"><span class="toc_ref">1.3</span> <span class="toc_entry">Scaling By Negative One</span></a>
+ </li>
+<li class="">
+  <a href="sect0001.html#a0000000008"><span class="toc_ref">1.4</span> <span class="toc_entry">Zero Must Belong</span></a>
+ </li>
+<li class="">
+  <a href="sect0001.html#a0000000009"><span class="toc_ref">1.5</span> <span class="toc_entry">Negatives In Subspace</span></a>
+ </li>
+
+  </ul>
+ </li>
+<li class=" active current">
+  <a href="sect0002.html"><span class="toc_ref">2</span> <span class="toc_entry">Linear Independence Span</span></a>
+  <span class="expand-toc">▼</span>
+  <ul class="sub-toc-1 active">
+     <li class="">
+  <a href="sect0002.html#a0000000010"><span class="toc_ref">2.1</span> <span class="toc_entry">Linear Combinations</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html#a0000000011"><span class="toc_ref">2.2</span> <span class="toc_entry">Introducing Span</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html#a0000000012"><span class="toc_ref">2.3</span> <span class="toc_entry">Monotonicity Of Span</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html#a0000000013"><span class="toc_ref">2.4</span> <span class="toc_entry">Linear Independence</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html#a0000000014"><span class="toc_ref">2.5</span> <span class="toc_entry">Linear Independence Of Subsets</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html#a0000000015"><span class="toc_ref">2.6</span> <span class="toc_entry">Supersets Span The Whole Space</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html#a0000000016"><span class="toc_ref">2.7</span> <span class="toc_entry">Uniqueness Of Linear Combinations</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html#a0000000017"><span class="toc_ref">2.8</span> <span class="toc_entry">Linear Independence Of Set With Insertion</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html#a0000000018"><span class="toc_ref">2.9</span> <span class="toc_entry">Span After Removing Elements</span></a>
+ </li>
+
+  </ul>
+ </li>
+<li class="">
+  <a href="sect0003.html"><span class="toc_ref">3</span> <span class="toc_entry">Inner Product World</span></a>
+  <span class="expand-toc">▶</span>
+  <ul class="sub-toc-1">
+     <li class="">
+  <a href="sect0003.html#a0000000019"><span class="toc_ref">3.1</span> <span class="toc_entry">Linear Combinations</span></a>
+ </li>
+
+  </ul>
+ </li>
+<li ><a href="dep_graph_document.html">Dependency graph</a></li>
+</ul>
+</nav>
+
+<div class="content">
+<div class="content-wrapper">
+
+
+<div class="main-text">
+<h1 id="a0000000003">2 Linear Independence Span</h1>
+<h1 id="a0000000010">2.1 Linear Combinations</h1>
+<div class="definition_thmwrapper theorem-style-definition" id="definition : linear_combination">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    Definition
+    </span>
+    <span class="definition_thmlabel">8</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0002.html#definition : linear_combination">#</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0001.html#definition : VectorSpace">Definition 1</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.is_linear_combination" class="lean_decl">LinearAlgebraGame.is_linear_combination</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+  <p>   \(\exists (s : (Finset\) \(V)) (f : V → K), (↑s ⊆ S) ∧ (x = Finset.sum\) \((\)fun \(v \Rightarrow f (v) \bullet v))\) </p>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="theorem : linear_combination_of_mem">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">9</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0002.html#theorem : linear_combination_of_mem">#</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0002.html#definition : linear_combination">Definition 8</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.linear_combination_of_mem" class="lean_decl">LinearAlgebraGame.linear_combination_of_mem</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>   If v \(\in \) S, then v is a linear combination of S: \((S : (Set\) \(V)) (v : V) (hv : v \in S) : is\_ linear\_ combination\) \(K\) \(V\) \(S\) \(v\) </p>
+
+  </div>
+</div>
+<h1 id="a0000000011">2.2 Introducing Span</h1>
+<div class="definition_thmwrapper theorem-style-definition" id="definition : span">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    Definition
+    </span>
+    <span class="definition_thmlabel">10</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0002.html#definition : span">#</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0002.html#definition : linear_combination">Definition 8</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.is_linear_combination" class="lean_decl">LinearAlgebraGame.is_linear_combination</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+  <p>   \(\{  x \in V | linear\_ combination\) \(K\) \(V\) \(S\) \(x \} \) </p>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="theorem : mem_span_of_mem">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">11</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0002.html#theorem : mem_span_of_mem">#</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0002.html#definition : linear_combination">Definition 8</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.mem_span_of_mem" class="lean_decl">LinearAlgebraGame.mem_span_of_mem</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>   If \(v \in S\), then \(v \in span\) \(K\) \(V\) \(S\): \({S : Set V} {v : V} (hv : v \in S) : v \in span\) \(K\) \(V\) \(S\) </p>
+
+  </div>
+</div>
+<h1 id="a0000000012">2.3 Monotonicity Of Span</h1>
+<div class="theorem_thmwrapper theorem-style-plain" id="theorem : span_mono">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">12</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0002.html#theorem : span_mono">#</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0002.html#definition : span">Definition 19</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.span_mono" class="lean_decl">LinearAlgebraGame.span_mono</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>   The span of sets is monotonic. Simply, this means that if you have \(h : A \subseteq B\), then \(span\_ mono\) K V h is a proof that span K V A \(\subseteq \) span K V B: A B : Set V (hAB : A \(\subseteq \) B) : span K V A \(\subseteq \) span K V B </p>
+
+  </div>
+</div>
+<h1 id="a0000000013">2.4 Linear Independence</h1>
+<div class="definition_thmwrapper theorem-style-definition" id="definition : linear_independent">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    Definition
+    </span>
+    <span class="definition_thmlabel">13</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0002.html#definition : linear_independent">#</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0001.html#definition : VectorSpace">Definition 1</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.linear_independent_v" class="lean_decl">LinearAlgebraGame.linear_independent_v</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+  <p>   A set of vectors \(S\) is <em>linearly independent</em> if no vector in \(S\) can be written as a linear combination of the others. Equivalently, the only solution to a linear combination of elements of \(S\) equaling zero is the trivial solution (all coefficients zero). Here we formalize this condition: \(\forall (s : Finset V) (f : V \rightarrow K), (↑s \subseteq S) \rightarrow (Finset.sum s (fun v \mapsto f v \bullet v) = 0) \rightarrow (\forall v \in s, f v = 0)\) </p>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="theorem : linear_independent_empty">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">14</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0002.html#theorem : linear_independent_empty">#</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0002.html#definition : linear_independent">Definition 13</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.linear_independent_empty" class="lean_decl">LinearAlgebraGame.linear_independent_empty</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>   The empty set is linearly independent: \(linear\_ independent K V (\emptyset : Set V)\) </p>
+
+  </div>
+</div>
+<h1 id="a0000000014">2.5 Linear Independence Of Subsets</h1>
+<div class="theorem_thmwrapper theorem-style-plain" id="theorem : subset_linear_independent">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">15</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0002.html#theorem : subset_linear_independent">#</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0002.html#definition : linear_independent">Definition 13</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.subset_linear_independent" class="lean_decl">LinearAlgebraGame.subset_linear_independent</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>   If \(A\) is a linearly independent set, and we have \(B \subseteq A\), then \(B\) is also linearly independent: \({A B : Set V} (hBsubA : B \subseteq A) (hA : linear\_ independent\_ v K V A)\) </p>
+
+  </div>
+</div>
+<h1 id="a0000000015">2.6 Supersets Span The Whole Space</h1>
+<div class="theorem_thmwrapper theorem-style-plain" id="theorem : superset_span_full">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">16</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0002.html#theorem : superset_span_full">#</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0002.html#definition : span">Definition 19</a></li>
+          
+          <li><a href="sect0002.html#theorem : span_mono">Theorem 12</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.superset_span_full" class="lean_decl">LinearAlgebraGame.superset_span_full</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>   If a set \(A\) spans the whole space \(V\), then any superset of \(A\) also spans \(V\): \({A B T: Set V} (hT: ∀ (x : V), x \in T)(hA : T = span K V A) (hAsubB : A \subseteq B) : T = span K V B\) </p>
+
+  </div>
+</div>
+<h1 id="a0000000016">2.7 Uniqueness Of Linear Combinations</h1>
+<div class="theorem_thmwrapper theorem-style-plain" id="theorem : linear_combination_unique">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">17</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0002.html#theorem : linear_combination_unique">#</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0002.html#definition : linear_independent">Definition 13</a></li>
+          
+          <li><a href="sect0001.html#theorem : zero_smul">Theorem 2</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.linear_combination_unique" class="lean_decl">LinearAlgebraGame.linear_combination_unique</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>   \({S : Set V} (hS : linear\_ independent K V S) (s t : Finset V) (hs : ↑s \subseteq S) (ht : ↑t \subseteq S) (f g : V \rightarrow K) (hf\emptyset : \forall v \notin s, f v = 0) (hg0 : ∀ v \notin t, g v = 0) (heq : Finset.sum s (fun v \Rightarrow f v \bullet v) = Finset.sum t (fun v \Rightarrow g v \bullet v)) : f = g \) </p>
+
+  </div>
+</div>
+<h1 id="a0000000017">2.8 Linear Independence Of Set With Insertion</h1>
+<div class="theorem_thmwrapper theorem-style-plain" id="theorem : linear_independent_insert_of_not_in_span">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">18</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0002.html#theorem : linear_independent_insert_of_not_in_span">#</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0002.html#definition : linear_combination">Definition 8</a></li>
+          
+          <li><a href="sect0002.html#definition : linear_independent">Definition 13</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.linear_independent_insert_of_not_in_span" class="lean_decl">LinearAlgebraGame.linear_independent_insert_of_not_in_span</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>   \({S : Set V} {v : V} (hS : linear\_ independent K V S) (hv\_ not\_ span : v \notin span K V S): linear\_ independent K V (S \cup {v})\) </p>
+
+  </div>
+</div>
+<h1 id="a0000000018">2.9 Span After Removing Elements</h1>
+<div class="definition_thmwrapper theorem-style-definition" id="definition : span">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    Definition
+    </span>
+    <span class="definition_thmlabel">19</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0002.html#definition : span">#</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0002.html#definition : linear_combination">Definition 8</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.is_linear_combination" class="lean_decl">LinearAlgebraGame.is_linear_combination</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+  <p>   \({ x \in V | linear\_ combination K V S x }\) </p>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="theorem : linear_independent_insert_of_not_in_span">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">20</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0002.html#theorem : linear_independent_insert_of_not_in_span">#</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0002.html#definition : linear_combination">Definition 8</a></li>
+          
+          <li><a href="sect0002.html#definition : linear_independent">Definition 13</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.linear_independent_insert_of_not_in_span" class="lean_decl">LinearAlgebraGame.linear_independent_insert_of_not_in_span</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>   \({S : Set V} {v : V} (hS : linear\_ independent K V S) (hv\_ not\_ span : v \notin span K V S): linear\_ independent K V (S \cup {v})\) </p>
+
+  </div>
+</div>
+
+</div> <!--main-text -->
+</div> <!-- content-wrapper -->
+</div> <!-- content -->
+</div> <!-- wrapper -->
+
+<nav class="prev_up_next">
+  <svg  id="showmore-minus" class="icon icon-eye-minus showmore"><use xlink:href="symbol-defs.svg#icon-eye-minus"></use></svg>
+
+  <svg  id="showmore-plus" class="icon icon-eye-plus showmore"><use xlink:href="symbol-defs.svg#icon-eye-plus"></use></svg>
+
+  <a href="sect0001.html" title="Vector Spaces"><svg  class="icon icon-arrow-left "><use xlink:href="symbol-defs.svg#icon-arrow-left"></use></svg>
+</a>
+  <a href="index.html" title="Linear Algebra Game"><svg  class="icon icon-arrow-up "><use xlink:href="symbol-defs.svg#icon-arrow-up"></use></svg>
+</a>
+  <a href="sect0003.html" title="Inner Product World"><svg  class="icon icon-arrow-right "><use xlink:href="symbol-defs.svg#icon-arrow-right"></use></svg>
+</a>
+</nav>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/plastex.js"></script>
+<script type="text/javascript" src="js/svgxuse.js"></script>
+<script type="text/javascript" src="js/js.cookie.min.js"></script>
+<script type="text/javascript" src="js/showmore.js"></script>
+</body>
+</html>

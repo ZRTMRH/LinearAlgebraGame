@@ -1,0 +1,26 @@
+\section{Zero Scalar Multiplication}
+
+\begin{definition}
+  \label{definition : VectorSpace}
+  \lean{LinearAlgebraGame.VectorSpace}
+  \leanok
+  We begin by defining a \emph{vector space} V over a field K as an abelian group with four key axioms:
+  \begin{itemize}
+    \item \textbf{smul\_add}:
+    $\forall a \in K,$ $x,y \in V , a \bullet (x + y) = a \bullet x + a \bullet y $
+    \item \textbf{add\_smul}:
+    $\forall a,b \in K,$ $x \in V, (a + b) \bullet x = a \bullet x + b \bullet x $
+    \item \textbf{mul\_smul}:
+    $\forall a,b \in K,$ $x \in V, (a * b) \bullet x = a \bullet (b \bullet x) $
+    \item \textbf{one\_smul}:
+    $\forall x \in V, (1 : K) \bullet x = x $
+  \end{itemize}
+\end{definition}
+
+\begin{theorem}
+  \label{theorem : zero_smul}
+  \lean{LinearAlgebraGame.zero_smul_v}
+  \leanok
+  \uses{definition : VectorSpace}
+  In any vector space V over K, the scalar 0 multiplied by any vector gives the zero vector:$\forall w \in V, (0 : K) • w = (0 : V)$
+\end{theorem}

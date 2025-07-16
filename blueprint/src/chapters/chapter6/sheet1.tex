@@ -1,0 +1,198 @@
+\section{Linear Combinations}
+
+\begin{definition}
+  \label{definition : InnerProductSpace_real}
+  \lean{LinearAlgebraGame.InnerProductSpace_real_v}
+  \leanok
+  \uses{definition : VectorSpace}
+  -- Properties are simpler for real case
+\end{definition}
+
+\begin{definition}
+  \label{definition : InnerProductSpace}
+  \lean{LinearAlgebraGame.InnerProductSpace_v}
+  \leanok
+  \uses{definition : VectorSpace}
+\end{definition}
+
+\begin{lemma}
+  \label{lemma : inner_self_real}
+  \lean{LinearAlgebraGame.inner_self_real}
+  \leanok
+  \uses{definition : InnerProductSpace}
+\end{lemma}
+
+\begin{lemma}
+  \label{lemma : inner_minus_left}
+  \lean{LinearAlgebraGame.inner_minus_left}
+  \leanok
+  \uses{definition : InnerProductSpace}
+\end{lemma}
+
+\begin{lemma}
+  \label{lemma : conj_inj}
+  \lean{LinearAlgebraGame.conj_inj}
+  \leanok
+  \uses{definition : InnerProductSpace}
+\end{lemma}
+
+\begin{lemma}
+  \label{lemma : conj_add}
+  \lean{LinearAlgebraGame.conj_add}
+  \leanok
+  \uses{definition : InnerProductSpace}
+\end{lemma}
+
+\begin{lemma}
+  \label{lemma : conj_mull}
+  \lean{LinearAlgebraGame.conj_mull}
+  \leanok
+  \uses{definition : InnerProductSpace}
+\end{lemma}
+
+\begin{lemma}
+  \label{lemma : conj_zero}
+  \lean{LinearAlgebraGame.conj_zero}
+  \leanok
+  \uses{definition : InnerProductSpace}
+\end{lemma}
+
+\begin{lemma}
+  \label{lemma : inner_self_re}
+  \lean{LinearAlgebraGame.inner_self_re_v}
+  \leanok
+  \uses{definition : InnerProductSpace}
+\end{lemma}
+
+\begin{lemma}
+  \label{lemma : inner_add_right}
+  \lean{LinearAlgebraGame.inner_add_right_v}
+  \leanok
+  \uses{definition : InnerProductSpace, lemma : conj_inj, lemma : conj_add}
+\end{lemma}
+
+\begin{lemma}
+  \label{lemma : inner_zero_left}
+  \lean{LinearAlgebraGame.inner_zero_left_v}
+  \leanok
+  \uses{definition : InnerProductSpace}
+\end{lemma}
+
+\begin{lemma}
+  \label{lemma : inner_zero_right}
+  \lean{LinearAlgebraGame.inner_zero_right_v}
+  \leanok
+  \uses{definition : InnerProductSpace, lemma : conj_zero, lemma : inner_zero_left}
+\end{lemma}
+
+\begin{lemma}
+  \label{lemma : inner_smul_right}
+  \lean{LinearAlgebraGame.inner_smul_right_v}
+  \leanok
+  \uses{definition : InnerProductSpace, lemma : conj_inj, lemma : conj_mull}
+\end{lemma}
+
+\begin{definition}
+  \label{definition : norm}
+  \lean{LinearAlgebraGame.norm_v}
+  \leanok
+  \uses{definition : InnerProductSpace}
+\end{definition}
+
+\begin{definition}
+  \label{definition : orthogonal}
+  \lean{LinearAlgebraGame.orthogonal}
+  \leanok
+  \uses{definition : InnerProductSpace}
+\end{definition}
+
+\begin{lemma}
+  \label{lemma : left_smul_ortho}
+  \lean{LinearAlgebraGame.left_smul_ortho}
+  \leanok
+  \uses{definition : InnerProductSpace, definition : orthogonal}
+\end{lemma}
+
+\begin{lemma}
+  \label{lemma : ortho_swap}
+  \lean{LinearAlgebraGame.ortho_swap}
+  \leanok
+  \uses{definition : InnerProductSpace, definition : orthogonal}
+\end{lemma}
+
+\begin{theorem}
+  \label{theorem : norm_nonneg}
+  \lean{LinearAlgebraGame.norm_nonneg_v}
+  \leanok
+  \uses{definition : InnerProductSpace, definition : norm}
+\end{theorem}
+
+\begin{theorem}
+  \label{theorem : norm_zero}
+  \lean{LinearAlgebraGame.norm_zero_v}
+  \leanok
+  \uses{definition : InnerProductSpace, definition : norm}
+\end{theorem}
+
+\begin{theorem}
+  \label{theorem : sca_mul}
+  \lean{LinearAlgebraGame.sca_mul}
+  \leanok
+  \uses{definition : InnerProductSpace, definition : norm, lemma : inner_smul_right, theorem : norm_nonneg}
+\end{theorem}
+
+\begin{theorem}
+  \label{theorem : ortho_zero}
+  \lean{LinearAlgebraGame.ortho_zero}
+  \leanok
+  \uses{definition : InnerProductSpace, lemma : inner_zero_right, definition : orthogonal}
+\end{theorem}
+
+\begin{theorem}
+  \label{theorem : ortho_self_zero}
+  \lean{LinearAlgebraGame.ortho_self_zero}
+  \leanok
+  \uses{definition : InnerProductSpace, definition : orthogonal}
+\end{theorem}
+
+\begin{theorem}
+  \label{theorem : pythagorean}
+  \lean{LinearAlgebraGame.pythagorean}
+  \leanok
+  \uses{definition : InnerProductSpace, definition : orthogonal, definition : norm, lemma : conj_zero, lemma : inner_add_right}
+\end{theorem}
+
+\begin{theorem}
+  \label{theorem : norm_sq_eq}
+  \lean{LinearAlgebraGame.norm_sq_eq}
+  \leanok
+  \uses{definition : InnerProductSpace, definition : norm}
+\end{theorem}
+
+\begin{theorem}
+  \label{theorem : ortho_decom}
+  \lean{LinearAlgebraGame.ortho_decom}
+  \leanok
+  \uses{definition : InnerProductSpace, definition : norm, definition : orthogonal, lemma : inner_self_real, lemma : inner_minus_left, lemma : inner_self_re, theorem : norm_zero, theorem : norm_sq_eq}
+\end{theorem}
+
+\begin{theorem}
+  \label{theorem : le_of_sq_le_sq}
+  \lean{LinearAlgebraGame.le_of_sq_le_sq}
+  \leanok
+  \uses{definition : InnerProductSpace}
+\end{theorem}
+
+\begin{theorem}
+  \label{theorem : Cauchy_Schwarz}
+  \lean{LinearAlgebraGame.Cauchy_Schwarz}
+  \leanok
+  \uses{definition : InnerProductSpace, lemma : inner_zero_right, lemma : left_smul_ortho, lemma : ortho_swap, theorem : norm_nonneg, theorem : norm_zero, theorem : sca_mul, theorem : pythagorean, theorem : ortho_decom, theorem : le_of_sq_le_sq}
+\end{theorem}
+
+\begin{theorem}
+  \label{theorem : triangle}
+  \lean{LinearAlgebraGame.triangle_v}
+  \leanok
+  \uses{definition : InnerProductSpace, lemma : inner_add_right, theorem : norm_nonneg, theorem : norm_sq_eq, theorem : le_of_sq_le_sq, theorem : Cauchy_Schwarz}
+\end{theorem}
