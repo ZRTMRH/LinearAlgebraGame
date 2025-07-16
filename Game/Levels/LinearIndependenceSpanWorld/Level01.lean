@@ -9,14 +9,15 @@ Title "Linear Combinations"
 
 Introduction "The first level of this world will introduce the definition of a linear combination. Let's
 say we want to express that some vector `x` is a linear combination of some set `S ⊆ V`. This means
-that there is some number of elements in `S`, that after some scalar multiplication, sums to `x`. We can
-call this set of elements summing to `x` `s`, where `s : Finset V`, and `↑s ⊆ S`. We are using `Finset`
-here, which means that `s` is a finite subset of V. This is because we can only sum in a way that makes
-sense over a finite set. If `s` was infinite, there could be multiple ways of summing it to get different
-answers, or a sum might not even exist. We also need to multiply every element of `s` by a scalar before
-summing, whether that scalar be `1`, `0`, or anything else. We can represent this by a function `f : V → K`,
-where each element of `s` gets mapped to the scalar we multiply by. Now, we are able to understand the
-definition of linear combinations:
+that there is some number of elements in `S`, that after some scalar multiplication, sums to `x`.
+Since infinite sums are difficult (and sometimes impossible) to work with, we can't simply sum over
+all of `S`. Instead, we take some smaller subset `s : Finset V`, with `↑s ⊆ S`, and sum over that.
+Note here the `↑` character. This simply takes our finite set `s`, which is a `Finset`, and treats it
+as a `Set`.
+
+Once we have the set we are summing over `s`, we need to also multiply the elements of `s` by scalars.
+We do this with a function `f : V → K`, where each element of `s` gets mapped to the scalar we multiply by.
+Now, we are able to understand the definition of linear combinations:
 
 ```
 def is_linear_combination (S : Set V) (x : V) : Prop :=
@@ -29,7 +30,7 @@ be done simply by summing over the set `{v}`, with only multiplying by the scala
 
 ### Defining functions
 In this level, we need to use the `use` tactic to specify a function `f`. A very versatile way of doing
-this is with the `fun` keyword. This allows you to wrtie the function, and for Lean to accept it as a function.
+this is with the `fun` keyword. This allows you to write the function, and for Lean to accept it as a function.
 For example, to write `f(x) = x²`, we can say `fun x => x * x`.
 
 ### The return of the `simp` tactic
