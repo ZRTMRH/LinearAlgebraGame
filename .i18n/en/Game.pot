@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: Fri Jul 11 10:47:09 2025\n"
+"POT-Creation-Date: Wed Jul  9 14:11:25 2025\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -957,14 +957,7 @@ msgid "`zero_add` is a proof that `0 + x = x`. This holds whether `x` is in `K` 
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level01
-msgid "<<<<<<< HEAD\n"
-"=======\n"
-"`zero_add` is a proof that `0 + x = x`. This holds whether `x` is in `K` or `V`."
-msgstr ""
-
-#: Game.Levels.VectorSpaceWorld.Level01
-msgid ">>>>>>> 90d4b8f (Updated to module definition of subspace, finished proofs of world 2, started world 2 level 1)\n"
-"`add_zero` is a proof that `x + 0 = x`. This holds whether `x` is in `K` or `V`."
+msgid "`add_zero` is a proof that `x + 0 = x`. This holds whether `x` is in `K` or `V`."
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level01
@@ -2547,10 +2540,6 @@ msgid "`ite` stands for `if then else`. If is used when creating functions. You 
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid ""
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level09
 msgid "We want to prove two sets are equal. What theorem can help us with this?"
 msgstr ""
 
@@ -2899,6 +2888,118 @@ msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
 msgid "You have now finished the Linear Independence and Span World!"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level01
+msgid "Norm Is Nonnegative"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level01
+msgid "The first level of this world will introduce two new ideas, the inner product and the norm.\n"
+"The inner product is a way of taking two vectors, and multiplying them to get a complex number. There\n"
+"are five main axioms that make such a function a valid inner product. First, any vector's inner product\n"
+"with itself must be a nonnegative real number. Secondly, a vector's inner product with itself must\n"
+"equal zero if and only if the vector is itself 0. The third and fourth axioms are that you can distribute\n"
+"vector addition and commute vector multiplication through the first element of the product. Lastly, the\n"
+"inner product has conjugate symmetry, that is that `⟪u, v⟫ = conj ⟪v, u⟫. Also, note that in any inner\n"
+"product space, our field `K` must be `ℂ`. This is what allows us to commute multiplication through the\n"
+"inner product.\n"
+"\n"
+"```\n"
+"-- Inner product space definition for complex vector spaces\n"
+"class InnerProductSpace_v (V : Type) [AddCommGroup V] [VectorSpace ℂ V] where\n"
+"  inner : V → V → ℂ\n"
+"  inner_self_im_zero : ∀ (v : V), (inner v v).im = 0\n"
+"  inner_self_nonneg : ∀ (v : V), 0 ≤ (inner v v).re\n"
+"  inner_self_eq_zero : ∀ (v : V), inner v v = 0 ↔ v = 0\n"
+"  inner_add_left : ∀ (u v w : V), inner (u + v) w = inner u w + inner v w\n"
+"  inner_smul_left : ∀ (a : ℂ) (v w : V), inner (a • v) w = a * inner v w\n"
+"  inner_conj_symm : ∀ (v w : V), inner v w = conj (inner w v)\n"
+"```\n"
+"\n"
+"Once we have the inner product, vector norms are easy to define. We simply let `‖v‖ = sqrt ⟪v, v⟫.re`,\n"
+"which means that the norm of `v` is the square root of it's inner product with itself (we take `.re`)\n"
+"to make sure that `⟪v, v⟫` is a real number, although we already garuntee this with the first axiom).\n"
+"Note that the norm is called `norm_v`, which is what you should use if you try to `unfold`.\n"
+"\n"
+"```\n"
+"def norm_v (v : V) : ℝ := Real.sqrt ⟪v, v⟫.re\n"
+"```\n"
+"\n"
+"## The Goal\n"
+"This first level requires you to prove that `0 ≤ ‖v‖`. Since norm is defined as the square root of a\n"
+"nonnegative real number, it is inherenetly positive."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level01
+msgid "The norm of a vector is nonnegative"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level01
+msgid "The square root of any real number is nonnegative"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level01
+msgid "`InnerProductSpace_v` is how we define inner products. An `InnerProductSpace_v` is another class, similar\n"
+"to how a `VectorSpace` is a class, and it defines a function `inner` that takes two elements of `V`\n"
+"and gives an element of `ℂ`. `inner` can also be written as `⟪v, w⟫`. An InnerProductSpace must be a\n"
+"vector space with field `K = ℂ`, and the inner product must satisfy five axioms: First, any vector's inner product\n"
+"with itself must be a nonnegative real number. Secondly, a vector's inner product with itself must\n"
+"equal zero if and only if the vector is itself 0. The third and fourth axioms are that you can distribute\n"
+"vector addition and commute vector multiplication through the first element of the product. Lastly, the\n"
+"inner product has conjugate symmetry, that is that `⟪u, v⟫ = conj ⟪v, u⟫. The Lean code defining this is\n"
+"\n"
+"```\n"
+"class InnerProductSpace_v (V : Type) [AddCommGroup V] [VectorSpace ℂ V] where\n"
+"  inner : V → V → ℂ\n"
+"\n"
+"  -- 1. Positivity: ⟨v,v⟩ is real and non-negative\n"
+"  inner_self_im_zero : ∀ (v : V), (inner v v).im = 0\n"
+"  inner_self_nonneg : ∀ (v : V), 0 ≤ (inner v v).re\n"
+"\n"
+"  -- 2. Definiteness: ⟨v,v⟩ = 0 iff v = 0\n"
+"  inner_self_eq_zero : ∀ (v : V), inner v v = 0 ↔ v = 0\n"
+"\n"
+"  -- 3. Additivity in first slot: ⟨u + v, w⟩ = ⟨u, w⟩ + ⟨v, w⟩\n"
+"  inner_add_left : ∀ (u v w : V), inner (u + v) w = inner u w + inner v w\n"
+"\n"
+"  -- 4. Homogeneity in first slot: ⟨a • v, w⟩ = a * ⟨v, w⟩\n"
+"  inner_smul_left : ∀ (a : ℂ) (v w : V), inner (a • v) w = a * inner v w\n"
+"\n"
+"  -- 5. Conjugate symmetry: ⟨v, w⟩ = conj(⟨w, v⟩)\n"
+"  inner_conj_symm : ∀ (v w : V), inner v w = conj (inner w v)\n"
+"```"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level01
+msgid "`norm_v` is how we define vector norms. It can also be written as `‖v‖`. We define the norm of a vector\n"
+"`v` as the square root of it's inner product with itself. The lean code defining this is\n"
+"\n"
+"```\n"
+"def norm_v (v : V) : ℝ := Real.sqrt ⟪v, v⟫.re\n"
+"```"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level01
+msgid "Try unfolding the new definition"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level01
+msgid "Try `unfold norm_v`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level01
+msgid "Try `exact Real.sqrt_nonneg ⟪v,v⟫.re`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld
+msgid "Inner Product World"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld
+msgid "Welcome to the Inner Product World! In this world, we introduce the idea of the inner product,\n"
+"along with orthogonality and vector norms. You will prove many familiar theorems, such as the Pythagorean\n"
+"Theorem and the Cauchy Schwarz Inequality."
 msgstr ""
 
 #: Game
