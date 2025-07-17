@@ -28,18 +28,22 @@ NewTactic symm
 Introduction "
 ## Vector Space Definition
 
-We begin by defining a vector space `V` over a field `K` as an abelian group with four key axioms:
+We define a vector space `V` over a field `K` as an abelian group with four key axioms. 
+In this game, `VectorSpace K V` is built on Mathlib's `Module K V` over a field, which already contains 
+all the vector space properties:
 
 ```
-class VectorSpace (K V : Type) [Field K] [AddCommGroup V] extends Module K V where
-  smul_add_explicit : ∀ (a : K) (x y : V), a • (x + y) = a • x + a • y := smul_add -- Distributivity over vector addition
-  add_smul_explicit : ∀ (a b : K) (x : V), (a + b) • x = a • x + b • x := add_smul -- Distributivity over scalar addition
-  mul_smul_explicit : ∀ (a b : K) (x : V), (a * b) • x = a • (b • x) := mul_smul -- Associativity of `•` and `*`
-  one_smul_explicit : ∀ (x : V), (1 : K) • x = x := one_smul -- The multiplicitave identity acts as an identity
+abbrev VectorSpace (K V : Type) [Field K] [AddCommGroup V] := Module K V
 ```
 
-This foundational structure will be used throughout all future levels. We are also using Mathlib's `Module`,
-`Field`, and `AddCommGroup` definitions, which lets us use notation such as `-a` and `a⁻¹`, and includes
+The four fundamental vector space axioms are:
+- **Distributivity over vector addition:** `a • (x + y) = a • x + a • y`
+- **Distributivity over scalar addition:** `(a + b) • x = a • x + b • x`  
+- **Associativity:** `(a * b) • x = a • (b • x)`
+- **Identity:** `1 • x = x`
+
+This educational approach lets us use standard mathematical terminology while leveraging Mathlib's robust
+`Module`, `Field`, and `AddCommGroup` definitions, which provide notation such as `-a` and `a⁻¹`, and include
 many helpful theorems that we will not need to prove ourselves.
 
 Note that to write the `•` character, type
@@ -103,23 +107,36 @@ in this world.
 "
 
 -- A vector space over field K with additive group V
-class VectorSpace (K V : Type) [Field K] [AddCommGroup V] extends Module K V where
-  smul_add_explicit : ∀ (a : K) (x y : V), a • (x + y) = a • x + a • y := smul_add
-  add_smul_explicit : ∀ (a b : K) (x : V), (a + b) • x = a • x + b • x := add_smul
-  mul_smul_explicit : ∀ (a b : K) (x : V), (a * b) • x = a • (b • x) := mul_smul
-  one_smul_explicit : ∀ (x : V), (1 : K) • x = x := one_smul
+-- This is an educational alias for Mathlib's Module over a Field
+abbrev VectorSpace (K V : Type) [Field K] [AddCommGroup V] := Module K V
+
+-- Educational theorem statements for the vector space axioms
+-- These show the explicit properties that make something a vector space
+theorem smul_add_explicit {K V : Type} [Field K] [AddCommGroup V] [VectorSpace K V] 
+  (a : K) (x y : V) : a • (x + y) = a • x + a • y := smul_add a x y
+
+theorem add_smul_explicit {K V : Type} [Field K] [AddCommGroup V] [VectorSpace K V]
+  (a b : K) (x : V) : (a + b) • x = a • x + b • x := add_smul a b x
+
+theorem mul_smul_explicit {K V : Type} [Field K] [AddCommGroup V] [VectorSpace K V]
+  (a b : K) (x : V) : (a * b) • x = a • (b • x) := mul_smul a b x
+
+theorem one_smul_explicit {K V : Type} [Field K] [AddCommGroup V] [VectorSpace K V]
+  (x : V) : (1 : K) • x = x := one_smul K V x
 /--
-A vector space is a space over a field K with an abelian group V. It has four main properties:
+A vector space is a space over a field K with an abelian group V. In this game, `VectorSpace K V` 
+is an educational alias for Mathlib's `Module K V` over a field. It has four main properties:
 - Distributivity over vector addition,
 - Distributivity over scalar addition,
 - Associativity of scalar multiplication,
 - Identity scalar acting as identity.
 
-These properties can be found in the theorems tab as "smul_add", "add_smul", "mul_smul", and "one_smul".
+These properties can be found in the theorems tab as "smul_add", "add_smul", "mul_smul", and "one_smul",
+as well as the educational versions "smul_add_explicit", "add_smul_explicit", etc.
 -/
-DefinitionDoc VectorSpace_w1 as "Vector Space"
+DefinitionDoc VectorSpace as "Vector Space"
 
-NewDefinition VectorSpace_w1
+NewDefinition VectorSpace
 
 /--
 This is a proof that `0 • w = 0`, or that scaling any vector by `0` gives the zero vector.
