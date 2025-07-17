@@ -122,7 +122,7 @@ theorem mul_smul_explicit {K V : Type} [Field K] [AddCommGroup V] [VectorSpace K
   (a b : K) (x : V) : (a * b) • x = a • (b • x) := mul_smul a b x
 
 theorem one_smul_explicit {K V : Type} [Field K] [AddCommGroup V] [VectorSpace K V]
-  (x : V) : (1 : K) • x = x := one_smul K V x
+  (x : V) : (1 : K) • x = x := one_smul K x
 /--
 A vector space is a space over a field K with an abelian group V. In this game, `VectorSpace K V` 
 is an educational alias for Mathlib's `Module K V` over a field. It has four main properties:
