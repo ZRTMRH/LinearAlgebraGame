@@ -1,5 +1,9 @@
 import Game.Levels.InnerProductWorld.LemmasAndDefs
 
+namespace LinearAlgebraGame
+
+set_option checkBinderAnnotations false
+
 World "InnerProductWorld"
 Level 1
 
@@ -131,7 +135,7 @@ DefinitionDoc norm_v as "Norm"
 
 NewDefinition InnerProductSpace_v norm_v
 
-NewTheorem Real.sqrt_nonneg InnerProductSpace_v.inner_self_im_zero InnerProductSpace_v.inner_self_nonneg InnerProductSpace_v.inner_self_eq_zero InnerProductSpace_v.inner_add_left InnerProductSpace_v.inner_smul_left InnerProductSpace_v.inner_conj_symm
+NewTheorem Real.sqrt_nonneg
 
 TheoremTab "Inner Product"
 TheoremTab "ℝ"
@@ -142,3 +146,5 @@ Statement norm_nonneg_v (v: V): 0 ≤ ‖v‖ := by
   unfold norm_v
   Hint (hidden := true) "Try `exact Real.sqrt_nonneg ⟪v,v⟫.re`"
   exact sqrt_nonneg ⟪v,v⟫.re
+
+end LinearAlgebraGame
