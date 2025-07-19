@@ -3,6 +3,8 @@ import Game.Levels.VectorSpaceWorld
 import Game.Levels.LinearIndependenceSpanWorld
 import Game.Levels.InnerProductWorld
 import Game.Levels.LinearMapsWorld
+-- Explicit import for InnerProductSpace_v class and theorem aliases  
+import Game.Levels.InnerProductWorld.LemmasAndDefs
 
 -- Here's what we'll put on the title screen
 Title "Linear Algebra Game"
@@ -53,5 +55,9 @@ CaptionLong "You should use this game as a template for your own game and add yo
 
 -- Dependency VectorSpaceWorld → LinearIndependenceSpanWorld
 
+namespace LinearAlgebraGame
+
 /-! Build the game. Show's warnings if it found a problem with your game. -/
 MakeGame
+
+end LinearAlgebraGame

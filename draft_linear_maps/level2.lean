@@ -7,7 +7,7 @@ Title "Finding a Minimal Spanning Set"
 /--
 ## Summary
 Sometimes your spanning set is too big and messy. Can you always extract a basis? Yes!
-This is called \"Basis Extraction.\"
+This is called \"Basis Extraction.\"  
 We'll use the existence of a maximal linearly independent subset.
 
 ## Key idea
@@ -21,13 +21,10 @@ The result: every spanning set contains a basis!
 Introduction "
 ## Finding a Minimal Spanning Set
 
-Sometimes you start with a big spanning set that includes lots of redundant vectors.
-Like cleaning out a closet, you want to keep only the essentials.
+Sometimes you start with a big spanning set that includes lots of redundant vectors.  
+Like cleaning out a closet, you want to keep only the essentials.  
 This level proves you can always extract a subset that is a basis.
 "
-
-open Submodule
-variable (K V : Type) [Field K] [AddCommGroup V] [Module K V]
 
 TheoremDoc exists_basis_sub_set as "Extracting a Basis" in "BasisWorld"
 

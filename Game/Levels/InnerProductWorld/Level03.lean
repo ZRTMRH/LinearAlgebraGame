@@ -1,5 +1,7 @@
 import Game.Levels.InnerProductWorld.Level02
 
+namespace LinearAlgebraGame
+
 World "InnerProductWorld"
 Level 3
 
@@ -82,7 +84,7 @@ NewTactic ring
 
 NewTheorem norm_nonneg Left.mul_nonneg sq_eq_sq mul_assoc Complex.mul_conj Complex.normSq_eq_norm_sq Complex.re_ofReal_mul
 
-variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [DecidableEq V] [InnerProductSpace_v V]
+variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [InnerProductSpace_v V]
 open Function Set VectorSpace Real InnerProductSpace_v Complex
 
 Statement sca_mul (a : ℂ) (v: V) : ‖a • v‖= ‖a‖ * ‖v‖ := by
@@ -108,3 +110,5 @@ Statement sca_mul (a : ℂ) (v: V) : ‖a • v‖= ‖a‖ * ‖v‖ := by
   rw[normSq_eq_norm_sq]
   rw[sq_sqrt (inner_self_nonneg v)]
   exact re_ofReal_mul (‖a‖ ^ 2) ⟪v,v⟫
+
+end LinearAlgebraGame

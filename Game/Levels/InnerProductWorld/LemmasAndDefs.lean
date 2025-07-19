@@ -1,7 +1,16 @@
 import Game.Levels.LinearIndependenceSpanWorld.Level09
-import Mathlib
+import Game.Levels.VectorSpaceWorld.Level05
+
+-- Minimal Mathlib imports for Lean 4.7.0 - avoiding conflicts with custom definitions
+import Mathlib.Data.Complex.Basic
+import Mathlib.Data.Real.Basic
+import Mathlib.Data.Complex.Abs
+import Mathlib.Analysis.Normed.Group.Basic
+import Mathlib.Analysis.Complex.Basic  -- For Complex.normSq_eq_norm_sq
+
 open Function Set VectorSpace
 
+namespace LinearAlgebraGame
 
 instance  [Field K] [AddCommGroup V] [VectorSpace K V] : DistribSMul K V where
   smul_add := smul_add
@@ -49,12 +58,31 @@ notation "⟪" x "," y "⟫" => InnerProductSpace_v.inner x y
 
 variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [DecidableEq V] [InnerProductSpace_v V]
 
-/--In a complex inner product space, `⟪v,v⟫` is always a real number. Here “real” means that its imaginary part is zero."-/
+-- Create theorem aliases for class fields that are used in TheoremDoc
+theorem inner_self_im_zero (v : V) : (⟪v, v⟫).im = 0 := 
+  InnerProductSpace_v.inner_self_im_zero v
+
+theorem inner_self_nonneg (v : V) : 0 ≤ (⟪v, v⟫).re := 
+  InnerProductSpace_v.inner_self_nonneg v
+
+theorem inner_self_eq_zero (v : V) : ⟪v, v⟫ = 0 ↔ v = 0 := 
+  InnerProductSpace_v.inner_self_eq_zero v
+
+theorem inner_add_left (u v w : V) : ⟪u + v, w⟫ = ⟪u, w⟫ + ⟪v, w⟫ := 
+  InnerProductSpace_v.inner_add_left u v w
+
+theorem inner_smul_left (a : ℂ) (v w : V) : ⟪a • v, w⟫ = a * ⟪v, w⟫ := 
+  InnerProductSpace_v.inner_smul_left a v w
+
+theorem inner_conj_symm (v w : V) : ⟪v, w⟫ = conj (⟪w, v⟫) := 
+  InnerProductSpace_v.inner_conj_symm v w
+
+/--In a complex inner product space, `⟪v,v⟫` is always a real number. Here "real" means that its imaginary part is zero."-/
 theorem inner_self_real : ∀ (v : V), ⟪v,v⟫ = (⟪v,v⟫.re : ℂ):= by
   intro v
   apply Complex.ext
   rfl
-  rw [InnerProductSpace_v.inner_self_im_zero v]
+  rw [inner_self_im_zero v]
   simp
 
 /-- This theorem extends linearity of the inner product in the first argument to subtraction:
@@ -103,7 +131,7 @@ theorem inner_self_re_v (V : Type) [AddCommGroup V] [VectorSpace ℂ V] [InnerPr
   ⟪v, v⟫ = ↑(⟪v, v⟫.re) := by
   apply Complex.ext
   · rfl
-  · exact InnerProductSpace_v.inner_self_im_zero v
+  · exact inner_self_im_zero v
 
 /-- Inner product is additive in the second slot -/
 theorem inner_add_right_v (u v w : V) : ⟪u, v + w⟫ = ⟪u, v⟫ + ⟪u, w⟫ := by
@@ -142,6 +170,9 @@ notation "‖" x "‖" => norm_v x
 
 def orthogonal (u v:V) : Prop := ⟪u, v⟫= (0:ℂ)
 
+-- TODO: Make ℂ compatible with norm notation by extending norm_v to work on ℂ  
+-- For now, we'll use Complex.abs (the standard complex absolute value) instead of norm_v for complex numbers
+
 /-- If `u` is orthogonal to `v`, then any scalar multiple of `u` is also orthogonal to `v`. -/
 theorem left_smul_ortho (u v : V) (c : ℂ): orthogonal u v → orthogonal (c• u) v := by
   intro h
@@ -156,3 +187,10 @@ theorem ortho_swap : ∀ (u v :V), orthogonal u v → orthogonal v u := by
   dsimp [orthogonal] at *
   rw [InnerProductSpace_v.inner_conj_symm,h]
   simp
+
+/-- The norm of any vector is non-negative. -/
+theorem norm_nonneg_v (v: V): 0≤ ‖v‖ := by
+  unfold norm_v
+  exact Real.sqrt_nonneg ⟪v,v⟫.re
+
+end LinearAlgebraGame

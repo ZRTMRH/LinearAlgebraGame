@@ -1,5 +1,7 @@
 import Game.Levels.InnerProductWorld.Level01
 
+namespace LinearAlgebraGame
+
 World "InnerProductWorld"
 Level 2
 
@@ -43,7 +45,7 @@ TheoremDoc Complex.ext as "Complex.ext" in "ℂ"
 /--
 `norm_zero_v` is a proof that `‖v‖ = 0 ↔ v = 0`, or that the only vector with norm zero is the zero vector.
 -/
-TheoremDoc norm_zero_v as "norm_zero_v" in "Inner Product"
+TheoremDoc LinearAlgebraGame.norm_zero_v as "norm_zero_v" in "Inner Product"
 
 NewTactic apply_fun
 
@@ -91,3 +93,5 @@ Statement norm_zero_v (v: V): norm_v v = 0 ↔ v = 0 := by
   simp
   Hint (hidden := true) "Try `rfl`"
   rfl
+
+end LinearAlgebraGame

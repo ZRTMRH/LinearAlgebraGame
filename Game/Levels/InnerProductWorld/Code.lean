@@ -1,5 +1,9 @@
 import Game.Levels.LinearIndependenceSpanWorld.Level09
-import Mathlib
+
+-- Minimal Mathlib imports for Lean 4.7.0 - avoiding conflicts with custom definitions
+import Mathlib.Data.Complex.Basic
+import Mathlib.Data.Real.Basic
+
 open Function Set VectorSpace
 
 
@@ -53,6 +57,24 @@ notation "⟪" x "," y "⟫" => InnerProductSpace_v.inner x y
 
 variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [DecidableEq V] [InnerProductSpace_v V]
 
+-- Create theorem aliases for class fields that are used in TheoremDoc
+theorem inner_self_im_zero (v : V) : (⟪v, v⟫).im = 0 := 
+  InnerProductSpace_v.inner_self_im_zero v
+
+theorem inner_self_nonneg (v : V) : 0 ≤ (⟪v, v⟫).re := 
+  InnerProductSpace_v.inner_self_nonneg v
+
+theorem inner_self_eq_zero (v : V) : ⟪v, v⟫ = 0 ↔ v = 0 := 
+  InnerProductSpace_v.inner_self_eq_zero v
+
+theorem inner_add_left (u v w : V) : ⟪u + v, w⟫ = ⟪u, w⟫ + ⟪v, w⟫ := 
+  InnerProductSpace_v.inner_add_left u v w
+
+theorem inner_smul_left (a : ℂ) (v w : V) : ⟪a • v, w⟫ = a * ⟪v, w⟫ := 
+  InnerProductSpace_v.inner_smul_left a v w
+
+theorem inner_conj_symm (v w : V) : ⟪v, w⟫ = conj (⟪w, v⟫) := 
+  InnerProductSpace_v.inner_conj_symm v w
 
 --Level 5
 --Title "Inner Product of a Vector with Itself is Real"
@@ -63,7 +85,7 @@ theorem inner_self_real : ∀ (v : V), ⟪v,v⟫ = (⟪v,v⟫.re : ℂ):= by
   intro v
   apply Complex.ext
   rfl
-  rw [InnerProductSpace_v.inner_self_im_zero v]
+  rw [inner_self_im_zero v]
   simp
 
 --Level 6
@@ -136,7 +158,7 @@ theorem inner_self_re_v (V : Type) [AddCommGroup V] [VectorSpace ℂ V] [InnerPr
   ⟪v, v⟫ = ↑(⟪v, v⟫.re) := by
   apply Complex.ext
   · rfl
-  · exact InnerProductSpace_v.inner_self_im_zero v
+  · exact inner_self_im_zero v
 
 --Level 11
 --Title "Inner Product Distributes over Subtraction (Second Argument)"
@@ -246,7 +268,7 @@ theorem norm_zero_v (v: V): norm_v v = 0 ↔ v = 0 := by
   unfold norm_v at h
   rw[this] at h
   simp at h
-  have h1 : ⟪v,v⟫.im =0 := by exact InnerProductSpace_v.inner_self_im_zero v
+  have h1 : ⟪v,v⟫.im =0 := by exact inner_self_im_zero v
   have h2 : ⟪v,v⟫ =0 := by exact Eq.symm (Complex.ext (id (Eq.symm h)) (id (Eq.symm h1)))
   exact (InnerProductSpace_v.inner_self_eq_zero v).mp h2
   intro h

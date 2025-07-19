@@ -177,7 +177,7 @@ must be equal. In this case, this prooves that functions will be equal.
 -/
 TheoremDoc LinearAlgebraGame.linear_combination_unique as "linear_combination_unique" in "Vector Spaces"
 
-NewTheorem Finset.coe_union Set.union_subset Finset.sum_add_distrib Finset.sum_sub_distrib Finset.subset_union_left Finset.subset_union_right Finset.sum_subset sub_smul sub_eq_zero Finset.not_mem_union
+NewTheorem Finset.coe_union Finset.sum_add_distrib Finset.sum_sub_distrib Finset.sum_subset sub_smul sub_eq_zero Finset.not_mem_union
 
 NewTactic by_cases funext specialize
 

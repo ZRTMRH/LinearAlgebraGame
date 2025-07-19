@@ -39,5 +39,8 @@ Statement subspace_neg {W : Set V} (hW : isSubspace (K := K) (V := V) W) : ∀ (
   Hint (hidden := true) "Try `exact {hx}`"
   exact hx
 
+-- Add set theory theorems needed by LinearIndependenceSpanWorld
+NewTheorem Set.union_subset Finset.subset_union_left Finset.subset_union_right
+
 Conclusion "You have now completed Vector Space World! The theorems proven here will be very helpful
 in future worlds. You can now move on to World 2: Linear Independence and Span World!"

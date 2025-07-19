@@ -2,8 +2,6 @@ import Game.Levels.InnerProductWorld.LemmasAndDefs
 
 namespace LinearAlgebraGame
 
-set_option checkBinderAnnotations false
-
 World "InnerProductWorld"
 Level 1
 
@@ -48,10 +46,6 @@ nonnegative real number, it is inherenetly positive.
 variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [DecidableEq V] [InnerProductSpace_v V]
 open Function Set VectorSpace Real
 
-/--
-The norm of a vector is nonnegative
--/
-TheoremDoc norm_nonneg_v as "norm_nonneg_v" in "Inner Product"
 
 /--
 The square root of any real number is nonnegative
@@ -61,34 +55,34 @@ TheoremDoc Real.sqrt_nonneg as "sqrt_nonneg" in "ℝ"
 /--
 For any vector `v`, the imaginary part of `⟪v, v⟫` is zero. Equivalently, `⟪v, v⟫` is real.
 -/
-TheoremDoc InnerProductSpace_v.inner_self_im_zero as "inner_self_im_zero" in "Inner Product"
+TheoremDoc LinearAlgebraGame.inner_self_im_zero as "inner_self_im_zero" in "Inner Product"
 
 /--
 For any vector `v` the real part of `⟪v, v⟫` is nonnegative.
 -/
-TheoremDoc InnerProductSpace_v.inner_self_nonneg as "inner_self_nonneg" in "Inner Product"
+TheoremDoc LinearAlgebraGame.inner_self_nonneg as "inner_self_nonneg" in "Inner Product"
 
 /--
 For any vector `v`, `⟪v, v⟫ = 0` if and only if `v` is the zero vector
 -/
-TheoremDoc InnerProductSpace_v.inner_self_eq_zero as "inner_self_eq_zero" in "Inner Product"
+TheoremDoc LinearAlgebraGame.inner_self_eq_zero as "inner_self_eq_zero" in "Inner Product"
 
 /--
 For any vectors `u, v, w`, ⟪(u + v), w⟫ = ⟪u, w⟫ + ⟪v, w⟫. That is, inner products distribute over addition
 -/
-TheoremDoc InnerProductSpace_v.inner_add_left as "inner_add_left" in "Inner Product"
+TheoremDoc LinearAlgebraGame.inner_add_left as "inner_add_left" in "Inner Product"
 
 /--
 For any vectors `v, w`, and a scalar `a`, ⟪a • v, w⟫ = a * ⟪v, w⟫. This means that scalar multiplication
 commutes with the inner product.
 -/
-TheoremDoc InnerProductSpace_v.inner_smul_left as "inner_smul_left" in "Inner Product"
+TheoremDoc LinearAlgebraGame.inner_smul_left as "inner_smul_left" in "Inner Product"
 
 /--
 For any vectors `v, w`, `⟪v, w⟫ = conj ⟪w, v⟫`. This means that the inner product commutes if you take
 the conjugate.
 -/
-TheoremDoc InnerProductSpace_v.inner_conj_symm as "inner_conj_symm" in "Inner Product"
+TheoremDoc LinearAlgebraGame.inner_conj_symm as "inner_conj_symm" in "Inner Product"
 
 /--
 `InnerProductSpace_v` is how we define inner products. An `InnerProductSpace_v` is another class, similar
@@ -139,6 +133,9 @@ NewTheorem Real.sqrt_nonneg
 
 TheoremTab "Inner Product"
 TheoremTab "ℝ"
+
+/-- The norm of any vector is non-negative. -/
+TheoremDoc LinearAlgebraGame.norm_nonneg_v as "norm_nonneg_v" in "Inner Product"
 
 Statement norm_nonneg_v (v: V): 0 ≤ ‖v‖ := by
   Hint "Try unfolding the new definition"

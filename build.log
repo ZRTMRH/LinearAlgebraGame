@@ -1,0 +1,287 @@
+[1022/1039] Building Mathlib.Data.Matrix.Basic
+[1099/1135] Building Mathlib.LinearAlgebra.Finsupp
+[1100/1135] Building Mathlib.LinearAlgebra.TensorProduct.Basic
+[1127/1176] Building Mathlib.LinearAlgebra.Multilinear.Basic
+[1137/1222] Building Mathlib.LinearAlgebra.LinearPMap
+[1156/1288] Building Mathlib.Algebra.TrivSqZeroExt
+[1284/1496] Building Mathlib.Topology.Order.Basic
+[1320/1521] Building Mathlib.Topology.UniformSpace.AbstractCompletion
+[1320/1521] Building Mathlib.Topology.Algebra.Monoid
+[1321/1521] Building Mathlib.Topology.EMetricSpace.Basic
+[1321/1523] Building Mathlib.Topology.UniformSpace.UniformConvergenceTopology
+[1367/1613] Building Mathlib.Topology.UniformSpace.Completion
+[1368/1613] Building Mathlib.Topology.UniformSpace.Equicontinuity
+[1370/1613] Building Mathlib.Topology.Algebra.GroupWithZero
+[1370/1613] Building Mathlib.Topology.Algebra.InfiniteSum.Basic
+[1370/1613] Building Mathlib.Topology.Algebra.Group.Basic
+[1371/1613] Building Mathlib.Topology.UniformSpace.Compact
+[1374/1613] Building Mathlib.Topology.EMetricSpace.Lipschitz
+[1377/1613] Building Mathlib.Data.Matrix.Invertible
+[1377/1613] Building Mathlib.Data.Matrix.PEquiv
+[1377/1613] Building Mathlib.Data.Matrix.RowCol
+[1377/1613] Building Mathlib.Data.Matrix.Block
+[1377/1613] Building Mathlib.Data.Matrix.CharP
+[1380/1613] Building Mathlib.RingTheory.Ideal.Basic
+[1380/1613] Building Mathlib.Algebra.MonoidAlgebra.Basic
+[1380/1613] Building Mathlib.LinearAlgebra.LinearIndependent
+[1381/1613] Building Mathlib.Data.Matrix.Notation
+[1383/1613] Building Mathlib.Topology.Algebra.Ring.Basic
+[1383/1613] Building Mathlib.Topology.Algebra.UniformGroup
+[1385/1613] Building Mathlib.Topology.Algebra.Field
+[1387/1613] Building Mathlib.Algebra.DualNumber
+[1388/1613] Building Mathlib.Algebra.Module.Submodule.Pointwise
+[1388/1613] Building Mathlib.RingTheory.Ideal.Quotient
+[1388/1613] Building Mathlib.RingTheory.Localization.Basic
+[1390/1613] Building Mathlib.Topology.Order.T5
+[1390/1613] Building Mathlib.Topology.Order.MonotoneConvergence
+[1390/1613] Building Mathlib.Topology.Algebra.Order.Group
+[1390/1613] Building Mathlib.Topology.Algebra.Order.Archimedean
+[1390/1613] Building Mathlib.Topology.Order.MonotoneContinuity
+[1390/1613] Building Mathlib.Topology.Order.IntermediateValue
+[1391/1613] Building Mathlib.Topology.Algebra.Order.LiminfLimsup
+[1392/1613] Building Mathlib.LinearAlgebra.Matrix.Trace
+[1394/1613] Building Mathlib.Topology.Algebra.Order.Field
+[1397/1613] Building Mathlib.Data.Matrix.Reflection
+[1398/1613] Building Mathlib.Data.Matrix.Hadamard
+[1398/1613] Building Mathlib.Data.Matrix.Basis
+[1401/1613] Building Mathlib.Data.Matrix.Auto
+[1403/1613] Building Mathlib.Topology.Algebra.UniformMulAction
+[1403/1613] Building Mathlib.Topology.Algebra.InfiniteSum.Group
+[1403/1613] Building Mathlib.Topology.Algebra.Module.Basic
+[1406/1613] Building Mathlib.Data.Matrix.DualNumber
+[1410/1613] Building Mathlib.Topology.Algebra.Order.Compact
+[1412/1613] Building Mathlib.Topology.Algebra.InfiniteSum.NatInt
+[1412/1613] Building Mathlib.Topology.Algebra.InfiniteSum.Constructions
+[1413/1613] Building Mathlib.LinearAlgebra.TensorProduct.Tower
+[1413/1613] Building Mathlib.Algebra.Algebra.Bilinear
+[1414/1613] Building Mathlib.Topology.MetricSpace.PseudoMetric
+[1415/1613] Building Mathlib.Topology.Algebra.InfiniteSum.Ring
+[1416/1613] Building Mathlib.LinearAlgebra.DFinsupp
+[1416/1613] Building Mathlib.LinearAlgebra.Basis
+[1416/1613] Building Mathlib.LinearAlgebra.Dimension.Basic
+[1417/1613] Building Mathlib.Algebra.Algebra.Operations
+[1418/1613] Building Mathlib.Topology.Algebra.InfiniteSum.Order
+[1421/1613] Building Mathlib.RingTheory.Localization.FractionRing
+[1422/1613] Building Mathlib.Algebra.MonoidAlgebra.Division
+[1422/1613] Building Mathlib.Algebra.MonoidAlgebra.Support
+[1422/1613] Building Mathlib.Data.Polynomial.Basic
+[1423/1613] Building Mathlib.LinearAlgebra.Dimension.Finrank
+[1424/1613] Building Mathlib.Algebra.MonoidAlgebra.Degree
+[1428/1613] Building Mathlib.Topology.MetricSpace.Cauchy
+[1428/1613] Building Mathlib.Topology.MetricSpace.ProperSpace
+[1430/1613] Building Mathlib.Topology.MetricSpace.Basic
+[1431/1613] Building Mathlib.Topology.MetricSpace.Bounded
+[1433/1613] Building Mathlib.Topology.Metrizable.Basic
+[1435/1613] Building Mathlib.Topology.Metrizable.Uniformity
+[1436/1613] Building Mathlib.Topology.MetricSpace.Lipschitz
+[1436/1613] Building Mathlib.Topology.MetricSpace.Antilipschitz
+[1437/1613] Building Mathlib.Topology.MetricSpace.Isometry
+[1438/1613] Building Mathlib.Topology.Instances.Discrete
+[1439/1613] Building Mathlib.Topology.MetricSpace.Algebra
+[1440/1613] Building Mathlib.Data.Polynomial.Monomial
+[1440/1613] Building Mathlib.Data.Polynomial.Induction
+[1440/1613] Building Mathlib.Data.Polynomial.Coeff
+[1441/1613] Building Mathlib.Topology.Instances.Int
+[1442/1613] Building Mathlib.Topology.MetricSpace.IsometricSMul
+[1444/1613] Building Mathlib.Topology.Instances.Nat
+[1448/1613] Building Mathlib.Data.Polynomial.Degree.Definitions
+[1448/1613] Building Mathlib.Data.Nat.Choose.Vandermonde
+[1449/1613] Building Mathlib.RingTheory.AlgebraTower
+[1449/1613] Building Mathlib.LinearAlgebra.Multilinear.Basis
+[1449/1613] Building Mathlib.Algebra.DirectSum.Module
+[1449/1613] Building Mathlib.LinearAlgebra.StdBasis
+[1449/1613] Building Mathlib.RingTheory.Ideal.Operations
+[1451/1613] Building Mathlib.LinearAlgebra.Alternating.Basic
+[1454/1613] Building Mathlib.LinearAlgebra.FinsuppVectorSpace
+[1454/1613] Building Mathlib.LinearAlgebra.Matrix.DotProduct
+[1456/1613] Building Mathlib.LinearAlgebra.DirectSum.TensorProduct
+[1456/1613] Building Mathlib.Algebra.DirectSum.Finsupp
+[1457/1613] Building Mathlib.Data.Polynomial.Degree.TrailingDegree
+[1457/1613] Building Mathlib.Data.Polynomial.Eval
+[1462/1613] Building Mathlib.LinearAlgebra.DirectSum.Finsupp
+[1465/1613] Building Mathlib.LinearAlgebra.TensorProduct.Basis
+[1466/1613] Building Mathlib.Data.Polynomial.Derivative
+[1466/1613] Building Mathlib.Data.Polynomial.Degree.Lemmas
+[1467/1613] Building Mathlib.LinearAlgebra.FreeModule.Basic
+[1468/1613] Building Mathlib.LinearAlgebra.Basis.VectorSpace
+[1469/1613] Building Mathlib.Data.Polynomial.EraseLead
+[1469/1613] Building Mathlib.Tactic.ComputeDegree
+[1470/1613] Building Mathlib.RingTheory.Coprime.Ideal
+[1470/1613] Building Mathlib.Algebra.Algebra.Subalgebra.Basic
+[1470/1613] Building Mathlib.Data.ZMod.Basic
+[1471/1613] Building Mathlib.Algebra.Group.UniqueProds
+[1472/1613] Building Mathlib.Data.Polynomial.Inductions
+[1472/1613] Building Mathlib.Data.Polynomial.Reverse
+[1474/1613] Building Mathlib.Data.Polynomial.CancelLeads
+[1477/1613] Building Mathlib.Data.Polynomial.Monic
+[1479/1613] Building Mathlib.Algebra.MonoidAlgebra.NoZeroDivisors
+[1481/1613] Building Mathlib.Data.ZMod.IntUnitsPower
+[1482/1613] Building Mathlib.Algebra.Polynomial.BigOperators
+[1482/1613] Building Mathlib.Data.Polynomial.Div
+[1483/1613] Building Mathlib.Algebra.GroupPower.NegOnePow
+[1484/1613] Building Mathlib.Algebra.Periodic
+[1485/1613] Building Mathlib.RingTheory.Finiteness
+[1485/1613] Building Mathlib.RingTheory.Ideal.QuotientOperations
+[1485/1613] Building Mathlib.Algebra.Algebra.Subalgebra.Tower
+[1486/1613] Building Mathlib.LinearAlgebra.Matrix.ToLin
+[1486/1613] Building Mathlib.RingTheory.Adjoin.Basic
+[1488/1613] Building Mathlib.Topology.Instances.Real
+[1488/1613] Building Mathlib.Data.Nat.Periodic
+[1491/1613] Building Mathlib.Algebra.FreeAlgebra
+[1491/1613] Building Mathlib.Data.MvPolynomial.Basic
+[1491/1613] Building Mathlib.Topology.Algebra.Algebra
+[1491/1613] Building Mathlib.Data.Polynomial.AlgebraMap
+[1492/1613] Building Mathlib.Topology.Instances.Rat
+[1492/1613] Building Mathlib.Topology.Algebra.InfiniteSum.Real
+[1492/1613] Building Mathlib.Topology.Instances.NNReal
+[1495/1613] Building Mathlib.Analysis.Normed.Group.Basic
+[1496/1613] Building Mathlib.Topology.Instances.ENNReal
+[1496/1613] Building Mathlib.Data.Real.Sqrt
+[1497/1613] Building Mathlib.Algebra.CharP.Algebra
+[1498/1613] Building Mathlib.Data.Polynomial.RingDivision
+[1499/1613] Building Mathlib.Algebra.CharP.ExpChar
+[1501/1613] Building Mathlib.LinearAlgebra.FreeModule.Finite.Basic
+[1502/1613] Building Mathlib.Data.Complex.Abs
+[1504/1613] Building Mathlib.Algebra.CharP.Two
+[1507/1613] Building Mathlib.Data.MvPolynomial.Rename
+[1508/1613] Building Mathlib.Analysis.SpecificLimits.Basic
+[1509/1613] Building Mathlib.RingTheory.Nilpotent
+[1510/1613] Building Mathlib.RingTheory.Polynomial.Pochhammer
+[1511/1613] Building Mathlib.Data.MvPolynomial.Degrees
+[1513/1613] Building Mathlib.Data.Nat.Factorial.Cast
+[1514/1613] Building Mathlib.RingTheory.Noetherian
+[1515/1613] Building Mathlib.Data.Nat.Choose.Cast
+[1516/1613] Building Mathlib.Data.Real.Cardinality
+[1517/1613] Building Mathlib.Data.MvPolynomial.Equiv
+[1517/1613] Building Mathlib.Data.MvPolynomial.Variables
+[1520/1613] Building Mathlib.Data.MvPolynomial.CommRing
+[1523/1613] Building Mathlib.RingTheory.UniqueFactorizationDomain
+[1524/1613] Building Mathlib.Algebra.Squarefree.Basic
+[1524/1613] Building Mathlib.RingTheory.PrincipalIdealDomain
+[1526/1613] Building Mathlib.RingTheory.EuclideanDomain
+[1526/1613] Building Mathlib.RingTheory.Int.Basic
+[1526/1613] Building Mathlib.LinearAlgebra.InvariantBasisNumber
+[1527/1613] Building Mathlib.Data.Polynomial.FieldDivision
+[1528/1613] Building Mathlib.GroupTheory.Perm.Cycle.Type
+[1528/1613] Building Mathlib.Data.ZMod.Quotient
+[1528/1613] Building Mathlib.NumberTheory.Padics.PadicVal
+[1529/1613] Building Mathlib.LinearAlgebra.Dimension.StrongRankCondition
+[1531/1613] Building Mathlib.Data.Nat.Factorization.Basic
+[1532/1613] Building Mathlib.GroupTheory.Perm.Fin
+[1533/1613] Building Mathlib.RingTheory.Polynomial.Content
+[1534/1613] Building Mathlib.LinearAlgebra.Dimension.Free
+[1535/1613] Building Mathlib.RingTheory.Polynomial.Basic
+[1537/1613] Building Mathlib.LinearAlgebra.Matrix.Determinant
+[1538/1613] Building Mathlib.Data.Nat.Factorization.PrimePow
+[1538/1613] Building Mathlib.Data.Nat.Factorization.Root
+[1538/1613] Building Mathlib.Data.Nat.Choose.Factorization
+[1538/1613] Building Mathlib.Data.Nat.Totient
+[1538/1613] Building Mathlib.GroupTheory.Exponent
+[1540/1613] Building Mathlib.Data.Nat.Squarefree
+[1543/1613] Building Mathlib.GroupTheory.SpecificGroups.Cyclic
+[1546/1613] Building Mathlib.GroupTheory.PGroup
+[1547/1613] Building Mathlib.LinearAlgebra.Matrix.MvPolynomial
+[1547/1613] Building Mathlib.LinearAlgebra.Matrix.Reindex
+[1547/1613] Building Mathlib.LinearAlgebra.Matrix.Polynomial
+[1549/1613] Building Mathlib.LinearAlgebra.Matrix.Transvection
+[1549/1613] Building Mathlib.LinearAlgebra.Matrix.Basis
+[1550/1613] Building Mathlib.LinearAlgebra.Matrix.Adjugate
+[1551/1613] Building Mathlib.GroupTheory.Torsion
+[1553/1613] Building Mathlib.Algebra.Module.Torsion
+[1555/1613] Building Mathlib.LinearAlgebra.Matrix.Nondegenerate
+[1557/1613] Building Mathlib.LinearAlgebra.Dimension.Constructions
+[1557/1613] Building Mathlib.LinearAlgebra.Dimension.Finite
+[1559/1613] Building Mathlib.FieldTheory.Finiteness
+[1559/1613] Building Mathlib.LinearAlgebra.Dimension.DivisionRing
+[1561/1613] Building Mathlib.LinearAlgebra.FiniteDimensional
+[1561/1613] Building Mathlib.LinearAlgebra.Dimension.LinearMap
+[1562/1613] Building Mathlib.LinearAlgebra.Matrix.Diagonal
+[1564/1613] Building Mathlib.RingTheory.TensorProduct.Basic
+[1564/1613] Building Mathlib.LinearAlgebra.Matrix.NonsingularInverse
+[1565/1613] Building Mathlib.LinearAlgebra.Determinant
+[1565/1613] Building Mathlib.LinearAlgebra.Matrix.Block
+[1565/1613] Building Mathlib.Data.Matrix.ColumnRowPartitioned
+[1567/1613] Building Mathlib.LinearAlgebra.Vandermonde
+[1568/1613] Building Mathlib.Data.Nat.Factorial.SuperFactorial
+[1570/1613] Building Mathlib.Data.Matrix.Rank
+[1572/1613] Building Mathlib.Data.Matrix.Kronecker
+[1573/1613] Building Game.Data
+[1574/1613] Building Game.Metadata.Metadata
+[1575/1613] Building Game.Levels.TutorialWorld.Level06
+[1575/1613] Building Game.Levels.TutorialWorld.Level03
+[1575/1613] Building Game.Levels.TutorialWorld.Level02
+[1575/1613] Building Game.Levels.TutorialWorld.Level07
+[1575/1613] Building Game.Levels.VectorSpaceWorld.Level01
+[1575/1613] Building Game.Levels.TutorialWorld.Level09
+[1575/1613] Building Game.Levels.TutorialWorld.Level10
+[1575/1613] Building Game.Levels.TutorialWorld.Level08
+[1575/1613] Building Game.Levels.TutorialWorld.Level05
+[1575/1613] Building Game.Levels.TutorialWorld.Level04
+[1575/1613] Building Game.Levels.TutorialWorld.Level01
+stdout:
+./././Game/Levels/TutorialWorld/Level05.lean:93:10: warning: unused variable `h1` [linter.unusedVariables]
+./././Game/Levels/TutorialWorld/Level05.lean:94:10: warning: unused variable `h2` [linter.unusedVariables]
+[1585/1613] Building Game.Levels.TutorialWorld
+stdout:
+Missing Tactic Documentation. Using existing docstring. Add simp
+Add `TacticDoc simp` somewhere above this statement.
+Missing Tactic Documentation. Using existing docstring. Add linarith
+Add `TacticDoc linarith` somewhere above this statement.
+[1586/1613] Building Game.Levels.VectorSpaceWorld.Level02
+[1588/1613] Building Game.Levels.VectorSpaceWorld.Level03
+[1589/1613] Building Game.Levels.VectorSpaceWorld.Level04
+[1590/1613] Building Game.Levels.VectorSpaceWorld.Level05
+[1591/1613] Building Game.Levels.LinearIndependenceSpanWorld.Level01
+[1591/1613] Building Game.Levels.VectorSpaceWorld
+[1593/1613] Building Game.Levels.LinearIndependenceSpanWorld.Level02
+[1594/1613] Building Game.Levels.LinearIndependenceSpanWorld.Level03
+[1595/1613] Building Game.Levels.LinearIndependenceSpanWorld.Level04
+[1596/1613] Building Game.Levels.LinearIndependenceSpanWorld.Level05
+[1597/1613] Building Game.Levels.LinearIndependenceSpanWorld.Level06
+[1598/1613] Building Game.Levels.LinearIndependenceSpanWorld.Level07
+[1599/1613] Building Game.Levels.LinearIndependenceSpanWorld.Level08
+[1600/1613] Building Game.Levels.LinearIndependenceSpanWorld.Level09
+[1600/1613] Building Game.Levels.LinearIndependenceSpanWorld
+[1600/1613] Building Game.Levels.LinearMapsWorld.Level01
+stdout:
+Missing Lemma Documentation: LinearAlgebraGame.basis_iff_independent_and_spanning, used default (e.g. provided docstring) instead. If you want to write a different description, add `LemmaDoc LinearAlgebraGame.basis_iff_independent_and_spanning` somewhere above this statement.
+[1602/1613] Building Game.Levels.LinearMapsWorld.Level02
+stdout:
+./././Game/Levels/LinearMapsWorld/Level02.lean:33:0: warning: Add a text to this command with `/-- yada yada -/ MyCommand`!
+./././Game/Levels/LinearMapsWorld/Level02.lean:38:10: warning: declaration uses 'sorry'
+Missing Lemma Documentation: LinearAlgebraGame.exists_basis_sub_set, used default (e.g. provided docstring) instead. If you want to write a different description, add `LemmaDoc LinearAlgebraGame.exists_basis_sub_set` somewhere above this statement.
+[1603/1613] Building Game.Levels.LinearMapsWorld.Level03
+stdout:
+./././Game/Levels/LinearMapsWorld/Level03.lean:22:0: warning: Add a text to this command with `/-- yada yada -/ MyCommand`!
+./././Game/Levels/LinearMapsWorld/Level03.lean:29:10: warning: declaration uses 'sorry'
+Missing Lemma Documentation: LinearAlgebraGame.dim_zero_space, used default (e.g. provided docstring) instead. If you want to write a different description, add `LemmaDoc LinearAlgebraGame.dim_zero_space` somewhere above this statement.
+[1604/1613] Building Game.Levels.LinearMapsWorld
+stdout:
+./././Game/Levels/LinearIndependenceSpanWorld/Level09.lean:141:0: warning: Add a text to this command with `/-- yada yada -/ MyCommand`!
+[1606/1613] Building Game.Levels.InnerProductWorld.LemmasAndDefs
+[1607/1613] Building Game.Levels.InnerProductWorld.Level01
+stdout:
+./././Game/Levels/InnerProductWorld/Level01.lean:142:10: warning: Environment already contains LinearAlgebraGame.norm_nonneg_v! Only the existing statement will be available in later levels:
+
+∀ {V : Type} [inst : AddCommGroup V] [inst_1 : VectorSpace ℂ V] [inst_2 : InnerProductSpace_v V] (v : V), 0 ≤ ‖v‖
+[1608/1613] Building Game.Levels.InnerProductWorld.Level02
+stdout:
+./././Game/Levels/InnerProductWorld/Level02.lean:61:10: warning: Missing Lemma Documentation: LinearAlgebraGame.norm_zero_v
+Add `LemmaDoc LinearAlgebraGame.norm_zero_v` somewhere above this statement.
+[1609/1613] Building Game.Levels.InnerProductWorld.Level03
+stdout:
+./././Game/Levels/InnerProductWorld/Level03.lean:87:84: warning: Missing Leerror: > LEAN_PATH=./.lake/packages/std/.lake/build/lib:./.lake/packages/Cli/.lake/build/lib:./.lake/packages/i18n/.lake/build/lib:./.lake/packages/importGraph/.lake/build/lib:./.lake/packages/GameServer/server/.lake/build/lib:./.lake/packages/Qq/.lake/build/lib:./.lake/packages/aesop/.lake/build/lib:./.lake/packages/proofwidgets/.lake/build/lib:./.lake/packages/mathlib/.lake/build/lib:./.lake/packages/checkdecls/.lake/build/lib:./.lake/packages/CMark/.lake/build/lib:./.lake/packages/UnicodeBasic/.lake/build/lib:./.lake/packages/leanInk/.lake/build/lib:./.lake/packages/doc-gen4/.lake/build/lib:./.lake/build/lib LD_LIBRARY_PATH=./.lake/packages/i18n/.lake/build/lib:./.lake/build/lib:./.lake/packages/i18n/.lake/build/lib /home/zrtmrh/.elan/toolchains/leanprover--lean4---v4.7.0/bin/lean -Dtactic.hygienic=false -Dlinter.unusedVariables.funArgs=false -Dtrace.debug=false ./././Game.lean -R ././. -o ./.lake/build/lib/Game.olean -i ./.lake/build/lib/Game.ilean -c ./.lake/build/ir/Game.c --load-dynlib=./.lake/packages/i18n/.lake/build/lib/libleanTime.so --load-dynlib=./.lake/packages/i18n/.lake/build/lib/libTime-Basic-1.so --load-dynlib=./.lake/packages/i18n/.lake/build/lib/libTime-1.so
+error: stdout:
+./././Game.lean:57:0: error: unknown constant 'InnerProductSpace_v.inner_self_im_zero'
+error: external command `/home/zrtmrh/.elan/toolchains/leanprover--lean4---v4.7.0/bin/lean` exited with code 1
+mma Documentation: Complex.sq_abs
+Add `LemmaDoc Complex.sq_abs` somewhere above this statement.
+./././Game/Levels/InnerProductWorld/Level03.lean:92:10: warning: declaration uses 'sorry'
+./././Game/Levels/InnerProductWorld/Level03.lean:92:10: warning: Missing Lemma Documentation: LinearAlgebraGame.sca_mul
+Add `LemmaDoc LinearAlgebraGame.sca_mul` somewhere above this statement.
+[1610/1613] Building Game.Levels.InnerProductWorld.Level04
+stdout:
+./././Game/Levels/InnerProductWorld/Level04.lean:18:10: warning: Missing Lemma Documentation: LinearAlgebraGame.placeholder_theorem
+Add `LemmaDoc LinearAlgebraGame.placeholder_theorem` somewhere above this statement.
+[1611/1613] Building Game.Levels.InnerProductWorld
+[1612/1613] Building Game
