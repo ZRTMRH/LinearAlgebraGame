@@ -193,4 +193,8 @@ theorem norm_nonneg_v (v: V): 0≤ ‖v‖ := by
   unfold norm_v
   exact Real.sqrt_nonneg ⟪v,v⟫.re
 
+theorem norm_sq_eq (v : V) :  ‖v‖^2 = ⟪v,v⟫.re := by
+    unfold norm_v
+    rw [Real.sq_sqrt (InnerProductSpace_v.inner_self_nonneg v)]
+
 end LinearAlgebraGame

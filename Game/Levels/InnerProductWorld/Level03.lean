@@ -21,6 +21,11 @@ objects where you can multiply and divide, for example, the complex numbers.
 ## The `←` character
 The `←` character acts similarly to `.symm`, but you often do not need to specify the exact details
 of what you are rewriting, as you need to do with `.symm` The syntax looks like `← thm` instead of `thm.symm`
+
+## Note on `InnerProductSpace_v`
+Some of the axioms and theorems you have share names with other theorems. If you run into a bug saying
+\"Ambiguous, possible interpretations\", try specifying the exact name of your theorem with `InnerProductSpace_v.`
+in from of the theorem.
 "
 
 /--
@@ -80,35 +85,52 @@ the norm of a vector, as long as you multiply by the complex norm of the scalar.
 -/
 TheoremDoc sca_mul as "sca_mul" in "Inner Product"
 
+/--
+`norm_sq_eq` is a proof that `‖v‖ ^ 2 = ⟪v, v⟫.re`. It combines the definition of norm, along with the
+nonnegativity of the self inner product.
+-/
+TheoremDoc norm_sq_eq as "norm_sq_eq" in "Inner Product"
+
 NewTactic ring
 
-NewTheorem norm_nonneg Left.mul_nonneg sq_eq_sq mul_assoc Complex.mul_conj Complex.normSq_eq_norm_sq Complex.re_ofReal_mul
+NewTheorem norm_nonneg Left.mul_nonneg sq_eq_sq mul_assoc Complex.mul_conj Complex.normSq_eq_norm_sq Complex.re_ofReal_mul norm_sq_eq
 
 variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [InnerProductSpace_v V]
 open Function Set VectorSpace Real InnerProductSpace_v Complex
 
 Statement sca_mul (a : ℂ) (v: V) : ‖a • v‖= ‖a‖ * ‖v‖ := by
-  Hint "Since we know many theorems about norms now, perhaps is is better to hold off on unfolding until later.
+  Hint "Since we know many theorems about norms now, perhaps is is better to hold off on unfolding.
   For now, try to find a way to square both sides of the goal."
+  Hint (hidden := true) "Try `have h1 := norm_nonneg a`"
   have h1 := norm_nonneg a
+  Hint (hidden := true) "Try `have h2 := norm_nonneg_v v`"
   have h2 := norm_nonneg_v v
+  Hint (hidden := true) "Try `have g1 := Left.mul_nonneg {h1} {h2}`"
   have g1 := Left.mul_nonneg h1 h2
+  Hint (hidden := true) "Try `have g2 := norm_nonneg_v (a • v)`"
   have g2 := norm_nonneg_v (a • v)
+  Hint (hidden := true) "Try `apply (sq_eq_sq {g2} {g1}).1`"
   apply (sq_eq_sq g2 g1).1
 
   Hint "Use `ring` to simplify the goal"
+  Hint (hidden := true) "Try `ring`"
   ring_nf
 
-  Hint "Now, we can unfold and use our theorems to simplify the goal. Also, remember the `exact?`
+  Hint "Use our theorems to simplify the goal. Also, remember the `exact?`
   tactic can help you find when to use `exact`."
-  unfold norm_v
-  rw[(sq_sqrt (inner_self_nonneg (a • v)))]
+
+  repeat rw[norm_sq_eq]
+  Hint (hidden := true) "Try `rw [InnerProductSpace_v.inner_smul_left]`"
   rw [InnerProductSpace_v.inner_smul_left]
+  Hint (hidden := true) "Try `rw [inner_smul_right_v]`"
   rw [inner_smul_right_v]
+  Hint (hidden := true) "Try `rw[← mul_assoc]`"
   rw[← mul_assoc]
+  Hint (hidden := true) "Try `rw[mul_conj]`"
   rw[mul_conj]
+  Hint (hidden := true) "Try `rw[normSq_eq_norm_sq]`"
   rw[normSq_eq_norm_sq]
-  rw[sq_sqrt (inner_self_nonneg v)]
+  Hint (hidden := true) "Try `exact re_ofReal_mul (‖a‖ ^ 2) ⟪v,v⟫`"
   exact re_ofReal_mul (‖a‖ ^ 2) ⟪v,v⟫
 
 end LinearAlgebraGame
