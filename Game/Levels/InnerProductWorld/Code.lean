@@ -383,7 +383,37 @@ theorem norm_sq_eq (v : V) :  ‖v‖^2 = ⟪v,v⟫.re := by
 --Show $u = c \cdot v + w$: This is almost immediate from the definition of $w$ (rearrange $w = u - c v$).
 --Show $w$ is orthogonal to $v$: Compute $\langle w,v\rangle = \langle u - c v,; v\rangle = \langle u,v\rangle - c \langle v,v\rangle$. Now substitute the chosen value of $c$. Since $c = \frac{\langle u,v\rangle}{\langle v,v\rangle.\mathrm{re}}$ and $\langle v,v\rangle$ is real, $\langle u,v\rangle - c \langle v,v\rangle = 0$. Don’t forget to argue $|v|^2 \neq 0$ (because $v \neq 0$) so that $c$ is well-defined."
 
-theorem ortho_decom (u v : V) (h : v≠ 0) : ∃ c : ℂ, ∃ w : V, c=⟪u,v⟫/(‖v‖^2) ∧ w=u-(⟪u,v⟫/(‖v‖^2)) • v ∧ u = c • v + w ∧  orthogonal w v := by
+theorem my_ortho_decom (u v : V) (h : v ≠ 0) : orthogonal (u - (⟪u,v⟫ / (‖v‖^2)) • v) v := by
+  unfold orthogonal
+  rw[inner_minus_left]
+  rw[InnerProductSpace_v.inner_smul_left]
+  unfold norm_v
+  norm_cast
+  rw[Real.sq_sqrt (InnerProductSpace_v.inner_self_nonneg v)]
+  rw [← inner_self_real]
+  ring_nf
+  rw[mul_assoc, mul_inv_cancel]
+  simp
+  intro x
+  apply h
+  exact (InnerProductSpace_v.inner_self_eq_zero v).1 x
+
+
+theorem ortho_decom_2 (u v : V) (h : v ≠ 0) : ∃ c : ℂ, ∃ w : V, c = ⟪u,v⟫ / (‖v‖^2)  ∧  w = u - (⟪u,v⟫ / (‖v‖^2)) • v  ∧  u = c • v + w  ∧  orthogonal w v := by
+  let c := ⟪u,v⟫/(‖v‖^2)
+  let w := u - c • v
+
+  -- Show that these choices work
+  use c, w
+  constructor
+  rfl
+  constructor
+  rfl
+  constructor
+  simp [w]
+  exact (my_ortho_decom u v h)
+
+theorem ortho_decom (u v : V) (h : v ≠ 0) : ∃ c : ℂ, ∃ w : V, c = ⟪u,v⟫ / (‖v‖^2)  ∧  w = u - (⟪u,v⟫ / (‖v‖^2)) • v  ∧  u = c • v + w  ∧  orthogonal w v := by
   -- Define c and w as specified
   let c := ⟪u,v⟫/(‖v‖^2)
   let w := u - c • v
@@ -465,6 +495,9 @@ theorem ortho_decom (u v : V) (h : v≠ 0) : ∃ c : ℂ, ∃ w : V, c=⟪u,v⟫
 theorem le_of_sq_le_sq {a : ℝ} {b : ℝ} (h : a^2 ≤ b ^2 ) (hb : 0≤ b) :a ≤ b :=
   le_abs_self a |>.trans <| abs_le_of_sq_le_sq h hb
 
+theorem right_smul_ortho (u v : V) (c : ℂ) (h : orthogonal u v) : orthogonal u (c • v) := by
+  exact ortho_swap (c • v) u (left_smul_ortho v u c (ortho_swap u v h))
+
 -- LEVEL 7
 --Level 24
 --Title "Cauchy-Schwarz Inequality"
@@ -474,59 +507,78 @@ theorem le_of_sq_le_sq {a : ℝ} {b : ℝ} (h : a^2 ≤ b ^2 ) (hb : 0≤ b) :a 
 --Case 1: If $v = 0$, then $\langle u,v\rangle = \langle u,0\rangle = 0$, so $|\langle u,v\rangle| = 0$ and the inequality holds since $|u||v| = |u| * 0 = 0$.
 --Case 2: If $v \neq 0$, use the orthogonal decomposition of $u$ relative to $v$. Write $u = c v + w$ with $w \perp v$ (where $c = \frac{\langle u,v\rangle}{|v|^2}$). Now $\langle u,v\rangle = \langle c v + w, v\rangle = c \langle v,v\rangle$ (since $w$ is orthogonal to $v$). Thus $|\langle u,v\rangle| = |c| \cdot |v|^2$. On the other hand, $|u|^2 = |c v + w|^2 = |c|^2 |v|^2 + |w|^2 \ge |c|^2 |v|^2$ (by the Pythagorean theorem). So $|u|^2 \ge |c|^2 |v|^2$. Taking square roots gives $|u| \ge |c| |v|$. Multiply both sides by $|v|$ to get $|u||v| \ge |c| |v|^2 = |\langle u,v\rangle|$."
 
+theorem my_cauchy (u v : V) : ‖⟪u,v⟫‖ ≤ ‖u‖ * ‖v‖ := by
+  by_cases v_zero : v = 0
+
+  rw[v_zero]
+  rw [inner_zero_right_v]
+  rw [(norm_zero_v (0 : V)).2 rfl]
+  simp
+
+  let c' := ⟪u,v⟫ / (‖v‖^2)
+  have hc' : c' = ⟪u,v⟫ / (‖v‖^2) := rfl
+  let w' := u - c' • v
+  have hw' : w' = u - c' • v := rfl
+  have h_ortho := my_ortho_decom u v v_zero
+  have u_rw : u = w' + c' • v := by
+    rw[hw']
+    simp
+
+  apply le_of_sq_le_sq
+  ring_nf
+  rw[u_rw]
+  rw[← hc', ← hw'] at h_ortho
+  rw [pythagorean w' (c' • v) (right_smul_ortho w' v c' h_ortho)]
+
+
 theorem Cauchy_Schwarz (u v : V) : ‖⟪u,v⟫‖ ≤ ‖u‖ * ‖v‖ := by
   by_cases v_zero : v = 0
 
-  case pos =>
-    rw[v_zero]
-    rw [inner_zero_right_v]
-    have h := norm_zero_v (0:V)
-    simp at h
-    rw[h]
+  rw[v_zero]
+  rw [inner_zero_right_v]
+  rw [(norm_zero_v (0 : V)).2 rfl]
+  simp
+
+  obtain ⟨c, w, h1, _h2, h3, h4⟩ := ortho_decom u v v_zero
+  have h5:= left_smul_ortho v w c (ortho_swap w v h4)
+  have g1 := norm_nonneg_v u
+  have g2 := norm_nonneg_v v
+
+  have g3 : 0≤ ‖u‖ * ‖v‖ := by exact Left.mul_nonneg g1 g2
+  have g5 : 0≤ ‖w‖ := norm_nonneg_v w
+  apply le_of_sq_le_sq
+  ring_nf
+
+  have h6 := pythagorean (c• v) w h5
+  nth_rw 2 [h3]
+  rw [h6]
+  have v_norm_zero : ‖v‖≠ 0 := by
+    by_contra h
+    rw[norm_zero_v v] at h
+    contradiction
+
+  have kt :  ‖c • v‖ ^ 2= ‖⟪u,v⟫‖^2/‖v‖^2 := by
+    -- Use the scalar multiplication property for norms
+    rw [sca_mul c v]
+    -- Now we have (‖c‖ * ‖v‖)^2 = ‖c‖^2 * ‖v‖^2
+    ring_nf
+    -- Substitute the definition of c
+    rw [h1]  -- c = ⟪u,v⟫/(‖v‖^2)
+    -- We need to show ‖⟪u,v⟫/(‖v‖^2)‖^2 * ‖v‖^2 = ‖⟪u,v⟫‖^2/‖v‖^2
+    rw [@norm_div]
+    --rw [Complex.norm_div]
+    -- This gives us (‖⟪u,v⟫‖ / ‖‖v‖^2‖)^2 * ‖v‖^2
+    simp only [@norm_pow, Complex.norm_real, abs_sq]
+    -- Since ‖v‖^2 is real and non-negative, ‖‖v‖^2‖ = ‖v‖^2
     simp
-  case neg =>
-
-    obtain ⟨c, w, h1, _h2, h3, h4⟩ := ortho_decom u v v_zero
-    have h5:= left_smul_ortho v w c (ortho_swap w v h4)
-    have g1 := norm_nonneg_v u
-    have g2 := norm_nonneg_v v
-
-    have g3 : 0≤ ‖u‖ * ‖v‖ := by exact Left.mul_nonneg g1 g2
-    have g5 : 0≤ ‖w‖ := norm_nonneg_v w
-    suffices  ‖⟪u,v⟫‖^2 ≤ ‖u‖^2 * ‖v‖^2  by
-      have ts : ‖u‖ ^ 2 * ‖v‖^2 = (‖u‖ * ‖v‖)^2 := by ring
-      rw[ts] at this
-
-      exact le_of_sq_le_sq this g3
-
-    have h6 := pythagorean (c• v) w h5
-    nth_rw 2 [h3]
-    rw [h6]
-    have v_norm_zero : ‖v‖≠ 0 := by
-      by_contra h
-      rw[norm_zero_v v] at h
-      contradiction
-
-    have kt :  ‖c • v‖ ^ 2= ‖⟪u,v⟫‖^2/‖v‖^2 := by
-      -- Use the scalar multiplication property for norms
-      rw [sca_mul c v]
-      -- Now we have (‖c‖ * ‖v‖)^2 = ‖c‖^2 * ‖v‖^2
-      ring_nf
-      -- Substitute the definition of c
-      rw [h1]  -- c = ⟪u,v⟫/(‖v‖^2)
-      -- We need to show ‖⟪u,v⟫/(‖v‖^2)‖^2 * ‖v‖^2 = ‖⟪u,v⟫‖^2/‖v‖^2
-      rw [@norm_div]
-      --rw [Complex.norm_div]
-      -- This gives us (‖⟪u,v⟫‖ / ‖‖v‖^2‖)^2 * ‖v‖^2
-      simp only [@norm_pow, Complex.norm_real, abs_sq]
-      -- Since ‖v‖^2 is real and non-negative, ‖‖v‖^2‖ = ‖v‖^2
-      simp
-      -- Now we have (‖⟪u,v⟫‖^2 / (‖v‖^2)^2) * ‖v‖^2 = ‖⟪u,v⟫‖^2 / ‖v‖^2
-      field_simp [v_norm_zero]
-      ring
-    rw[kt]
-    rw[add_mul]
+    -- Now we have (‖⟪u,v⟫‖^2 / (‖v‖^2)^2) * ‖v‖^2 = ‖⟪u,v⟫‖^2 / ‖v‖^2
     field_simp [v_norm_zero]
+    ring
+  rw[kt]
+  rw[add_mul]
+  field_simp [v_norm_zero]
+
+  exact g3
 
 
 -- LEVEL 8

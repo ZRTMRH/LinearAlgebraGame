@@ -156,3 +156,7 @@ theorem ortho_swap : ∀ (u v :V), orthogonal u v → orthogonal v u := by
   dsimp [orthogonal] at *
   rw [InnerProductSpace_v.inner_conj_symm,h]
   simp
+
+theorem norm_sq_eq (v : V) :  ‖v‖^2 = ⟪v,v⟫.re := by
+    unfold norm_v
+    rw [Real.sq_sqrt (InnerProductSpace_v.inner_self_nonneg v)]

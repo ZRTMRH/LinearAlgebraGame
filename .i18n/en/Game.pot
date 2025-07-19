@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: Wed Jul  9 14:11:25 2025\n"
+"POT-Creation-Date: Thu Jul 17 14:51:37 2025\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -2940,6 +2940,32 @@ msgid "The square root of any real number is nonnegative"
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level01
+msgid "For any vector `v`, the imaginary part of `⟪v, v⟫` is zero. Equivalently, `⟪v, v⟫` is real."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level01
+msgid "For any vector `v` the real part of `⟪v, v⟫` is nonnegative."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level01
+msgid "For any vector `v`, `⟪v, v⟫ = 0` if and only if `v` is the zero vector"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level01
+msgid "For any vectors `u, v, w`, ⟪(u + v), w⟫ = ⟪u, w⟫ + ⟪v, w⟫. That is, inner products distribute over addition"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level01
+msgid "For any vectors `v, w`, and a scalar `a`, ⟪a • v, w⟫ = a * ⟪v, w⟫. This means that scalar multiplication\n"
+"commutes with the inner product."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level01
+msgid "For any vectors `v, w`, `⟪v, w⟫ = conj ⟪w, v⟫`. This means that the inner product commutes if you take\n"
+"the conjugate."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level01
 msgid "`InnerProductSpace_v` is how we define inner products. An `InnerProductSpace_v` is another class, similar\n"
 "to how a `VectorSpace` is a class, and it defines a function `inner` that takes two elements of `V`\n"
 "and gives an element of `ℂ`. `inner` can also be written as `⟪v, w⟫`. An InnerProductSpace must be a\n"
@@ -2990,6 +3016,362 @@ msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level01
 msgid "Try `exact Real.sqrt_nonneg ⟪v,v⟫.re`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level02
+msgid "Zero Norm if and only if Zero Vector"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level02
+msgid "## The Goal\n"
+"In this level, we prove that the norm of a vector is zero if and only if it is the zero vector. The\n"
+"idea of the proof is to use the `inner_self_eq_zero` axiom, which requires cancelling out the square\n"
+"roots.\n"
+"\n"
+"## The `apply_fun` tactic\n"
+"The `apply_fun` tactic is used to apply functions to both sides of an equality. This only works in your\n"
+"hypotheses, not in the goal. The syntax is `apply_fun (fun x => f x) at h`. If `h : a = b` is a proof,\n"
+"then this will change `h` to `h : f a = f b`. This tactic can be very helpful, as squaring a square root\n"
+"cancels out the operation."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level02
+msgid "## Summary\n"
+"`apply_fun` allows you to apply functions to both sides of an equality in the hypothesis. This can also\n"
+"be done simply with a `have`, `rw`, and `rfl` statement, but it is nice to be able to do that in one line.\n"
+"\n"
+"## Example\n"
+"If you have `h : sqrt x = 0`, using `apply_fun (fun v => v ^ 2) at h` will change `h` to `h : (sqrt x) ^ 2 = 0 ^ 2`."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level02
+msgid "`sq_sqrt` is a proof that if `0 ≤ x`, then `(sqrt x) ^ 2 = x`. It allows you to cancel out square roots."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level02
+msgid "`Complex.ext` allows you to split complex numbers into their real and imaginary parts. If your goal is\n"
+"of the form `a = b`, where `(a b : ℂ)`, then `apply Complex.ext` will create two goals, one `a.re = b.re`,\n"
+"and the other `a.im = b.im`."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level02
+msgid "`norm_zero_v` is a proof that `‖v‖ = 0 ↔ v = 0`, or that the only vector with norm zero is the zero vector."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level02
+msgid "Try unfolding and using constructor to split the `↔`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level02
+msgid "Try `unfold norm_v`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level02
+msgid "Try `constructor`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level02
+msgid "Try `intro h`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level02
+msgid "Now, try to remove the square root"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level02
+msgid "Try `apply_fun (fun x => x^2) at «{h}»`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level02
+msgid "Try `rw[sq_sqrt (inner_self_nonneg v)] at «{h}»`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level02
+msgid "Try ``"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level02
+msgid "Now, try to use some of the theorems we know"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level02
+msgid "Try `apply (inner_self_eq_zero v).1`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level02
+msgid "Try `apply Complex.ext`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level02
+msgid "Try `exact «{h}»`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level02
+msgid "Try `exact inner_self_im_zero v`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level02
+msgid "Try `intro h`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level02
+msgid "Try `rw [«{h}»]`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level02
+msgid "Try `rw [(inner_self_eq_zero 0).2]`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level02
+msgid "Try `simp`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level02
+msgid "Try `rfl`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level03
+msgid "Norm of a Scaled Vector"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level03
+msgid "## The Goal\n"
+"In this level, we show that you can take scalar multiples out from the norm of a vector, as long as\n"
+"you multiply by the complex norm of the scalar. The proof here takes multiple steps. The first idea\n"
+"is to square each side, getting rid of the square roots. Then, you can use multiple theorems to rewrite\n"
+"the goal to be solved by an exact statement.\n"
+"\n"
+"## The `ring` tactic\n"
+"`ring` again acts very similar to `linarith`, but it works for equations using rings. Rings are basically\n"
+"objects where you can multiply and divide, for example, the complex numbers.\n"
+"\n"
+"## The `←` character\n"
+"The `←` character acts similarly to `.symm`, but you often do not need to specify the exact details\n"
+"of what you are rewriting, as you need to do with `.symm` The syntax looks like `← thm` instead of `thm.symm`\n"
+"\n"
+"## Note on `InnerProductSpace_v`\n"
+"Some of the axioms and theorems you have share names with other theorems. If you run into a bug saying\n"
+"\"Ambiguous, possible interpretations\", try specifying the exact name of your theorem with `InnerProductSpace_v.`\n"
+"in from of the theorem."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level03
+msgid "## Summary\n"
+"`ring` acts very similar to `simp` and `linarith` in that it will attempt to solve the goal for you.\n"
+"`ring` works best with rings, which are objects where you can add and multiply. The most common rings\n"
+"you will see are the real and complex numbers.\n"
+"\n"
+"## Example\n"
+"If you have a goal `(a + b) ^ 2 = a ^ 2 + 2 * a * b + b ^2`, `ring` will solve the goal."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level03
+msgid "`norm_nonneg` is very similar to the vector space theorem `norm_nonneg_v`. The theorem shows that any\n"
+"complex number has nonnegative norm."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level03
+msgid "`Left.mul_nonneg` is a proof that multiplying two nonnegative numbers will give a nonnegative value.\n"
+"If you have hypotheses `h1 : 0 ≤ a`, `h2 : 0 ≤ b`, then `Left.mul_nonneg h1 h2` is a proof that `0 ≤ a * b`."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level03
+msgid "`sq_eq_sq` is a proof that if `a` and `b` are nonnegative, `a^2 = b^2` if and only if `a = b`. If you\n"
+"have hypotheses `h1 : 0 ≤ a`, `h2 : 0 ≤ b`, then `sq_eq_sq h1 h2` is a proof that `a ^ 2 = b ^ 2 ↔ a = b`."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level03
+msgid "`mul_assoc` is a proof that multiplication is associative. That is, that if you have `a, b, c`, then\n"
+"`a * (b * c) = (a * b) * c`."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level03
+msgid "`mul_conj` is a proof that `z * conj z = ↑(normSq z)`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level03
+msgid "`normSq_eq_norm_sq` is a proof that `normSq z = ‖z‖ ^ 2`. It essentially unfolds the `normSq` definition."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level03
+msgid "`re_ofReal_mul` is a proof that `(↑r * z).re = r * z.re`. It is helpful when working with both real and\n"
+"complex numbers at the same time."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level03
+msgid "`sca_mul` is a proof that `‖a • v‖= ‖a‖ * ‖v‖`. It means that you can take scalar multiples out from\n"
+"the norm of a vector, as long as you multiply by the complex norm of the scalar."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level03
+msgid "`norm_sq_eq` is a proof that `‖v‖ ^ 2 = ⟪v, v⟫.re`. It combines the definition of norm, along with the\n"
+"nonnegativity of the self inner product."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level03
+msgid "Since we know many theorems about norms now, perhaps is is better to hold off on unfolding.\n"
+"For now, try to find a way to square both sides of the goal."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level03
+msgid "Try `have h1 := norm_nonneg a`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level03
+msgid "Try `have h2 := norm_nonneg_v v`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level03
+msgid "Try `have g1 := Left.mul_nonneg «{h1}» «{h2}»`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level03
+msgid "Try `have g2 := norm_nonneg_v (a • v)`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level03
+msgid "Try `apply (sq_eq_sq «{g2}» «{g1}»).1`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level03
+msgid "Use `ring` to simplify the goal"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level03
+msgid "Try `ring`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level03
+msgid "Use our theorems to simplify the goal. Also, remember the `exact?`\n"
+"tactic can help you find when to use `exact`."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level03
+msgid "Try `rw [InnerProductSpace_v.inner_smul_left]`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level03
+msgid "Try `rw [inner_smul_right_v]`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level03
+msgid "Try `rw[← mul_assoc]`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level03
+msgid "Try `rw[mul_conj]`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level03
+msgid "Try `rw[normSq_eq_norm_sq]`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level03
+msgid "Try `exact re_ofReal_mul (‖a‖ ^ 2) ⟪v,v⟫`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level04
+msgid "Orthogonality With Self"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level04
+msgid "We now introduce orthogonality. Two vectors being orthogonal is equivalent to having their inner product\n"
+"be 0. In Lean, we write this as\n"
+"\n"
+"```\n"
+"def orthogonal (u v : V) : Prop := ⟪u, v⟫ = (0 : ℂ)\n"
+"```\n"
+"\n"
+"## The Goal\n"
+"In this level, we show that the only vector that is orthogonal to itself is the zero vector.\n"
+"This proof is very similar to our axiom `inner_self_eq_zero`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level04
+msgid "`orthogonal` is how we say vectors are orthogonal. The syntax is `orthogonal v w`. This means that the\n"
+"inner product of `v` and `w` is `0`. In Lean, we define it by saying\n"
+"\n"
+"```\n"
+"def orthogonal (u v : V) : Prop := ⟪u, v⟫ = (0 : ℂ)\n"
+"```"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level04
+msgid "`ortho_self_zero` is a proof that the only vector orthogonal to itself is the zero vector. If `v` is\n"
+"a vector, `ortho_self_zero v` is a proof that `ortho v v ↔ v = 0`."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level04
+msgid "Try unfolding orthogonal"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level04
+msgid "Try `unfold orthogonal`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level04
+msgid "Try `exact inner_self_eq_zero v`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level05
+msgid "Pythagorean Theorem"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level05
+msgid "## The Goal\n"
+"This level has you prove the Pythagorean Theorem. In an abstract vector space, this theorem is a proof\n"
+"that given any two orthogonal vectors, `u, v`, then `‖u + v‖^2 = ‖u‖^2 + ‖v‖^2`. The idea behind the\n"
+"proof is quite simple. Since all the norms are squared, we can remove the square roots, and then simplify\n"
+"using the axioms of inner products."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level05
+msgid "This is the Pythagorean Theorem. If you have vectors `u v`, and `h : orthogonal u v`, then\n"
+"`pythagorean u v h` is a proof that `‖u + v‖^2 = ‖u‖^2 + ‖v‖^2`."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level05
+msgid "First, try to remove the squares."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level05
+msgid "Try `repeat rw[norm_sq_eq]`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level05
+msgid "Now, try to expand `⟪u + v, u + v⟫` with our additivity properties."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level05
+msgid "Try `rw[inner_add_left u v (u + v)]`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level05
+msgid "Try `rw [inner_add_right_v u u v]`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level05
+msgid "Try `rw [inner_add_right_v v u v]`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level05
+msgid "Keep simplifying!"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level05
+msgid "Try `rw[inner_conj_symm v u]`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level05
+msgid "Try `unfold orthogonal at h`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level05
+msgid "Try `rw[h]`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level05
+msgid "Try `simp`"
 msgstr ""
 
 #: Game.Levels.InnerProductWorld

@@ -1,4 +1,8 @@
 import Game.Levels.InnerProductWorld.Level01
+import Game.Levels.InnerProductWorld.Level02
+import Game.Levels.InnerProductWorld.Level03
+import Game.Levels.InnerProductWorld.Level04
+import Game.Levels.InnerProductWorld.Level05
 
 World "InnerProductWorld"
 Title "Inner Product World"
