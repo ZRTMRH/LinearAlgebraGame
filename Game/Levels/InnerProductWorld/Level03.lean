@@ -80,23 +80,24 @@ complex numbers at the same time.
 TheoremDoc Complex.re_ofReal_mul as "re_ofReal_mul" in "ℂ"
 
 /--
-`sca_mul` is a proof that `‖a • v‖= ‖a‖ * ‖v‖`. It means that you can take scalar multiples out from
-the norm of a vector, as long as you multiply by the complex norm of the scalar.
+The norm of a scalar multiple: `‖a • v‖= ‖a‖ * ‖v‖`.
+This fundamental property shows how norms interact with scalar multiplication.
 -/
-TheoremDoc sca_mul as "sca_mul" in "Inner Product"
+TheoremDoc LinearAlgebraGame.sca_mul as "sca_mul" in "Inner Product"
 
 /--
-`norm_sq_eq` is a proof that `‖v‖ ^ 2 = ⟪v, v⟫.re`. It combines the definition of norm, along with the
-nonnegativity of the self inner product.
+The square of the norm equals the real part of the inner product with itself:
+`‖v‖ ^ 2 = ⟪v, v⟫.re`. This connects the geometric notion of length with the algebraic inner product.
 -/
-TheoremDoc norm_sq_eq as "norm_sq_eq" in "Inner Product"
+TheoremDoc LinearAlgebraGame.norm_sq_eq as "norm_sq_eq" in "Inner Product"
 
 NewTactic ring
 
-NewTheorem norm_nonneg Left.mul_nonneg sq_eq_sq mul_assoc Complex.mul_conj Complex.normSq_eq_norm_sq Complex.re_ofReal_mul norm_sq_eq
+NewTheorem norm_nonneg Left.mul_nonneg sq_eq_sq mul_assoc Complex.mul_conj Complex.normSq_eq_norm_sq Complex.re_ofReal_mul
 
 variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [InnerProductSpace_v V]
 open Function Set VectorSpace Real InnerProductSpace_v Complex
+
 
 Statement sca_mul (a : ℂ) (v: V) : ‖a • v‖= ‖a‖ * ‖v‖ := by
   Hint "Since we know many theorems about norms now, perhaps is is better to hold off on unfolding.

@@ -1,11 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.7.0\n"
 "Report-Msgid-Bugs-To: \n"
-<<<<<<< HEAD
-"POT-Creation-Date: Sat Jul 19 00:48:52 2025\n"
-=======
-"POT-Creation-Date: Thu Jul 17 14:51:37 2025\n"
->>>>>>> upstream/InnerProductWorld
+"POT-Creation-Date: Sun Jul 20 00:02:23 2025\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -2974,32 +2970,6 @@ msgid "For any vectors `v, w`, `⟪v, w⟫ = conj ⟪w, v⟫`. This means that t
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level01
-msgid "For any vector `v`, the imaginary part of `⟪v, v⟫` is zero. Equivalently, `⟪v, v⟫` is real."
-msgstr ""
-
-#: Game.Levels.InnerProductWorld.Level01
-msgid "For any vector `v` the real part of `⟪v, v⟫` is nonnegative."
-msgstr ""
-
-#: Game.Levels.InnerProductWorld.Level01
-msgid "For any vector `v`, `⟪v, v⟫ = 0` if and only if `v` is the zero vector"
-msgstr ""
-
-#: Game.Levels.InnerProductWorld.Level01
-msgid "For any vectors `u, v, w`, ⟪(u + v), w⟫ = ⟪u, w⟫ + ⟪v, w⟫. That is, inner products distribute over addition"
-msgstr ""
-
-#: Game.Levels.InnerProductWorld.Level01
-msgid "For any vectors `v, w`, and a scalar `a`, ⟪a • v, w⟫ = a * ⟪v, w⟫. This means that scalar multiplication\n"
-"commutes with the inner product."
-msgstr ""
-
-#: Game.Levels.InnerProductWorld.Level01
-msgid "For any vectors `v, w`, `⟪v, w⟫ = conj ⟪w, v⟫`. This means that the inner product commutes if you take\n"
-"the conjugate."
-msgstr ""
-
-#: Game.Levels.InnerProductWorld.Level01
 msgid "`InnerProductSpace_v` is how we define inner products. An `InnerProductSpace_v` is another class, similar\n"
 "to how a `VectorSpace` is a class, and it defines a function `inner` that takes two elements of `V`\n"
 "and gives an element of `ℂ`. `inner` can also be written as `⟪v, w⟫`. An InnerProductSpace must be a\n"
@@ -3185,16 +3155,12 @@ msgid "## The Goal\n"
 "\n"
 "## The `←` character\n"
 "The `←` character acts similarly to `.symm`, but you often do not need to specify the exact details\n"
-<<<<<<< HEAD
-"of what you are rewriting, as you need to do with `.symm` The syntax looks like `← thm` instead of `thm.symm`"
-=======
 "of what you are rewriting, as you need to do with `.symm` The syntax looks like `← thm` instead of `thm.symm`\n"
 "\n"
 "## Note on `InnerProductSpace_v`\n"
 "Some of the axioms and theorems you have share names with other theorems. If you run into a bug saying\n"
 "\"Ambiguous, possible interpretations\", try specifying the exact name of your theorem with `InnerProductSpace_v.`\n"
 "in from of the theorem."
->>>>>>> upstream/InnerProductWorld
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level03
@@ -3208,13 +3174,8 @@ msgid "## Summary\n"
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level03
-<<<<<<< HEAD
-msgid "`Complex.abs_nonneg` is very similar to the vector space theorem `norm_nonneg_v`. The theorem shows that any\n"
-"complex number has nonnegative absolute value (complex norm)."
-=======
 msgid "`norm_nonneg` is very similar to the vector space theorem `norm_nonneg_v`. The theorem shows that any\n"
 "complex number has nonnegative norm."
->>>>>>> upstream/InnerProductWorld
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level03
@@ -3246,32 +3207,21 @@ msgid "`re_ofReal_mul` is a proof that `(↑r * z).re = r * z.re`. It is helpful
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level03
-<<<<<<< HEAD
-msgid "`sca_mul` is a proof that `‖a • v‖= Complex.abs a * ‖v‖`. It means that you can take scalar multiples out from\n"
-"the norm of a vector, as long as you multiply by the complex absolute value of the scalar."
+msgid "The norm of a scalar multiple: `‖a • v‖= ‖a‖ * ‖v‖`.\n"
+"This fundamental property shows how norms interact with scalar multiplication."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level03
-msgid "Since we know many theorems about norms now, perhaps is is better to hold off on unfolding until later.\n"
-=======
-msgid "`sca_mul` is a proof that `‖a • v‖= ‖a‖ * ‖v‖`. It means that you can take scalar multiples out from\n"
-"the norm of a vector, as long as you multiply by the complex norm of the scalar."
-msgstr ""
-
-#: Game.Levels.InnerProductWorld.Level03
-msgid "`norm_sq_eq` is a proof that `‖v‖ ^ 2 = ⟪v, v⟫.re`. It combines the definition of norm, along with the\n"
-"nonnegativity of the self inner product."
+msgid "The square of the norm equals the real part of the inner product with itself:\n"
+"`‖v‖ ^ 2 = ⟪v, v⟫.re`. This connects the geometric notion of length with the algebraic inner product."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level03
 msgid "Since we know many theorems about norms now, perhaps is is better to hold off on unfolding.\n"
->>>>>>> upstream/InnerProductWorld
 "For now, try to find a way to square both sides of the goal."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level03
-<<<<<<< HEAD
-=======
 msgid "Try `have h1 := norm_nonneg a`"
 msgstr ""
 
@@ -3292,23 +3242,10 @@ msgid "Try `apply (sq_eq_sq «{g2}» «{g1}»).1`"
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level03
->>>>>>> upstream/InnerProductWorld
 msgid "Use `ring` to simplify the goal"
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level03
-<<<<<<< HEAD
-msgid "Now, we can unfold and use our theorems to simplify the goal. Also, remember the `exact?`\n"
-"tactic can help you find when to use `exact`."
-msgstr ""
-
-#: Game.Levels.InnerProductWorld.Level04
-msgid "Placeholder Level"
-msgstr ""
-
-#: Game.Levels.InnerProductWorld.Level04
-msgid "This level is a placeholder."
-=======
 msgid "Try `ring`"
 msgstr ""
 
@@ -3443,7 +3380,242 @@ msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level05
 msgid "Try `simp`"
->>>>>>> upstream/InnerProductWorld
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level06
+msgid "Orthogonal Decomposition"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level06
+msgid "One of the most important theorems in linear algebra is orthogonal decomposition. This allows you to\n"
+"represent a vector as a scalar multiple of one vector, along with a vector orthogonal to that vector.\n"
+"This includes the concepts of projections and othogonal components.\n"
+"\n"
+"## The Goal\n"
+"In this level, we are given two vectors, `u` and `v`. `u` is the vector we want to rewrite, and `v`\n"
+"is the vector we are scaling and getting the orthogonal component of. We also assume `h : v ≠ 0`. From\n"
+"this, we can calculate our sum as `u = (⟪u,v⟫ / (‖v‖^2)) • v + (u - (⟪u,v⟫ / (‖v‖^2)) • v))`. The equality\n"
+"is trivial, since we are adding and subtracting the same vector to `u` on the right side. Also,\n"
+"`(⟪u,v⟫ / (‖v‖^2)) • v` is clearly a scalar multiple of `v`. The only thing we have to prove is that\n"
+"`v` is orthogonal to `u - ((⟪u,v⟫ / (‖v‖^2)) • v)`."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level06
+msgid "`ortho_decom` is a proof that given vectors `u v : V` and `h : v ≠ 0`, then `orthogonal (u - (⟪u,v⟫ / (‖v‖^2)) • v) v`.\n"
+"This allows you to rewrite `u` as a scalar multiple of `v` added to a vector orthogonal to `v`."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "Cauchy-Schwarz Inequality"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "The Cauchy-Schwarz inequality is one of the most fundamental inequalities in mathematics. It states that for any two vectors `u` and `v` in an inner product space:\n"
+"\n"
+"$$|\\langle u, v \\rangle| \\leq \\|u\\| \\cdot \\|v\\|$$\n"
+"\n"
+"This inequality has deep geometric meaning: the absolute value of the inner product (which relates to the cosine of the angle between vectors) is bounded by the product of their lengths. This ensures that when we define angles using inner products, the cosine stays between -1 and 1.\n"
+"\n"
+"## The Goal\n"
+"We prove this using orthogonal decomposition. The key insight is to decompose `u` relative to `v` as `u = c • v + w` where `w` is orthogonal to `v`. Then we use the Pythagorean theorem and algebraic manipulation to establish the inequality.\n"
+"\n"
+"## The Strategy\n"
+"1. Handle the case `v = 0` separately (trivial)\n"
+"2. For `v ≠ 0`, use orthogonal decomposition: `u = c • v + w` with `w ⊥ v`  \n"
+"3. Apply Pythagorean theorem: `‖u‖² = ‖c • v‖² + ‖w‖²`\n"
+"4. Since `‖w‖² ≥ 0`, we get `‖u‖² ≥ ‖c • v‖²`\n"
+"5. Substitute `c = ⟪u,v⟫ / ‖v‖²` and algebraically simplify"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "The Cauchy-Schwarz inequality: `‖⟪u,v⟫‖ ≤ ‖u‖ * ‖v‖` for any vectors `u` and `v`.\n"
+"This is one of the most important inequalities in linear algebra and analysis."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "We need to consider two cases: when `v = 0` and when `v ≠ 0`."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "Try `by_cases v_zero : v = 0`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "First, let's handle the case when `v = 0`. When `v = 0`, both sides become 0."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "Try `rw[v_zero]`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "Try `rw [inner_zero_right_v]`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "Now for the main case where `v ≠ 0`. We'll use orthogonal decomposition."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "Try `let c := ⟪u,v⟫ / (‖v‖^2)`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "Try `let w := u - c • v`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "Try `have h5:= left_smul_ortho v w c (ortho_swap w v h4)`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "We reduce to proving the squared version of the inequality."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "Try `suffices ‖⟪u,v⟫‖^2 ≤ ‖u‖^2 * ‖v‖^2 by exact le_of_sq_le_sq this g3`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "Apply the Pythagorean theorem using orthogonality."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "Try `have h6 := pythagorean (c• v) w h5`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "Try `nth_rw 2 [h3]`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "Try `rw [h6]`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "Transform ‖c • v‖² using the definition of c."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "Try `have kt : ‖c • v‖^2 = ‖⟪u,v⟫‖^2/‖v‖^2 := by ...`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "Try `rw [kt]`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "Try `rw [add_mul]`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "Try `field_simp [v_norm_zero]`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "Try `exact norm_sq_nonneg w`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level08
+msgid "Triangle Inequality for the Norm"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level08
+msgid "## Triangle Inequality\n"
+"\n"
+"In any inner product space, the norm satisfies the triangle inequality:\n"
+"$$\\|u+v\\| \\leq \\|u\\| + \\|v\\|$$\n"
+"\n"
+"Geometrically, this says the straight-line path is the shortest. In this level, you'll prove this fundamental result using the inner product, the Cauchy–Schwarz inequality, and basic algebra.\n"
+"\n"
+"## Summary\n"
+"The triangle inequality is a cornerstone of normed spaces. For any vectors $u$ and $v$, the straight-line distance ($\\|u+v\\|$) is never greater than the sum of the distances ($\\|u\\| + \\|v\\|$).\n"
+"\n"
+"## Key idea\n"
+"- Expand $\\|u+v\\|^2$ using the inner product.\n"
+"- Bound the cross term $2\\,\\Re\\,\\langle u,v\\rangle$ using the Cauchy–Schwarz inequality.\n"
+"- Finish by taking square roots, using nonnegativity of norm.\n"
+"\n"
+"This property is what makes $\\|\\cdot\\|$ a norm, ensuring our vector space is a metric space!"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level08
+msgid "The triangle inequality is a fundamental property of norms in inner product spaces.\n"
+"It states that `‖u+v‖ ≤ ‖u‖ + ‖v‖` for any vectors `u` and `v`.\n"
+"This ensures that the norm defines a proper distance on the vector space."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level08
+msgid "It's easier to prove the squared version first: `‖u+v‖^2 ≤ (‖u‖ + ‖v‖)^2`."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level08
+msgid "Try `suffices ‖u+v‖^2 ≤ (‖u‖ + ‖v‖)^2 by`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level08
+msgid "Expand the squared norm using the inner product."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level08
+msgid "Try `rw [norm_sq_eq]`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level08
+msgid "We need to expand `⟪u+v, u+v⟫.re` using linearity of the inner product."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level08
+msgid "Try `have expand : ⟪u+v, u+v⟫.re = ⟪u,u⟫.re + ⟪v,v⟫.re + 2*⟪u,v⟫.re := by`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level08
+msgid "Try `rw [InnerProductSpace_v.inner_add_left, inner_add_right_v, inner_add_right_v]`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level08
+msgid "Try `simp only [Complex.add_re]`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level08
+msgid "Try `rw [InnerProductSpace_v.inner_conj_symm v u, Complex.conj_re]`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level08
+msgid "Try `ring`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level08
+msgid "Try `rw [expand, add_sq, norm_sq_eq, norm_sq_eq]`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level08
+msgid "Bound the cross term `2*⟪u,v⟫.re` by `2*‖u‖*‖v‖` using Cauchy–Schwarz."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level08
+msgid "Try `have bound := re_le_abs ⟪u,v⟫`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level08
+msgid "Try `have cs := Cauchy_Schwarz u v`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level08
+msgid "Try `rw [norm_inner_eq_abs] at cs`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level08
+msgid "Try `have cross_bound : ⟪u,v⟫.re ≤ ‖u‖ * ‖v‖ := by linarith [bound, cs]`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level08
+msgid "Try `linarith [cross_bound]`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level08
+msgid "You have proven the triangle inequality!  \n"
+"This key result guarantees that norm defines a 'distance' on the vector space."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld
@@ -3510,35 +3682,24 @@ msgid "## Finding a Minimal Spanning Set\n"
 "\n"
 "Sometimes you start with a big spanning set that includes lots of redundant vectors.\n"
 "Like cleaning out a closet, you want to keep only the essentials.\n"
-"This level proves you can always extract a subset that is a basis.\n"
-"\n"
-"## Summary\n"
-"Sometimes your spanning set is too big and messy. Can you always extract a basis? Yes!\n"
-"This is called \"Basis Extraction.\"\n"
-"We'll use the existence of a maximal linearly independent subset.\n"
-"\n"
-"## Key idea\n"
-"- Start with a spanning set S.\n"
-"- Use Lean's `exists_maximal_independent` to grab a maximal linearly independent subset `B`.\n"
-"- Show that `B` is still spanning, since `span B = span S` and `S` was spanning.\n"
-"\n"
-"The result: every spanning set contains a basis!"
+"This level proves you can always extract a subset that is a basis."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level02
-msgid ""
+msgid "Given a spanning set, you can extract a subset that is a basis.\n"
+"This demonstrates that every vector space has a basis."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level02
-msgid "Given a spanning set, you can extract a subset that is a basis."
+msgid "Use `exists_linearIndependent` to get a maximal independent subset."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level02
-msgid "This theorem requires advanced techniques beyond the current level."
+msgid "Since `span B = span S` and `span S = ⊤`, get `span B = ⊤` by substitution."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level02
-msgid "For now, we'll accept this fundamental result about basis extraction."
+msgid "Collect everything for the answer."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level02
@@ -3556,14 +3717,6 @@ msgid "## The Space Where Everything is Zero\n"
 "No movement, no direction—just the origin.\n"
 "In this level, you show that such a space must have dimension zero.\n"
 "\n"
-"If every vector in your space is zero, there is really \"no room\" for movement—this space has dimension zero.\n"
-"\n"
-"## Key idea\n"
-"- If all vectors are zero, the only possible basis is the empty set.\n"
-"- Compute `dim K V` using its definition; show any other \"basis\" would contradict independence.\n"
-"\n"
-"This shows the zero space is 0-dimensional!\n"
-"\n"
 "Your goal: show that any vector space where all elements are zero has dimension zero."
 msgstr ""
 
@@ -3572,7 +3725,31 @@ msgid ""
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level03
-msgid "If every vector in `V` is zero, then the dimension of `V` is 0."
+msgid "If every vector in `V` is zero, then the finite rank of `V` is 0."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level03
+msgid "We need to show this space has finrank 0. Since every vector is zero, the space is just 0."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level03
+msgid "Try `have h_zero : (⊤ : Submodule K V) = ⊥ := by`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level03
+msgid "Try `ext v`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level03
+msgid "Try `simp [Submodule.mem_bot, hV v]`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level03
+msgid "Try `rw [← finrank_top, h_zero]`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level03
+msgid "Try `exact finrank_bot K V`"
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level03

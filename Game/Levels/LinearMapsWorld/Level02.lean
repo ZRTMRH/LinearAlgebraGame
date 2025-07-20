@@ -1,22 +1,11 @@
 import Game.Levels.LinearMapsWorld.Level01
+
+namespace LinearAlgebraGame
+
 World "LinearMapsWorld"
 Level 2
 
 Title "Finding a Minimal Spanning Set"
-
-/--
-## Summary
-Sometimes your spanning set is too big and messy. Can you always extract a basis? Yes!
-This is called \"Basis Extraction.\"
-We'll use the existence of a maximal linearly independent subset.
-
-## Key idea
-- Start with a spanning set S.
-- Use Lean's `exists_linearIndependent` to grab a maximal linearly independent subset `B`.
-- Show that `B` is still spanning, since `span B = span S` and `S` was spanning.
-
-The result: every spanning set contains a basis!
--/
 
 Introduction "
 ## Finding a Minimal Spanning Set
@@ -29,11 +18,11 @@ This level proves you can always extract a subset that is a basis.
 open Submodule
 variable (K V : Type) [Field K] [AddCommGroup V] [Module K V]
 
-TheoremDoc exists_basis_sub_set as "Extracting a Basis" in "BasisWorld"
-
 /--
 Given a spanning set, you can extract a subset that is a basis.
+This demonstrates that every vector space has a basis.
 -/
+TheoremDoc LinearAlgebraGame.exists_basis_sub_set as "exists_basis_sub_set" in "BasisWorld"
 Statement exists_basis_sub_set (S : Set V) (hS : Submodule.span K S = ⊤) :
   ∃ (B : Set V), B ⊆ S ∧ LinearIndependent K (fun v : B => (v : V)) ∧ Submodule.span K B = ⊤ := by
   Hint "Use `exists_linearIndependent` to get a maximal independent subset."
@@ -48,3 +37,5 @@ Conclusion
 "
 Any spanning set contains a basis—you can always trim down to something just right!
 "
+
+end LinearAlgebraGame

@@ -388,9 +388,10 @@ theorem pythagorean (u v : V) (h : orthogonal u v) : ‖u + v‖^2 = ‖u‖^2 +
 
 --Level 22
 --Title "Norm Squared equals Inner Product (Real Part)"
---Introduction "This is a simple but useful relation: $|v|^2 = \langle v,v\rangle.\mathrm{re}$. It connects the norm back to the inner product definition. Essentially by definition $|v|^2 = \Re(\langle v,v\rangle)$, but proving it formally confirms there’s no sign ambiguity. The significance is that one can replace norm squares with inner products in proofs, which is often convenient (e.g., when applying Cauchy-Schwarz or expanding norms)."
+--Introduction "This is a simple but useful relation: $|v|^2 = \langle v,v\rangle.\mathrm{re}$. It connects the norm back to the inner product definition. Essentially by definition $|v|^2 = \Re(\langle v,v\rangle)$, but proving it formally confirms there's no sign ambiguity. The significance is that one can replace norm squares with inner products in proofs, which is often convenient (e.g., when applying Cauchy-Schwarz or expanding norms)."
 --Hint "Unfold the definition of $‖v‖$ and square it: $|v|^2 = (\sqrt{\Re(\langle v,v\rangle)})^2$. Because $\Re(\langle v,v\rangle) \ge 0$, this just gives back $\Re(\langle v,v\rangle)$."
 
+-- Also defined in LemmasAndDefs.lean for use in game levels
 theorem norm_sq_eq (v : V) :  ‖v‖^2 = ⟪v,v⟫.re := by
     unfold norm_v
     rw [Real.sq_sqrt (InnerProductSpace_v.inner_self_nonneg v)]

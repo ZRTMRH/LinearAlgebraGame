@@ -4,6 +4,8 @@ import Game.Levels.InnerProductWorld.Level03
 import Game.Levels.InnerProductWorld.Level04
 import Game.Levels.InnerProductWorld.Level05
 import Game.Levels.InnerProductWorld.Level06
+import Game.Levels.InnerProductWorld.Level07
+import Game.Levels.InnerProductWorld.Level08
 
 -- Import the common definitions that contain theorem aliases
 import Game.Levels.InnerProductWorld.LemmasAndDefs

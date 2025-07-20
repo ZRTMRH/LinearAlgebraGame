@@ -36,7 +36,7 @@ NewDefinition orthogonal
 `ortho_self_zero` is a proof that the only vector orthogonal to itself is the zero vector. If `v` is
 a vector, `ortho_self_zero v` is a proof that `ortho v v ↔ v = 0`.
 -/
-TheoremDoc ortho_self_zero as "ortho_self_zero" in "Inner Product"
+TheoremDoc LinearAlgebraGame.ortho_self_zero as "ortho_self_zero" in "Inner Product"
 
 variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [DecidableEq V] [InnerProductSpace_v V]
 open Function Set VectorSpace Real InnerProductSpace_v Complex

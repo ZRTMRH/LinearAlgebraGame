@@ -1,5 +1,7 @@
 import Game.Levels.InnerProductWorld.Level05
 
+namespace LinearAlgebraGame
+
 World "InnerProductWorld"
 Level 6
 
@@ -23,7 +25,7 @@ is trivial, since we are adding and subtracting the same vector to `u` on the ri
 `ortho_decom` is a proof that given vectors `u v : V` and `h : v ≠ 0`, then `orthogonal (u - (⟪u,v⟫ / (‖v‖^2)) • v) v`.
 This allows you to rewrite `u` as a scalar multiple of `v` added to a vector orthogonal to `v`. 
 -/
-TheoremDoc ortho_decom as "ortho_decom" in "Inner Product"
+TheoremDoc LinearAlgebraGame.ortho_decom as "ortho_decom" in "Inner Product"
 
 variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [DecidableEq V] [InnerProductSpace_v V]
 open Function Set VectorSpace Real InnerProductSpace_v Complex
@@ -42,3 +44,5 @@ Statement ortho_decom (u v : V) (h : v ≠ 0) : orthogonal (u - (⟪u,v⟫ / (�
   intro x
   apply h
   exact (inner_self_eq_zero v).1 x
+
+end LinearAlgebraGame

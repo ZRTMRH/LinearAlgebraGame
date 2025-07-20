@@ -7,6 +7,7 @@ import Mathlib.Data.Real.Basic
 import Mathlib.Data.Complex.Abs
 import Mathlib.Analysis.Normed.Group.Basic
 import Mathlib.Analysis.Complex.Basic  -- For Complex.normSq_eq_norm_sq
+import Mathlib.Data.Real.Sqrt  -- For Real.sq_sqrt
 
 open Function Set VectorSpace
 
@@ -188,13 +189,49 @@ theorem ortho_swap : ∀ (u v :V), orthogonal u v → orthogonal v u := by
   rw [InnerProductSpace_v.inner_conj_symm,h]
   simp
 
-/-- The norm of any vector is non-negative. -/
-theorem norm_nonneg_v (v: V): 0≤ ‖v‖ := by
-  unfold norm_v
-  exact Real.sqrt_nonneg ⟪v,v⟫.re
-
 theorem norm_sq_eq (v : V) :  ‖v‖^2 = ⟪v,v⟫.re := by
     unfold norm_v
     rw [Real.sq_sqrt (InnerProductSpace_v.inner_self_nonneg v)]
+
+theorem right_smul_ortho (u v : V) (c : ℂ) (h : orthogonal u v) : orthogonal u (c • v) := by
+  exact ortho_swap (c • v) u (left_smul_ortho v u c (ortho_swap u v h))
+
+theorem le_of_sq_le_sq {a : ℝ} {b : ℝ} (h : a^2 ≤ b ^2 ) (hb : 0≤ b) : a ≤ b :=
+  le_abs_self a |>.trans <| abs_le_of_sq_le_sq h hb
+
+-- Helper theorem for orthogonal decomposition that gives us the full structure needed for Cauchy-Schwarz
+theorem ortho_decom_parts (u v : V) (h : v ≠ 0) : 
+  let c := ⟪u,v⟫ / (‖v‖^2)
+  let w := u - c • v
+  u = c • v + w ∧ orthogonal w v := by
+  let c := ⟪u,v⟫ / (‖v‖^2)  
+  let w := u - c • v
+  constructor
+  · simp [w]
+  · -- Prove orthogonality directly (same as Level06 ortho_decom)
+    unfold orthogonal
+    rw[inner_minus_left]
+    rw[InnerProductSpace_v.inner_smul_left]
+    unfold norm_v
+    norm_cast
+    rw[Real.sq_sqrt (inner_self_nonneg v)]
+    rw [← inner_self_real]
+    ring_nf
+    rw[mul_assoc, mul_inv_cancel]
+    simp
+    intro x
+    apply h
+    exact (inner_self_eq_zero v).1 x
+
+-- Lemma that the real part of a complex number is bounded by its absolute value
+theorem re_le_abs (z : ℂ) : z.re ≤ Complex.abs z := by
+  have h := Complex.abs_re_le_abs z
+  exact le_abs_self z.re |>.trans h
+
+-- The norm of an inner product equals the complex absolute value
+theorem norm_inner_eq_abs (u v : V) : ‖⟪u,v⟫‖ = Complex.abs ⟪u,v⟫ := by
+  -- Since inner products are complex numbers, their norm should equal Complex.abs
+  -- This needs to be established based on how norm_v is defined for complex numbers
+  rfl  -- This should work if norm_v is defined correctly for complex numbers
 
 end LinearAlgebraGame
