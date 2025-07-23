@@ -5,63 +5,75 @@ namespace LinearAlgebraGame
 World "LinearMapsWorld"
 Level 1
 
-Title "Definition of a Basis"
+Title "What is a Linear Map?"
 
 Introduction "
-In this level, we introduce the precise mathematical definition of a **basis** for a vector space.
+In this level, we introduce the fundamental concept of a **linear map** between vector spaces.
 
-Given a vector space $V$ over a field $K$, a set $B \\subseteq V$ is called a basis of $V$ if it satisfies **two key properties**:
+## The Core Idea
 
-1. **Linear Independence:** No nontrivial linear combination of elements of $B$ gives zero.
-   That is, if a finite sum $\\sum_{i} \\alpha_i b_i = 0$ with $b_i \\in B$ and scalars $\\alpha_i$ implies all $\\alpha_i = 0$.
+A linear map (also called a linear transformation) is a function between vector spaces that preserves the essential vector space operations: addition and scalar multiplication.
 
-2. **Spanning:** Every vector $v \\in V$ can be written as a finite linear combination of elements of $B$.
+## Mathematical Definition
 
-In Lean, we formalize this as follows:
+Given vector spaces $V$ and $W$ over a field $K$, a function $T : V \\to W$ is called **linear** if it satisfies these two properties:
 
-def isBasis (B : Set V) : Prop :=
-  linear_independent K V B ∧ span K V B = ⊤
+1. **Additivity:** $T(u + v) = T(u) + T(v)$ for all $u, v \\in V$
+2. **Homogeneity:** $T(a \\cdot v) = a \\cdot T(v)$ for all $a \\in K$ and $v \\in V$
 
-### The Goal
-Prove that the definition above is equivalent to saying $B$ is linearly independent and spans $V$.
+## Why This Matters
+
+Linear maps are the structure-preserving functions of linear algebra. They respect the vector space structure, making them the natural morphisms to study between vector spaces.
+
+### Your Goal
+Prove that our definition captures exactly these two fundamental properties.
 "
 
-open VectorSpace Finset
-variable (K V : Type) [Field K] [AddCommGroup V] [DecidableEq V] [VectorSpace K V]
+open VectorSpace
+variable (K V W : Type) [Field K] [AddCommGroup V] [AddCommGroup W] 
+variable [DecidableEq V] [DecidableEq W] [VectorSpace K V] [VectorSpace K W]
 
 /--
-`isBasis K V B` means $B$ is a basis: linearly independent and spans $V$.
+**Educational Definition: Linear Map**
+
+A function `T : V → W` between vector spaces is called *linear* if it preserves
+vector addition and scalar multiplication.
+
+This follows Axler's Definition 3.1: A function T : V → W is called a linear map if
+T(u + v) = Tu + Tv and T(av) = aTv for all u, v ∈ V and all a ∈ F.
 -/
-def isBasis (B : Set V) : Prop :=
-  linear_independent_v K V B ∧ span K V B = ⊤
+def is_linear_map_v (T : V → W) : Prop :=
+  (∀ u v : V, T (u + v) = T u + T v) ∧ 
+  (∀ a : K, ∀ v : V, T (a • v) = a • T v)
 
 /--
-`isBasis K V B` means $B$ is a basis: linearly independent and spans $V$.
+`is_linear_map_v K V W T` means T preserves addition and scalar multiplication.
 -/
-DefinitionDoc isBasis as "isBasis"
+DefinitionDoc is_linear_map_v as "is_linear_map_v"
 
-NewDefinition isBasis
+NewDefinition is_linear_map_v
 
 /--
-The definition of a basis is just linear independence and spanning.
+A linear map preserves vector addition and scalar multiplication.
 -/
-TheoremDoc LinearAlgebraGame.basis_iff_independent_and_spanning as "basis_iff_independent_and_spanning" in "Bases"
+TheoremDoc LinearAlgebraGame.linear_map_def as "linear_map_def" in "Linear Maps"
 
-TheoremTab "Bases"
+TheoremTab "Linear Maps"
 
 /--
-The definition of a basis is just linear independence and spanning.
+The definition of a linear map is exactly additivity and homogeneity.
 -/
-Statement basis_iff_independent_and_spanning (B : Set V) :
-    isBasis K V B ↔ (linear_independent_v K V B ∧ span K V B = ⊤) := by
-  Hint "Try `unfold isBasis` to see the definition directly."
-  unfold isBasis
+Statement linear_map_def (T : V → W) :
+    is_linear_map_v K V W T ↔ 
+    (∀ u v : V, T (u + v) = T u + T v) ∧ (∀ a : K, ∀ v : V, T (a • v) = a • T v) := by
+  Hint "Try unfold is_linear_map_v to see the definition directly."
+  unfold is_linear_map_v
   rfl
 
 Conclusion "
-You have formalized the mathematical definition of a basis for a vector space.
+You have formalized the fundamental definition of a linear map.
 
-In the next levels, you will use this definition to explore fundamental theorems about bases, dimension, and coordinate representations.
+Linear maps are the backbone of linear algebra - they preserve the structure we care about. In the next levels, you'll explore what linear maps do to special sets like the null space and range.
 "
 
 end LinearAlgebraGame

@@ -5,43 +5,78 @@ namespace LinearAlgebraGame
 World "LinearMapsWorld"
 Level 7
 
-Title "Coordinates Representation"
+Title "Surjective Linear Maps"
 
 Introduction "
-## Coordinates with Respect to a Basis
+In our final level of LinearMapsWorld, we'll introduce the concept of surjectivity and prove a basic property.
 
-In linear algebra, a **basis** of a vector space allows us to represent every vector in the space as a combination of the basis vectors. Imagine we have chosen a specific basis `B : Fin n → V` for an `n`-dimensional vector space `V`. How can we describe an arbitrary vector `v` in `V` in terms of this basis? By listing its **coordinates** relative to `B` — essentially, how much of each basis vector is needed to reconstruct `v`. 
+## The Core Idea
 
-In this level, we introduce a formal coordinate map that takes any vector to its coordinate tuple, and we prove that these coordinates provide a unique representation of the vector.
+A linear map is surjective (onto) if every element in the codomain can be reached. In other words, the range equals the entire codomain.
 
-## Summary
-**Coordinates with Respect to a Basis:** We prove that once a basis `B` of `V` is fixed, every vector `v` in `V` can be expressed *uniquely* as a linear combination of the basis vectors. We formalize this by defining the function `coord`, which returns the coefficients of `v` with respect to `B`. The main theorem, `coord_representation`, then states that `v` equals the sum of its coordinates times the corresponding basis elements. This confirms that coordinates give a one-to-one correspondence between vectors in `V` and their coordinate tuples.
+## Mathematical Definition
 
-## Key idea
-- We obtain the coordinate function `coord` by using the basis's `repr` function. This gives each vector `v` a tuple of `n` scalars corresponding to its components along the basis vectors in `B`.
-- Because `B` spans `V`, every vector can be expressed as a sum of basis elements with appropriate coefficients. In fact, the library lemma `B.sum_repr` states that `∑ i, coord v i • B i = v`, directly reconstructing `v` from its coordinates.
-- The representation is *unique* because `B` is linearly independent. If two different coordinate lists produced the same vector `v`, their difference would give a nonzero linear combination of basis vectors equal to zero — contradicting linear independence. Hence, no vector has two distinct sets of coordinates.
+A linear map $T : V \\to W$ is surjective if:
+$$\\text{range } T = W$$
+
+This is equivalent to saying: for every $w \\in W$, there exists $v \\in V$ such that $T(v) = w$.
+
+## Why This Matters
+
+Surjectivity tells us when a linear map 'fills up' its target space completely. Combined with injectivity, it characterizes when linear maps are invertible.
+
+### Your Goal
+Prove that if T is surjective, then every element of W is in the range of T.
 "
 
-variable (K V : Type*) [Field K] [AddCommGroup V] [Module K V] [Module.Finite K V]
-variable {n : ℕ} (B : Basis (Fin n) K V)
-
-TheoremDoc LinearAlgebraGame.coord_representation as "Coordinate Representation" in "Bases"
-
-/--
-The coordinate map (unique coordinates for each v ∈ V)
--/
-noncomputable def coord (v : V) : Fin n → K := B.repr v
+open VectorSpace
+variable (K V W : Type) [Field K] [AddCommGroup V] [AddCommGroup W] 
+variable [DecidableEq V] [DecidableEq W] [VectorSpace K V] [VectorSpace K W]
 
 /--
-Every vector equals the sum of its coordinates times the corresponding basis elements.
+**Educational Definition: Surjective Linear Map**
+
+A linear map is surjective (onto) if every element in the target space is hit.
+
+Following Axler's approach: T is surjective if for every w ∈ W, there exists v ∈ V such that Tv = w.
 -/
-Statement coord_representation (v : V) : v = Finset.univ.sum (fun i => coord K V B v i • B i) := by
-  rw [coord]
-  exact (B.sum_repr v).symm
+def surjective_v (K V W : Type) [Field K] [AddCommGroup V] [AddCommGroup W] 
+  [VectorSpace K V] [VectorSpace K W] (T : V → W) : Prop :=
+  ∀ w : W, ∃ v : V, T v = w
+
+/--
+`surjective_v K V W T` means T is onto.
+-/
+DefinitionDoc surjective_v as "surjective_v"
+
+NewDefinition surjective_v
+
+/--
+Surjectivity means range equals codomain.
+-/
+TheoremDoc LinearAlgebraGame.surjective_iff_range_eq as "surjective_iff_range_eq" in "Linear Maps"
+
+/--
+If T is surjective, then every element of W is in the range of T.
+-/
+Statement surjective_iff_range_eq (T : V → W) : 
+    surjective_v K V W T ↔ (∀ w : W, w ∈ range_v K V W T) := by
+  Hint "Show both directions of the equivalence."
+  constructor
+  Hint "First direction: if T is surjective, then every w is in the range."
+  · intro h_surj w
+    show ∃ v : V, T v = w
+    exact h_surj w
+  Hint "Second direction: if every w is in the range, then T is surjective."
+  · intro h_range w
+    exact h_range w
 
 Conclusion "
-By choosing a basis for `V`, we've established that any vector can be captured by a finite list of scalars — its coordinates. In other words, every vector corresponds to a unique tuple of coordinates (and vice versa) with respect to the chosen basis. This underpins the idea of coordinate systems in linear algebra, allowing us to seamlessly move between abstract vectors and their concrete representations.
+You've connected surjectivity with the range!
+
+You've now learned the fundamental concepts of linear maps: definition, null space, range, and the basic properties they satisfy. These form the foundation for understanding more advanced topics like the rank-nullity theorem and isomorphisms.
+
+Congratulations on completing LinearMapsWorld!
 "
 
 end LinearAlgebraGame

@@ -53,7 +53,7 @@ CaptionLong "You should use this game as a template for your own game and add yo
 -- Prerequisites "" -- add this if your game depends on other games
 -- CoverImage "images/cover.png"
 
--- Dependency VectorSpaceWorld → LinearIndependenceSpanWorld
+Dependency VectorSpaceWorld → LinearIndependenceSpanWorld
 
 namespace LinearAlgebraGame
 

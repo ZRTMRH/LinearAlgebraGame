@@ -61,12 +61,10 @@ This level also uses a new theorem: `add_succ`. `add_succ` is a proof that
 Statement (n : Nat) : 0 + n = n := by
   Hint "First, perform induction on `n`."
   induction' n with n h
-  Hint "Now, for the base case, you need to prove a simple property of the naturals."
+  Hint "Base case: prove 0 + 0 = 0."
   simp
-  Hint "You are adding the successor of a number here, try to simplify this using the new theorem!"
-  rw [Nat.add_succ]
-  Hint "Now, use the inductive hypothesis to finish the proof!"
-  rw [h]
+  Hint "Inductive step: use add_succ and the induction hypothesis."
+  simp [Nat.add_succ, h]
 
 
 Conclusion "

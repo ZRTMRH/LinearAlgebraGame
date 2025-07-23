@@ -32,11 +32,10 @@ Statement subspace_neg {W : Set V} (hW : isSubspace (K := K) (V := V) W) : ∀ (
   obtain ⟨_h1, _h2, h3⟩ := hW
   Hint (hidden := true) "Try `intros x hx`"
   intros x hx
-  Hint (hidden := true) "Try `rw [(neg_one_smul_v K V {x}).symm]`"
+  Hint (hidden := true) "Try `rw [(neg_one_smul_v K V x).symm]`"
   rw [(neg_one_smul_v K V x).symm]
-  Hint (hidden := true) "Try `apply {h3}`"
+  Hint (hidden := true) "Try `apply h3; exact hx` to use scalar multiplication closure"  
   apply h3
-  Hint (hidden := true) "Try `exact {hx}`"
   exact hx
 
 -- Add set theory theorems needed by LinearIndependenceSpanWorld

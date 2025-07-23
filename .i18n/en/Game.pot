@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: Sun Jul 20 00:02:23 2025\n"
+"POT-Creation-Date: Tue Jul 22 17:11:23 2025\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -768,15 +768,11 @@ msgid "First, perform induction on `n`."
 msgstr ""
 
 #: Game.Levels.TutorialWorld.Level10
-msgid "Now, for the base case, you need to prove a simple property of the naturals."
+msgid "Base case: prove 0 + 0 = 0."
 msgstr ""
 
 #: Game.Levels.TutorialWorld.Level10
-msgid "You are adding the successor of a number here, try to simplify this using the new theorem!"
-msgstr ""
-
-#: Game.Levels.TutorialWorld.Level10
-msgid "Now, use the inductive hypothesis to finish the proof!"
+msgid "Inductive step: use add_succ and the induction hypothesis."
 msgstr ""
 
 #: Game.Levels.TutorialWorld.Level10
@@ -1258,15 +1254,11 @@ msgid "Try `intros x hx`"
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level05
-msgid "Try `rw [(neg_one_smul_v K V «{x}»).symm]`"
+msgid "Try `rw [(neg_one_smul_v K V x).symm]`"
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level05
-msgid "Try `apply «{h3}»`"
-msgstr ""
-
-#: Game.Levels.VectorSpaceWorld.Level05
-msgid "Try `exact «{hx}»`"
+msgid "Try `apply h3; exact hx` to use scalar multiplication closure"
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level05
@@ -2017,31 +2009,15 @@ msgid "Try `  have hfprod0 : ∀ v ∈ s ∪ t,  v ∉ s → f v • v = 0 := by
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level07
-msgid "Try `    intros v hv1 hv2`"
+msgid "Try `intros v _hv1 hv2; rw[hf0 v hv2]; exact zero_smul_v K V v`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level07
-msgid "Try `    rw[hf0 v hv2]`"
+msgid "Try `have hgprod0 : ∀ v ∈ s ∪ t,  v ∉ t → g v • v = 0 := by`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level07
-msgid "Try `    exact zero_smul_v K V v`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level07
-msgid "Try `  have hgprod0 : ∀ v ∈ s ∪ t,  v ∉ t → g v • v = 0 := by`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level07
-msgid "Try `    intros v hv1 hv2`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level07
-msgid "Try `    rw[hg0 v hv2]`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level07
-msgid "Try `    exact zero_smul_v K V v`"
+msgid "Try `intros v _hv1 hv2; rw[hg0 v hv2]; exact zero_smul_v K V v`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level07
@@ -2057,11 +2033,7 @@ msgid "Now, we use the fact that the two sums are equal to finish the proof of t
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level07
-msgid "Try `  rw[heq]`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level07
-msgid "Try `  simp`"
+msgid "Try `rw[heq]; simp`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level07
@@ -2087,15 +2059,7 @@ msgid "Try `exact sub_eq_zero.1 hS`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level07
-msgid "Try `rw[not_mem_union] at h`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level07
-msgid "Try `cases' h with hS hT`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level07
-msgid "Try `rw[hf0 v hS, hg0 v hT]`"
+msgid "Try `rw[not_mem_union] at h; cases' h with hS hT; rw[hf0 v hS, hg0 v hT]`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level07
@@ -2435,14 +2399,6 @@ msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level08
 msgid "Try `exact «{hS}» «{s}» «{f}» «{s_subset_S}» «{hf}» «{w}» «{hw}»`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld
-msgid "Linear Independence and Span World"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld
-msgid "Welcome to Linear Independence and Span World! This world introduces the ideas of linear independence/dependence and the span of a set of vectors. You will prove theorems, for example that any subset of a linearly independent set of vectors is still linearly independent."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
@@ -2896,6 +2852,14 @@ msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
 msgid "You have now finished the Linear Independence and Span World!"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld
+msgid "Linear Independence and Span World"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld
+msgid "Welcome to Linear Independence and Span World! This world introduces the ideas of linear independence/dependence and the span of a set of vectors. You will prove theorems, for example that any subset of a linearly independent set of vectors is still linearly independent."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level01
@@ -3405,6 +3369,30 @@ msgid "`ortho_decom` is a proof that given vectors `u v : V` and `h : v ≠ 0`, 
 "This allows you to rewrite `u` as a scalar multiple of `v` added to a vector orthogonal to `v`."
 msgstr ""
 
+#: Game.Levels.InnerProductWorld.Level06
+msgid "Start by unfolding the definition of orthogonal."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level06
+msgid "Expand the inner product using linearity properties."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level06
+msgid "Simplify the norm squared expression."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level06
+msgid "Use ring operations to simplify the algebra."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level06
+msgid "The key step: cancel ⟪v,v⟫ in numerator and denominator."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level06
+msgid "We need v ≠ 0 to ensure ⟪v,v⟫ ≠ 0 for cancellation."
+msgstr ""
+
 #: Game.Levels.InnerProductWorld.Level07
 msgid "Cauchy-Schwarz Inequality"
 msgstr ""
@@ -3457,6 +3445,14 @@ msgid "Now for the main case where `v ≠ 0`. We'll use orthogonal decomposition
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
+msgid "We'll decompose u as c•v + w where w is orthogonal to v."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "The key insight: choose c = ⟪u,v⟫ / ‖v‖² to make w orthogonal to v."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
 msgid "Try `let c := ⟪u,v⟫ / (‖v‖^2)`"
 msgstr ""
 
@@ -3465,7 +3461,11 @@ msgid "Try `let w := u - c • v`"
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
-msgid "Try `have h5:= left_smul_ortho v w c (ortho_swap w v h4)`"
+msgid "Now we establish the key properties of our decomposition."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "The orthogonality follows from our choice of c."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
@@ -3493,15 +3493,23 @@ msgid "Try `rw [h6]`"
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
-msgid "Transform ‖c • v‖² using the definition of c."
+msgid "The crucial step: express ‖c • v‖² in terms of the inner product."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
-msgid "Try `have kt : ‖c • v‖^2 = ‖⟪u,v⟫‖^2/‖v‖^2 := by ...`"
+msgid "Since c = ⟪u,v⟫/‖v‖², we get ‖c • v‖² = ‖⟪u,v⟫‖²/‖v‖²."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "Now substitute our expression for ‖c • v‖²."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
 msgid "Try `rw [kt]`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "Distribute the multiplication and simplify fractions."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
@@ -3510,6 +3518,10 @@ msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
 msgid "Try `field_simp [v_norm_zero]`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "The final step: ‖w‖² ≥ 0 always holds since norms are non-negative."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
@@ -3546,71 +3558,31 @@ msgid "The triangle inequality is a fundamental property of norms in inner produ
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level08
-msgid "It's easier to prove the squared version first: `‖u+v‖^2 ≤ (‖u‖ + ‖v‖)^2`."
+msgid "It's easier to prove the squared version first."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level08
-msgid "Try `suffices ‖u+v‖^2 ≤ (‖u‖ + ‖v‖)^2 by`"
+msgid "Expand using the inner product and apply Cauchy-Schwarz."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level08
-msgid "Expand the squared norm using the inner product."
+msgid "First expand the inner product ⟪u+v, u+v⟫ using linearity."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level08
-msgid "Try `rw [norm_sq_eq]`"
+msgid "This will give us ⟪u,u⟫ + ⟪v,v⟫ + ⟪u,v⟫ + ⟪v,u⟫."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level08
-msgid "We need to expand `⟪u+v, u+v⟫.re` using linearity of the inner product."
+msgid "Now we bound the cross term 2*⟪u,v⟫.re using Cauchy-Schwarz."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level08
-msgid "Try `have expand : ⟪u+v, u+v⟫.re = ⟪u,u⟫.re + ⟪v,v⟫.re + 2*⟪u,v⟫.re := by`"
+msgid "We know |⟪u,v⟫| ≤ ‖u‖ * ‖v‖, so ⟪u,v⟫.re ≤ ‖u‖ * ‖v‖."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level08
-msgid "Try `rw [InnerProductSpace_v.inner_add_left, inner_add_right_v, inner_add_right_v]`"
-msgstr ""
-
-#: Game.Levels.InnerProductWorld.Level08
-msgid "Try `simp only [Complex.add_re]`"
-msgstr ""
-
-#: Game.Levels.InnerProductWorld.Level08
-msgid "Try `rw [InnerProductSpace_v.inner_conj_symm v u, Complex.conj_re]`"
-msgstr ""
-
-#: Game.Levels.InnerProductWorld.Level08
-msgid "Try `ring`"
-msgstr ""
-
-#: Game.Levels.InnerProductWorld.Level08
-msgid "Try `rw [expand, add_sq, norm_sq_eq, norm_sq_eq]`"
-msgstr ""
-
-#: Game.Levels.InnerProductWorld.Level08
-msgid "Bound the cross term `2*⟪u,v⟫.re` by `2*‖u‖*‖v‖` using Cauchy–Schwarz."
-msgstr ""
-
-#: Game.Levels.InnerProductWorld.Level08
-msgid "Try `have bound := re_le_abs ⟪u,v⟫`"
-msgstr ""
-
-#: Game.Levels.InnerProductWorld.Level08
-msgid "Try `have cs := Cauchy_Schwarz u v`"
-msgstr ""
-
-#: Game.Levels.InnerProductWorld.Level08
-msgid "Try `rw [norm_inner_eq_abs] at cs`"
-msgstr ""
-
-#: Game.Levels.InnerProductWorld.Level08
-msgid "Try `have cross_bound : ⟪u,v⟫.re ≤ ‖u‖ * ‖v‖ := by linarith [bound, cs]`"
-msgstr ""
-
-#: Game.Levels.InnerProductWorld.Level08
-msgid "Try `linarith [cross_bound]`"
+msgid "Finally, use linear arithmetic to complete the proof."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level08
@@ -3629,267 +3601,350 @@ msgid "Welcome to the Inner Product World! In this world, we introduce the idea 
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level01
-msgid "Definition of a Basis"
+msgid "What is a Linear Map?"
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level01
-msgid "In this level, we introduce the precise mathematical definition of a **basis** for a vector space.\n"
+msgid "In this level, we introduce the fundamental concept of a **linear map** between vector spaces.\n"
 "\n"
-"Given a vector space $V$ over a field $K$, a set $B \\subseteq V$ is called a basis of $V$ if it satisfies **two key properties**:\n"
+"## The Core Idea\n"
 "\n"
-"1. **Linear Independence:** No nontrivial linear combination of elements of $B$ gives zero.\n"
-"   That is, if a finite sum $\\sum_{i} \\alpha_i b_i = 0$ with $b_i \\in B$ and scalars $\\alpha_i$ implies all $\\alpha_i = 0$.\n"
+"A linear map (also called a linear transformation) is a function between vector spaces that preserves the essential vector space operations: addition and scalar multiplication.\n"
 "\n"
-"2. **Spanning:** Every vector $v \\in V$ can be written as a finite linear combination of elements of $B$.\n"
+"## Mathematical Definition\n"
 "\n"
-"In Lean, we formalize this as follows:\n"
+"Given vector spaces $V$ and $W$ over a field $K$, a function $T : V \\to W$ is called **linear** if it satisfies these two properties:\n"
 "\n"
-"def isBasis (B : Set V) : Prop :=\n"
-"  linear_independent K V B ∧ span K V B = ⊤\n"
+"1. **Additivity:** $T(u + v) = T(u) + T(v)$ for all $u, v \\in V$\n"
+"2. **Homogeneity:** $T(a \\cdot v) = a \\cdot T(v)$ for all $a \\in K$ and $v \\in V$\n"
 "\n"
-"### The Goal\n"
-"Prove that the definition above is equivalent to saying $B$ is linearly independent and spans $V$."
+"## Why This Matters\n"
+"\n"
+"Linear maps are the structure-preserving functions of linear algebra. They respect the vector space structure, making them the natural morphisms to study between vector spaces.\n"
+"\n"
+"### Your Goal\n"
+"Prove that our definition captures exactly these two fundamental properties."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level01
-msgid "`isBasis K V B` means $B$ is a basis: linearly independent and spans $V$."
+msgid "`is_linear_map_v K V W T` means T preserves addition and scalar multiplication."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level01
-msgid "The definition of a basis is just linear independence and spanning."
+msgid "A linear map preserves vector addition and scalar multiplication."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level01
-msgid "The definition of a basis is just linear independence and spanning."
+msgid "The definition of a linear map is exactly additivity and homogeneity."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level01
-msgid "Try `unfold isBasis` to see the definition directly."
+msgid "Try unfold is_linear_map_v to see the definition directly."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level01
-msgid "You have formalized the mathematical definition of a basis for a vector space.\n"
+msgid "You have formalized the fundamental definition of a linear map.\n"
 "\n"
-"In the next levels, you will use this definition to explore fundamental theorems about bases, dimension, and coordinate representations."
+"Linear maps are the backbone of linear algebra - they preserve the structure we care about. In the next levels, you'll explore what linear maps do to special sets like the null space and range."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level02
-msgid "Finding a Minimal Spanning Set"
+msgid "The Null Space"
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level02
-msgid "## Finding a Minimal Spanning Set\n"
+msgid "Now that we understand what linear maps are, let's explore one of their most important properties: the **null space**.\n"
 "\n"
-"Sometimes you start with a big spanning set that includes lots of redundant vectors.\n"
-"Like cleaning out a closet, you want to keep only the essentials.\n"
-"This level proves you can always extract a subset that is a basis."
-msgstr ""
-
-#: Game.Levels.LinearMapsWorld.Level02
-msgid "Given a spanning set, you can extract a subset that is a basis.\n"
-"This demonstrates that every vector space has a basis."
-msgstr ""
-
-#: Game.Levels.LinearMapsWorld.Level02
-msgid "Use `exists_linearIndependent` to get a maximal independent subset."
-msgstr ""
-
-#: Game.Levels.LinearMapsWorld.Level02
-msgid "Since `span B = span S` and `span S = ⊤`, get `span B = ⊤` by substitution."
-msgstr ""
-
-#: Game.Levels.LinearMapsWorld.Level02
-msgid "Collect everything for the answer."
-msgstr ""
-
-#: Game.Levels.LinearMapsWorld.Level02
-msgid "Any spanning set contains a basis—you can always trim down to something just right!"
-msgstr ""
-
-#: Game.Levels.LinearMapsWorld.Level03
-msgid "The Space Where Everything is Zero"
-msgstr ""
-
-#: Game.Levels.LinearMapsWorld.Level03
-msgid "## The Space Where Everything is Zero\n"
+"## The Core Idea\n"
 "\n"
-"Imagine living in a space where every vector is zero.\n"
-"No movement, no direction—just the origin.\n"
-"In this level, you show that such a space must have dimension zero.\n"
+"Given a linear map $T : V \\to W$, some vectors in $V$ get mapped to the zero vector in $W$. The collection of all such vectors forms what we call the **null space** (or kernel) of $T$.\n"
 "\n"
-"Your goal: show that any vector space where all elements are zero has dimension zero."
+"## Mathematical Definition\n"
+"\n"
+"The null space of a linear map $T : V \\to W$ is:\n"
+"$$\\text{null } T = \\{v \\in V : T(v) = 0_W\\}$$\n"
+"\n"
+"### Your Goal\n"
+"Prove that zero is always in the null space of any linear map."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level02
+msgid "`null_space_v T` is the set of vectors that T maps to zero."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level02
+msgid "Zero is always in the null space."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level02
+msgid "Zero is always in the null space of any linear map."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level02
+msgid "Unfold the definition of null_space_v and show T 0 = 0."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level02
+msgid "Use the homogeneity property of linear maps with a = 0."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level02
+msgid "Simplify: 0 • v = 0 for any vector v."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level02
+msgid "You've proven that zero is always in the null space!\n"
+"\n"
+"This shows that the null space is never empty - it always contains at least the zero vector. This is the first step toward proving that the null space is a subspace."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level03
-msgid ""
+msgid "The Range"
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level03
-msgid "If every vector in `V` is zero, then the finite rank of `V` is 0."
+msgid "Now let's explore the other fundamental concept associated with linear maps: the **range**.\n"
+"\n"
+"## The Core Idea\n"
+"\n"
+"While the null space tells us which vectors get mapped to zero, the range tells us which vectors can be reached as outputs of the linear map.\n"
+"\n"
+"## Mathematical Definition\n"
+"\n"
+"The range of a linear map $T : V \\to W$ is:\n"
+"$$\\text{range } T = \\{w \\in W : \\exists v \\in V, T(v) = w\\}$$\n"
+"\n"
+"## Why This Matters\n"
+"\n"
+"The range describes the 'image' or 'output space' of the linear map. Together with the null space, it gives us complete information about what the linear map does.\n"
+"\n"
+"### Your Goal\n"
+"Prove that if $T$ maps $v$ to $w$, then $w$ is in the range of $T$."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level03
-msgid "We need to show this space has finrank 0. Since every vector is zero, the space is just 0."
+msgid "`range_v K V W T` is the set of all possible outputs of T."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level03
-msgid "Try `have h_zero : (⊤ : Submodule K V) = ⊥ := by`"
+msgid "Images are in the range."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level03
-msgid "Try `ext v`"
+msgid "If T maps v to w, then w is in the range of T."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level03
-msgid "Try `simp [Submodule.mem_bot, hV v]`"
+msgid "Show there exists some vector that T maps to w."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level03
-msgid "Try `rw [← finrank_top, h_zero]`"
+msgid "Use v as the witness and apply hypothesis h."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level03
-msgid "Try `exact finrank_bot K V`"
-msgstr ""
-
-#: Game.Levels.LinearMapsWorld.Level03
-msgid "The only possible basis for the zero space is the empty set, so its dimension is zero."
+msgid "You've proven that outputs of T are always in its range!\n"
+"\n"
+"This establishes the basic relationship between a linear map and its range. The range captures exactly those vectors that can be 'reached' by applying T to some input."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level04
-msgid "Dimension of a Subspace ≤ Dimension of the Ambient Space"
+msgid "Linear Maps Preserve Zero"
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level04
-msgid "Now that we have the notion of `Module.finrank` (the dimension of a finite-dimensional space), let's prove a fundamental fact: any subspace has dimension at most that of the whole space. If `V` is a finite-dimensional vector space and `U` is a submodule of `V` (think: a subspace of `V`), it is intuitively clear that `dim U ≤ dim V`.\n"
+msgid "Now let's prove a fundamental property that every linear map must satisfy: they always map the zero vector to the zero vector.\n"
 "\n"
-"**Intuition:** Take a basis of the subspace `U` and extend it to a basis of the entire space `V`. The extended basis of `V` has at least as many vectors as the basis of `U`, so the number of basis vectors of `U` (the dimension of `U`) cannot exceed the number of basis vectors of `V` (the dimension of `V`).\n"
+"## The Key Insight\n"
 "\n"
-"**Plan in Lean:** We can capture the above intuition using a linear map. The inclusion map from `U` into `V` (denoted `U.subtype`) is a linear map that is injective (no new collisions when we view elements of `U` inside `V`). Lean provides a lemma `LinearMap.finrank_le_finrank_of_injective` which says that if we have an injective linear map between two finite-dimensional spaces, then the dimension of the domain is ≤ the dimension of the codomain. So our goal is to apply this lemma to `U.subtype`. We'll proceed by:\n"
-"1. Noting that `U.subtype` is indeed injective (which we can justify with `U.subtype_injective`).\n"
-"2. Applying `LinearMap.finrank_le_finrank_of_injective` to get the inequality on finranks.\n"
+"This might seem obvious, but it's an important consequence of linearity that we'll use in many future proofs.\n"
 "\n"
-"Armed with these ideas, let's carry out the proof!"
+"## Why This Matters\n"
+"\n"
+"The fact that linear maps preserve zero is often the first step in proving that the null space is non-empty, and it's crucial for understanding the structure of linear maps.\n"
+"\n"
+"### Your Goal\n"
+"Prove that for any linear map T, we have T(0) = 0."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level04
-msgid ""
+msgid "Linear maps preserve zero."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level04
-msgid "This theorem states that in a finite-dimensional ambient space `V`, any submodule `U` of `V` has `finrank K U ≤ finrank K V`. In other words, a subspace cannot have a higher dimension than the whole space.\n"
-"\n"
-"**Proof hint:** Consider the inclusion map `U.subtype : U →ₗ[K] V`. This linear map is injective (use `U.subtype_injective` to prove that formally). Once you know it's injective, apply the lemma `LinearMap.finrank_le_finrank_of_injective` to conclude the proof."
+msgid "Every linear map maps the zero vector to the zero vector."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level04
-msgid "**Subspace dimension cannot exceed ambient dimension.** We used the injectivity of the inclusion map `U.subtype` to apply a general result about linear maps, yielding `finrank K U ≤ finrank K V`. This formal proof mirrors the intuitive idea that you can extend a basis of `U` to a basis of `V`, so you can never have more basis vectors in `U` than in `V`.\n"
+msgid "Use the homogeneity property with scalar 0."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level04
+msgid "Simplify: 0 • v = 0 for any vector v."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level04
+msgid "You've proven that linear maps always preserve zero!\n"
 "\n"
-"Congratulations on formalizing this classic linear algebra result! By connecting an injective linear map with the concept of basis extension, we've solidified the fact that any subspace's dimension is at most the dimension of the entire space."
+"This simple but fundamental property will be the foundation for many more sophisticated results about linear maps. Every linear map, no matter how complex, must map 0 to 0."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level05
-msgid "Subspace Equality from Equal Dimension"
+msgid "The Range is a Subspace"
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level05
-msgid "## Equal Dimension Means Equal Space\n"
+msgid "Just as we proved that the null space is always a subspace, we'll now prove that the range is also always a subspace.\n"
 "\n"
-"Suppose you have a subspace `U` of a finite-dimensional vector space `V`.\n"
-"If `U` has the same dimension as `V`, can it be smaller?\n"
-"No—if `U` filled up the whole space dimensionally, it *is* the whole space!\n"
+"## The Key Insight\n"
 "\n"
-"This level asks you to prove: If `U` is a subspace and `dim U = dim V`, then `U = V`.\n"
+"The range of a linear map T : V → W is a subspace of the codomain W. This means we can apply all our subspace theory to understand the image of any linear map.\n"
 "\n"
-"## Summary\n"
-"If a subspace `U` has the same dimension as the whole space `V` (and `V` is finite-dimensional), then `U` must be all of `V`. In other words: if you already fill the whole space, you can't be a proper part!\n"
+"## Why This Matters\n"
 "\n"
-"## Key idea\n"
-"- Use the contrapositive: if `U ≠ V`, then `dim U < dim V`.\n"
-"- This follows because any *proper* subspace has strictly smaller dimension.\n"
+"This result, combined with our null space theorem, shows that linear maps have a very structured behavior - both their 'input kernel' and 'output image' are subspaces.\n"
 "\n"
-"This is an important structural result for finite-dimensional vector spaces."
+"## Proof Strategy\n"
+"\n"
+"We need to verify the three subspace properties:\n"
+"1. **Non-empty**: The range contains 0 (since T(0) = 0)\n"
+"2. **Closed under addition**: If w₁, w₂ are in the range, so is w₁ + w₂\n"
+"3. **Closed under scalar multiplication**: If w is in the range and a is a scalar, then a•w is in the range\n"
+"\n"
+"### Your Goal\n"
+"Prove that the range of any linear map is a subspace."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level05
-msgid ""
+msgid "The range of a linear map is a subspace."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level05
-msgid "If `U` is a subspace of `V` and their dimensions agree, then `U = V`."
+msgid "The range of any linear map is a subspace of the codomain."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level05
-msgid "If a subspace has the same dimension as the whole space, it must actually *be* the whole space!"
+msgid "We need to verify the three subspace properties."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level05
+msgid "First, show the range is non-empty by proving 0 is in it."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level05
+msgid "For closure under addition, if w₁ = T(v₁) and w₂ = T(v₂), then w₁ + w₂ = T(v₁ + v₂)."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level05
+msgid "For scalar multiplication, if w = T(v), then a•w = T(a•v)."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level05
+msgid "You've proven that the range is always a subspace!\n"
+"\n"
+"Now we know that both the null space and range of any linear map are subspaces. This gives us powerful tools for analyzing the structure and behavior of linear transformations."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level06
-msgid "Direct Sum Decomposition"
+msgid "Linear Maps Preserve Linear Combinations"
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level06
-msgid "## Direct Sum Decomposition\n"
+msgid "Now we'll prove that linear maps preserve not just addition and scalar multiplication, but any linear combination.\n"
 "\n"
-"If you have a subspace `U` of a finite-dimensional vector space `V`,\n"
-"can you always find another subspace `W` such that every vector in `V` can be uniquely written as a sum of something in `U` and something in `W`?\n"
-"Yes! Such a decomposition is called a **direct sum**.\n"
+"## The Key Insight\n"
 "\n"
-"You will prove: for any subspace `U`, there is a subspace `W` with `V = U ⊕ W`,\n"
-"and the dimensions add: `dim V = dim U + dim W`.\n"
+"If we have vectors v₁, v₂ and scalars a₁, a₂, then:\n"
+"T(a₁ • v₁ + a₂ • v₂) = a₁ • T(v₁) + a₂ • T(v₂)\n"
 "\n"
-"## Summary\n"
-"Every subspace `U` of a finite-dimensional vector space `V` has a complement: there exists a subspace `W` so that `V = U ⊕ W`.\n"
-"The dimensions also add: `dim V = dim U + dim W`.\n"
+"This shows that linear maps preserve the fundamental operation of linear algebra: taking linear combinations.\n"
 "\n"
-"## Key idea\n"
-"- Pick a basis for `U` and extend it to a basis for `V` by adding new vectors.\n"
-"- The span of the new vectors gives a subspace `W` such that `V = U ⊕ W`.\n"
+"## Why This Matters\n"
 "\n"
-"This level guides you to show every subspace has a direct sum complement, and the dimension formula."
+"This property is what makes linear maps so powerful - they preserve all the structure we care about in linear algebra. Any relationship expressed as a linear combination in the domain is preserved in the codomain.\n"
+"\n"
+"### Your Goal\n"
+"Prove that linear maps preserve linear combinations of two vectors."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level06
-msgid ""
+msgid "Linear maps preserve linear combinations."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level06
-msgid "Given a subspace `U`, there is a subspace `W` such that `V = U ⊕ W` and the dimension formula holds."
+msgid "Linear maps preserve linear combinations of two vectors."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level06
-msgid "Every subspace has a direct sum complement, and dimensions always add: `dim V = dim U + dim W`!"
+msgid "Use additivity to split T(a₁ • v₁ + a₂ • v₂)."
 msgstr ""
 
-#: Game.Levels.LinearMapsWorld.Level07
-msgid "Coordinates Representation"
+#: Game.Levels.LinearMapsWorld.Level06
+msgid "Now use homogeneity on each term."
 msgstr ""
 
-#: Game.Levels.LinearMapsWorld.Level07
-msgid "## Coordinates with Respect to a Basis\n"
+#: Game.Levels.LinearMapsWorld.Level06
+msgid "You've proven that linear maps preserve linear combinations!\n"
 "\n"
-"In linear algebra, a **basis** of a vector space allows us to represent every vector in the space as a combination of the basis vectors. Imagine we have chosen a specific basis `B : Fin n → V` for an `n`-dimensional vector space `V`. How can we describe an arbitrary vector `v` in `V` in terms of this basis? By listing its **coordinates** relative to `B` — essentially, how much of each basis vector is needed to reconstruct `v`. \n"
-"\n"
-"In this level, we introduce a formal coordinate map that takes any vector to its coordinate tuple, and we prove that these coordinates provide a unique representation of the vector.\n"
-"\n"
-"## Summary\n"
-"**Coordinates with Respect to a Basis:** We prove that once a basis `B` of `V` is fixed, every vector `v` in `V` can be expressed *uniquely* as a linear combination of the basis vectors. We formalize this by defining the function `coord`, which returns the coefficients of `v` with respect to `B`. The main theorem, `coord_representation`, then states that `v` equals the sum of its coordinates times the corresponding basis elements. This confirms that coordinates give a one-to-one correspondence between vectors in `V` and their coordinate tuples.\n"
-"\n"
-"## Key idea\n"
-"- We obtain the coordinate function `coord` by using the basis's `repr` function. This gives each vector `v` a tuple of `n` scalars corresponding to its components along the basis vectors in `B`.\n"
-"- Because `B` spans `V`, every vector can be expressed as a sum of basis elements with appropriate coefficients. In fact, the library lemma `B.sum_repr` states that `∑ i, coord v i • B i = v`, directly reconstructing `v` from its coordinates.\n"
-"- The representation is *unique* because `B` is linearly independent. If two different coordinate lists produced the same vector `v`, their difference would give a nonzero linear combination of basis vectors equal to zero — contradicting linear independence. Hence, no vector has two distinct sets of coordinates."
+"This is a fundamental property that captures the essence of what makes a map 'linear' - it preserves the basic operations of linear algebra. This result can be extended to any finite linear combination."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level07
-msgid ""
+msgid "Surjective Linear Maps"
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level07
-msgid "Every vector equals the sum of its coordinates times the corresponding basis elements."
+msgid "In our final level of LinearMapsWorld, we'll introduce the concept of surjectivity and prove a basic property.\n"
+"\n"
+"## The Core Idea\n"
+"\n"
+"A linear map is surjective (onto) if every element in the codomain can be reached. In other words, the range equals the entire codomain.\n"
+"\n"
+"## Mathematical Definition\n"
+"\n"
+"A linear map $T : V \\to W$ is surjective if:\n"
+"$$\\text{range } T = W$$\n"
+"\n"
+"This is equivalent to saying: for every $w \\in W$, there exists $v \\in V$ such that $T(v) = w$.\n"
+"\n"
+"## Why This Matters\n"
+"\n"
+"Surjectivity tells us when a linear map 'fills up' its target space completely. Combined with injectivity, it characterizes when linear maps are invertible.\n"
+"\n"
+"### Your Goal\n"
+"Prove that if T is surjective, then every element of W is in the range of T."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level07
-msgid "By choosing a basis for `V`, we've established that any vector can be captured by a finite list of scalars — its coordinates. In other words, every vector corresponds to a unique tuple of coordinates (and vice versa) with respect to the chosen basis. This underpins the idea of coordinate systems in linear algebra, allowing us to seamlessly move between abstract vectors and their concrete representations."
+msgid "`surjective_v K V W T` means T is onto."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level07
+msgid "Surjectivity means range equals codomain."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level07
+msgid "If T is surjective, then every element of W is in the range of T."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level07
+msgid "Show both directions of the equivalence."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level07
+msgid "First direction: if T is surjective, then every w is in the range."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level07
+msgid "Second direction: if every w is in the range, then T is surjective."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level07
+msgid "You've connected surjectivity with the range!\n"
+"\n"
+"You've now learned the fundamental concepts of linear maps: definition, null space, range, and the basic properties they satisfy. These form the foundation for understanding more advanced topics like the rank-nullity theorem and isomorphisms.\n"
+"\n"
+"Congratulations on completing LinearMapsWorld!"
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld

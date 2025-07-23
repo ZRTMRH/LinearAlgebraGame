@@ -31,18 +31,21 @@ variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [DecidableEq V] [InnerP
 open Function Set VectorSpace Real InnerProductSpace_v Complex
 
 Statement ortho_decom (u v : V) (h : v ≠ 0) : orthogonal (u - (⟪u,v⟫ / (‖v‖^2)) • v) v := by
+  Hint "Start by unfolding the definition of orthogonal."
   unfold orthogonal
-  rw[inner_minus_left]
-  rw[InnerProductSpace_v.inner_smul_left]
+  Hint "Expand the inner product using linearity properties."
+  rw[inner_minus_left, InnerProductSpace_v.inner_smul_left]
+  Hint "Simplify the norm squared expression."
   unfold norm_v
   norm_cast
-  rw[sq_sqrt (inner_self_nonneg v)]
-  rw [← inner_self_real]
+  rw[sq_sqrt (inner_self_nonneg v), ← inner_self_real]
+  Hint "Use ring operations to simplify the algebra."
   ring_nf
+  Hint "The key step: cancel ⟪v,v⟫ in numerator and denominator."
   rw[mul_assoc, mul_inv_cancel]
   simp
+  Hint "We need v ≠ 0 to ensure ⟪v,v⟫ ≠ 0 for cancellation."
   intro x
-  apply h
-  exact (inner_self_eq_zero v).1 x
+  exact h ((inner_self_eq_zero v).1 x)
 
 end LinearAlgebraGame

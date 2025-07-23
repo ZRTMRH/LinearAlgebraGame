@@ -239,21 +239,15 @@ f = g := by
     don't have. Try proving these hypotheses with a `have` statement."
     Hint (hidden := true) "Try `  have hfprod0 : ∀ v ∈ s ∪ t,  v ∉ s → f v • v = 0 := by`"
     have hfprod0 : ∀ v ∈ s ∪ t,  v ∉ s → f v • v = 0 := by
-      Hint (hidden := true) "Try `    intros v hv1 hv2`"
+      Hint (hidden := true) "Try `intros v _hv1 hv2; rw[hf0 v hv2]; exact zero_smul_v K V v`"
       intros v _hv1 hv2
-      Hint (hidden := true) "Try `    rw[hf0 v hv2]`"
-      rw[hf0 v hv2]
-      Hint (hidden := true) "Try `    exact zero_smul_v K V v`"
-      exact zero_smul_v K V v
+      rw[hf0 v hv2, zero_smul_v]
 
-    Hint (hidden := true) "Try `  have hgprod0 : ∀ v ∈ s ∪ t,  v ∉ t → g v • v = 0 := by`"
+    Hint (hidden := true) "Try `have hgprod0 : ∀ v ∈ s ∪ t,  v ∉ t → g v • v = 0 := by`"
     have hgprod0 : ∀ v ∈ s ∪ t,  v ∉ t → g v • v = 0 := by
-      Hint (hidden := true) "Try `    intros v hv1 hv2`"
+      Hint (hidden := true) "Try `intros v _hv1 hv2; rw[hg0 v hv2]; exact zero_smul_v K V v`"
       intros v _hv1 hv2
-      Hint (hidden := true) "Try `    rw[hg0 v hv2]`"
-      rw[hg0 v hv2]
-      Hint (hidden := true) "Try `    exact zero_smul_v K V v`"
-      exact zero_smul_v K V v
+      rw[hg0 v hv2, zero_smul_v]
 
     Hint (hidden := true) "Try `  rw [(sum_subset (f := fun v => f v • v) (subset_union_left s t) hfprod0).symm]`"
     rw [(sum_subset (f := fun v => f v • v) (subset_union_left s t) hfprod0).symm]
@@ -261,9 +255,8 @@ f = g := by
     rw [(sum_subset (f := fun v => g v • v) (subset_union_right s t) hgprod0).symm]
 
     Hint "Now, we use the fact that the two sums are equal to finish the proof of the lemma"
-    Hint (hidden := true) "Try `  rw[heq]`"
+    Hint (hidden := true) "Try `rw[heq]; simp`"
     rw[heq]
-    Hint (hidden := true) "Try `  simp`"
     simp
 
   Hint "Now, we simply have to prove the requirements of hS"
@@ -279,12 +272,9 @@ f = g := by
   Hint (hidden := true) "Try `exact sub_eq_zero.1 hS`"
   exact sub_eq_zero.1 hS
 
-  Hint (hidden := true) "Try `rw[not_mem_union] at h`"
+  Hint (hidden := true) "Try `rw[not_mem_union] at h; cases' h with hS hT; rw[hf0 v hS, hg0 v hT]`"
   rw[not_mem_union] at h
-  Hint (hidden := true) "Try `cases' h with hS hT`"
   cases' h with hS hT
-
-  Hint (hidden := true) "Try `rw[hf0 v hS, hg0 v hT]`"
   rw[hf0 v hS, hg0 v hT]
 
 Conclusion "Congratulations! The next two levels are optional challenges, and although they are

@@ -54,24 +54,22 @@ Statement Cauchy_Schwarz (u v : V) : ‖⟪u,v⟫‖ ≤ ‖u‖ * ‖v‖ := by
     Hint "Now for the main case where `v ≠ 0`. We'll use orthogonal decomposition."
     
     -- Set up orthogonal decomposition manually
+    Hint "We'll decompose u as c•v + w where w is orthogonal to v."
+    Hint "The key insight: choose c = ⟪u,v⟫ / ‖v‖² to make w orthogonal to v."
     Hint (hidden := true) "Try `let c := ⟪u,v⟫ / (‖v‖^2)`"
     let c := ⟪u,v⟫ / (‖v‖^2)
     Hint (hidden := true) "Try `let w := u - c • v`"
     let w := u - c • v
     
     -- Get the decomposition properties directly 
+    Hint "Now we establish the key properties of our decomposition."
     have h3 : u = c • v + w := by simp [c, w]
+    Hint "The orthogonality follows from our choice of c."
     have h4 : orthogonal w v := ortho_decom u v v_zero
-    have h1 : c = ⟪u,v⟫ / (‖v‖^2) := rfl
-    have h2 : w = u - c • v := rfl
-    
-    Hint (hidden := true) "Try `have h5:= left_smul_ortho v w c (ortho_swap w v h4)`"
     have h5:= left_smul_ortho v w c (ortho_swap w v h4)
     
     -- Establish non-negativity 
-    have g1 := norm_nonneg_v u
-    have g2 := norm_nonneg_v v
-    have g3 : 0 ≤ ‖u‖ * ‖v‖ := Left.mul_nonneg g1 g2
+    have g3 : 0 ≤ ‖u‖ * ‖v‖ := mul_nonneg (norm_nonneg_v u) (norm_nonneg_v v)
     
     -- Use suffices to reduce to squared version
     Hint "We reduce to proving the squared version of the inequality."
@@ -90,47 +88,33 @@ Statement Cauchy_Schwarz (u v : V) : ‖⟪u,v⟫‖ ≤ ‖u‖ * ‖v‖ := by
     Hint (hidden := true) "Try `rw [h6]`"
     rw [h6]
     
-    -- Establish that ‖v‖ ≠ 0
+    -- Establish that ‖v‖ ≠ 0 (needed for division)
     have v_norm_zero : ‖v‖ ≠ 0 := by
       by_contra h
       rw [norm_zero_v v] at h
       contradiction
     
     -- Key transformation: ‖c • v‖² = ‖⟪u,v⟫‖²/‖v‖²
-    Hint "Transform ‖c • v‖² using the definition of c."
-    Hint (hidden := true) "Try `have kt : ‖c • v‖^2 = ‖⟪u,v⟫‖^2/‖v‖^2 := by ...`"
+    Hint "The crucial step: express ‖c • v‖² in terms of the inner product."
+    Hint "Since c = ⟪u,v⟫/‖v‖², we get ‖c • v‖² = ‖⟪u,v⟫‖²/‖v‖²."
     have kt : ‖c • v‖^2 = ‖⟪u,v⟫‖^2/‖v‖^2 := by
-      rw [sca_mul c v]
-      ring_nf
-      -- Direct algebraic proof: (a * b⁻¹)² * b = a² * b⁻¹
-      simp [c]
-      -- Apply the algebraic identity directly
-      have algebra_fact : ∀ (a b : ℝ), b ≠ 0 → (a * (b^2)⁻¹)^2 * b^2 = a^2 * (b^2)⁻¹ := by
-        intros a b hb
-        field_simp [hb]
-        ring
+      rw [sca_mul c v]; ring_nf; simp [c]
       have v_pos : 0 < ‖v‖ := by
-        rw [norm_v]
-        apply Real.sqrt_pos.2
-        have nonneg := inner_self_nonneg v
-        apply lt_of_le_of_ne nonneg
-        intro h
-        -- We have h : ⟪v,v⟫.re = 0 and need to show ⟪v,v⟫ = 0
-        have inner_zero : ⟪v,v⟫ = 0 := by
-          rw [inner_self_real v]
-          simp [h]
-        have v_eq_zero : v = 0 := (inner_self_eq_zero v).1 inner_zero
-        exact v_zero v_eq_zero
-      exact algebra_fact (Complex.abs ⟪u,v⟫) ‖v‖ (ne_of_gt v_pos)
+        rw [norm_v]; apply Real.sqrt_pos.2
+        exact lt_of_le_of_ne (inner_self_nonneg v) (fun h => v_zero ((inner_self_eq_zero v).1 (by rw [inner_self_real]; simp [h])))
+      field_simp [ne_of_gt v_pos]; ring
     
     -- Complete the proof
+    Hint "Now substitute our expression for ‖c • v‖²."
     Hint (hidden := true) "Try `rw [kt]`"
     rw [kt]
+    Hint "Distribute the multiplication and simplify fractions."
     Hint (hidden := true) "Try `rw [add_mul]`"
     rw [add_mul]
     Hint (hidden := true) "Try `field_simp [v_norm_zero]`"
     field_simp [v_norm_zero]
     -- The final goal should be showing ‖w‖² ≥ 0, which follows from norm non-negativity
+    Hint "The final step: ‖w‖² ≥ 0 always holds since norms are non-negative."
     Hint (hidden := true) "Try `exact norm_sq_nonneg w`"
     rw [norm_sq_eq]; exact inner_self_nonneg w
 

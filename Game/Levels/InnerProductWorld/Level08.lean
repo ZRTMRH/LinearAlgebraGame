@@ -37,40 +37,33 @@ variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [DecidableEq V] [InnerP
 open Function Set VectorSpace Real InnerProductSpace_v Complex
 
 Statement triangle_v (u v : V) : ‖u+v‖ ≤ ‖u‖ + ‖v‖ := by
-  Hint "It's easier to prove the squared version first: `‖u+v‖^2 ≤ (‖u‖ + ‖v‖)^2`."
-  Hint (hidden := true) "Try `suffices ‖u+v‖^2 ≤ (‖u‖ + ‖v‖)^2 by`"
+  Hint "It's easier to prove the squared version first."
   suffices ‖u+v‖^2 ≤ (‖u‖ + ‖v‖)^2 by
     exact le_of_sq_le_sq this (add_nonneg (norm_nonneg_v u) (norm_nonneg_v v))
   
-  Hint "Expand the squared norm using the inner product."
-  Hint (hidden := true) "Try `rw [norm_sq_eq]`"
-  rw [norm_sq_eq]
+  Hint "Expand using the inner product and apply Cauchy-Schwarz."
+  rw [norm_sq_eq, add_sq, norm_sq_eq, norm_sq_eq]
   
-  Hint "We need to expand `⟪u+v, u+v⟫.re` using linearity of the inner product."
-  Hint (hidden := true) "Try `have expand : ⟪u+v, u+v⟫.re = ⟪u,u⟫.re + ⟪v,v⟫.re + 2*⟪u,v⟫.re := by`"
-  have expand : ⟪u+v, u+v⟫.re = ⟪u,u⟫.re + ⟪v,v⟫.re + 2*⟪u,v⟫.re := by
-    Hint (hidden := true) "Try `rw [InnerProductSpace_v.inner_add_left, inner_add_right_v, inner_add_right_v]`"
+  -- Expand ⟪u+v, u+v⟫.re
+  Hint "First expand the inner product ⟪u+v, u+v⟫ using linearity."
+  Hint "This will give us ⟪u,u⟫ + ⟪v,v⟫ + ⟪u,v⟫ + ⟪v,u⟫."
+  have inner_expansion : ⟪u+v, u+v⟫.re = ⟪u,u⟫.re + ⟪v,v⟫.re + 2*⟪u,v⟫.re := by
     rw [InnerProductSpace_v.inner_add_left, inner_add_right_v, inner_add_right_v]
-    Hint (hidden := true) "Try `simp only [Complex.add_re]`"
     simp only [Complex.add_re]
-    Hint (hidden := true) "Try `rw [InnerProductSpace_v.inner_conj_symm v u, Complex.conj_re]`"
     rw [InnerProductSpace_v.inner_conj_symm v u, Complex.conj_re]
-    Hint (hidden := true) "Try `ring`"
     ring
     
-  Hint (hidden := true) "Try `rw [expand, add_sq, norm_sq_eq, norm_sq_eq]`"
-  rw [expand, add_sq, norm_sq_eq, norm_sq_eq]
+  rw [inner_expansion]
   
-  Hint "Bound the cross term `2*⟪u,v⟫.re` by `2*‖u‖*‖v‖` using Cauchy–Schwarz."
-  Hint (hidden := true) "Try `have bound := re_le_abs ⟪u,v⟫`"
-  have bound := re_le_abs ⟪u,v⟫
-  Hint (hidden := true) "Try `have cs := Cauchy_Schwarz u v`"
-  have cs := Cauchy_Schwarz u v
-  Hint (hidden := true) "Try `rw [norm_inner_eq_abs] at cs`"
-  rw [norm_inner_eq_abs] at cs
-  Hint (hidden := true) "Try `have cross_bound : ⟪u,v⟫.re ≤ ‖u‖ * ‖v‖ := by linarith [bound, cs]`"
-  have cross_bound : ⟪u,v⟫.re ≤ ‖u‖ * ‖v‖ := by linarith [bound, cs]
-  Hint (hidden := true) "Try `linarith [cross_bound]`"
+  -- Use Cauchy-Schwarz to bound the cross term
+  Hint "Now we bound the cross term 2*⟪u,v⟫.re using Cauchy-Schwarz."
+  Hint "We know |⟪u,v⟫| ≤ ‖u‖ * ‖v‖, so ⟪u,v⟫.re ≤ ‖u‖ * ‖v‖."
+  have cross_bound : ⟪u,v⟫.re ≤ ‖u‖ * ‖v‖ := by
+    have cs := Cauchy_Schwarz u v
+    rw [norm_inner_eq_abs] at cs
+    exact le_trans (re_le_abs ⟪u,v⟫) cs
+  
+  Hint "Finally, use linear arithmetic to complete the proof."
   linarith [cross_bound]
 
 Conclusion "
