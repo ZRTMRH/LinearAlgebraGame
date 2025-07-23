@@ -1,0 +1,56 @@
+\chapter{Linear Maps World}
+
+This world introduces linear transformations between vector spaces and studies their fundamental properties.
+
+\section{Definition and Basic Properties}
+
+\begin{definition}
+\label{linear-map-def}
+\uses{LinearAlgebraGame.is_linear_map_v}
+Let $K$ be a field and $V$, $W$ be vector spaces over $K$. A function $T : V \to W$ is called a \textbf{linear map} if it satisfies:
+\begin{enumerate}
+    \item Additivity: $T(u + v) = T(u) + T(v)$ for all $u, v \in V$
+    \item Homogeneity: $T(a \cdot v) = a \cdot T(v)$ for all $a \in K, v \in V$
+\end{enumerate}
+\end{definition}
+
+\begin{lemma}
+\label{linear-map-zero}
+\uses{linear-map-def}
+If $T : V \to W$ is a linear map, then $T(0) = 0$.
+\end{lemma}
+
+\begin{proof}
+Using the homogeneity property with $a = 0$: $T(0 \cdot v) = 0 \cdot T(v) = 0$.
+\end{proof}
+
+\section{Null Space and Range}
+
+\begin{definition}
+\label{null-space-def}
+\uses{LinearAlgebraGame.null_space_v}
+The \textbf{null space} (or kernel) of a linear map $T : V \to W$ is:
+$$\text{null}(T) = \{v \in V : T(v) = 0\}$$
+\end{definition}
+
+\begin{definition}
+\label{range-def}
+\uses{LinearAlgebraGame.range_v}
+The \textbf{range} (or image) of a linear map $T : V \to W$ is:
+$$\text{range}(T) = \{T(v) : v \in V\}$$
+\end{definition}
+
+\section{Injectivity and Surjectivity}
+
+Linear maps have special characterizations of injectivity and surjectivity in terms of their null space and range.
+
+\begin{theorem}
+\label{injective-characterization}
+\uses{null-space-def}
+A linear map $T : V \to W$ is injective if and only if $\text{null}(T) = \{0\}$.
+\end{theorem}
+\begin{proof}
+($\Rightarrow$) Suppose $T$ is injective. If $v \in \text{null}(T)$, then $T(v) = 0 = T(0)$. Since $T$ is injective, we have $v = 0$, so $\text{null}(T) = \{0\}$.
+
+($\Leftarrow$) Suppose $\text{null}(T) = \{0\}$. If $T(v_1) = T(v_2)$, then $T(v_1 - v_2) = T(v_1) - T(v_2) = 0$, so $v_1 - v_2 \in \text{null}(T) = \{0\}$. Therefore $v_1 - v_2 = 0$, which means $v_1 = v_2$, so $T$ is injective.
+\end{proof}

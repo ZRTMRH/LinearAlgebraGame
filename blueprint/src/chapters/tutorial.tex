@@ -1,0 +1,43 @@
+\chapter{Tutorial World}
+
+This world introduces basic concepts of Lean 4 and formal theorem proving. Players learn fundamental tactics and proof techniques through simple mathematical statements.
+
+\section{Basic Tactics and Reflexivity}
+
+\begin{lemma}
+\label{tutorial-reflexivity}
+\uses{}
+For any element $x$, we have $x = x$.
+\end{lemma}
+
+\begin{proof}
+This follows directly from the reflexivity of equality. In Lean, this is proven using the \texttt{rfl} tactic.
+\end{proof}
+
+\section{Natural Numbers and Induction}
+
+The tutorial world introduces basic properties of natural numbers and the principle of mathematical induction.
+
+\begin{lemma}
+\label{tutorial-zero-add}
+\uses{}
+For any natural number $n$, we have $0 + n = n$.
+\end{lemma}
+
+\begin{lemma}
+\label{tutorial-add-zero}
+\uses{}
+For any natural number $n$, we have $n + 0 = n$.
+\end{lemma}
+
+\section{Proof Techniques}
+
+Students learn essential proof techniques including:
+\begin{itemize}
+    \item Direct proof using \texttt{exact}
+    \item Rewriting using \texttt{rw}
+    \item Function application using \texttt{apply}
+    \item Introduction of assumptions using \texttt{intro}
+    \item Simplification using \texttt{simp}
+    \item Mathematical induction using \texttt{induction'}
+\end{itemize}

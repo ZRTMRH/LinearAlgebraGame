@@ -1,0 +1,13 @@
+\section{Monotonicity Of Span}
+
+\begin{theorem}
+  \label{theorem : span_mono}
+  \lean{LinearAlgebraGame.span_mono}
+  \leanok
+  \uses{definition : span}
+  The span operation is monotonic: if $A \subseteq B$, then $\text{span}(A) \subseteq \text{span}(B)$.
+\end{theorem}
+
+\begin{proof}
+  Let $v \in \text{span}(A)$. Then $v$ is a linear combination of vectors in $A$. Since $A \subseteq B$, these same vectors are also in $B$, so $v$ is also a linear combination of vectors in $B$. Therefore $v \in \text{span}(B)$.
+\end{proof}

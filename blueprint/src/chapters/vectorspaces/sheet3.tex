@@ -1,0 +1,14 @@
+\section{Scaling By Negative One}
+
+\begin{theorem}
+  \label{theorem : neg_one_smul}
+  \lean{LinearAlgebraGame.neg_one_smul_v}
+  \leanok
+  \uses{definition : VectorSpace}
+  In any vector space $V$ over field $K$, multiplying any vector by $-1$ yields its additive inverse:
+  $$\forall v \in V: \quad (-1) \cdot v = -v$$
+\end{theorem}
+
+\begin{proof}
+  We have $v + (-1) \cdot v = 1 \cdot v + (-1) \cdot v = (1 + (-1)) \cdot v = 0 \cdot v = 0$. Therefore $(-1) \cdot v$ is the additive inverse of $v$, i.e., $(-1) \cdot v = -v$.
+\end{proof}

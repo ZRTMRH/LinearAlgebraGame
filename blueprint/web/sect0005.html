@@ -12,9 +12,8 @@
 <meta name="generator" content="plasTeX" />
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Tutorial World</title>
-<link rel="next" href="sect0002.html" title="Vector Spaces" />
-<link rel="prev" href="index.html" title="Linear Algebra Game" />
+<title>Linear Maps World</title>
+<link rel="prev" href="sect0004.html" title="Inner Product World" />
 <link rel="up" href="index.html" title="Linear Algebra Game" />
 <link rel="stylesheet" href="styles/theme-white.css" />
 <link rel="stylesheet" href="styles/amsthm.css" />
@@ -32,10 +31,10 @@
 <div class="wrapper">
 <nav class="toc">
 <ul class="sub-toc-0">
-<li class=" active current">
+<li class="">
   <a href="sect0001.html"><span class="toc_ref">1</span> <span class="toc_entry">Tutorial World</span></a>
-  <span class="expand-toc">▼</span>
-  <ul class="sub-toc-1 active">
+  <span class="expand-toc">▶</span>
+  <ul class="sub-toc-1">
      <li class="">
   <a href="sect0001.html#a0000000007"><span class="toc_ref">1.1</span> <span class="toc_entry">Basic Tactics and Reflexivity</span></a>
  </li>
@@ -132,10 +131,10 @@
 
   </ul>
  </li>
-<li class="">
+<li class=" active current">
   <a href="sect0005.html"><span class="toc_ref">5</span> <span class="toc_entry">Linear Maps World</span></a>
-  <span class="expand-toc">▶</span>
-  <ul class="sub-toc-1">
+  <span class="expand-toc">▼</span>
+  <ul class="sub-toc-1 active">
      <li class="">
   <a href="sect0005.html#a0000000032"><span class="toc_ref">5.1</span> <span class="toc_entry">Definition and Basic Properties</span></a>
  </li>
@@ -157,35 +156,83 @@
 
 
 <div class="main-text">
-<h1 id="a0000000002">1 Tutorial World</h1>
-<p>This world introduces basic concepts of Lean 4 and formal theorem proving. Players learn fundamental tactics and proof techniques through simple mathematical statements. </p>
-<h1 id="a0000000007">1.1 Basic Tactics and Reflexivity</h1>
-<div class="lemma_thmwrapper theorem-style-plain" id="tutorial-reflexivity">
-  <div class="lemma_thmheading">
-    <span class="lemma_thmcaption">
-    Lemma
+<h1 id="a0000000006">5 Linear Maps World</h1>
+<p>This world introduces linear transformations between vector spaces and studies their fundamental properties. </p>
+<h1 id="a0000000032">5.1 Definition and Basic Properties</h1>
+<div class="definition_thmwrapper theorem-style-definition" id="linear-map-def">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    Definition
     </span>
-    <span class="lemma_thmlabel">1</span>
+    <span class="definition_thmlabel">51</span>
     <div class="thm_header_extras">
 
         </div>
     <div class="thm_header_hidden_extras">
 
-    <a class="icon proof" href="sect0001.html#tutorial-reflexivity">#</a>
-    
-    <a class="icon proof" href="sect0001.html#a0000000008"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
-</a>
+    <a class="icon proof" href="sect0005.html#linear-map-def">#</a>
     
     
     
         </div>
   </div>
-  <div class="lemma_thmcontent">
-  <p>  For any element \(x\), we have \(x = x\). </p>
+  <div class="definition_thmcontent">
+  <p>  Let \(K\) be a field and \(V\), \(W\) be vector spaces over \(K\). A function \(T : V \to W\) is called a <b class="bfseries">linear map</b> if it satisfies: </p>
+<ol class="enumerate">
+  <li><p>Additivity: \(T(u + v) = T(u) + T(v)\) for all \(u, v \in V\) </p>
+</li>
+  <li><p>Homogeneity: \(T(a \cdot v) = a \cdot T(v)\) for all \(a \in K, v \in V\) </p>
+</li>
+</ol>
 
   </div>
 </div>
-<div class="proof_wrapper" id="a0000000008">
+<div class="lemma_thmwrapper theorem-style-plain" id="linear-map-zero">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    Lemma
+    </span>
+    <span class="lemma_thmlabel">52</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0005.html#linear-map-zero">#</a>
+    
+    <a class="icon proof" href="sect0005.html#a0000000096"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0005.html#linear-map-def">Definition 51</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+  <p>  If \(T : V \to W\) is a linear map, then \(T(0) = 0\). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000096">
   <div class="proof_heading">
     <span class="proof_caption">
     Proof
@@ -193,72 +240,121 @@
     <span class="expand-proof">▶</span>
   </div>
   <div class="proof_content">
-  <p>This follows directly from the reflexivity of equality. In Lean, this is proven using the <span class="ttfamily">rfl</span> tactic. </p>
+  <p>Using the homogeneity property with \(a = 0\): \(T(0 \cdot v) = 0 \cdot T(v) = 0\). </p>
 
   </div>
 </div>
-<h1 id="a0000000009">1.2 Natural Numbers and Induction</h1>
-<p>The tutorial world introduces basic properties of natural numbers and the principle of mathematical induction. </p>
-<div class="lemma_thmwrapper theorem-style-plain" id="tutorial-zero-add">
-  <div class="lemma_thmheading">
-    <span class="lemma_thmcaption">
-    Lemma
+<h1 id="a0000000033">5.2 Null Space and Range</h1>
+<div class="definition_thmwrapper theorem-style-definition" id="null-space-def">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    Definition
     </span>
-    <span class="lemma_thmlabel">2</span>
+    <span class="definition_thmlabel">53</span>
     <div class="thm_header_extras">
 
         </div>
     <div class="thm_header_hidden_extras">
 
-    <a class="icon proof" href="sect0001.html#tutorial-zero-add">#</a>
+    <a class="icon proof" href="sect0005.html#null-space-def">#</a>
     
     
     
         </div>
   </div>
-  <div class="lemma_thmcontent">
-  <p>  For any natural number \(n\), we have \(0 + n = n\). </p>
+  <div class="definition_thmcontent">
+  <p>  The <b class="bfseries">null space</b> (or kernel) of a linear map \(T : V \to W\) is: </p>
+<div class="displaymath" id="a0000000097">
+  \[ \text{null}(T) = \{ v \in V : T(v) = 0\}  \]
+</div>
 
   </div>
 </div>
-<div class="lemma_thmwrapper theorem-style-plain" id="tutorial-add-zero">
-  <div class="lemma_thmheading">
-    <span class="lemma_thmcaption">
-    Lemma
+<div class="definition_thmwrapper theorem-style-definition" id="range-def">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    Definition
     </span>
-    <span class="lemma_thmlabel">3</span>
+    <span class="definition_thmlabel">54</span>
     <div class="thm_header_extras">
 
         </div>
     <div class="thm_header_hidden_extras">
 
-    <a class="icon proof" href="sect0001.html#tutorial-add-zero">#</a>
+    <a class="icon proof" href="sect0005.html#range-def">#</a>
     
     
     
         </div>
   </div>
-  <div class="lemma_thmcontent">
-  <p>  For any natural number \(n\), we have \(n + 0 = n\). </p>
+  <div class="definition_thmcontent">
+  <p>  The <b class="bfseries">range</b> (or image) of a linear map \(T : V \to W\) is: </p>
+<div class="displaymath" id="a0000000098">
+  \[ \text{range}(T) = \{ T(v) : v \in V\}  \]
+</div>
 
   </div>
 </div>
-<h1 id="a0000000010">1.3 Proof Techniques</h1>
-<p>Students learn essential proof techniques including: </p>
-<ul class="itemize">
-  <li><p>Direct proof using <span class="ttfamily">exact</span> </p>
-</li>
-  <li><p>Rewriting using <span class="ttfamily">rw</span> </p>
-</li>
-  <li><p>Function application using <span class="ttfamily">apply</span> </p>
-</li>
-  <li><p>Introduction of assumptions using <span class="ttfamily">intro</span> </p>
-</li>
-  <li><p>Simplification using <span class="ttfamily">simp</span> </p>
-</li>
-  <li><p>Mathematical induction using <span class="ttfamily">induction’</span> </p>
-</li>
-</ul>
+<h1 id="a0000000034">5.3 Injectivity and Surjectivity</h1>
+<p>Linear maps have special characterizations of injectivity and surjectivity in terms of their null space and range. </p>
+<div class="theorem_thmwrapper theorem-style-plain" id="injective-characterization">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">55</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0005.html#injective-characterization">#</a>
+    
+    <a class="icon proof" href="sect0005.html#a0000000099"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0005.html#null-space-def">Definition 53</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>  A linear map \(T : V \to W\) is injective if and only if \(\text{null}(T) = \{ 0\} \). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000099">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>(\(\Rightarrow \)) Suppose \(T\) is injective. If \(v \in \text{null}(T)\), then \(T(v) = 0 = T(0)\). Since \(T\) is injective, we have \(v = 0\), so \(\text{null}(T) = \{ 0\} \). </p>
+<p>(\(\Leftarrow \)) Suppose \(\text{null}(T) = \{ 0\} \). If \(T(v_1) = T(v_2)\), then \(T(v_1 - v_2) = T(v_1) - T(v_2) = 0\), so \(v_1 - v_2 \in \text{null}(T) = \{ 0\} \). Therefore \(v_1 - v_2 = 0\), which means \(v_1 = v_2\), so \(T\) is injective. </p>
+
+  </div>
+</div>
 
 </div> <!--main-text -->
 </div> <!-- content-wrapper -->
@@ -270,11 +366,9 @@
 
   <svg  id="showmore-plus" class="icon icon-eye-plus showmore"><use xlink:href="symbol-defs.svg#icon-eye-plus"></use></svg>
 
-  <a href="index.html" title="Linear Algebra Game"><svg  class="icon icon-arrow-left "><use xlink:href="symbol-defs.svg#icon-arrow-left"></use></svg>
+  <a href="sect0004.html" title="Inner Product World"><svg  class="icon icon-arrow-left "><use xlink:href="symbol-defs.svg#icon-arrow-left"></use></svg>
 </a>
   <a href="index.html" title="Linear Algebra Game"><svg  class="icon icon-arrow-up "><use xlink:href="symbol-defs.svg#icon-arrow-up"></use></svg>
-</a>
-  <a href="sect0002.html" title="Vector Spaces"><svg  class="icon icon-arrow-right "><use xlink:href="symbol-defs.svg#icon-arrow-right"></use></svg>
 </a>
 </nav>
 

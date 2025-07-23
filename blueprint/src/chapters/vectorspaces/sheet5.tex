@@ -1,0 +1,14 @@
+\section{Negatives In Subspace}
+
+\begin{theorem}
+  \label{theorem : subspace_neg}
+  \lean{LinearAlgebraGame.subspace_neg}
+  \leanok
+  \uses{definition : VectorSpace, definition : Subspace, theorem : neg_one_smul}
+  If a subspace $W$ contains a vector $x$, then it also contains its additive inverse $-x$:
+  $$\forall x \in V: \quad x \in W \implies (-x) \in W$$
+\end{theorem}
+
+\begin{proof}
+  Since $W$ is closed under scalar multiplication and contains $x$, we have $(-1) \cdot x = -x \in W$.
+\end{proof}

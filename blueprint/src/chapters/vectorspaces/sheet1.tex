@@ -1,0 +1,31 @@
+\section{Zero Scalar Multiplication}
+
+\begin{definition}
+  \label{definition : VectorSpace}
+  \lean{LinearAlgebraGame.VectorSpace}
+  \leanok
+  A \textbf{vector space} $V$ over a field $K$ is an abelian group equipped with scalar multiplication that satisfies four key axioms:
+  \begin{itemize}
+    \item \textbf{Distributivity over vector addition}: 
+    $$\forall a \in K, \forall x,y \in V: \quad a \cdot (x + y) = a \cdot x + a \cdot y$$
+    \item \textbf{Distributivity over field addition}: 
+    $$\forall a,b \in K, \forall x \in V: \quad (a + b) \cdot x = a \cdot x + b \cdot x$$
+    \item \textbf{Compatibility with field multiplication}: 
+    $$\forall a,b \in K, \forall x \in V: \quad (a \cdot b) \cdot x = a \cdot (b \cdot x)$$
+    \item \textbf{Identity element}: 
+    $$\forall x \in V: \quad 1 \cdot x = x$$
+  \end{itemize}
+\end{definition}
+
+\begin{theorem}
+  \label{theorem : zero_smul}
+  \lean{LinearAlgebraGame.zero_smul_v}
+  \leanok
+  \uses{definition : VectorSpace}
+  In any vector space $V$ over field $K$, scalar multiplication by zero yields the zero vector:
+  $$\forall v \in V: \quad 0 \cdot v = 0$$
+\end{theorem}
+
+\begin{proof}
+  Using distributivity: $0 \cdot v = (0 + 0) \cdot v = 0 \cdot v + 0 \cdot v$. Subtracting $0 \cdot v$ from both sides gives $0 = 0 \cdot v$.
+\end{proof}

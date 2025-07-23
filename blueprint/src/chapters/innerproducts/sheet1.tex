@@ -1,0 +1,353 @@
+\section{Inner Product Spaces}
+
+\begin{definition}
+  \label{definition : InnerProductSpace_real}
+  \lean{LinearAlgebraGame.InnerProductSpace_real_v}
+  \leanok
+  \uses{definition : VectorSpace}
+  An \textbf{inner product space} over the real numbers $\mathbb{R}$ is a vector space $V$ over $\mathbb{R}$ together with an inner product $\langle \cdot, \cdot \rangle : V \times V \to \mathbb{R}$ satisfying the axioms of positivity, definiteness, additivity, and homogeneity.
+\end{definition}
+
+\begin{definition}
+  \label{definition : InnerProductSpace}
+  \lean{LinearAlgebraGame.InnerProductSpace_v}
+  \leanok
+  \uses{definition : VectorSpace}
+  An \textbf{inner product space} over the complex numbers $\mathbb{C}$ is a vector space $V$ over $\mathbb{C}$ together with an inner product $\langle \cdot, \cdot \rangle : V \times V \to \mathbb{C}$ satisfying five key axioms:
+  \begin{enumerate}
+    \item \textbf{Positivity}: $\langle v, v \rangle \in \mathbb{R}$ and $\langle v, v \rangle \geq 0$ for all $v \in V$
+    \item \textbf{Definiteness}: $\langle v, v \rangle = 0$ if and only if $v = 0$
+    \item \textbf{Additivity in first slot}: $\langle u + v, w \rangle = \langle u, w \rangle + \langle v, w \rangle$
+    \item \textbf{Homogeneity in first slot}: $\langle a \cdot v, w \rangle = a \cdot \langle v, w \rangle$
+    \item \textbf{Conjugate symmetry}: $\langle v, w \rangle = \overline{\langle w, v \rangle}$
+  \end{enumerate}
+\end{definition}
+
+\section{Basic Properties of Inner Products}
+
+\begin{lemma}
+  \label{lemma : inner_self_real}
+  \lean{LinearAlgebraGame.inner_self_real}
+  \leanok
+  \uses{definition : InnerProductSpace}
+  For any vector $v$ in an inner product space, $\langle v, v \rangle$ is real.
+\end{lemma}
+\begin{proof}
+  By the conjugate symmetry axiom of inner products, we have $\langle v, v \rangle = \overline{\langle v, v \rangle}$. A complex number equals its conjugate if and only if it is real.
+\end{proof}
+
+\begin{lemma}
+  \label{lemma : inner_minus_left}
+  \lean{LinearAlgebraGame.inner_minus_left}
+  \leanok
+  \uses{definition : InnerProductSpace}
+  For any vectors $u, v$ in an inner product space, $\langle -u, v \rangle = -\langle u, v \rangle$.
+\end{lemma}
+\begin{proof}
+  By the homogeneity axiom, $\langle -u, v \rangle = \langle (-1) \cdot u, v \rangle = (-1) \cdot \langle u, v \rangle = -\langle u, v \rangle$.
+\end{proof}
+
+\section{Complex Conjugation Properties}
+
+\begin{lemma}
+  \label{lemma : conj_inj}
+  \lean{LinearAlgebraGame.conj_inj}
+  \leanok
+  Complex conjugation is injective: if $\overline{z} = \overline{w}$, then $z = w$.
+\end{lemma}
+\begin{proof}
+  If $\overline{z} = \overline{w}$, then taking the conjugate of both sides gives $\overline{\overline{z}} = \overline{\overline{w}}$. Since $\overline{\overline{z}} = z$ for any complex number $z$, we have $z = w$.
+\end{proof}
+
+\begin{lemma}
+  \label{lemma : conj_add}
+  \lean{LinearAlgebraGame.conj_add}
+  \leanok
+  Complex conjugation distributes over addition: $\overline{z + w} = \overline{z} + \overline{w}$.
+\end{lemma}
+\begin{proof}
+  Let $z = a + bi$ and $w = c + di$ where $a, b, c, d \in \mathbb{R}$. Then $z + w = (a + c) + (b + d)i$, so $\overline{z + w} = (a + c) - (b + d)i = (a - bi) + (c - di) = \overline{z} + \overline{w}$.
+\end{proof}
+
+\begin{lemma}
+  \label{lemma : conj_mull}
+  \lean{LinearAlgebraGame.conj_mull}
+  \leanok
+  Complex conjugation distributes over multiplication: $\overline{z \cdot w} = \overline{z} \cdot \overline{w}$.
+\end{lemma}
+\begin{proof}
+  Let $z = a + bi$ and $w = c + di$. Then $z \cdot w = (ac - bd) + (ad + bc)i$, so $\overline{z \cdot w} = (ac - bd) - (ad + bc)i$. Also, $\overline{z} \cdot \overline{w} = (a - bi)(c - di) = ac - bd - (ad + bc)i = \overline{z \cdot w}$.
+\end{proof}
+
+\begin{lemma}
+  \label{lemma : conj_zero}
+  \lean{LinearAlgebraGame.conj_zero}
+  \leanok
+  The complex conjugate of zero is zero: $\overline{0} = 0$.
+\end{lemma}
+\begin{proof}
+  $0 = 0 + 0i$, so $\overline{0} = 0 - 0i = 0$.
+\end{proof}
+
+\section{Additional Inner Product Properties}
+
+\begin{lemma}
+  \label{lemma : inner_self_re}
+  \lean{LinearAlgebraGame.inner_self_re_v}
+  \leanok
+  \uses{definition : InnerProductSpace}
+  For any vector $v$, $\langle v, v \rangle$ equals its real part: $\langle v, v \rangle = \text{Re}(\langle v, v \rangle)$.
+\end{lemma}
+\begin{proof}
+  Since $\langle v, v \rangle$ is real by the previous lemma, its real part equals itself.
+\end{proof}
+
+\begin{lemma}
+  \label{lemma : inner_add_right}
+  \lean{LinearAlgebraGame.inner_add_right_v}
+  \leanok
+  \uses{definition : InnerProductSpace, lemma : conj_inj, lemma : conj_add}
+  Inner products are additive in the second argument: $\langle u, v + w \rangle = \langle u, v \rangle + \langle u, w \rangle$.
+\end{lemma}
+\begin{proof}
+  By conjugate symmetry and additivity in the first argument:
+  $$\langle u, v + w \rangle = \overline{\langle v + w, u \rangle} = \overline{\langle v, u \rangle + \langle w, u \rangle} = \overline{\langle v, u \rangle} + \overline{\langle w, u \rangle} = \langle u, v \rangle + \langle u, w \rangle$$
+\end{proof}
+
+\begin{lemma}
+  \label{lemma : inner_zero_left}
+  \lean{LinearAlgebraGame.inner_zero_left_v}
+  \leanok
+  \uses{definition : InnerProductSpace}
+  The inner product of zero with any vector is zero: $\langle 0, v \rangle = 0$.
+\end{lemma}
+\begin{proof}
+  Since $0 = 0 \cdot v$ for any vector $v$, by homogeneity we have $\langle 0, v \rangle = \langle 0 \cdot v, v \rangle = 0 \cdot \langle v, v \rangle = 0$.
+\end{proof}
+
+\begin{lemma}
+  \label{lemma : inner_zero_right}
+  \lean{LinearAlgebraGame.inner_zero_right_v}
+  \leanok
+  \uses{definition : InnerProductSpace, lemma : conj_zero, lemma : inner_zero_left}
+  The inner product of any vector with zero is zero: $\langle v, 0 \rangle = 0$.
+\end{lemma}
+\begin{proof}
+  By conjugate symmetry and the previous lemma: $\langle v, 0 \rangle = \overline{\langle 0, v \rangle} = \overline{0} = 0$.
+\end{proof}
+
+\begin{lemma}
+  \label{lemma : inner_smul_right}
+  \lean{LinearAlgebraGame.inner_smul_right_v}
+  \leanok
+  \uses{definition : InnerProductSpace, lemma : conj_inj, lemma : conj_mull}
+  Inner products are conjugate-homogeneous in the second argument: $\langle u, a \cdot v \rangle = \overline{a} \cdot \langle u, v \rangle$.
+\end{lemma}
+\begin{proof}
+  By conjugate symmetry and homogeneity in the first argument:
+  $$\langle u, a \cdot v \rangle = \overline{\langle a \cdot v, u \rangle} = \overline{a \cdot \langle v, u \rangle} = \overline{a} \cdot \overline{\langle v, u \rangle} = \overline{a} \cdot \langle u, v \rangle$$
+\end{proof}
+
+\section{Norms and Orthogonality}
+
+\begin{definition}
+  \label{definition : norm}
+  \lean{LinearAlgebraGame.norm_v}
+  \leanok
+  \uses{definition : InnerProductSpace}
+  The \textbf{norm} of a vector $v$ in an inner product space is defined as:
+  $$\|v\| = \sqrt{\text{Re}(\langle v, v \rangle)}$$
+\end{definition}
+
+\begin{definition}
+  \label{definition : orthogonal}
+  \lean{LinearAlgebraGame.orthogonal}
+  \leanok
+  \uses{definition : InnerProductSpace}
+  Two vectors $u$ and $v$ are \textbf{orthogonal} if $\langle u, v \rangle = 0$. We write $u \perp v$.
+\end{definition}
+
+\begin{lemma}
+  \label{lemma : left_smul_ortho}
+  \lean{LinearAlgebraGame.left_smul_ortho}
+  \leanok
+  \uses{definition : InnerProductSpace, definition : orthogonal}
+  If $u \perp v$, then $a \cdot u \perp v$ for any scalar $a$.
+\end{lemma}
+\begin{proof}
+  If $u \perp v$, then $\langle u, v \rangle = 0$. By homogeneity, $\langle a \cdot u, v \rangle = a \cdot \langle u, v \rangle = a \cdot 0 = 0$, so $a \cdot u \perp v$.
+\end{proof}
+
+\begin{lemma}
+  \label{lemma : ortho_swap}
+  \lean{LinearAlgebraGame.ortho_swap}
+  \leanok
+  \uses{definition : InnerProductSpace, definition : orthogonal}
+  Orthogonality is symmetric: if $u \perp v$, then $v \perp u$.
+\end{lemma}
+\begin{proof}
+  If $u \perp v$, then $\langle u, v \rangle = 0$. By conjugate symmetry, $\langle v, u \rangle = \overline{\langle u, v \rangle} = \overline{0} = 0$, so $v \perp u$.
+\end{proof}
+
+\section{Norm Properties}
+
+\begin{theorem}
+  \label{theorem : norm_nonneg}
+  \lean{LinearAlgebraGame.norm_nonneg_v}
+  \leanok
+  \uses{definition : InnerProductSpace, definition : norm}
+  The norm of any vector is non-negative: $\|v\| \geq 0$ for all $v$.
+\end{theorem}
+\begin{proof}
+  By definition, $\|v\| = \sqrt{\text{Re}(\langle v, v \rangle)}$. Since $\langle v, v \rangle \geq 0$ by the positivity axiom, we have $\text{Re}(\langle v, v \rangle) \geq 0$, and therefore $\|v\| = \sqrt{\text{Re}(\langle v, v \rangle)} \geq 0$.
+\end{proof}
+
+\begin{theorem}
+  \label{theorem : norm_zero}
+  \lean{LinearAlgebraGame.norm_zero_v}
+  \leanok
+  \uses{definition : InnerProductSpace, definition : norm}
+  A vector has norm zero if and only if it is the zero vector: $\|v\| = 0 \iff v = 0$.
+\end{theorem}
+\begin{proof}
+  $\|v\| = 0 \iff \sqrt{\text{Re}(\langle v, v \rangle)} = 0 \iff \text{Re}(\langle v, v \rangle) = 0$. Since $\langle v, v \rangle$ is real and non-negative, this is equivalent to $\langle v, v \rangle = 0$, which by the definiteness axiom is equivalent to $v = 0$.
+\end{proof}
+
+\begin{theorem}
+  \label{theorem : sca_mul}
+  \lean{LinearAlgebraGame.sca_mul}
+  \leanok
+  \uses{definition : InnerProductSpace, definition : norm, lemma : inner_smul_right, theorem : norm_nonneg}
+  The norm is homogeneous: $\|a \cdot v\| = |a| \cdot \|v\|$ for any scalar $a$ and vector $v$.
+\end{theorem}
+\begin{proof}
+  \begin{align}
+  \|a \cdot v\|^2 &= \text{Re}(\langle a \cdot v, a \cdot v \rangle) \\
+  &= \text{Re}(\langle a \cdot v, a \cdot v \rangle) \\
+  &= \text{Re}(a \cdot \langle v, a \cdot v \rangle) \\
+  &= \text{Re}(a \cdot \overline{a} \cdot \langle v, v \rangle) \\
+  &= \text{Re}(|a|^2 \cdot \langle v, v \rangle) \\
+  &= |a|^2 \cdot \text{Re}(\langle v, v \rangle) \\
+  &= |a|^2 \cdot \|v\|^2
+  \end{align}
+  Taking square roots of both sides gives $\|a \cdot v\| = |a| \cdot \|v\|$.
+\end{proof}
+
+\begin{theorem}
+  \label{theorem : ortho_zero}
+  \leanok
+  \uses{definition : InnerProductSpace, lemma : inner_zero_right, definition : orthogonal}
+  Every vector is orthogonal to the zero vector: $v \perp 0$ for all $v$.
+\end{theorem}
+\begin{proof}
+  By definition of orthogonality and the lemma that $\langle v, 0 \rangle = 0$, we have $v \perp 0$ for all $v$.
+\end{proof}
+
+\begin{theorem}
+  \label{theorem : ortho_self_zero}
+  \lean{LinearAlgebraGame.ortho_self_zero}
+  \leanok
+  \uses{definition : InnerProductSpace, definition : orthogonal}
+  A vector is orthogonal to itself if and only if it is the zero vector: $v \perp v \iff v = 0$.
+\end{theorem}
+\begin{proof}
+  $v \perp v \iff \langle v, v \rangle = 0 \iff v = 0$ by the definiteness axiom of inner products.
+\end{proof}
+
+\section{Major Theorems}
+
+\begin{theorem}
+  \label{theorem : pythagorean}
+  \lean{LinearAlgebraGame.pythagorean}
+  \leanok
+  \uses{definition : InnerProductSpace, definition : orthogonal, definition : norm, lemma : conj_zero, lemma : inner_add_right}
+  \textbf{Pythagorean Theorem}: If $u \perp v$, then $\|u + v\|^2 = \|u\|^2 + \|v\|^2$.
+\end{theorem}
+\begin{proof}
+  \begin{align}
+  \|u + v\|^2 &= \text{Re}(\langle u + v, u + v \rangle) \\
+  &= \text{Re}(\langle u, u + v \rangle + \langle v, u + v \rangle) \\
+  &= \text{Re}(\langle u, u \rangle + \langle u, v \rangle + \langle v, u \rangle + \langle v, v \rangle) \\
+  &= \text{Re}(\langle u, u \rangle) + \text{Re}(\langle u, v \rangle) + \text{Re}(\langle v, u \rangle) + \text{Re}(\langle v, v \rangle)
+  \end{align}
+  Since $u \perp v$, we have $\langle u, v \rangle = 0$ and $\langle v, u \rangle = 0$. Therefore:
+  $$\|u + v\|^2 = \text{Re}(\langle u, u \rangle) + \text{Re}(\langle v, v \rangle) = \|u\|^2 + \|v\|^2$$
+\end{proof}
+
+\begin{theorem}
+  \label{theorem : norm_sq_eq}
+  \lean{LinearAlgebraGame.norm_sq_eq}
+  \leanok
+  \uses{definition : InnerProductSpace, definition : norm}
+  For any vector $v$, $\|v\|^2 = \text{Re}(\langle v, v \rangle)$.
+\end{theorem}
+\begin{proof}
+  By definition, $\|v\| = \sqrt{\text{Re}(\langle v, v \rangle)}$, so $\|v\|^2 = \text{Re}(\langle v, v \rangle)$.
+\end{proof}
+
+\begin{theorem}
+  \label{theorem : ortho_decom}
+  \lean{LinearAlgebraGame.ortho_decom}
+  \leanok
+  \uses{definition : InnerProductSpace, definition : norm, definition : orthogonal, lemma : inner_self_real, lemma : inner_minus_left, lemma : inner_self_re, theorem : norm_zero, theorem : norm_sq_eq}
+  \textbf{Orthogonal Decomposition}: Any vector can be decomposed into orthogonal components.
+\end{theorem}
+\begin{proof}
+  Given vectors $u$ and $v$ with $v \neq 0$, define $w = u - \frac{\langle u, v \rangle}{\langle v, v \rangle} v$. Then:
+  $$\langle w, v \rangle = \langle u, v \rangle - \frac{\langle u, v \rangle}{\langle v, v \rangle} \langle v, v \rangle = \langle u, v \rangle - \langle u, v \rangle = 0$$
+  So $w \perp v$, and $u = w + \frac{\langle u, v \rangle}{\langle v, v \rangle} v$ is the desired orthogonal decomposition.
+\end{proof}
+
+\begin{theorem}
+  \label{theorem : le_of_sq_le_sq}
+  \lean{LinearAlgebraGame.le_of_sq_le_sq}
+  \leanok
+  \uses{definition : InnerProductSpace}
+  If $a^2 \leq b^2$ and both $a, b \geq 0$, then $a \leq b$.
+\end{theorem}
+\begin{proof}
+  This follows from the monotonicity of the square root function on non-negative real numbers. If $a, b \geq 0$ and $a^2 \leq b^2$, then taking square roots preserves the inequality: $a = \sqrt{a^2} \leq \sqrt{b^2} = b$.
+\end{proof}
+
+\begin{theorem}
+  \label{theorem : Cauchy_Schwarz}
+  \lean{LinearAlgebraGame.Cauchy_Schwarz}
+  \leanok
+  \uses{definition : InnerProductSpace, lemma : inner_zero_right, lemma : left_smul_ortho, lemma : ortho_swap, theorem : norm_nonneg, theorem : norm_zero, theorem : sca_mul, theorem : pythagorean, theorem : ortho_decom, theorem : le_of_sq_le_sq}
+  \textbf{Cauchy-Schwarz Inequality}: For any vectors $u$ and $v$, $|\langle u, v \rangle| \leq \|u\| \cdot \|v\|$.
+\end{theorem}
+\begin{proof}
+  If $v = 0$, then both sides equal $0$ and the inequality holds. Assume $v \neq 0$.
+  
+  Using orthogonal decomposition, write $u = w + \frac{\langle u, v \rangle}{\langle v, v \rangle} v$ where $w \perp v$.
+  
+  By the Pythagorean theorem:
+  $$\|u\|^2 = \|w\|^2 + \left\|\frac{\langle u, v \rangle}{\langle v, v \rangle} v\right\|^2$$
+  
+  Since $\|w\|^2 \geq 0$:
+  $$\|u\|^2 \geq \left\|\frac{\langle u, v \rangle}{\langle v, v \rangle} v\right\|^2 = \frac{|\langle u, v \rangle|^2}{|\langle v, v \rangle|^2} \|v\|^2 = \frac{|\langle u, v \rangle|^2}{\|v\|^4} \|v\|^2 = \frac{|\langle u, v \rangle|^2}{\|v\|^2}$$
+  
+  Multiplying by $\|v\|^2$ gives $|\langle u, v \rangle|^2 \leq \|u\|^2 \|v\|^2$, and taking square roots yields the desired inequality.
+\end{proof}
+
+\begin{theorem}
+  \label{theorem : triangle}
+  \lean{LinearAlgebraGame.triangle_v}
+  \leanok
+  \uses{definition : InnerProductSpace, lemma : inner_add_right, theorem : norm_nonneg, theorem : norm_sq_eq, theorem : le_of_sq_le_sq, theorem : Cauchy_Schwarz}
+  \textbf{Triangle Inequality}: For any vectors $u$ and $v$, $\|u + v\| \leq \|u\| + \|v\|$.
+\end{theorem}
+\begin{proof}
+  \begin{align}
+  \|u + v\|^2 &= \text{Re}(\langle u + v, u + v \rangle) \\
+  &= \text{Re}(\langle u, u \rangle + \langle u, v \rangle + \langle v, u \rangle + \langle v, v \rangle) \\
+  &= \|u\|^2 + \text{Re}(\langle u, v \rangle + \langle v, u \rangle) \\
+  &= \|u\|^2 + \|v\|^2 + \text{Re}(\langle u, v \rangle + \overline{\langle u, v \rangle}) \\
+  &= \|u\|^2 + \|v\|^2 + 2\text{Re}(\langle u, v \rangle)
+  \end{align}
+  
+  Since $\text{Re}(\langle u, v \rangle) \leq |\langle u, v \rangle| \leq \|u\| \|v\|$ by Cauchy-Schwarz:
+  $$\|u + v\|^2 \leq \|u\|^2 + \|v\|^2 + 2\|u\|\|v\| = (\|u\| + \|v\|)^2$$
+  
+  Taking square roots gives $\|u + v\| \leq \|u\| + \|v\|$.
+\end{proof}

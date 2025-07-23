@@ -1,0 +1,22 @@
+\section{Linear Combinations}
+
+\begin{definition}
+  \label{definition : linear_combination}
+  \lean{LinearAlgebraGame.is_linear_combination}
+  \leanok
+  \uses{definition : VectorSpace}
+  Let $V$ be a vector space over a field $K$, and let $S \subseteq V$. A vector $x \in V$ is called a \textbf{linear combination} of vectors in $S$ if there exist finitely many vectors $v_1, v_2, \ldots, v_n \in S$ and scalars $a_1, a_2, \ldots, a_n \in K$ such that
+  $$x = a_1 v_1 + a_2 v_2 + \cdots + a_n v_n = \sum_{i=1}^{n} a_i v_i$$
+\end{definition}
+
+\begin{theorem}
+  \label{theorem : linear_combination_of_mem}
+  \lean{LinearAlgebraGame.linear_combination_of_mem}
+  \leanok
+  \uses{definition : linear_combination}
+  If $v \in S$, then $v$ is a linear combination of $S$.
+\end{theorem}
+
+\begin{proof}
+  Take the linear combination with coefficient $1$ for $v$ and coefficient $0$ for all other vectors.
+\end{proof}

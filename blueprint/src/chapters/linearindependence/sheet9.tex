@@ -1,0 +1,13 @@
+\section{Span After Removing Elements}
+
+\begin{theorem}
+  \label{theorem : span_remove_element}
+  \lean{LinearAlgebraGame.span_remove_element}
+  \leanok
+  \uses{definition : span, definition : linear_independent}
+  If $S$ is a set of vectors and $v \in S$ can be written as a linear combination of other vectors in $S \setminus \{v\}$, then $\text{span}(S) = \text{span}(S \setminus \{v\})$.
+\end{theorem}
+
+\begin{proof}
+  Since $S \setminus \{v\} \subseteq S$, we have $\text{span}(S \setminus \{v\}) \subseteq \text{span}(S)$ by monotonicity. For the reverse inclusion, since $v$ is a linear combination of vectors in $S \setminus \{v\}$, any linear combination involving $v$ can be rewritten using only vectors from $S \setminus \{v\}$.
+\end{proof}

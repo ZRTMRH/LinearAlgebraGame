@@ -1,0 +1,13 @@
+\section{Linear Independence Of Set With Insertion}
+
+\begin{theorem}
+  \label{theorem : linear_independent_insert_of_not_in_span}
+  \lean{LinearAlgebraGame.linear_independent_insert_of_not_in_span}
+  \leanok
+  \uses{definition : linear_combination, definition : linear_independent}
+  Let $S$ be a linearly independent set and $v$ be a vector not in the span of $S$. Then the set $S \cup \{v\}$ is also linearly independent.
+\end{theorem}
+
+\begin{proof}
+  Suppose we have a linear combination $\sum_{s \in S} a_s s + a_v v = 0$. If $a_v \neq 0$, then we could solve for $v = -\frac{1}{a_v}\sum_{s \in S} a_s s$, which would mean $v \in \text{span}(S)$, contradicting our assumption. Therefore $a_v = 0$, and since $S$ is linearly independent, we must have $a_s = 0$ for all $s \in S$.
+\end{proof}

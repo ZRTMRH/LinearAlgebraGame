@@ -1,0 +1,15 @@
+\section{Uniqueness Of Linear Combinations}
+
+\begin{theorem}
+  \label{theorem :  linear_combination_unique}
+  \lean{LinearAlgebraGame.linear_combination_unique}
+  \leanok
+  \uses{definition : linear_independent, theorem : zero_smul}
+  Let $S \subseteq V$ be a linearly independent set. If 
+  $$\sum_{v \in T_1} a_v \cdot v = \sum_{v \in T_2} b_v \cdot v$$
+  where $T_1, T_2$ are finite subsets of $S$, $a_v = 0$ for $v \notin T_1$, and $b_v = 0$ for $v \notin T_2$, then $a_v = b_v$ for all $v \in V$.
+\end{theorem}
+
+\begin{proof}
+  This follows from the definition of linear independence: if a linear combination of linearly independent vectors equals zero, then all coefficients must be zero.
+\end{proof}

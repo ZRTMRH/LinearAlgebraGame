@@ -1,0 +1,2305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>
+  MathJax = { 
+    tex: {
+		    inlineMath: [['$','$'], ['\\(','\\)']]
+	} }
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<meta name="generator" content="plasTeX" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Inner Product World</title>
+<link rel="next" href="sect0005.html" title="Linear Maps World" />
+<link rel="prev" href="sect0003.html" title="Linear Independence Span" />
+<link rel="up" href="index.html" title="Linear Algebra Game" />
+<link rel="stylesheet" href="styles/theme-white.css" />
+<link rel="stylesheet" href="styles/amsthm.css" />
+<link rel="stylesheet" href="styles/showmore.css" />
+<link rel="stylesheet" href="styles/blueprint.css" />
+<link rel="stylesheet" href="styles/extra_styles.css" />
+</head>
+
+<body>
+<header>
+<svg  id="toc-toggle" class="icon icon-list-numbered "><use xlink:href="symbol-defs.svg#icon-list-numbered"></use></svg>
+<h1 id="doc_title"><a href="index.html">Linear Algebra Game</a></h1>
+</header>
+
+<div class="wrapper">
+<nav class="toc">
+<ul class="sub-toc-0">
+<li class="">
+  <a href="sect0001.html"><span class="toc_ref">1</span> <span class="toc_entry">Tutorial World</span></a>
+  <span class="expand-toc">▶</span>
+  <ul class="sub-toc-1">
+     <li class="">
+  <a href="sect0001.html#a0000000007"><span class="toc_ref">1.1</span> <span class="toc_entry">Basic Tactics and Reflexivity</span></a>
+ </li>
+<li class="">
+  <a href="sect0001.html#a0000000009"><span class="toc_ref">1.2</span> <span class="toc_entry">Natural Numbers and Induction</span></a>
+ </li>
+<li class="">
+  <a href="sect0001.html#a0000000010"><span class="toc_ref">1.3</span> <span class="toc_entry">Proof Techniques</span></a>
+ </li>
+
+  </ul>
+ </li>
+<li class="">
+  <a href="sect0002.html"><span class="toc_ref">2</span> <span class="toc_entry">Vector Spaces</span></a>
+  <span class="expand-toc">▶</span>
+  <ul class="sub-toc-1">
+     <li class="">
+  <a href="sect0002.html#a0000000011"><span class="toc_ref">2.1</span> <span class="toc_entry">Zero Scalar Multiplication</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html#a0000000012"><span class="toc_ref">2.2</span> <span class="toc_entry">Multiplying By The Zero Vector</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html#a0000000013"><span class="toc_ref">2.3</span> <span class="toc_entry">Scaling By Negative One</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html#a0000000014"><span class="toc_ref">2.4</span> <span class="toc_entry">Zero Must Belong</span></a>
+ </li>
+<li class="">
+  <a href="sect0002.html#a0000000015"><span class="toc_ref">2.5</span> <span class="toc_entry">Negatives In Subspace</span></a>
+ </li>
+
+  </ul>
+ </li>
+<li class="">
+  <a href="sect0003.html"><span class="toc_ref">3</span> <span class="toc_entry">Linear Independence Span</span></a>
+  <span class="expand-toc">▶</span>
+  <ul class="sub-toc-1">
+     <li class="">
+  <a href="sect0003.html#a0000000016"><span class="toc_ref">3.1</span> <span class="toc_entry">Linear Combinations</span></a>
+ </li>
+<li class="">
+  <a href="sect0003.html#a0000000017"><span class="toc_ref">3.2</span> <span class="toc_entry">Introducing Span</span></a>
+ </li>
+<li class="">
+  <a href="sect0003.html#a0000000018"><span class="toc_ref">3.3</span> <span class="toc_entry">Monotonicity Of Span</span></a>
+ </li>
+<li class="">
+  <a href="sect0003.html#a0000000019"><span class="toc_ref">3.4</span> <span class="toc_entry">Linear Independence</span></a>
+ </li>
+<li class="">
+  <a href="sect0003.html#a0000000020"><span class="toc_ref">3.5</span> <span class="toc_entry">Linear Independence Of Subsets</span></a>
+ </li>
+<li class="">
+  <a href="sect0003.html#a0000000021"><span class="toc_ref">3.6</span> <span class="toc_entry">Supersets Span The Whole Space</span></a>
+ </li>
+<li class="">
+  <a href="sect0003.html#a0000000022"><span class="toc_ref">3.7</span> <span class="toc_entry">Uniqueness Of Linear Combinations</span></a>
+ </li>
+<li class="">
+  <a href="sect0003.html#a0000000023"><span class="toc_ref">3.8</span> <span class="toc_entry">Linear Independence Of Set With Insertion</span></a>
+ </li>
+<li class="">
+  <a href="sect0003.html#a0000000024"><span class="toc_ref">3.9</span> <span class="toc_entry">Span After Removing Elements</span></a>
+ </li>
+
+  </ul>
+ </li>
+<li class=" active current">
+  <a href="sect0004.html"><span class="toc_ref">4</span> <span class="toc_entry">Inner Product World</span></a>
+  <span class="expand-toc">▼</span>
+  <ul class="sub-toc-1 active">
+     <li class="">
+  <a href="sect0004.html#a0000000025"><span class="toc_ref">4.1</span> <span class="toc_entry">Inner Product Spaces</span></a>
+ </li>
+<li class="">
+  <a href="sect0004.html#a0000000026"><span class="toc_ref">4.2</span> <span class="toc_entry">Basic Properties of Inner Products</span></a>
+ </li>
+<li class="">
+  <a href="sect0004.html#a0000000027"><span class="toc_ref">4.3</span> <span class="toc_entry">Complex Conjugation Properties</span></a>
+ </li>
+<li class="">
+  <a href="sect0004.html#a0000000028"><span class="toc_ref">4.4</span> <span class="toc_entry">Additional Inner Product Properties</span></a>
+ </li>
+<li class="">
+  <a href="sect0004.html#a0000000029"><span class="toc_ref">4.5</span> <span class="toc_entry">Norms and Orthogonality</span></a>
+ </li>
+<li class="">
+  <a href="sect0004.html#a0000000030"><span class="toc_ref">4.6</span> <span class="toc_entry">Norm Properties</span></a>
+ </li>
+<li class="">
+  <a href="sect0004.html#a0000000031"><span class="toc_ref">4.7</span> <span class="toc_entry">Major Theorems</span></a>
+ </li>
+
+  </ul>
+ </li>
+<li class="">
+  <a href="sect0005.html"><span class="toc_ref">5</span> <span class="toc_entry">Linear Maps World</span></a>
+  <span class="expand-toc">▶</span>
+  <ul class="sub-toc-1">
+     <li class="">
+  <a href="sect0005.html#a0000000032"><span class="toc_ref">5.1</span> <span class="toc_entry">Definition and Basic Properties</span></a>
+ </li>
+<li class="">
+  <a href="sect0005.html#a0000000033"><span class="toc_ref">5.2</span> <span class="toc_entry">Null Space and Range</span></a>
+ </li>
+<li class="">
+  <a href="sect0005.html#a0000000034"><span class="toc_ref">5.3</span> <span class="toc_entry">Injectivity and Surjectivity</span></a>
+ </li>
+
+  </ul>
+ </li>
+<li ><a href="dep_graph_document.html">Dependency graph</a></li>
+</ul>
+</nav>
+
+<div class="content">
+<div class="content-wrapper">
+
+
+<div class="main-text">
+<h1 id="a0000000005">4 Inner Product World</h1>
+<h1 id="a0000000025">4.1 Inner Product Spaces</h1>
+<div class="definition_thmwrapper theorem-style-definition" id="definition : InnerProductSpace_real">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    Definition
+    </span>
+    <span class="definition_thmlabel">23</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0004.html#definition : InnerProductSpace_real">#</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0002.html#definition : VectorSpace">Definition 4</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.InnerProductSpace_real_v" class="lean_decl">LinearAlgebraGame.InnerProductSpace_real_v</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+  <p>   An <b class="bfseries">inner product space</b> over the real numbers \(\mathbb {R}\) is a vector space \(V\) over \(\mathbb {R}\) together with an inner product \(\langle \cdot , \cdot \rangle : V \times V \to \mathbb {R}\) satisfying the axioms of positivity, definiteness, additivity, and homogeneity. </p>
+
+  </div>
+</div>
+<div class="definition_thmwrapper theorem-style-definition" id="definition : InnerProductSpace">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    Definition
+    </span>
+    <span class="definition_thmlabel">24</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0004.html#definition : InnerProductSpace">#</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0002.html#definition : VectorSpace">Definition 4</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.InnerProductSpace_v" class="lean_decl">LinearAlgebraGame.InnerProductSpace_v</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+  <p>   An <b class="bfseries">inner product space</b> over the complex numbers \(\mathbb {C}\) is a vector space \(V\) over \(\mathbb {C}\) together with an inner product \(\langle \cdot , \cdot \rangle : V \times V \to \mathbb {C}\) satisfying five key axioms: </p>
+<ol class="enumerate">
+  <li><p><b class="bfseries">Positivity</b>: \(\langle v, v \rangle \in \mathbb {R}\) and \(\langle v, v \rangle \geq 0\) for all \(v \in V\) </p>
+</li>
+  <li><p><b class="bfseries">Definiteness</b>: \(\langle v, v \rangle = 0\) if and only if \(v = 0\) </p>
+</li>
+  <li><p><b class="bfseries">Additivity in first slot</b>: \(\langle u + v, w \rangle = \langle u, w \rangle + \langle v, w \rangle \) </p>
+</li>
+  <li><p><b class="bfseries">Homogeneity in first slot</b>: \(\langle a \cdot v, w \rangle = a \cdot \langle v, w \rangle \) </p>
+</li>
+  <li><p><b class="bfseries">Conjugate symmetry</b>: \(\langle v, w \rangle = \overline{\langle w, v \rangle }\) </p>
+</li>
+</ol>
+
+  </div>
+</div>
+<h1 id="a0000000026">4.2 Basic Properties of Inner Products</h1>
+<div class="lemma_thmwrapper theorem-style-plain" id="lemma : inner_self_real">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    Lemma
+    </span>
+    <span class="lemma_thmlabel">25</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0004.html#lemma : inner_self_real">#</a>
+    
+    <a class="icon proof" href="sect0004.html#a0000000061"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0004.html#definition : InnerProductSpace">Definition 24</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.inner_self_real" class="lean_decl">LinearAlgebraGame.inner_self_real</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+  <p>   For any vector \(v\) in an inner product space, \(\langle v, v \rangle \) is real. </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000061">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>By the conjugate symmetry axiom of inner products, we have \(\langle v, v \rangle = \overline{\langle v, v \rangle }\). A complex number equals its conjugate if and only if it is real. </p>
+
+  </div>
+</div>
+<div class="lemma_thmwrapper theorem-style-plain" id="lemma : inner_minus_left">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    Lemma
+    </span>
+    <span class="lemma_thmlabel">26</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0004.html#lemma : inner_minus_left">#</a>
+    
+    <a class="icon proof" href="sect0004.html#a0000000062"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0004.html#definition : InnerProductSpace">Definition 24</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.inner_minus_left" class="lean_decl">LinearAlgebraGame.inner_minus_left</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+  <p>   For any vectors \(u, v\) in an inner product space, \(\langle -u, v \rangle = -\langle u, v \rangle \). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000062">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>By the homogeneity axiom, \(\langle -u, v \rangle = \langle (-1) \cdot u, v \rangle = (-1) \cdot \langle u, v \rangle = -\langle u, v \rangle \). </p>
+
+  </div>
+</div>
+<h1 id="a0000000027">4.3 Complex Conjugation Properties</h1>
+<div class="lemma_thmwrapper theorem-style-plain" id="lemma : conj_inj">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    Lemma
+    </span>
+    <span class="lemma_thmlabel">27</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0004.html#lemma : conj_inj">#</a>
+    
+    <a class="icon proof" href="sect0004.html#a0000000063"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.conj_inj" class="lean_decl">LinearAlgebraGame.conj_inj</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+  <p>  Complex conjugation is injective: if \(\overline{z} = \overline{w}\), then \(z = w\). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000063">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>If \(\overline{z} = \overline{w}\), then taking the conjugate of both sides gives \(\overline{\overline{z}} = \overline{\overline{w}}\). Since \(\overline{\overline{z}} = z\) for any complex number \(z\), we have \(z = w\). </p>
+
+  </div>
+</div>
+<div class="lemma_thmwrapper theorem-style-plain" id="lemma : conj_add">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    Lemma
+    </span>
+    <span class="lemma_thmlabel">28</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0004.html#lemma : conj_add">#</a>
+    
+    <a class="icon proof" href="sect0004.html#a0000000064"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.conj_add" class="lean_decl">LinearAlgebraGame.conj_add</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+  <p>  Complex conjugation distributes over addition: \(\overline{z + w} = \overline{z} + \overline{w}\). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000064">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Let \(z = a + bi\) and \(w = c + di\) where \(a, b, c, d \in \mathbb {R}\). Then \(z + w = (a + c) + (b + d)i\), so \(\overline{z + w} = (a + c) - (b + d)i = (a - bi) + (c - di) = \overline{z} + \overline{w}\). </p>
+
+  </div>
+</div>
+<div class="lemma_thmwrapper theorem-style-plain" id="lemma : conj_mull">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    Lemma
+    </span>
+    <span class="lemma_thmlabel">29</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0004.html#lemma : conj_mull">#</a>
+    
+    <a class="icon proof" href="sect0004.html#a0000000065"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.conj_mull" class="lean_decl">LinearAlgebraGame.conj_mull</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+  <p>  Complex conjugation distributes over multiplication: \(\overline{z \cdot w} = \overline{z} \cdot \overline{w}\). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000065">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Let \(z = a + bi\) and \(w = c + di\). Then \(z \cdot w = (ac - bd) + (ad + bc)i\), so \(\overline{z \cdot w} = (ac - bd) - (ad + bc)i\). Also, \(\overline{z} \cdot \overline{w} = (a - bi)(c - di) = ac - bd - (ad + bc)i = \overline{z \cdot w}\). </p>
+
+  </div>
+</div>
+<div class="lemma_thmwrapper theorem-style-plain" id="lemma : conj_zero">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    Lemma
+    </span>
+    <span class="lemma_thmlabel">30</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0004.html#lemma : conj_zero">#</a>
+    
+    <a class="icon proof" href="sect0004.html#a0000000066"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.conj_zero" class="lean_decl">LinearAlgebraGame.conj_zero</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+  <p>  The complex conjugate of zero is zero: \(\overline{0} = 0\). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000066">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>\(0 = 0 + 0i\), so \(\overline{0} = 0 - 0i = 0\). </p>
+
+  </div>
+</div>
+<h1 id="a0000000028">4.4 Additional Inner Product Properties</h1>
+<div class="lemma_thmwrapper theorem-style-plain" id="lemma : inner_self_re">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    Lemma
+    </span>
+    <span class="lemma_thmlabel">31</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0004.html#lemma : inner_self_re">#</a>
+    
+    <a class="icon proof" href="sect0004.html#a0000000067"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0004.html#definition : InnerProductSpace">Definition 24</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.inner_self_re_v" class="lean_decl">LinearAlgebraGame.inner_self_re_v</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+  <p>   For any vector \(v\), \(\langle v, v \rangle \) equals its real part: \(\langle v, v \rangle = \text{Re}(\langle v, v \rangle )\). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000067">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Since \(\langle v, v \rangle \) is real by the previous lemma, its real part equals itself. </p>
+
+  </div>
+</div>
+<div class="lemma_thmwrapper theorem-style-plain" id="lemma : inner_add_right">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    Lemma
+    </span>
+    <span class="lemma_thmlabel">32</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0004.html#lemma : inner_add_right">#</a>
+    
+    <a class="icon proof" href="sect0004.html#a0000000068"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0004.html#definition : InnerProductSpace">Definition 24</a></li>
+          
+          <li><a href="sect0004.html#lemma : conj_inj">Lemma 27</a></li>
+          
+          <li><a href="sect0004.html#lemma : conj_add">Lemma 28</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.inner_add_right_v" class="lean_decl">LinearAlgebraGame.inner_add_right_v</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+  <p>   Inner products are additive in the second argument: \(\langle u, v + w \rangle = \langle u, v \rangle + \langle u, w \rangle \). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000068">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>By conjugate symmetry and additivity in the first argument: </p>
+<div class="displaymath" id="a0000000069">
+  \[ \langle u, v + w \rangle = \overline{\langle v + w, u \rangle } = \overline{\langle v, u \rangle + \langle w, u \rangle } = \overline{\langle v, u \rangle } + \overline{\langle w, u \rangle } = \langle u, v \rangle + \langle u, w \rangle  \]
+</div>
+
+  </div>
+</div>
+<div class="lemma_thmwrapper theorem-style-plain" id="lemma : inner_zero_left">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    Lemma
+    </span>
+    <span class="lemma_thmlabel">33</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0004.html#lemma : inner_zero_left">#</a>
+    
+    <a class="icon proof" href="sect0004.html#a0000000070"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0004.html#definition : InnerProductSpace">Definition 24</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.inner_zero_left_v" class="lean_decl">LinearAlgebraGame.inner_zero_left_v</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+  <p>   The inner product of zero with any vector is zero: \(\langle 0, v \rangle = 0\). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000070">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Since \(0 = 0 \cdot v\) for any vector \(v\), by homogeneity we have \(\langle 0, v \rangle = \langle 0 \cdot v, v \rangle = 0 \cdot \langle v, v \rangle = 0\). </p>
+
+  </div>
+</div>
+<div class="lemma_thmwrapper theorem-style-plain" id="lemma : inner_zero_right">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    Lemma
+    </span>
+    <span class="lemma_thmlabel">34</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0004.html#lemma : inner_zero_right">#</a>
+    
+    <a class="icon proof" href="sect0004.html#a0000000071"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0004.html#definition : InnerProductSpace">Definition 24</a></li>
+          
+          <li><a href="sect0004.html#lemma : conj_zero">Lemma 30</a></li>
+          
+          <li><a href="sect0004.html#lemma : inner_zero_left">Lemma 33</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.inner_zero_right_v" class="lean_decl">LinearAlgebraGame.inner_zero_right_v</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+  <p>   The inner product of any vector with zero is zero: \(\langle v, 0 \rangle = 0\). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000071">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>By conjugate symmetry and the previous lemma: \(\langle v, 0 \rangle = \overline{\langle 0, v \rangle } = \overline{0} = 0\). </p>
+
+  </div>
+</div>
+<div class="lemma_thmwrapper theorem-style-plain" id="lemma : inner_smul_right">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    Lemma
+    </span>
+    <span class="lemma_thmlabel">35</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0004.html#lemma : inner_smul_right">#</a>
+    
+    <a class="icon proof" href="sect0004.html#a0000000072"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0004.html#definition : InnerProductSpace">Definition 24</a></li>
+          
+          <li><a href="sect0004.html#lemma : conj_inj">Lemma 27</a></li>
+          
+          <li><a href="sect0004.html#lemma : conj_mull">Lemma 29</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.inner_smul_right_v" class="lean_decl">LinearAlgebraGame.inner_smul_right_v</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+  <p>   Inner products are conjugate-homogeneous in the second argument: \(\langle u, a \cdot v \rangle = \overline{a} \cdot \langle u, v \rangle \). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000072">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>By conjugate symmetry and homogeneity in the first argument: </p>
+<div class="displaymath" id="a0000000073">
+  \[ \langle u, a \cdot v \rangle = \overline{\langle a \cdot v, u \rangle } = \overline{a \cdot \langle v, u \rangle } = \overline{a} \cdot \overline{\langle v, u \rangle } = \overline{a} \cdot \langle u, v \rangle  \]
+</div>
+
+  </div>
+</div>
+<h1 id="a0000000029">4.5 Norms and Orthogonality</h1>
+<div class="definition_thmwrapper theorem-style-definition" id="definition : norm">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    Definition
+    </span>
+    <span class="definition_thmlabel">36</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0004.html#definition : norm">#</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0004.html#definition : InnerProductSpace">Definition 24</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.norm_v" class="lean_decl">LinearAlgebraGame.norm_v</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+  <p>   The <b class="bfseries">norm</b> of a vector \(v\) in an inner product space is defined as: </p>
+<div class="displaymath" id="a0000000074">
+  \[ \| v\|  = \sqrt{\text{Re}(\langle v, v \rangle )} \]
+</div>
+
+  </div>
+</div>
+<div class="definition_thmwrapper theorem-style-definition" id="definition : orthogonal">
+  <div class="definition_thmheading">
+    <span class="definition_thmcaption">
+    Definition
+    </span>
+    <span class="definition_thmlabel">37</span>
+    <div class="thm_header_extras">
+
+    
+    ✓
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0004.html#definition : orthogonal">#</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0004.html#definition : InnerProductSpace">Definition 24</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.orthogonal" class="lean_decl">LinearAlgebraGame.orthogonal</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="definition_thmcontent">
+  <p>   Two vectors \(u\) and \(v\) are <b class="bfseries">orthogonal</b> if \(\langle u, v \rangle = 0\). We write \(u \perp v\). </p>
+
+  </div>
+</div>
+<div class="lemma_thmwrapper theorem-style-plain" id="lemma : left_smul_ortho">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    Lemma
+    </span>
+    <span class="lemma_thmlabel">38</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0004.html#lemma : left_smul_ortho">#</a>
+    
+    <a class="icon proof" href="sect0004.html#a0000000075"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0004.html#definition : InnerProductSpace">Definition 24</a></li>
+          
+          <li><a href="sect0004.html#definition : orthogonal">Definition 37</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.left_smul_ortho" class="lean_decl">LinearAlgebraGame.left_smul_ortho</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+  <p>   If \(u \perp v\), then \(a \cdot u \perp v\) for any scalar \(a\). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000075">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>If \(u \perp v\), then \(\langle u, v \rangle = 0\). By homogeneity, \(\langle a \cdot u, v \rangle = a \cdot \langle u, v \rangle = a \cdot 0 = 0\), so \(a \cdot u \perp v\). </p>
+
+  </div>
+</div>
+<div class="lemma_thmwrapper theorem-style-plain" id="lemma : ortho_swap">
+  <div class="lemma_thmheading">
+    <span class="lemma_thmcaption">
+    Lemma
+    </span>
+    <span class="lemma_thmlabel">39</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0004.html#lemma : ortho_swap">#</a>
+    
+    <a class="icon proof" href="sect0004.html#a0000000076"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0004.html#definition : InnerProductSpace">Definition 24</a></li>
+          
+          <li><a href="sect0004.html#definition : orthogonal">Definition 37</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.ortho_swap" class="lean_decl">LinearAlgebraGame.ortho_swap</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="lemma_thmcontent">
+  <p>   Orthogonality is symmetric: if \(u \perp v\), then \(v \perp u\). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000076">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>If \(u \perp v\), then \(\langle u, v \rangle = 0\). By conjugate symmetry, \(\langle v, u \rangle = \overline{\langle u, v \rangle } = \overline{0} = 0\), so \(v \perp u\). </p>
+
+  </div>
+</div>
+<h1 id="a0000000030">4.6 Norm Properties</h1>
+<div class="theorem_thmwrapper theorem-style-plain" id="theorem : norm_nonneg">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">40</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0004.html#theorem : norm_nonneg">#</a>
+    
+    <a class="icon proof" href="sect0004.html#a0000000077"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0004.html#definition : InnerProductSpace">Definition 24</a></li>
+          
+          <li><a href="sect0004.html#definition : norm">Definition 36</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.norm_nonneg_v" class="lean_decl">LinearAlgebraGame.norm_nonneg_v</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>   The norm of any vector is non-negative: \(\| v\|  \geq 0\) for all \(v\). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000077">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>By definition, \(\| v\|  = \sqrt{\text{Re}(\langle v, v \rangle )}\). Since \(\langle v, v \rangle \geq 0\) by the positivity axiom, we have \(\text{Re}(\langle v, v \rangle ) \geq 0\), and therefore \(\| v\|  = \sqrt{\text{Re}(\langle v, v \rangle )} \geq 0\). </p>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="theorem : norm_zero">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">41</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0004.html#theorem : norm_zero">#</a>
+    
+    <a class="icon proof" href="sect0004.html#a0000000078"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0004.html#definition : InnerProductSpace">Definition 24</a></li>
+          
+          <li><a href="sect0004.html#definition : norm">Definition 36</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.norm_zero_v" class="lean_decl">LinearAlgebraGame.norm_zero_v</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>   A vector has norm zero if and only if it is the zero vector: \(\| v\|  = 0 \iff v = 0\). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000078">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>\(\| v\|  = 0 \iff \sqrt{\text{Re}(\langle v, v \rangle )} = 0 \iff \text{Re}(\langle v, v \rangle ) = 0\). Since \(\langle v, v \rangle \) is real and non-negative, this is equivalent to \(\langle v, v \rangle = 0\), which by the definiteness axiom is equivalent to \(v = 0\). </p>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="theorem : sca_mul">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">42</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0004.html#theorem : sca_mul">#</a>
+    
+    <a class="icon proof" href="sect0004.html#a0000000079"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0004.html#definition : InnerProductSpace">Definition 24</a></li>
+          
+          <li><a href="sect0004.html#definition : norm">Definition 36</a></li>
+          
+          <li><a href="sect0004.html#lemma : inner_smul_right">Lemma 35</a></li>
+          
+          <li><a href="sect0004.html#theorem : norm_nonneg">Theorem 40</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.sca_mul" class="lean_decl">LinearAlgebraGame.sca_mul</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>   The norm is homogeneous: \(\| a \cdot v\|  = |a| \cdot \| v\| \) for any scalar \(a\) and vector \(v\). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000079">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <div class="displaymath" id="a0000000080">
+  \begin{align}  \| a \cdot v\| ^2 & = \text{Re}(\langle a \cdot v, a \cdot v \rangle ) \\ & = \text{Re}(\langle a \cdot v, a \cdot v \rangle ) \\ & = \text{Re}(a \cdot \langle v, a \cdot v \rangle ) \\ & = \text{Re}(a \cdot \overline{a} \cdot \langle v, v \rangle ) \\ & = \text{Re}(|a|^2 \cdot \langle v, v \rangle ) \\ & = |a|^2 \cdot \text{Re}(\langle v, v \rangle ) \\ & = |a|^2 \cdot \| v\| ^2 \end{align}
+</div>
+<p> Taking square roots of both sides gives \(\| a \cdot v\|  = |a| \cdot \| v\| \). </p>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="theorem : ortho_zero">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">43</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0004.html#theorem : ortho_zero">#</a>
+    
+    <a class="icon proof" href="sect0004.html#a0000000081"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0004.html#definition : InnerProductSpace">Definition 24</a></li>
+          
+          <li><a href="sect0004.html#lemma : inner_zero_right">Lemma 34</a></li>
+          
+          <li><a href="sect0004.html#definition : orthogonal">Definition 37</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>  Every vector is orthogonal to the zero vector: \(v \perp 0\) for all \(v\). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000081">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>By definition of orthogonality and the lemma that \(\langle v, 0 \rangle = 0\), we have \(v \perp 0\) for all \(v\). </p>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="theorem : ortho_self_zero">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">44</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0004.html#theorem : ortho_self_zero">#</a>
+    
+    <a class="icon proof" href="sect0004.html#a0000000082"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0004.html#definition : InnerProductSpace">Definition 24</a></li>
+          
+          <li><a href="sect0004.html#definition : orthogonal">Definition 37</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.ortho_self_zero" class="lean_decl">LinearAlgebraGame.ortho_self_zero</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>   A vector is orthogonal to itself if and only if it is the zero vector: \(v \perp v \iff v = 0\). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000082">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>\(v \perp v \iff \langle v, v \rangle = 0 \iff v = 0\) by the definiteness axiom of inner products. </p>
+
+  </div>
+</div>
+<h1 id="a0000000031">4.7 Major Theorems</h1>
+<div class="theorem_thmwrapper theorem-style-plain" id="theorem : pythagorean">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">45</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0004.html#theorem : pythagorean">#</a>
+    
+    <a class="icon proof" href="sect0004.html#a0000000083"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0004.html#definition : InnerProductSpace">Definition 24</a></li>
+          
+          <li><a href="sect0004.html#definition : orthogonal">Definition 37</a></li>
+          
+          <li><a href="sect0004.html#definition : norm">Definition 36</a></li>
+          
+          <li><a href="sect0004.html#lemma : conj_zero">Lemma 30</a></li>
+          
+          <li><a href="sect0004.html#lemma : inner_add_right">Lemma 32</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.pythagorean" class="lean_decl">LinearAlgebraGame.pythagorean</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>   <b class="bfseries">Pythagorean Theorem</b>: If \(u \perp v\), then \(\| u + v\| ^2 = \| u\| ^2 + \| v\| ^2\). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000083">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <div class="displaymath" id="a0000000084">
+  \begin{align}  \| u + v\| ^2 & = \text{Re}(\langle u + v, u + v \rangle ) \\ & = \text{Re}(\langle u, u + v \rangle + \langle v, u + v \rangle ) \\ & = \text{Re}(\langle u, u \rangle + \langle u, v \rangle + \langle v, u \rangle + \langle v, v \rangle ) \\ & = \text{Re}(\langle u, u \rangle ) + \text{Re}(\langle u, v \rangle ) + \text{Re}(\langle v, u \rangle ) + \text{Re}(\langle v, v \rangle ) \end{align}
+</div>
+<p> Since \(u \perp v\), we have \(\langle u, v \rangle = 0\) and \(\langle v, u \rangle = 0\). Therefore: </p>
+<div class="displaymath" id="a0000000085">
+  \[ \| u + v\| ^2 = \text{Re}(\langle u, u \rangle ) + \text{Re}(\langle v, v \rangle ) = \| u\| ^2 + \| v\| ^2 \]
+</div>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="theorem : norm_sq_eq">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">46</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0004.html#theorem : norm_sq_eq">#</a>
+    
+    <a class="icon proof" href="sect0004.html#a0000000086"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0004.html#definition : InnerProductSpace">Definition 24</a></li>
+          
+          <li><a href="sect0004.html#definition : norm">Definition 36</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.norm_sq_eq" class="lean_decl">LinearAlgebraGame.norm_sq_eq</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>   For any vector \(v\), \(\| v\| ^2 = \text{Re}(\langle v, v \rangle )\). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000086">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>By definition, \(\| v\|  = \sqrt{\text{Re}(\langle v, v \rangle )}\), so \(\| v\| ^2 = \text{Re}(\langle v, v \rangle )\). </p>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="theorem : ortho_decom">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">47</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0004.html#theorem : ortho_decom">#</a>
+    
+    <a class="icon proof" href="sect0004.html#a0000000087"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0004.html#definition : InnerProductSpace">Definition 24</a></li>
+          
+          <li><a href="sect0004.html#definition : norm">Definition 36</a></li>
+          
+          <li><a href="sect0004.html#definition : orthogonal">Definition 37</a></li>
+          
+          <li><a href="sect0004.html#lemma : inner_self_real">Lemma 25</a></li>
+          
+          <li><a href="sect0004.html#lemma : inner_minus_left">Lemma 26</a></li>
+          
+          <li><a href="sect0004.html#lemma : inner_self_re">Lemma 31</a></li>
+          
+          <li><a href="sect0004.html#theorem : norm_zero">Theorem 41</a></li>
+          
+          <li><a href="sect0004.html#theorem : norm_sq_eq">Theorem 46</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.ortho_decom" class="lean_decl">LinearAlgebraGame.ortho_decom</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>   <b class="bfseries">Orthogonal Decomposition</b>: Any vector can be decomposed into orthogonal components. </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000087">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>Given vectors \(u\) and \(v\) with \(v \neq 0\), define \(w = u - \frac{\langle u, v \rangle }{\langle v, v \rangle } v\). Then: </p>
+<div class="displaymath" id="a0000000088">
+  \[ \langle w, v \rangle = \langle u, v \rangle - \frac{\langle u, v \rangle }{\langle v, v \rangle } \langle v, v \rangle = \langle u, v \rangle - \langle u, v \rangle = 0 \]
+</div>
+<p> So \(w \perp v\), and \(u = w + \frac{\langle u, v \rangle }{\langle v, v \rangle } v\) is the desired orthogonal decomposition. </p>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="theorem : le_of_sq_le_sq">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">48</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0004.html#theorem : le_of_sq_le_sq">#</a>
+    
+    <a class="icon proof" href="sect0004.html#a0000000089"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0004.html#definition : InnerProductSpace">Definition 24</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.le_of_sq_le_sq" class="lean_decl">LinearAlgebraGame.le_of_sq_le_sq</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>   If \(a^2 \leq b^2\) and both \(a, b \geq 0\), then \(a \leq b\). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000089">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>This follows from the monotonicity of the square root function on non-negative real numbers. If \(a, b \geq 0\) and \(a^2 \leq b^2\), then taking square roots preserves the inequality: \(a = \sqrt{a^2} \leq \sqrt{b^2} = b\). </p>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="theorem : Cauchy_Schwarz">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">49</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0004.html#theorem : Cauchy_Schwarz">#</a>
+    
+    <a class="icon proof" href="sect0004.html#a0000000090"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0004.html#definition : InnerProductSpace">Definition 24</a></li>
+          
+          <li><a href="sect0004.html#lemma : inner_zero_right">Lemma 34</a></li>
+          
+          <li><a href="sect0004.html#lemma : left_smul_ortho">Lemma 38</a></li>
+          
+          <li><a href="sect0004.html#lemma : ortho_swap">Lemma 39</a></li>
+          
+          <li><a href="sect0004.html#theorem : norm_nonneg">Theorem 40</a></li>
+          
+          <li><a href="sect0004.html#theorem : norm_zero">Theorem 41</a></li>
+          
+          <li><a href="sect0004.html#theorem : sca_mul">Theorem 42</a></li>
+          
+          <li><a href="sect0004.html#theorem : pythagorean">Theorem 45</a></li>
+          
+          <li><a href="sect0004.html#theorem : ortho_decom">Theorem 47</a></li>
+          
+          <li><a href="sect0004.html#theorem : le_of_sq_le_sq">Theorem 48</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.Cauchy_Schwarz" class="lean_decl">LinearAlgebraGame.Cauchy_Schwarz</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>   <b class="bfseries">Cauchy-Schwarz Inequality</b>: For any vectors \(u\) and \(v\), \(|\langle u, v \rangle | \leq \| u\|  \cdot \| v\| \). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000090">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <p>If \(v = 0\), then both sides equal \(0\) and the inequality holds. Assume \(v \neq 0\). </p>
+<p>Using orthogonal decomposition, write \(u = w + \frac{\langle u, v \rangle }{\langle v, v \rangle } v\) where \(w \perp v\). </p>
+<p>By the Pythagorean theorem: </p>
+<div class="displaymath" id="a0000000091">
+  \[ \| u\| ^2 = \| w\| ^2 + \left\| \frac{\langle u, v \rangle }{\langle v, v \rangle } v\right\| ^2 \]
+</div>
+<p>Since \(\| w\| ^2 \geq 0\): </p>
+<div class="displaymath" id="a0000000092">
+  \[ \| u\| ^2 \geq \left\| \frac{\langle u, v \rangle }{\langle v, v \rangle } v\right\| ^2 = \frac{|\langle u, v \rangle |^2}{|\langle v, v \rangle |^2} \| v\| ^2 = \frac{|\langle u, v \rangle |^2}{\| v\| ^4} \| v\| ^2 = \frac{|\langle u, v \rangle |^2}{\| v\| ^2} \]
+</div>
+<p>Multiplying by \(\| v\| ^2\) gives \(|\langle u, v \rangle |^2 \leq \| u\| ^2 \| v\| ^2\), and taking square roots yields the desired inequality. </p>
+
+  </div>
+</div>
+<div class="theorem_thmwrapper theorem-style-plain" id="theorem : triangle">
+  <div class="theorem_thmheading">
+    <span class="theorem_thmcaption">
+    Theorem
+    </span>
+    <span class="theorem_thmlabel">50</span>
+    <div class="thm_header_extras">
+
+        </div>
+    <div class="thm_header_hidden_extras">
+
+    <a class="icon proof" href="sect0004.html#theorem : triangle">#</a>
+    
+    <a class="icon proof" href="sect0004.html#a0000000093"><svg  class="icon icon-cogs "><use xlink:href="symbol-defs.svg#icon-cogs"></use></svg>
+</a>
+    
+    
+    <button class="modal"><svg  class="icon icon-mindmap "><use xlink:href="symbol-defs.svg#icon-mindmap"></use></svg>
+</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Uses</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="sect0004.html#definition : InnerProductSpace">Definition 24</a></li>
+          
+          <li><a href="sect0004.html#lemma : inner_add_right">Lemma 32</a></li>
+          
+          <li><a href="sect0004.html#theorem : norm_nonneg">Theorem 40</a></li>
+          
+          <li><a href="sect0004.html#theorem : norm_sq_eq">Theorem 46</a></li>
+          
+          <li><a href="sect0004.html#theorem : le_of_sq_le_sq">Theorem 48</a></li>
+          
+          <li><a href="sect0004.html#theorem : Cauchy_Schwarz">Theorem 49</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+    
+    <button class="modal lean">L∃∀N</button>
+        <div class="modal-container">
+      <div class="modal-content">
+        <header>
+          <h1>Lean declarations</h1>
+          <button class="closebtn"><svg  class="icon icon-cross "><use xlink:href="symbol-defs.svg#icon-cross"></use></svg>
+</button>
+        </header>
+        
+        <ul class="uses">
+          
+          <li><a href="https://AdamJasonKern.github.io/LinearAlgebraGame/docs/find/#doc/LinearAlgebraGame.triangle_v" class="lean_decl">LinearAlgebraGame.triangle_v</a></li>
+          
+        </ul>
+    
+      </div>
+    </div>
+
+    
+        </div>
+  </div>
+  <div class="theorem_thmcontent">
+  <p>   <b class="bfseries">Triangle Inequality</b>: For any vectors \(u\) and \(v\), \(\| u + v\|  \leq \| u\|  + \| v\| \). </p>
+
+  </div>
+</div>
+<div class="proof_wrapper" id="a0000000093">
+  <div class="proof_heading">
+    <span class="proof_caption">
+    Proof
+    </span>
+    <span class="expand-proof">▶</span>
+  </div>
+  <div class="proof_content">
+  <div class="displaymath" id="a0000000094">
+  \begin{align}  \| u + v\| ^2 & = \text{Re}(\langle u + v, u + v \rangle ) \\ & = \text{Re}(\langle u, u \rangle + \langle u, v \rangle + \langle v, u \rangle + \langle v, v \rangle ) \\ & = \| u\| ^2 + \text{Re}(\langle u, v \rangle + \langle v, u \rangle ) \\ & = \| u\| ^2 + \| v\| ^2 + \text{Re}(\langle u, v \rangle + \overline{\langle u, v \rangle }) \\ & = \| u\| ^2 + \| v\| ^2 + 2\text{Re}(\langle u, v \rangle ) \end{align}
+</div>
+<p>Since \(\text{Re}(\langle u, v \rangle ) \leq |\langle u, v \rangle | \leq \| u\|  \| v\| \) by Cauchy-Schwarz: </p>
+<div class="displaymath" id="a0000000095">
+  \[ \| u + v\| ^2 \leq \| u\| ^2 + \| v\| ^2 + 2\| u\| \| v\|  = (\| u\|  + \| v\| )^2 \]
+</div>
+<p>Taking square roots gives \(\| u + v\|  \leq \| u\|  + \| v\| \). </p>
+
+  </div>
+</div>
+
+</div> <!--main-text -->
+</div> <!-- content-wrapper -->
+</div> <!-- content -->
+</div> <!-- wrapper -->
+
+<nav class="prev_up_next">
+  <svg  id="showmore-minus" class="icon icon-eye-minus showmore"><use xlink:href="symbol-defs.svg#icon-eye-minus"></use></svg>
+
+  <svg  id="showmore-plus" class="icon icon-eye-plus showmore"><use xlink:href="symbol-defs.svg#icon-eye-plus"></use></svg>
+
+  <a href="sect0003.html" title="Linear Independence Span"><svg  class="icon icon-arrow-left "><use xlink:href="symbol-defs.svg#icon-arrow-left"></use></svg>
+</a>
+  <a href="index.html" title="Linear Algebra Game"><svg  class="icon icon-arrow-up "><use xlink:href="symbol-defs.svg#icon-arrow-up"></use></svg>
+</a>
+  <a href="sect0005.html" title="Linear Maps World"><svg  class="icon icon-arrow-right "><use xlink:href="symbol-defs.svg#icon-arrow-right"></use></svg>
+</a>
+</nav>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/plastex.js"></script>
+<script type="text/javascript" src="js/svgxuse.js"></script>
+<script type="text/javascript" src="js/js.cookie.min.js"></script>
+<script type="text/javascript" src="js/showmore.js"></script>
+</body>
+</html>

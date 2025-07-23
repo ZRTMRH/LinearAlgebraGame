@@ -16,8 +16,6 @@ LinearAlgebraGame.subset_linear_independent
 LinearAlgebraGame.superset_span_full
 LinearAlgebraGame.linear_combination_unique
 LinearAlgebraGame.linear_independent_insert_of_not_in_span
-LinearAlgebraGame.is_linear_combination
-LinearAlgebraGame.linear_independent_insert_of_not_in_span
 LinearAlgebraGame.InnerProductSpace_real_v
 LinearAlgebraGame.InnerProductSpace_v
 LinearAlgebraGame.inner_self_real
@@ -38,7 +36,6 @@ LinearAlgebraGame.ortho_swap
 LinearAlgebraGame.norm_nonneg_v
 LinearAlgebraGame.norm_zero_v
 LinearAlgebraGame.sca_mul
-LinearAlgebraGame.ortho_zero
 LinearAlgebraGame.ortho_self_zero
 LinearAlgebraGame.pythagorean
 LinearAlgebraGame.norm_sq_eq

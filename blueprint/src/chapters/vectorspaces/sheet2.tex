@@ -1,0 +1,14 @@
+\section{Multiplying By The Zero Vector}
+
+\begin{theorem}
+  \label{theorem : smul_zero}
+  \lean{LinearAlgebraGame.smul_zero_v}
+  \leanok
+  \uses{definition : VectorSpace}
+  In any vector space $V$ over field $K$, scalar multiplication of any scalar by the zero vector yields the zero vector:
+  $$\forall a \in K: \quad a \cdot 0 = 0$$
+\end{theorem}
+
+\begin{proof}
+  This follows from the distributive property of scalar multiplication and the fact that $0 + 0 = 0$.
+\end{proof}

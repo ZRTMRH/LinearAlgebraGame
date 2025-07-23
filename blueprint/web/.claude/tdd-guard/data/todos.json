@@ -1,0 +1,34 @@
+{
+  "session_id": "db2077bb-63fd-4cb3-89e1-39127c77c67e",
+  "transcript_path": "/home/zrtmrh/.claude/projects/-home-zrtmrh-lean4-LinearAlgebraGame/db2077bb-63fd-4cb3-89e1-39127c77c67e.jsonl",
+  "hook_event_name": "PreToolUse",
+  "tool_name": "TodoWrite",
+  "tool_input": {
+    "todos": [
+      {
+        "content": "Search for missing tutorial theorems like tutorial-zero-add",
+        "status": "in_progress",
+        "priority": "high",
+        "id": "1"
+      },
+      {
+        "content": "Find null-space-def and range-def theorem names",
+        "status": "pending",
+        "priority": "high",
+        "id": "2"
+      },
+      {
+        "content": "Add missing theorems to lean_decls file",
+        "status": "pending",
+        "priority": "high",
+        "id": "3"
+      },
+      {
+        "content": "Rebuild blueprint and verify green coloring",
+        "status": "pending",
+        "priority": "medium",
+        "id": "4"
+      }
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+\section{Supersets Span The Whole Space}
+
+\begin{theorem}
+  \label{theorem : superset_span_full}
+  \lean{LinearAlgebraGame.superset_span_full}
+  \leanok
+  \uses{definition : span, theorem : span_mono}
+  If a set $A$ spans the whole space $V$ and $A \subseteq B$, then $B$ also spans $V$.
+\end{theorem}
+
+\begin{proof}
+  Since $\text{span}(A) = V$ and $A \subseteq B$, by monotonicity of span we have $V = \text{span}(A) \subseteq \text{span}(B) \subseteq V$. Therefore $\text{span}(B) = V$.
+\end{proof}

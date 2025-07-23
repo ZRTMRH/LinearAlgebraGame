@@ -1,0 +1,25 @@
+\section{Zero Must Belong}
+
+\begin{definition}
+  \label{definition : Subspace}
+  \lean{LinearAlgebraGame.isSubspace}
+  \leanok
+  A subset $W$ of a vector space $V$ over a field $K$ is called a \textbf{subspace} if it satisfies the following three conditions:
+  \begin{itemize}
+    \item \textbf{Non-empty}: $W \neq \emptyset$
+    \item \textbf{Closure under addition}: For all $x, y \in W$, we have $x + y \in W$
+    \item \textbf{Closure under scalar multiplication}: For all $a \in K$ and $x \in W$, we have $a \cdot x \in W$
+  \end{itemize}
+\end{definition}
+
+\begin{theorem}
+  \label{theorem : subspace_contains_zero}
+  \lean{LinearAlgebraGame.subspace_contains_zero}
+  \leanok
+  \uses{definition : VectorSpace, definition : Subspace, theorem : zero_smul}
+  Every subspace $W$ contains the zero vector: $0 \in W$.
+\end{theorem}
+
+\begin{proof}
+  Since $W$ is non-empty, there exists some vector $v \in W$. By closure under scalar multiplication with scalar $0$, we have $0 \cdot v = 0 \in W$.
+\end{proof}
