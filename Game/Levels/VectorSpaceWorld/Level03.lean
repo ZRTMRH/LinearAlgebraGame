@@ -59,7 +59,7 @@ Statement neg_one_smul_v (v : V) : (-1 : K) • v = -v := by
   Hint (hidden := true) "Try `apply add_right_cancel (b := v)`"
   apply add_right_cancel (b := v)
   Hint "Remember the `nth_rw m [theorem]` tactic to only rewrite the mth instance."
-  Hint (hidden := true) "Try `nth_rw 2 [(one_smul (K := K) v).symm]`"
+  Hint (hidden := true) "Try `nth_rw 2 [(one_smul K v).symm]`"
   nth_rw 2 [(one_smul K v).symm]
   Hint (hidden := true) "Try `rw[(add_smul (-1 : K) (1 : K) v).symm]`"
   rw [(add_smul (-1 : K) (1 : K) v).symm]
