@@ -55,9 +55,9 @@ Statement superset_span_full {A B T: Set V} (hT: ∀ (x : V), x ∈ T)(hA : T = 
   rw [hA]
   Hint (hidden := true) "Try `exact span_mono K V hAsubB`"
   exact span_mono K V hAsubB
-  Hint (hidden := true) "Try `intros x ssg`"
+  Hint (hidden := true) "Try `intros x _ssg`"
   intros x _ssg
-  Hint (hidden := true) "Try `exact hT {x}`"
+  Hint (hidden := true) "Try `exact hT x`"
   exact hT x
 
 Conclusion "The next three levels in this world will be much more difficult. The next level can be

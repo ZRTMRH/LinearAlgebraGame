@@ -18,6 +18,7 @@ Statement (h : x = 2) (g: y = 4) : x + x = y := by
   rw [h]
   Hint "You should use `{g}` now."
   rw [g]
+  rfl
 
 Conclusion "This last message appears if the level is solved."
 

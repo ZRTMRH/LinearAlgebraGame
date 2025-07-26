@@ -161,11 +161,11 @@ Statement remove_redundant_span
   Hint "Now, we have two helpful statements. We can use `obtain` to get sets and functions from them"
   Hint (hidden := true) "Try `obtain ⟨sw, hsw, fw, hfw⟩ := hcomb`"
   obtain ⟨sw, hsw, fw, hfw⟩ := hcomb
-  Hint (hidden := true) "Try `obtain ⟨sx, hsx, fx, hfx⟩ := {hx}`"
+  Hint (hidden := true) "Try `obtain ⟨sx, hsx, fx, hfx⟩ := hx`"
   obtain ⟨sx, hsx, fx, hfx⟩ := hx
 
-  Hint "Here, we can split into two cases: whether or not `w ∈ {sx}`"
-  Hint (hidden := true) "Try `by_cases hw : w ∈ {sx}`"
+  Hint "Here, we can split into two cases: whether or not `w ∈ sx`"
+  Hint (hidden := true) "Try `by_cases hw : w ∈ sx`"
   by_cases hw : w ∈ sx
 
   Hint "What set should we be summing over? Note that you have two different sets where functions are

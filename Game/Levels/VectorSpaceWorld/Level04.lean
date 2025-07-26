@@ -81,9 +81,9 @@ Statement subspace_contains_zero {W : Set V} (hW : isSubspace (K := K) (V := V) 
   Hint (hidden := true) "Try `obtain ⟨h1, h2, h3⟩ := hW`"
   obtain ⟨h1, _h2, h3⟩ := hW
   Hint "Again, you can use `obtain` to simplify a hypothesis."
-  Hint (hidden := true) "Try `obtain ⟨w, hw⟩ := {h1}`"
+  Hint (hidden := true) "Try `obtain ⟨w, hw⟩ := h1`"
   obtain ⟨w, hw⟩ := h1
-  Hint "We know that `0 • {w} ∈ W`. If this was our goal, the level would be easy to solve. Also,
+  Hint "We know that `0 • w ∈ W`. If this was our goal, the level would be easy to solve. Also,
   remember that if you have to use a theorem you have proven in a previous level, you have to write
   `theorem_name K V theorem_args` to show Lean that K V is a vector space."
   Hint (hidden := true) "Try `rw [(zero_smul_v K V w).symm]`"

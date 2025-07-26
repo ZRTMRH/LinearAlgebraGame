@@ -52,14 +52,14 @@ Statement span_mono {A B : Set V} (hAB : A ⊆ B) : span K V A ⊆ span K V B :=
   Hint (hidden := true) "Try `simp at *`"
   simp at *
   Hint "Now, what information can we get out of {hxA}?"
-  Hint (hidden := true) "Try `obtain ⟨s, hsA, f, h1, h2⟩ := {hxA}`"
+  Hint (hidden := true) "Try `obtain ⟨s, hsA, f, h1, h2⟩ := hxA`"
   obtain ⟨s, hsA, f, h1, h2⟩ := hxA
   Hint "What set should we be summing over?"
-  Hint (hidden := true) "Try `use {s}`"
+  Hint (hidden := true) "Try `use s`"
   use s
   Hint (hidden := true) "Try `constructor`"
   constructor
-  Hint (hidden := true) "Try `exact subset_trans {hsA} {hAB}`"
+  Hint (hidden := true) "Try `exact subset_trans hsA hAB`"
   exact subset_trans hsA hAB
   Hint "What function should we be using?"
   Hint (hidden := true) "Try `use f`"

@@ -225,6 +225,7 @@ Statement zero_smul_v (w : V) : (0 : K) • w = (0 : V) := by
   rw[zero_add]
   Hint (hidden := true) "Try rw[zero_add]"
   rw[zero_add]
+  rfl
 
 Conclusion "You have now proven your first theorem about vector spaces! One note: if you want to use
 one of the theorems you prove in one level in another level, the syntax will often be
