@@ -272,11 +272,10 @@ f = g := by
   Hint (hidden := true) "Try `exact sub_eq_zero.1 hS`"
   exact sub_eq_zero.1 hS
 
-  Hint (hidden := true) "Try `rw[not_mem_union] at h; cases' h with hS hT; rw[hf0 x hS, hg0 x hT]`"
+  Hint (hidden := true) "Try `rw[not_mem_union] at h; cases' h with hxs hxt; rw[hf0 x hxs, hg0 x hxt]`"
   rw[not_mem_union] at h
-  cases' h with hS hT
-  rw[hf0 x hS, hg0 x hT]
-  rfl
+  cases' h with hxs hxt
+  rw[hf0 x hxs, hg0 x hxt]
 
 Conclusion "Congratulations! The next two levels are optional challenges, and although they are
 difficult, if you were able to complete this level, you should be able to complete the next two."

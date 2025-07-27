@@ -44,7 +44,6 @@ Statement linear_map_preserves_combination (T : V → W) (hT : is_linear_map_v K
   rw [hT.1 (a1 • v1) (a2 • v2)]
   Hint "Now use homogeneity on each term."
   rw [hT.2 a1 v1, hT.2 a2 v2]
-  rfl
 
 Conclusion "
 You've proven that linear maps preserve linear combinations!
