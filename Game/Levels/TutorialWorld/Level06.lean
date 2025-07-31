@@ -67,16 +67,22 @@ Statement (P Q : Prop) : (P ∧ ¬ P) → Q := by
   Hint "You have two main options here. Note that you have a statement of the form `P → Q`, so there
   is a tactic we know that can simplify the goal. Also, we have a `¬` character, so unfolding that
   could also be helpful"
+  Hint (hidden := true) "Try `intro h`"
   intro h
   Hint "Since the `¬` symbol is in a hypothesis now, instead of the goal, in order to unfold it you
   need to do `unfold Not at h`, where you replace `h` with the name of your hypothesis. `unfold Not
   at *` will also unfold it everywhere."
+  Hint (hidden := true) "Try `unfold Not at h`"
   unfold Not at h
   Hint "Now, use the `cases'` tactic to split up your and statement hypothesis."
+  Hint (hidden := true) "Try `cases' h with h1 h2`"
   cases' h with h1 h2
   Hint (strict := true) "It would be nice if our goal was `False` here."
+  Hint (hidden := true) "Try `exfalso`"
   exfalso
+  Hint (hidden := true) "Try `apply h2`"
   apply h2
+  Hint (hidden := true) "Try `exact h1`"
   exact h1
 
 Conclusion "

@@ -64,10 +64,15 @@ Statement isomorphism_iff_bijective_linear (T : V → W) (hT : is_linear_map_v K
   Hint "Unfold the definition of isomorphism_v."
   unfold isomorphism_v
   Hint "The definition already includes linearity, so extract the injectivity and surjectivity."
+  Hint (hidden := true) "Try `constructor`"
   constructor
-  · intro h
+  · Hint (hidden := true) "Try `intro h`"
+    intro h
+    Hint (hidden := true) "Try `exact ⟨h.2.1, h.2.2⟩`"
     exact ⟨h.2.1, h.2.2⟩
-  · intro h
+  · Hint (hidden := true) "Try `intro h`"
+    intro h
+    Hint (hidden := true) "Try `exact ⟨hT, h.1, h.2⟩`"
     exact ⟨hT, h.1, h.2⟩
 
 /--
@@ -77,8 +82,11 @@ Statement isomorphism_preserves_structure (T : V → W) (h_iso : isomorphism_v K
     (v₁ v₂ : V) (a : K) :
     T (a • v₁ + v₂) = a • T v₁ + T v₂ := by
   Hint "Use the linearity part of the isomorphism."
+  Hint (hidden := true) "Try `have h_linear := h_iso.1`"
   have h_linear := h_iso.1
+  Hint (hidden := true) "Try `rw [h_linear.1 (a • v₁) v₂]`"
   rw [h_linear.1 (a • v₁) v₂]
+  Hint (hidden := true) "Try `rw [h_linear.2 a v₁]`"
   rw [h_linear.2 a v₁]
 
 Conclusion "

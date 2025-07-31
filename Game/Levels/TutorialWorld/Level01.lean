@@ -47,6 +47,7 @@ goals when the left side of an equation is the same as the right side, at least 
 
 Statement (x : ℝ) : x = x := by
   Hint "Try typing 'rfl' into the text box below, then hit \"Execute\". This should finish the proof."
+  Hint (hidden := true) "Try `rfl`"
   rfl
 
 Conclusion "

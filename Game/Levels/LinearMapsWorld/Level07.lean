@@ -61,14 +61,23 @@ If T is surjective, then every element of W is in the range of T.
 -/
 Statement surjective_iff_range_eq (T : V → W) : 
     surjective_v K V W T ↔ (∀ w : W, w ∈ range_v K V W T) := by
-  Hint "Show both directions of the equivalence."
+  Hint "Show both directions of the equivalence. A ↔ B means we need to prove both A → B and B → A."
+  Hint (hidden := true) "Try `constructor`"
   constructor
-  Hint "First direction: if T is surjective, then every w is in the range."
-  · intro h_surj w
+  Hint "First direction: if T is surjective, then every w is in the range. We assume surjectivity and show any w ∈ W is in the range."
+  · Hint "Introduce the surjectivity hypothesis and an arbitrary element w ∈ W."
+    Hint (hidden := true) "Try `intro h_surj w`"
+    intro h_surj w
     show ∃ v : V, T v = w
+    Hint "Since T is surjective, by definition there exists v such that T v = w. Use the surjectivity hypothesis directly."
+    Hint (hidden := true) "Try `exact h_surj w`"
     exact h_surj w
-  Hint "Second direction: if every w is in the range, then T is surjective."
-  · intro h_range w
+  Hint "Second direction: if every w is in the range, then T is surjective. We assume every w is in the range and show surjectivity."
+  · Hint "Introduce the range hypothesis and an arbitrary element w ∈ W to show surjectivity."
+    Hint (hidden := true) "Try `intro h_range w`"
+    intro h_range w
+    Hint "The range hypothesis gives us exactly what we need - that w ∈ range means ∃ v, T v = w."
+    Hint (hidden := true) "Try `exact h_range w`"
     exact h_range w
 
 Conclusion "

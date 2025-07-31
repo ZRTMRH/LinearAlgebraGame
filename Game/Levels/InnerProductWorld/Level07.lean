@@ -45,9 +45,13 @@ Statement Cauchy_Schwarz (u v : V) : ‖⟪u,v⟫‖ ≤ ‖u‖ * ‖v‖ := by
     rw[v_zero]
     Hint (hidden := true) "Try `rw [inner_zero_right_v]`"
     rw [inner_zero_right_v]
+    Hint (hidden := true) "Try `have h := norm_zero_v (0:V)`"
     have h := norm_zero_v (0:V)
+    Hint (hidden := true) "Try `simp at h`"
     simp at h
+    Hint (hidden := true) "Try `rw[h]`"
     rw[h]
+    Hint (hidden := true) "Try `simp`"
     simp
     
   case neg =>
@@ -63,20 +67,27 @@ Statement Cauchy_Schwarz (u v : V) : ‖⟪u,v⟫‖ ≤ ‖u‖ * ‖v‖ := by
     
     -- Get the decomposition properties directly 
     Hint "Now we establish the key properties of our decomposition."
+    Hint (hidden := true) "Try `have h3 : u = c • v + w := by simp [c, w]`"
     have h3 : u = c • v + w := by simp [c, w]
     Hint "The orthogonality follows from our choice of c."
+    Hint (hidden := true) "Try `have h4 : orthogonal w v := ortho_decom u v v_zero`"
     have h4 : orthogonal w v := ortho_decom u v v_zero
+    Hint (hidden := true) "Try `have h5:= left_smul_ortho v w c (ortho_swap w v h4)`"
     have h5:= left_smul_ortho v w c (ortho_swap w v h4)
     
     -- Establish non-negativity 
+    Hint (hidden := true) "Try `have g3 : 0 ≤ ‖u‖ * ‖v‖ := mul_nonneg (norm_nonneg_v u) (norm_nonneg_v v)`"
     have g3 : 0 ≤ ‖u‖ * ‖v‖ := mul_nonneg (norm_nonneg_v u) (norm_nonneg_v v)
     
     -- Use suffices to reduce to squared version
     Hint "We reduce to proving the squared version of the inequality."
     Hint (hidden := true) "Try `suffices ‖⟪u,v⟫‖^2 ≤ ‖u‖^2 * ‖v‖^2 by exact le_of_sq_le_sq this g3`"
     suffices ‖⟪u,v⟫‖^2 ≤ ‖u‖^2 * ‖v‖^2 by
+      Hint (hidden := true) "Try `have ts : ‖u‖^2 * ‖v‖^2 = (‖u‖ * ‖v‖)^2 := by ring`"
       have ts : ‖u‖^2 * ‖v‖^2 = (‖u‖ * ‖v‖)^2 := by ring
+      Hint (hidden := true) "Try `rw [ts] at this`"
       rw [ts] at this
+      Hint (hidden := true) "Try `exact le_of_sq_le_sq this g3`"
       exact le_of_sq_le_sq this g3
     
     -- Apply Pythagorean theorem
@@ -89,6 +100,7 @@ Statement Cauchy_Schwarz (u v : V) : ‖⟪u,v⟫‖ ≤ ‖u‖ * ‖v‖ := by
     rw [h6]
     
     -- Establish that ‖v‖ ≠ 0 (needed for division)
+    Hint (hidden := true) "Try `have v_norm_zero : ‖v‖ ≠ 0 := by by_contra h; rw [norm_zero_v v] at h; contradiction`"
     have v_norm_zero : ‖v‖ ≠ 0 := by
       by_contra h
       rw [norm_zero_v v] at h

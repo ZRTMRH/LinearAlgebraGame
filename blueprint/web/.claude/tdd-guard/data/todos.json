@@ -6,28 +6,10 @@
   "tool_input": {
     "todos": [
       {
-        "content": "Search for missing tutorial theorems like tutorial-zero-add",
-        "status": "in_progress",
-        "priority": "high",
-        "id": "1"
-      },
-      {
-        "content": "Find null-space-def and range-def theorem names",
-        "status": "pending",
-        "priority": "high",
-        "id": "2"
-      },
-      {
-        "content": "Add missing theorems to lean_decls file",
-        "status": "pending",
-        "priority": "high",
-        "id": "3"
-      },
-      {
-        "content": "Rebuild blueprint and verify green coloring",
-        "status": "pending",
+        "content": "Successfully generate high-quality dependency graph graphics",
+        "status": "completed",
         "priority": "medium",
-        "id": "4"
+        "id": "1"
       }
     ]
   }

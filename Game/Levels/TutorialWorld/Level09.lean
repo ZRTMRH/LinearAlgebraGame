@@ -55,11 +55,14 @@ tactic.
 
 Statement (x : Nat) : x ≤ 1 + x := by
   Hint "Try using the new theorem! Since it is a proof of `↔`, the rewrite tactic should work!"
+  Hint (hidden := true) "Try `rw[le_iff_exists_add]`"
   rw[le_iff_exists_add]
   Hint "What number should you use here to make the statement true?"
+  Hint (hidden := true) "Try `use 1`"
   use 1
   Hint "You now have a simple linear equation. What tactic can solve linear equations and prove
   equalities?"
+  Hint (hidden := true) "Try `linarith`"
   linarith
 
 TheoremTab "ℕ"

@@ -58,7 +58,21 @@ If your goal is `P → Q → (∀ x : Nat, R → (x = 5))`, `intros p q x r` wil
 -/
 TacticDoc intros
 
-NewTactic unfold apply
+/--
+## Summary
+
+`Not` is the logical negation. In Lean, `¬ P` is defined as `P → False`.
+When you see `¬ P` in a goal or hypothesis, you can use `unfold Not` to
+replace it with `P → False`.
+
+## Example
+
+If you have a goal `¬ P`, using `unfold Not` will change it to `P → False`.
+This often makes it easier to work with using `intro` and other tactics.
+-/
+TacticDoc Not
+
+NewTactic unfold apply Not
 
 NewHiddenTactic intros
 
@@ -94,19 +108,26 @@ Statement (P Q : Prop) : (P → Q) → (¬ Q → ¬ P) := by
     intro h2
     Hint "Now, since there is a hypothesis also with a `¬` symbol, `unfold Not at *` will unfold
     everywhere!"
+  Hint (hidden := true) "Try `unfold Not`"
   unfold Not
   Hint "Now, since you goal is of the form `P → Q`, the `intro` tactic may help."
+  Hint (hidden := true) "Try `intro h1`"
   intro h1
   Hint "You can still use the `intro` tactic because the goal is still of the form `P → Q`"
+  Hint (hidden := true) "Try `intro h2`"
   intro h2
+  Hint (hidden := true) "Try `intro h3`"
   intro h3
   Hint "Now, try the `apply` tactic. Remember that if your goal is `Q`, you can use `apply h` when
   h is a hypothesis or proof that `P → Q`. You can also solve the level with one carefully worded
   `exact` statement if you combine your hypotheses."
+  Hint (hidden := true) "Try `apply h2`"
   apply h2
   Hint "Again, try the `apply` tactic to change the goal. You can also solve the level with one carefully worded
   `exact` statement if you combine your hypotheses."
+  Hint (hidden := true) "Try `apply h1`"
   apply h1
+  Hint (hidden := true) "Try `exact h3`"
   exact h3
 
 Conclusion "

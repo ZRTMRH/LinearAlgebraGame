@@ -186,7 +186,7 @@ Statement remove_redundant_span
   exact subset_trans hsx (subset_insert w S)
 
   Hint "In order to manipulate the sum better, it would be nice to rewrite the set you are summing over.
-  You can use a `have` statement to show that this set is equal to `({sw} ∪ {sw} \\ \{w})`"
+  You can use a `have` statement to show that this set is equal to `({sw} ∪ {sw} \\ \{w})`. Remember to add braces after `by`."
   Hint (hidden := true) "Try `have set_eq : {sw} ∪ ({sx} \\ \{w}) = ({sw} ∪ {sx}) \\ \{w} := by`"
   have set_eq : sw ∪ (sx \ {w}) = (sw ∪ sx) \ {w} := by
     Hint (hidden := true) "Try `apply Finset.Subset.antisymm_iff.2`"
@@ -259,7 +259,7 @@ Statement remove_redundant_span
   have hfx' : fx' = (fun v => (ite (v ∈ sx) (fx v) 0)) := rfl
 
   Hint "Now, you can prove that summing `{fx'}` over our set gives the correct value. Prove this with
-  a `have` statement"
+  a `have` statement. Remember to add braces after `by`."
   Hint (hidden := true) "Try `have fx'_sum : {x} - ({fx} w • w) = ({sw} ∪ ({sx} \\ \{w})).sum (fun v => {fx'} v • v) := by`"
   have fx'_sum : x - (fx w • w) = (sw ∪ (sx \ {w})).sum (fun v => fx' v • v) := by
 
@@ -297,7 +297,7 @@ Statement remove_redundant_span
   Hint (hidden := true) "Try `have hfw' : {fw'} = (fun v => ite (v ∈ {sw}) ({fx} w * {fw} v) 0) := rfl`"
   have hfw' : fw' = (fun v => ite (v ∈ sw) (fx w * fw v) 0) := rfl
 
-  Hint "Again, prove that the function sums to the correct value"
+  Hint "Again, prove that the function sums to the correct value. Remember to add braces after `by`."
   Hint (hidden := true) "Try `have fw'_sum : {fx} w • w = ({sw} ∪ ({sx} \\ \{w})).sum (fun v => {fw'} v • v) := by`"
   have fw'_sum : fx w • w = (sw ∪ (sx \ {w})).sum (fun v => fw' v • v) := by
     Hint (hidden := true) "Try `rw[{hfw'}]`"

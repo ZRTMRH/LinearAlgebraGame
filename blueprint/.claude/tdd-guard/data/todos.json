@@ -1,0 +1,76 @@
+{
+  "session_id": "fa7d223e-4469-43df-ab9e-52d11212118e",
+  "transcript_path": "/home/zrtmrh/.claude/projects/-home-zrtmrh-lean4-LinearAlgebraGame/fa7d223e-4469-43df-ab9e-52d11212118e.jsonl",
+  "hook_event_name": "PreToolUse",
+  "tool_name": "TodoWrite",
+  "tool_input": {
+    "todos": [
+      {
+        "content": "Examine current blueprint content structure",
+        "status": "completed",
+        "priority": "high",
+        "id": "1"
+      },
+      {
+        "content": "Inventory all current game worlds and levels",
+        "status": "completed",
+        "priority": "high",
+        "id": "2"
+      },
+      {
+        "content": "Update blueprint chapters to match current game content",
+        "status": "completed",
+        "priority": "high",
+        "id": "3"
+      },
+      {
+        "content": "Update lean_decls with current theorem names",
+        "status": "completed",
+        "priority": "high",
+        "id": "4"
+      },
+      {
+        "content": "Test blueprint build locally",
+        "status": "completed",
+        "priority": "medium",
+        "id": "5"
+      },
+      {
+        "content": "Remove EOF artifacts from tutorial.tex",
+        "status": "completed",
+        "priority": "high",
+        "id": "6"
+      },
+      {
+        "content": "Remove EOF artifacts from linearmaps.tex",
+        "status": "completed",
+        "priority": "high",
+        "id": "7"
+      },
+      {
+        "content": "Rebuild blueprint PDF to verify fix",
+        "status": "completed",
+        "priority": "medium",
+        "id": "8"
+      },
+      {
+        "content": "Convert Lean syntax to natural mathematical language",
+        "status": "in_progress",
+        "priority": "high",
+        "id": "9"
+      },
+      {
+        "content": "Review and fix mathematical notation throughout blueprint",
+        "status": "pending",
+        "priority": "high",
+        "id": "10"
+      },
+      {
+        "content": "Rebuild blueprint with corrected mathematical language",
+        "status": "pending",
+        "priority": "medium",
+        "id": "11"
+      }
+    ]
+  }
+}

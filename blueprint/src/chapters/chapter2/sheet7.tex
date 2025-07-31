@@ -1,9 +1,0 @@
-\section{Uniqueness Of Linear Combinations}
-
-\begin{theorem}
-  \label{theorem :  linear_combination_unique}
-  \lean{LinearAlgebraGame.linear_combination_unique}
-  \leanok
-  \uses{definition : linear_independent, theorem : zero_smul}
-  ${S : Set V} (hS : linear\_independent K V S) (s t : Finset V) (hs : ↑s \subseteq S) (ht : ↑t \subseteq S) (f g : V \rightarrow K) (hf\emptyset : \forall v \notin s, f v = 0) (hg0 : ∀ v \notin t, g v = 0) (heq : Finset.sum s (fun v \Rightarrow f v \bullet v) = Finset.sum t (fun v \Rightarrow g v \bullet v)) : f = g $
-\end{theorem}

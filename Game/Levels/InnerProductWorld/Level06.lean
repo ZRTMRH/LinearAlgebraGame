@@ -32,20 +32,30 @@ open Function Set VectorSpace Real InnerProductSpace_v Complex
 
 Statement ortho_decom (u v : V) (h : v ≠ 0) : orthogonal (u - (⟪u,v⟫ / (‖v‖^2)) • v) v := by
   Hint "Start by unfolding the definition of orthogonal."
+  Hint (hidden := true) "Try `unfold orthogonal`"
   unfold orthogonal
   Hint "Expand the inner product using linearity properties."
+  Hint (hidden := true) "Try `rw[inner_minus_left, InnerProductSpace_v.inner_smul_left]`"
   rw[inner_minus_left, InnerProductSpace_v.inner_smul_left]
   Hint "Simplify the norm squared expression."
+  Hint (hidden := true) "Try `unfold norm_v`"
   unfold norm_v
+  Hint (hidden := true) "Try `norm_cast`"
   norm_cast
+  Hint (hidden := true) "Try `rw[sq_sqrt (inner_self_nonneg v), ← inner_self_real]`"
   rw[sq_sqrt (inner_self_nonneg v), ← inner_self_real]
   Hint "Use ring operations to simplify the algebra."
+  Hint (hidden := true) "Try `ring_nf`"
   ring_nf
   Hint "The key step: cancel ⟪v,v⟫ in numerator and denominator."
+  Hint (hidden := true) "Try `rw[mul_assoc, mul_inv_cancel]`"
   rw[mul_assoc, mul_inv_cancel]
+  Hint (hidden := true) "Try `simp`"
   simp
   Hint "We need v ≠ 0 to ensure ⟪v,v⟫ ≠ 0 for cancellation."
+  Hint (hidden := true) "Try `intro x`"
   intro x
+  Hint (hidden := true) "Try `exact h ((inner_self_eq_zero v).1 x)`"
   exact h ((inner_self_eq_zero v).1 x)
 
 end LinearAlgebraGame

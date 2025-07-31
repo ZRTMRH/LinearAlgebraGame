@@ -108,7 +108,7 @@ Statement linear_independent_insert_of_not_in_span
     Hint (hidden := true) "Try `rw [sum_eq_sum_diff_singleton_add {hvIns}] at {hf}`"
     rw [sum_eq_sum_diff_singleton_add hvIns] at hf
 
-    Hint "Now, that we have a sum over `(s \\ \{v})`, we want to show `↑(s \\ \{v}) ⊆ S`"
+    Hint "Now, that we have a sum over `(s \\ \{v})`, we want to show `↑(s \\ \{v}) ⊆ S`. Remember to add braces after `by`."
     Hint (hidden := true) "Try `have subset : ↑({s} \\ \{v}) ⊆ S := by`"
     have subset : ↑(s \ {v}) ⊆ S := by
       Hint (hidden := true) "Try `intros x hx`"
@@ -130,7 +130,7 @@ Statement linear_independent_insert_of_not_in_span
       Hint (hidden := true) "Try `exact {xInS}`"
       exact xInS
 
-    Hint "Now, we can prove our important lemma, that `{f} v = 0`"
+    Hint "Now, we can prove our important lemma, that `{f} v = 0`. Remember to add braces after `by`."
     Hint (hidden := true) "Try `have lemma_fv_zero : {f} v = 0 := by`"
     have lemma_fv_zero : f v = 0 := by
       Hint "A good way to prove this is by contradiction"
@@ -138,7 +138,7 @@ Statement linear_independent_insert_of_not_in_span
       by_contra hfv_ne_zero
 
       Hint "In order to use {hv_not_span}, we need to show {v} as a linear combination of a subset of {S}.
-      This can be done with a `have` statement."
+      This can be done with a `have` statement. Remember to add braces after `by`."
       Hint (hidden := true) "Try `have hvLinearCombo : v = ({s} \\ \{v}).sum (fun x => (-({f} v)⁻¹ * ({f} x)) • x) := by`"
       have hvLinearCombo : v = (s \ {v}).sum (fun x => (-(f v)⁻¹ * (f x)) • x) := by
 
@@ -184,7 +184,7 @@ Statement linear_independent_insert_of_not_in_span
     Hint (hidden := true) "Try `simp at {hf}`"
     simp at hf
 
-    Hint "We want to show that `{w} ∈ {s} \\ \{{v}}`"
+    Hint "We want to show that `{w} ∈ {s} \\ \{{v}}`. Remember to add braces after `by`."
     Hint (hidden := true) "Try `have hwInS : {w} ∈ {s} \\ \{v} := by`"
     have hwInS : w ∈ s \ {v} := by
       Hint (hidden := true) "Try `simp`"
@@ -201,7 +201,7 @@ Statement linear_independent_insert_of_not_in_span
     exact hS (s \ {v}) f subset hf w hwInS
 
     -- Case 2: v ∉ s
-    Hint "We now need to show that s ⊆ S, and we can use the linear independence of S to show s is linearly independent"
+    Hint "We now need to show that s ⊆ S, and we can use the linear independence of S to show s is linearly independent. Remember to add braces after `by`."
     Hint (hidden := true) "Try `have s_subset_S : ↑{s} ⊆ S := by`"
     have s_subset_S : ↑s ⊆ S := by
       Hint (hidden := true) "Try `intro u hu_in_s`"
@@ -223,5 +223,6 @@ Statement linear_independent_insert_of_not_in_span
       exact hvIns hu_in_s
 
     Hint "Now, we can use the linear independence of S to finish the proof"
+    Hint "Note: The game may appear to stall after the next step. If it does, you can proceed to the next level - the proof is complete."
     Hint (hidden := true) "Try `exact {hS} {s} {f} {s_subset_S} {hf} {w} {hw}`"
     exact hS s f s_subset_S hf w hw

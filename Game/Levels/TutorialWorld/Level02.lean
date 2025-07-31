@@ -164,6 +164,7 @@ after the rewrite the goal is of the form `X = X`, it will automatically be solv
 
 Statement (x y : ℝ) (h : y = x + 7) : 2 * y = 2 * (x + 7) := by
   Hint "Try using `rw [h]` to solve the goal."
+  Hint (hidden := true) "Try `rw [h]`"
   rw [h]
 
 Conclusion "

@@ -1,0 +1,58 @@
+{
+  "session_id": "fa7d223e-4469-43df-ab9e-52d11212118e",
+  "transcript_path": "/home/zrtmrh/.claude/projects/-home-zrtmrh-lean4-LinearAlgebraGame/fa7d223e-4469-43df-ab9e-52d11212118e.jsonl",
+  "hook_event_name": "PreToolUse",
+  "tool_name": "TodoWrite",
+  "tool_input": {
+    "todos": [
+      {
+        "content": "Add proofs to Inner Product World lemmas and theorems",
+        "status": "completed",
+        "priority": "high",
+        "id": "18"
+      },
+      {
+        "content": "Add proof for inner_self_real lemma",
+        "status": "completed",
+        "priority": "medium",
+        "id": "19"
+      },
+      {
+        "content": "Add proof for inner_minus_left lemma",
+        "status": "completed",
+        "priority": "medium",
+        "id": "20"
+      },
+      {
+        "content": "Add proofs for complex conjugation lemmas",
+        "status": "completed",
+        "priority": "medium",
+        "id": "21"
+      },
+      {
+        "content": "Add proofs for additional inner product properties",
+        "status": "completed",
+        "priority": "medium",
+        "id": "22"
+      },
+      {
+        "content": "Add proofs for norm properties theorems",
+        "status": "completed",
+        "priority": "medium",
+        "id": "23"
+      },
+      {
+        "content": "Add proofs for major theorems (Pythagorean, Cauchy-Schwarz, Triangle)",
+        "status": "completed",
+        "priority": "high",
+        "id": "24"
+      },
+      {
+        "content": "Test blueprint build with all added proofs",
+        "status": "completed",
+        "priority": "medium",
+        "id": "25"
+      }
+    ]
+  }
+}

@@ -155,6 +155,12 @@ equation by `apply add_right_cancel (b := ????)`.
 TheoremDoc add_right_cancel as "add_right_cancel" in "Groups"
 
 /--
+`add_left_cancel` is a proof that `a + b = a + c → b = c`. You can tell Lean what to add to the
+equation by `apply add_left_cancel (a := ????)`.
+-/
+TheoremDoc add_left_cancel as "add_left_cancel" in "Groups"
+
+/--
 `smul_add` is one of the axioms of a vector space. It is a proof that if we know `vs : VectorSpace K V`,
 then `∀ (a : K) (x y : V), a • (x + y) = a • x + a • y`. It can be considered as right distributivity
 of scalar multiplication
@@ -196,7 +202,7 @@ TheoremDoc zero_add as "zero_add" in "Groups"
 -/
 TheoremDoc add_zero as "add_zero" in "Groups"
 
-NewTheorem add_right_cancel smul_add add_smul MulAction.mul_smul one_smul symm zero_add add_zero
+NewTheorem add_right_cancel add_left_cancel smul_add add_smul MulAction.mul_smul one_smul symm zero_add add_zero
 
 TheoremTab "Groups"
 
@@ -211,19 +217,17 @@ variable (K V : Type) [Field K] [AddCommGroup V] [DecidableEq V] [VectorSpace K 
 In any vector space V over K, the scalar 0 multiplied by any vector gives the zero vector.
 -/
 Statement zero_smul_v (w : V) : (0 : K) • w = (0 : V) := by
-  Hint "Remember, we are trying to prove this backwards. The last step in the normal proof was to
-  cancel out 0 • w from both sides, so what should the first step of the backwards proof be?"
+  Hint "Remember, we are trying to prove this backwards. The last step in the normal proof was to cancel out 0 • w from both sides, so what should the first step of the backwards proof be? Use add_right_cancel to add 0 • w to both sides."
   Hint (hidden := true) "Try `apply add_right_cancel (b := (0 : K) • w)`"
   apply add_right_cancel (b := (0 : K) • w)
-  Hint "Now, there is a theorem we have from the vector space definition that can change the left
-  side of the equation. Think about the second to last step in the normal proof. You may also need to
-  use `.symm` here."
+  Hint "Now use the distributivity property add_smul in reverse. We want to write (0 + 0) • w as 0 • w + 0 • w. Remember to use .symm to reverse the direction."
   Hint (hidden := true) "Try `rw[(add_smul (0 : K) (0 : K) w).symm]`"
   rw[(add_smul (0 : K) (0 : K) w).symm]
-  Hint "Now, we just have to cancel out zeros."
-  Hint (hidden := true) "Try rw[zero_add]"
+  Hint "Now simplify the scalars using zero_add: 0 + 0 = 0."
+  Hint (hidden := true) "Try `rw[zero_add]`"
   rw[zero_add]
-  Hint (hidden := true) "Try rw[zero_add]"
+  Hint "Finally, simplify the right side using zero_add: 0 + 0 • w = 0 • w."
+  Hint (hidden := true) "Try `rw[zero_add]`"
   rw[zero_add]
 
 Conclusion "You have now proven your first theorem about vector spaces! One note: if you want to use

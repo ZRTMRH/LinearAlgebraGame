@@ -16,17 +16,19 @@ A linear map (also called a linear transformation) is a function between vector 
 
 ## Mathematical Definition
 
-Given vector spaces $V$ and $W$ over a field $K$, a function $T : V \\to W$ is called **linear** if it satisfies these two properties:
+Given vector spaces $V$ and $W$ over a field $K$, a function $T : V \\to W$ is called linear if it satisfies these two properties:
 
-1. **Additivity:** $T(u + v) = T(u) + T(v)$ for all $u, v \\in V$
-2. **Homogeneity:** $T(a \\cdot v) = a \\cdot T(v)$ for all $a \\in K$ and $v \\in V$
+• Additivity: $T(u + v) = T(u) + T(v)$ for all $u, v \\in V$
+• Homogeneity: $T(a \\cdot v) = a \\cdot T(v)$ for all $a \\in K$ and $v \\in V$
 
 ## Why This Matters
 
-Linear maps are the structure-preserving functions of linear algebra. They respect the vector space structure, making them the natural morphisms to study between vector spaces.
+Linear maps are the structure-preserving functions of linear algebra. They respect the vector space structure, making them the natural morphisms between vector spaces.
 
 ### Your Goal
-Prove that our definition captures exactly these two fundamental properties.
+Prove that our definition captures exactly these two fundamental properties. 
+
+In Lean, we define `is_linear_map_v K V W T` (see Definitions panel) to formalize exactly what it means for a function T to be linear.
 "
 
 open VectorSpace
@@ -67,7 +69,9 @@ Statement linear_map_def (T : V → W) :
     is_linear_map_v K V W T ↔ 
     (∀ u v : V, T (u + v) = T u + T v) ∧ (∀ a : K, ∀ v : V, T (a • v) = a • T v) := by
   Hint "Try unfold is_linear_map_v to see the definition directly."
+  Hint (hidden := true) "Try `unfold is_linear_map_v`"
   unfold is_linear_map_v
+  Hint (hidden := true) "Try `rfl`"
   rfl
 
 Conclusion "

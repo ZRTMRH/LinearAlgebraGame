@@ -63,30 +63,39 @@ Statement injective_implies_trivial_null (T : V → W) (hT : is_linear_map_v K V
     (h_inj : injective_v K V W T) : 
     null_space_v K V W T = {0} := by
   Hint "Prove set equality by showing both inclusions: null space ⊆ {0} and {0} ⊆ null space."
+  Hint (hidden := true) "Try `ext v`"
   ext v
+  Hint (hidden := true) "Try `constructor`"
   constructor
   Hint "First direction: if v ∈ null space, then v = 0."
-  · intro hv
+  · Hint (hidden := true) "Try `intro hv`"
+    intro hv
     -- hv : v ∈ null_space_v K V W T means T v = 0
     show v = 0
     Hint "Use injectivity: since T(v) = T(0) = 0, we get v = 0."
     -- We know T v = 0 from hv
+    Hint (hidden := true) "Try `have h_zero : T 0 = 0 := by have h := hT.2 (0 : K) (0 : V); simp at h; exact h`"
     have h_zero : T 0 = 0 := by
       -- Linear maps preserve zero (from Level 4)
       have h := hT.2 (0 : K) (0 : V)
       simp at h
       exact h
     -- Now T v = 0 = T 0, so by injectivity v = 0
+    Hint (hidden := true) "Try `have h_eq : T v = T 0 := by rw [h_zero]; exact hv`"
     have h_eq : T v = T 0 := by
       rw [h_zero]
       exact hv
+    Hint (hidden := true) "Try `exact h_inj v 0 h_eq`"
     exact h_inj v 0 h_eq
   Hint "Second direction: if v = 0, then v ∈ null space."
-  · intro hv
+  · Hint (hidden := true) "Try `intro hv`"
+    intro hv
     -- hv : v = 0
     show T v = 0
+    Hint (hidden := true) "Try `rw [hv]`"
     rw [hv]
     -- T 0 = 0 from Level 4
+    Hint (hidden := true) "Try `have h := hT.2 (0 : K) (0 : V); simp at h; exact h`"
     have h := hT.2 (0 : K) (0 : V)
     simp at h
     exact h

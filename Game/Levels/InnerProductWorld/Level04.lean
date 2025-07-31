@@ -32,6 +32,7 @@ def orthogonal (u v : V) : Prop := ⟪u, v⟫ = (0 : ℂ)
 
 NewDefinition orthogonal
 
+
 /--
 `ortho_self_zero` is a proof that the only vector orthogonal to itself is the zero vector. If `v` is
 a vector, `ortho_self_zero v` is a proof that `ortho v v ↔ v = 0`.

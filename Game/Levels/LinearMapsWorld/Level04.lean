@@ -36,10 +36,14 @@ Every linear map maps the zero vector to the zero vector.
 -/
 Statement linear_map_preserves_zero (T : V → W) (hT : is_linear_map_v K V W T) : 
     T 0 = 0 := by
-  Hint "Use the homogeneity property with scalar 0."
+  Hint "Use the homogeneity property with scalar 0. Apply hT.2 with scalar 0 and vector 0."
+  Hint (hidden := true) "Try `have h : T (0 • (0 : V)) = 0 • T 0 := hT.2 0 0`"
   have h : T (0 • (0 : V)) = 0 • T 0 := hT.2 0 0
-  Hint "Simplify: 0 • v = 0 for any vector v."
+  Hint "Simplify: 0 • v = 0 for any vector v. Use simp to clean up the zeros."
+  Hint (hidden := true) "Try `simp at h`"
   simp at h
+  Hint "Now h gives us exactly what we need: T 0 = 0."
+  Hint (hidden := true) "Try `exact h`"
   exact h
 
 Conclusion "

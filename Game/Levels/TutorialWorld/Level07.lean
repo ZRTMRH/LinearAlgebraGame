@@ -28,6 +28,7 @@ and certain properties of the numbers you are working with.
 
 Statement (x y a b : ℝ) (h1 : x < y) (h2: a < b) : x + a < y + b := by
   Hint "In this level, simply trying `linarith` should solve the level."
+  Hint (hidden := true) "Try `linarith`"
   linarith
 
 Conclusion "

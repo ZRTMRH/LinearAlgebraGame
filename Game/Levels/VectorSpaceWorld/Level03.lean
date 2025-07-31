@@ -55,19 +55,22 @@ variable (K V : Type) [Field K] [AddCommGroup V] [DecidableEq V] [VectorSpace K 
 In any vector space V over K, multiplying a vector by -1 gives its additive inverse.
 -/
 Statement neg_one_smul_v (v : V) : (-1 : K) • v = -v := by
-  Hint "A good first step is cancelling out the `-v` term on the right."
+  Hint "Start by adding v to both sides to cancel out the -v on the right. This transforms our goal into showing (-1) • v + v = -v + v."
   Hint (hidden := true) "Try `apply add_right_cancel (b := v)`"
   apply add_right_cancel (b := v)
-  Hint "Remember the `nth_rw m [theorem]` tactic to only rewrite the mth instance."
+  Hint "We need to rewrite the second v as 1 • v. Use nth_rw to target only the second occurrence of v (the one being added, not the one being scaled)."
   Hint (hidden := true) "Try `nth_rw 2 [(one_smul K v).symm]`"
   nth_rw 2 [(one_smul K v).symm]
+  Hint "Now factor out the v using add_smul in reverse: (-1) • v + (1) • v = (-1 + 1) • v."
   Hint (hidden := true) "Try `rw[(add_smul (-1 : K) (1 : K) v).symm]`"
   rw [(add_smul (-1 : K) (1 : K) v).symm]
+  Hint "Simplify the scalar: -1 + 1 = 0."
   Hint (hidden := true) "Try `rw[neg_add_self]`"
   rw[neg_add_self]
+  Hint "Simplify the right side: -v + v = 0."
   Hint (hidden := true) "Try `rw[neg_add_self]`"
   rw[neg_add_self]
-  Hint "This looks like something we've done before. Either the `rw` or `exact` tactics should solve the goal"
+  Hint "Now we have 0 • v = 0, which we proved in Level 1. Use the zero_smul_v theorem."
   Hint (hidden := true) "Try `exact zero_smul_v K V v`"
   exact zero_smul_v K V v
 

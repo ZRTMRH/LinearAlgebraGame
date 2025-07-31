@@ -61,8 +61,10 @@ If T maps v to w, then w is in the range of T.
 Statement mem_range_of_map (T : V → W) (v : V) (w : W) (h : T v = w) : 
     w ∈ range_v K V W T := by
   Hint "Show there exists some vector that T maps to w."
+  Hint (hidden := true) "Try `show ∃ u : V, T u = w`"
   show ∃ u : V, T u = w
   Hint "Use v as the witness and apply hypothesis h."
+  Hint (hidden := true) "Try `use v, h`"
   use v, h
 
 Conclusion "

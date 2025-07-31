@@ -48,33 +48,45 @@ If T is injective and maps v to w, then v ≠ 0 if and only if w ≠ 0.
 Statement injective_preserves_independence (T : V → W) (hT : is_linear_map_v K V W T)
     (h_inj : injective_v K V W T) (v : V) (w : W) (h_map : T v = w) :
     (v ≠ 0) ↔ (w ≠ 0) := by
+  Hint (hidden := true) "Try `constructor`"
   constructor
   Hint "First direction: if v ≠ 0, then w ≠ 0."
-  · intro h_v_ne_zero
+  · Hint (hidden := true) "Try `intro h_v_ne_zero`"
+    intro h_v_ne_zero
+    Hint (hidden := true) "Try `intro h_w_zero`"
     intro h_w_zero
     -- If w = 0, then T v = 0, so v ∈ null space
+    Hint (hidden := true) "Try `have h_null : v ∈ null_space_v K V W T := by show T v = 0; rw [h_map, h_w_zero]`"
     have h_null : v ∈ null_space_v K V W T := by
       show T v = 0
       rw [h_map, h_w_zero]
     -- But we proved in Level 8 that injective maps have trivial null space
     -- So we need to use the fact that T 0 = 0 and injectivity
+    Hint (hidden := true) "Try `have h_T_zero : T 0 = 0 := by have h := hT.2 (0 : K) (0 : V); simp at h; exact h`"
     have h_T_zero : T 0 = 0 := by
       have h := hT.2 (0 : K) (0 : V)
       simp at h
       exact h
+    Hint (hidden := true) "Try `have h_eq : T v = T 0 := by rw [h_map, h_w_zero, h_T_zero]`"
     have h_eq : T v = T 0 := by
       rw [h_map, h_w_zero, h_T_zero]
+    Hint (hidden := true) "Try `have h_v_zero : v = 0 := h_inj v 0 h_eq`"
     have h_v_zero : v = 0 := h_inj v 0 h_eq
+    Hint (hidden := true) "Try `exact h_v_ne_zero h_v_zero`"
     exact h_v_ne_zero h_v_zero
   Hint "Second direction: if w ≠ 0, then v ≠ 0."
-  · intro h_w_ne_zero
+  · Hint (hidden := true) "Try `intro h_w_ne_zero`"
+    intro h_w_ne_zero
+    Hint (hidden := true) "Try `intro h_v_zero`"
     intro h_v_zero
+    Hint (hidden := true) "Try `have h_w_zero : w = 0 := by rw [← h_map, h_v_zero]; have h := hT.2 (0 : K) (0 : V); simp at h; exact h`"
     have h_w_zero : w = 0 := by
       rw [← h_map, h_v_zero]
       -- T 0 = 0
       have h := hT.2 (0 : K) (0 : V)
       simp at h
       exact h
+    Hint (hidden := true) "Try `exact h_w_ne_zero h_w_zero`"
     exact h_w_ne_zero h_w_zero
 
 Conclusion "

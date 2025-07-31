@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: Tue Jul 22 17:11:23 2025\n"
+"POT-Creation-Date: Wed Jul 30 22:37:27 2025\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -64,6 +64,10 @@ msgstr ""
 
 #: Game.Levels.TutorialWorld.Level01
 msgid "Try typing 'rfl' into the text box below, then hit \"Execute\". This should finish the proof."
+msgstr ""
+
+#: Game.Levels.TutorialWorld.Level01
+msgid "Try `rfl`"
 msgstr ""
 
 #: Game.Levels.TutorialWorld.Level01
@@ -233,6 +237,10 @@ msgid "Try using `rw [h]` to solve the goal."
 msgstr ""
 
 #: Game.Levels.TutorialWorld.Level02
+msgid "Try `rw [h]`"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.Level02
 msgid "You now know the two most basic tactics in Lean! Again, you can click on `rw` on the right hand side\n"
 "to see more about the tactic.\n"
 "\n"
@@ -315,7 +323,15 @@ msgid "First use `intro` to give yourself a new assumption and simplify the goal
 msgstr ""
 
 #: Game.Levels.TutorialWorld.Level03
+msgid "Try `intro h`"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.Level03
 msgid "Now use `exact` to solve the goal"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.Level03
+msgid "Try `exact h`"
 msgstr ""
 
 #: Game.Levels.TutorialWorld.Level03
@@ -357,7 +373,19 @@ msgid "Try using `constructor` to split up the goal."
 msgstr ""
 
 #: Game.Levels.TutorialWorld.Level04
+msgid "Try `constructor`"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.Level04
 msgid "Both remaining goals are exactly your hypotheses. What tactic can solve the goals?"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.Level04
+msgid "Try `exact p`"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.Level04
+msgid "Try `exact q`"
 msgstr ""
 
 #: Game.Levels.TutorialWorld.Level04
@@ -420,6 +448,19 @@ msgid "## Summary\n"
 msgstr ""
 
 #: Game.Levels.TutorialWorld.Level05
+msgid "## Summary\n"
+"\n"
+"`Not` is the logical negation. In Lean, `¬ P` is defined as `P → False`.\n"
+"When you see `¬ P` in a goal or hypothesis, you can use `unfold Not` to\n"
+"replace it with `P → False`.\n"
+"\n"
+"## Example\n"
+"\n"
+"If you have a goal `¬ P`, using `unfold Not` will change it to `P → False`.\n"
+"This often makes it easier to work with using `intro` and other tactics."
+msgstr ""
+
+#: Game.Levels.TutorialWorld.Level05
 msgid "In this level, we will learn the `unfold` and `apply` tactics. Our goal is to prove `(P → Q) → (¬ Q → ¬ P)`,\n"
 "which looks very messy and difficult, but it can be slowly unfolded and broken down into simple steps.\n"
 "\n"
@@ -454,11 +495,27 @@ msgid "Now, since there is a hypothesis also with a `¬` symbol, `unfold Not at 
 msgstr ""
 
 #: Game.Levels.TutorialWorld.Level05
+msgid "Try `unfold Not`"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.Level05
 msgid "Now, since you goal is of the form `P → Q`, the `intro` tactic may help."
 msgstr ""
 
 #: Game.Levels.TutorialWorld.Level05
+msgid "Try `intro h1`"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.Level05
 msgid "You can still use the `intro` tactic because the goal is still of the form `P → Q`"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.Level05
+msgid "Try `intro h2`"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.Level05
+msgid "Try `intro h3`"
 msgstr ""
 
 #: Game.Levels.TutorialWorld.Level05
@@ -468,8 +525,20 @@ msgid "Now, try the `apply` tactic. Remember that if your goal is `Q`, you can u
 msgstr ""
 
 #: Game.Levels.TutorialWorld.Level05
+msgid "Try `apply h2`"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.Level05
 msgid "Again, try the `apply` tactic to change the goal. You can also solve the level with one carefully worded\n"
 "`exact` statement if you combine your hypotheses."
+msgstr ""
+
+#: Game.Levels.TutorialWorld.Level05
+msgid "Try `apply h1`"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.Level05
+msgid "Try `exact h3`"
 msgstr ""
 
 #: Game.Levels.TutorialWorld.Level05
@@ -544,9 +613,17 @@ msgid "You have two main options here. Note that you have a statement of the for
 msgstr ""
 
 #: Game.Levels.TutorialWorld.Level06
+msgid "Try `intro h`"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.Level06
 msgid "Since the `¬` symbol is in a hypothesis now, instead of the goal, in order to unfold it you\n"
 "need to do `unfold Not at h`, where you replace `h` with the name of your hypothesis. `unfold Not\n"
 "at *` will also unfold it everywhere."
+msgstr ""
+
+#: Game.Levels.TutorialWorld.Level06
+msgid "Try `unfold Not at h`"
 msgstr ""
 
 #: Game.Levels.TutorialWorld.Level06
@@ -554,7 +631,23 @@ msgid "Now, use the `cases'` tactic to split up your and statement hypothesis."
 msgstr ""
 
 #: Game.Levels.TutorialWorld.Level06
+msgid "Try `cases' h with h1 h2`"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.Level06
 msgid "It would be nice if our goal was `False` here."
+msgstr ""
+
+#: Game.Levels.TutorialWorld.Level06
+msgid "Try `exfalso`"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.Level06
+msgid "Try `apply h2`"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.Level06
+msgid "Try `exact h1`"
 msgstr ""
 
 #: Game.Levels.TutorialWorld.Level06
@@ -587,6 +680,10 @@ msgstr ""
 
 #: Game.Levels.TutorialWorld.Level07
 msgid "In this level, simply trying `linarith` should solve the level."
+msgstr ""
+
+#: Game.Levels.TutorialWorld.Level07
+msgid "Try `linarith`"
 msgstr ""
 
 #: Game.Levels.TutorialWorld.Level07
@@ -639,6 +736,10 @@ msgstr ""
 
 #: Game.Levels.TutorialWorld.Level08
 msgid "Just typing `simp` will solve the goal"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.Level08
+msgid "Try `simp`"
 msgstr ""
 
 #: Game.Levels.TutorialWorld.Level08
@@ -698,12 +799,24 @@ msgid "Try using the new theorem! Since it is a proof of `↔`, the rewrite tact
 msgstr ""
 
 #: Game.Levels.TutorialWorld.Level09
+msgid "Try `rw[le_iff_exists_add]`"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.Level09
 msgid "What number should you use here to make the statement true?"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.Level09
+msgid "Try `use 1`"
 msgstr ""
 
 #: Game.Levels.TutorialWorld.Level09
 msgid "You now have a simple linear equation. What tactic can solve linear equations and prove\n"
 "equalities?"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.Level09
+msgid "Try `linarith`"
 msgstr ""
 
 #: Game.Levels.TutorialWorld.Level09
@@ -768,11 +881,23 @@ msgid "First, perform induction on `n`."
 msgstr ""
 
 #: Game.Levels.TutorialWorld.Level10
+msgid "Try `induction' n with n h`"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.Level10
 msgid "Base case: prove 0 + 0 = 0."
 msgstr ""
 
 #: Game.Levels.TutorialWorld.Level10
+msgid "Try `simp`"
+msgstr ""
+
+#: Game.Levels.TutorialWorld.Level10
 msgid "Inductive step: use add_succ and the induction hypothesis."
+msgstr ""
+
+#: Game.Levels.TutorialWorld.Level10
+msgid "Try `simp [Nat.add_succ, h]`"
 msgstr ""
 
 #: Game.Levels.TutorialWorld.Level10
@@ -926,6 +1051,11 @@ msgid "`add_right_cancel` is a proof that `a + b = c + b → a = c`. You can tel
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level01
+msgid "`add_left_cancel` is a proof that `a + b = a + c → b = c`. You can tell Lean what to add to the\n"
+"equation by `apply add_left_cancel (a := ????)`."
+msgstr ""
+
+#: Game.Levels.VectorSpaceWorld.Level01
 msgid "`smul_add` is one of the axioms of a vector space. It is a proof that if we know `vs : VectorSpace K V`,\n"
 "then `∀ (a : K) (x y : V), a • (x + y) = a • x + a • y`. It can be considered as right distributivity\n"
 "of scalar multiplication"
@@ -967,8 +1097,7 @@ msgid "In any vector space V over K, the scalar 0 multiplied by any vector gives
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level01
-msgid "Remember, we are trying to prove this backwards. The last step in the normal proof was to\n"
-"cancel out 0 • w from both sides, so what should the first step of the backwards proof be?"
+msgid "Remember, we are trying to prove this backwards. The last step in the normal proof was to cancel out 0 • w from both sides, so what should the first step of the backwards proof be? Use add_right_cancel to add 0 • w to both sides."
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level01
@@ -976,9 +1105,7 @@ msgid "Try `apply add_right_cancel (b := (0 : K) • w)`"
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level01
-msgid "Now, there is a theorem we have from the vector space definition that can change the left\n"
-"side of the equation. Think about the second to last step in the normal proof. You may also need to\n"
-"use `.symm` here."
+msgid "Now use the distributivity property add_smul in reverse. We want to write (0 + 0) • w as 0 • w + 0 • w. Remember to use .symm to reverse the direction."
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level01
@@ -986,15 +1113,19 @@ msgid "Try `rw[(add_smul (0 : K) (0 : K) w).symm]`"
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level01
-msgid "Now, we just have to cancel out zeros."
+msgid "Now simplify the scalars using zero_add: 0 + 0 = 0."
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level01
-msgid "Try rw[zero_add]"
+msgid "Try `rw[zero_add]`"
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level01
-msgid "Try rw[zero_add]"
+msgid "Finally, simplify the right side using zero_add: 0 + 0 • w = 0 • w."
+msgstr ""
+
+#: Game.Levels.VectorSpaceWorld.Level01
+msgid "Try `rw[zero_add]`"
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level01
@@ -1008,13 +1139,20 @@ msgid "Multiplying by the zero vector"
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level02
-msgid "We just proved that multiplying by the zero scalar gives the zero vector. Now, we will\n"
-"show that multiplying by the zero vector also gives the zero vector.\n"
+msgid "We just proved that multiplying by the zero scalar gives the zero vector. Now, we will show that multiplying by the zero vector also gives the zero vector.\n"
 "\n"
-"The proof is very similar to the last level, and requires no new tactics.\n"
+"## The Mathematical Idea\n"
 "\n"
-"Again, first think out the proof yourself (pencil and paper may help), then reverse the proof and\n"
-"write it in lean. You can also look at the previous level for inspiration and syntax help."
+"This proof mirrors the previous level but uses the other distributivity property (smul_add instead of add_smul).\n"
+"\n"
+"## Proof Strategy\n"
+"\n"
+"The forward proof would be: a • 0 = a • (0 + 0) = a • 0 + a • 0, then cancel a • 0 from both sides.\n"
+"The backward proof: add a • 0 to both sides, then use distributivity in reverse, then simplify.\n"
+"\n"
+"## Tactics Needed\n"
+"\n"
+"The proof is very similar to the last level, and requires no new tactics. You can look at the previous level for inspiration and syntax help."
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level02
@@ -1029,7 +1167,15 @@ msgid "In any vector space V over K, any scalar a multiplied by the zero vector 
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level02
+msgid "Start by adding a • 0 to both sides using add_right_cancel, just like in the previous level."
+msgstr ""
+
+#: Game.Levels.VectorSpaceWorld.Level02
 msgid "Try `apply add_right_cancel (b := a • (0 : V))`"
+msgstr ""
+
+#: Game.Levels.VectorSpaceWorld.Level02
+msgid "Use smul_add in reverse to write a • (0 + 0) as a • 0 + a • 0. This is the distributivity of scalar multiplication over vector addition."
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level02
@@ -1037,7 +1183,15 @@ msgid "Try `rw[(smul_add a (0 : V) (0 : V)).symm]`"
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level02
+msgid "Simplify 0 + 0 = 0 in the argument to the scalar multiplication."
+msgstr ""
+
+#: Game.Levels.VectorSpaceWorld.Level02
 msgid "Try `rw[zero_add]`"
+msgstr ""
+
+#: Game.Levels.VectorSpaceWorld.Level02
+msgid "Finally, simplify the right side: 0 + a • 0 = a • 0."
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level02
@@ -1088,7 +1242,7 @@ msgid "In any vector space V over K, multiplying a vector by -1 gives its additi
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level03
-msgid "A good first step is cancelling out the `-v` term on the right."
+msgid "Start by adding v to both sides to cancel out the -v on the right. This transforms our goal into showing (-1) • v + v = -v + v."
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level03
@@ -1096,11 +1250,15 @@ msgid "Try `apply add_right_cancel (b := v)`"
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level03
-msgid "Remember the `nth_rw m [theorem]` tactic to only rewrite the mth instance."
+msgid "We need to rewrite the second v as 1 • v. Use nth_rw to target only the second occurrence of v (the one being added, not the one being scaled)."
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level03
-msgid "Try `nth_rw 2 [(one_smul (K := K) v).symm]`"
+msgid "Try `nth_rw 2 [(one_smul K v).symm]`"
+msgstr ""
+
+#: Game.Levels.VectorSpaceWorld.Level03
+msgid "Now factor out the v using add_smul in reverse: (-1) • v + (1) • v = (-1 + 1) • v."
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level03
@@ -1108,7 +1266,7 @@ msgid "Try `rw[(add_smul (-1 : K) (1 : K) v).symm]`"
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level03
-msgid "Try `rw[neg_add_self]`"
+msgid "Simplify the scalar: -1 + 1 = 0."
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level03
@@ -1116,7 +1274,15 @@ msgid "Try `rw[neg_add_self]`"
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level03
-msgid "This looks like something we've done before. Either the `rw` or `exact` tactics should solve the goal"
+msgid "Simplify the right side: -v + v = 0."
+msgstr ""
+
+#: Game.Levels.VectorSpaceWorld.Level03
+msgid "Try `rw[neg_add_self]`"
+msgstr ""
+
+#: Game.Levels.VectorSpaceWorld.Level03
+msgid "Now we have 0 • v = 0, which we proved in Level 1. Use the zero_smul_v theorem."
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level03
@@ -1189,7 +1355,7 @@ msgid "This is a proof that any subspace contains the zero vector."
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level04
-msgid "Try to expand out your hypotheses using `obtain`."
+msgid "Start by expanding the subspace definition using obtain. This will give you the three properties: nonempty, closed under addition, and closed under scalar multiplication."
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level04
@@ -1197,17 +1363,15 @@ msgid "Try `obtain ⟨h1, h2, h3⟩ := hW`"
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level04
-msgid "Again, you can use `obtain` to simplify a hypothesis."
+msgid "The nonempty property h1 means there exists some element in W. Use obtain to extract this element."
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level04
-msgid "Try `obtain ⟨w, hw⟩ := «{h1}»`"
+msgid "Try `obtain ⟨w, hw⟩ := h1`"
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level04
-msgid "We know that `0 • «{w}» ∈ W`. If this was our goal, the level would be easy to solve. Also,\n"
-"remember that if you have to use a theorem you have proven in a previous level, you have to write\n"
-"`theorem_name K V theorem_args` to show Lean that K V is a vector space."
+msgid "We want to show 0 ∈ W, but we know that 0 = 0 • w (from Level 1). Rewrite the goal using this fact."
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level04
@@ -1215,15 +1379,19 @@ msgid "Try `rw [(zero_smul_v K V w).symm]`"
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level04
-msgid "Now, apply the fact that subspaces are closed under scalar multiplication."
+msgid "Now apply the scalar multiplication closure property h3. Since w ∈ W and subspaces are closed under scalar multiplication, 0 • w ∈ W."
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level04
-msgid "Try `apply «{h3}»`"
+msgid "Try `apply h3`"
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level04
-msgid "Try `exact «{hw}»`"
+msgid "Finally, provide the proof that w ∈ W, which we have from our obtain step."
+msgstr ""
+
+#: Game.Levels.VectorSpaceWorld.Level04
+msgid "Try `exact hw`"
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level05
@@ -1231,10 +1399,20 @@ msgid "Negatives in Subspace"
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level05
-msgid "The last theorem we will prove in Vector Space World is that subspaces contain the additive inverses\n"
-"of each of their elements. The proof is very similar to the previous level. You can try to solve it\n"
-"completely on your own, and if you get stuck, you can always press the \"Show more help!\" button to\n"
-"get the next step."
+msgid "The last theorem we will prove in Vector Space World is that subspaces contain the additive inverses of each of their elements. \n"
+"\n"
+"## The Mathematical Idea\n"
+"\n"
+"If x ∈ W and W is a subspace, then -x ∈ W. This follows because -x = (-1) • x, and subspaces are closed under scalar multiplication.\n"
+"\n"
+"## Proof Strategy\n"
+"\n"
+"1. Break down the subspace definition using obtain\n"
+"2. Introduce the universal quantifier (∀) using intros\n"
+"3. Rewrite -x as (-1) • x using the theorem from Level 3\n"
+"4. Apply scalar multiplication closure\n"
+"\n"
+"The proof combines ideas from the previous level with our theorem about -1 scaling."
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level05
@@ -1242,11 +1420,15 @@ msgid "This is a proof that if a subspace contains a vector `x`, it also contain
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level05
-msgid "Try `obtain ⟨h1, h2, h3⟩ := hW`"
+msgid "First, break down the subspace definition to access the closure properties."
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level05
 msgid "Try `obtain ⟨h1, h2, h3⟩ := hW`"
+msgstr ""
+
+#: Game.Levels.VectorSpaceWorld.Level05
+msgid "Introduce the universal quantifier: we need to show this holds for any x and any proof that x ∈ W."
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level05
@@ -1254,11 +1436,27 @@ msgid "Try `intros x hx`"
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level05
+msgid "Rewrite -x as (-1) • x using our theorem from Level 3. This connects negation to scalar multiplication."
+msgstr ""
+
+#: Game.Levels.VectorSpaceWorld.Level05
 msgid "Try `rw [(neg_one_smul_v K V x).symm]`"
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level05
-msgid "Try `apply h3; exact hx` to use scalar multiplication closure"
+msgid "Apply the scalar multiplication closure property h3. Since x ∈ W, we have (-1) • x ∈ W."
+msgstr ""
+
+#: Game.Levels.VectorSpaceWorld.Level05
+msgid "Try `apply h3`"
+msgstr ""
+
+#: Game.Levels.VectorSpaceWorld.Level05
+msgid "Provide the proof that x ∈ W, which is our hypothesis hx."
+msgstr ""
+
+#: Game.Levels.VectorSpaceWorld.Level05
+msgid "Try `exact hx`"
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level05
@@ -1271,7 +1469,15 @@ msgid "Vector Space World"
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld
-msgid "Welcome to Vector Space World! In this world, you'll build up the basic theory of vector spaces through formal proofs in Lean."
+msgid "Welcome to Vector Space World! \n"
+"\n"
+"In this world, you'll build up the basic theory of vector spaces through formal proofs in Lean.\n"
+"\n"
+"You will learn the fundamental axioms that define vector spaces and prove important properties about vector addition, scalar multiplication, and the zero vector.\n"
+"\n"
+"**Note:** If this introduction page appears blank or incomplete, please click 'Start' and go directly to Level 1, which contains a comprehensive introduction to vector spaces.\n"
+"\n"
+"Click start to begin your first level!"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level01
@@ -1492,7 +1698,7 @@ msgid "Now, what information can we get out of «{hxA}»?"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level03
-msgid "Try `obtain ⟨s, hsA, f, h1, h2⟩ := «{hxA}»`"
+msgid "Try `obtain ⟨s, hsA, f, h1, h2⟩ := hxA`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level03
@@ -1500,7 +1706,7 @@ msgid "What set should we be summing over?"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level03
-msgid "Try `use «{s}»`"
+msgid "Try `use s`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level03
@@ -1508,7 +1714,7 @@ msgid "Try `constructor`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level03
-msgid "Try `exact subset_trans «{hsA}» «{hAB}»`"
+msgid "Try `exact subset_trans hsA hAB`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level03
@@ -1743,11 +1949,11 @@ msgid "Try `exact span_mono K V hAsubB`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level06
-msgid "Try `intros x ssg`"
+msgid "Try `intros x _ssg`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level06
-msgid "Try `exact hT «{x}»`"
+msgid "Try `exact hT x`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level06
@@ -1792,7 +1998,7 @@ msgid "This is the \"boss level\" of the Linear Independence and Span World. Thi
 "### The `funext` tactic\n"
 "The `funext` tactic lets you prove statements about functions. It works similarly to the `intro` tactic,\n"
 "where you introduce an arbitrary object, but instead of introducing from a `∀` statment, it works if\n"
-"you have a goal of the form `f = g`, where `funext x` will chang ethe goal to the form `f x = g x`, and\n"
+"you have a goal of the form `f = g`, where `funext x` will change the goal to the form `f x = g x`, and\n"
 "give you an arbitrary `x` in the domain of `f` and `g`.\n"
 "\n"
 "### New theorems\n"
@@ -1923,15 +2129,15 @@ msgid "First, note that you have a goal of proving two functions equal. Try to i
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level07
-msgid "Try `funext v`"
+msgid "Try `funext x`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level07
-msgid "Now, we can split into cases where either v ∈ (s ∪ t) or not."
+msgid "Now, we can split into cases where either x ∈ (s ∪ t) or not."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level07
-msgid "Try `by_cases h : v ∈ (s ∪ t)`"
+msgid "Try `by_cases h : x ∈ (s ∪ t)`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level07
@@ -1961,7 +2167,7 @@ msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level07
 msgid "Now, we have to show that `(Finset.sum (s ∪ t) fun v => (f - g) v • v) = 0`. This will\n"
-"be difficult, so try proving it with a `have` statement"
+"be difficult, so try proving it with a `have` statement. Remember to add braces after `by`."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level07
@@ -1970,7 +2176,7 @@ msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level07
 msgid "It would be nice if we could distribute the `f - g` through the `•` operator. Try proving\n"
-"`(fun v => (f - g) v • v) = (fun (v : V) => ((f v) • v) - ((g v) • v))` with another `have` statement"
+"`(fun v => (f - g) v • v) = (fun (v : V) => ((f v) • v) - ((g v) • v))` with another `have` statement. Remember to add braces after `by`."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level07
@@ -2001,7 +2207,7 @@ msgstr ""
 msgid "We now have two sums. The first one should be equivalent to our first linear combination,\n"
 "and the second should be equivalent to our second linear combination. We need to change the sets\n"
 "they are being summed over. We have a theorem that can do this, but it needs a hypothesis that we\n"
-"don't have. Try proving these hypotheses with a `have` statement."
+"don't have. Try proving these hypotheses with a `have` statement. Remember to add braces after `by`."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level07
@@ -2045,11 +2251,11 @@ msgid "Try `specialize hS lemmaSumDiffEqZero`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level07
-msgid "Try `specialize hS v h`"
+msgid "Try `specialize hS x h`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level07
-msgid "We know now from hS that f v - g v = 0, and one of the new theorems lets us finish the proof.\n"
+msgid "We know now from hS that f x - g x = 0, and one of the new theorems lets us finish the proof.\n"
 "Remember that if you have a proof of `↔`, `.1` will be a proof of the forwards direction and `.2` the\n"
 "backwards."
 msgstr ""
@@ -2059,7 +2265,19 @@ msgid "Try `exact sub_eq_zero.1 hS`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level07
-msgid "Try `rw[not_mem_union] at h; cases' h with hS hT; rw[hf0 v hS, hg0 v hT]`"
+msgid "Try `rw[not_mem_union] at h`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level07
+msgid "Try `cases' h with hxs hxt`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level07
+msgid "Note: The game may appear to stall after the next step. If it does, you can proceed to the next level - the proof is complete."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level07
+msgid "Try `rw[hf0 x hxs, hg0 x hxt]`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level07
@@ -2176,7 +2394,7 @@ msgid "Try `rw [sum_eq_sum_diff_singleton_add «{hvIns}»] at «{hf}»`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level08
-msgid "Now, that we have a sum over `(s \\ {v})`, we want to show `↑(s \\ {v}) ⊆ S`"
+msgid "Now, that we have a sum over `(s \\ {v})`, we want to show `↑(s \\ {v}) ⊆ S`. Remember to add braces after `by`."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level08
@@ -2220,7 +2438,7 @@ msgid "Try `exact «{xInS}»`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level08
-msgid "Now, we can prove our important lemma, that `«{f}» v = 0`"
+msgid "Now, we can prove our important lemma, that `«{f}» v = 0`. Remember to add braces after `by`."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level08
@@ -2237,7 +2455,7 @@ msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level08
 msgid "In order to use «{hv_not_span}», we need to show «{v}» as a linear combination of a subset of «{S}».\n"
-"This can be done with a `have` statement."
+"This can be done with a `have` statement. Remember to add braces after `by`."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level08
@@ -2326,7 +2544,7 @@ msgid "Try `simp at «{hf}»`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level08
-msgid "We want to show that `«{w}» ∈ «{s}» \\ {«{v}»}`"
+msgid "We want to show that `«{w}» ∈ «{s}» \\ {«{v}»}`. Remember to add braces after `by`."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level08
@@ -2358,7 +2576,7 @@ msgid "Try `exact «{hS}» («{s}» \\ {v}) «{f}» «{subset}» «{hf}» «{w}�
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level08
-msgid "We now need to show that s ⊆ S, and we can use the linear independence of S to show s is linearly independent"
+msgid "We now need to show that s ⊆ S, and we can use the linear independence of S to show s is linearly independent. Remember to add braces after `by`."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level08
@@ -2395,6 +2613,10 @@ msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level08
 msgid "Now, we can use the linear independence of S to finish the proof"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level08
+msgid "Note: The game may appear to stall after the next step. If it does, you can proceed to the next level - the proof is complete."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level08
@@ -2540,15 +2762,15 @@ msgid "Try `obtain ⟨sw, hsw, fw, hfw⟩ := hcomb`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Try `obtain ⟨sx, hsx, fx, hfx⟩ := «{hx}»`"
+msgid "Try `obtain ⟨sx, hsx, fx, hfx⟩ := hx`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Here, we can split into two cases: whether or not `w ∈ «{sx}»`"
+msgid "Here, we can split into two cases: whether or not `w ∈ sx`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Try `by_cases hw : w ∈ «{sx}»`"
+msgid "Try `by_cases hw : w ∈ sx`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
@@ -2582,7 +2804,7 @@ msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
 msgid "In order to manipulate the sum better, it would be nice to rewrite the set you are summing over.\n"
-"You can use a `have` statement to show that this set is equal to `(«{sw}» ∪ «{sw}» \\ {w})`"
+"You can use a `have` statement to show that this set is equal to `(«{sw}» ∪ «{sw}» \\ {w})`. Remember to add braces after `by`."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
@@ -2703,7 +2925,7 @@ msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
 msgid "Now, you can prove that summing `«{fx'}»` over our set gives the correct value. Prove this with\n"
-"a `have` statement"
+"a `have` statement. Remember to add braces after `by`."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
@@ -2771,7 +2993,7 @@ msgid "Try `have hfw' : «{fw'}» = (fun v => ite (v ∈ «{sw}») («{fx}» w *
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Again, prove that the function sums to the correct value"
+msgid "Again, prove that the function sums to the correct value. Remember to add braces after `by`."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
@@ -2859,7 +3081,15 @@ msgid "Linear Independence and Span World"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld
-msgid "Welcome to Linear Independence and Span World! This world introduces the ideas of linear independence/dependence and the span of a set of vectors. You will prove theorems, for example that any subset of a linearly independent set of vectors is still linearly independent."
+msgid "Welcome to Linear Independence and Span World! \n"
+"\n"
+"This world introduces the ideas of linear independence, linear dependence, and the span of a set of vectors. \n"
+"\n"
+"You will prove theorems, for example that any subset of a linearly independent set of vectors is still linearly independent.\n"
+"\n"
+"**Note:** If this introduction page appears blank or incomplete, please click 'Start' and go directly to Level 1, which contains a detailed introduction to linear combinations and the concepts in this world.\n"
+"\n"
+"Click start to begin your first level!"
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level01
@@ -2874,8 +3104,8 @@ msgid "The first level of this world will introduce two new ideas, the inner pro
 "equal zero if and only if the vector is itself 0. The third and fourth axioms are that you can distribute\n"
 "vector addition and commute vector multiplication through the first element of the product. Lastly, the\n"
 "inner product has conjugate symmetry, that is that `⟪u, v⟫ = conj ⟪v, u⟫. Also, note that in any inner\n"
-"product space, our field `K` must be `ℂ`. This is what allows us to commute multiplication through the\n"
-"inner product.\n"
+"product space, our field K must be a subfield of ℂ. For convenience we will assume K is equal to ℂ.\n"
+"This is what allows us to commute multiplication through the inner product.\n"
 "\n"
 "```\n"
 "-- Inner product space definition for complex vector spaces\n"
@@ -2891,7 +3121,7 @@ msgid "The first level of this world will introduce two new ideas, the inner pro
 "\n"
 "Once we have the inner product, vector norms are easy to define. We simply let `‖v‖ = sqrt ⟪v, v⟫.re`,\n"
 "which means that the norm of `v` is the square root of it's inner product with itself (we take `.re`)\n"
-"to make sure that `⟪v, v⟫` is a real number, although we already garuntee this with the first axiom).\n"
+"to make sure that `⟪v, v⟫` is a real number, although we already guarantee this with the first axiom).\n"
 "Note that the norm is called `norm_v`, which is what you should use if you try to `unfold`.\n"
 "\n"
 "```\n"
@@ -3059,7 +3289,7 @@ msgid "Try `rw[sq_sqrt (inner_self_nonneg v)] at «{h}»`"
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level02
-msgid "Try ``"
+msgid "Try `simp at h`"
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level02
@@ -3123,8 +3353,8 @@ msgid "## The Goal\n"
 "\n"
 "## Note on `InnerProductSpace_v`\n"
 "Some of the axioms and theorems you have share names with other theorems. If you run into a bug saying\n"
-"\"Ambiguous, possible interpretations\", try specifying the exact name of your theorem with `InnerProductSpace_v.`\n"
-"in from of the theorem."
+"\"Ambiguous, possible interpretations\", try specifying the exact name of your theorem by putting `InnerProductSpace_v.`\n"
+"in front of the theorem name (e.g., `InnerProductSpace_v.inner_smul_left`)."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level03
@@ -3181,8 +3411,7 @@ msgid "The square of the norm equals the real part of the inner product with its
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level03
-msgid "Since we know many theorems about norms now, perhaps is is better to hold off on unfolding.\n"
-"For now, try to find a way to square both sides of the goal."
+msgid "First, establish non-negativity of the norms to use the square equality theorem."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level03
@@ -3194,7 +3423,15 @@ msgid "Try `have h2 := norm_nonneg_v v`"
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level03
-msgid "Try `have g1 := Left.mul_nonneg «{h1}» «{h2}»`"
+msgid "Combine these to get non-negativity of the product."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level03
+msgid "Try `have g1 := Left.mul_nonneg h1 h2`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level03
+msgid "Also get non-negativity of the left side."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level03
@@ -3202,20 +3439,28 @@ msgid "Try `have g2 := norm_nonneg_v (a • v)`"
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level03
-msgid "Try `apply (sq_eq_sq «{g2}» «{g1}»).1`"
+msgid "Now apply the square equality theorem to reduce to proving the squared version."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level03
-msgid "Use `ring` to simplify the goal"
+msgid "Try `apply (sq_eq_sq g2 g1).1`"
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level03
-msgid "Try `ring`"
+msgid "Use `ring_nf` to simplify the goal"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level03
+msgid "Try `ring_nf`"
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level03
 msgid "Use our theorems to simplify the goal. Also, remember the `exact?`\n"
 "tactic can help you find when to use `exact`."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level03
+msgid "Try `repeat rw[norm_sq_eq]`"
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level03
@@ -3374,7 +3619,15 @@ msgid "Start by unfolding the definition of orthogonal."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level06
+msgid "Try `unfold orthogonal`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level06
 msgid "Expand the inner product using linearity properties."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level06
+msgid "Try `rw[inner_minus_left, InnerProductSpace_v.inner_smul_left]`"
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level06
@@ -3382,7 +3635,23 @@ msgid "Simplify the norm squared expression."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level06
+msgid "Try `unfold norm_v`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level06
+msgid "Try `norm_cast`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level06
+msgid "Try `rw[sq_sqrt (inner_self_nonneg v), ← inner_self_real]`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level06
 msgid "Use ring operations to simplify the algebra."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level06
+msgid "Try `ring_nf`"
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level06
@@ -3390,7 +3659,23 @@ msgid "The key step: cancel ⟪v,v⟫ in numerator and denominator."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level06
+msgid "Try `rw[mul_assoc, mul_inv_cancel]`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level06
+msgid "Try `simp`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level06
 msgid "We need v ≠ 0 to ensure ⟪v,v⟫ ≠ 0 for cancellation."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level06
+msgid "Try `intro x`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level06
+msgid "Try `exact h ((inner_self_eq_zero v).1 x)`"
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
@@ -3441,6 +3726,22 @@ msgid "Try `rw [inner_zero_right_v]`"
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
+msgid "Try `have h := norm_zero_v (0:V)`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "Try `simp at h`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "Try `rw[h]`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "Try `simp`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
 msgid "Now for the main case where `v ≠ 0`. We'll use orthogonal decomposition."
 msgstr ""
 
@@ -3465,7 +3766,23 @@ msgid "Now we establish the key properties of our decomposition."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
+msgid "Try `have h3 : u = c • v + w := by simp [c, w]`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
 msgid "The orthogonality follows from our choice of c."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "Try `have h4 : orthogonal w v := ortho_decom u v v_zero`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "Try `have h5:= left_smul_ortho v w c (ortho_swap w v h4)`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "Try `have g3 : 0 ≤ ‖u‖ * ‖v‖ := mul_nonneg (norm_nonneg_v u) (norm_nonneg_v v)`"
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
@@ -3474,6 +3791,18 @@ msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
 msgid "Try `suffices ‖⟪u,v⟫‖^2 ≤ ‖u‖^2 * ‖v‖^2 by exact le_of_sq_le_sq this g3`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "Try `have ts : ‖u‖^2 * ‖v‖^2 = (‖u‖ * ‖v‖)^2 := by ring`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "Try `rw [ts] at this`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "Try `exact le_of_sq_le_sq this g3`"
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
@@ -3490,6 +3819,10 @@ msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
 msgid "Try `rw [h6]`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "Try `have v_norm_zero : ‖v‖ ≠ 0 := by by_contra h; rw [norm_zero_v v] at h; contradiction`"
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
@@ -3562,7 +3895,19 @@ msgid "It's easier to prove the squared version first."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level08
+msgid "Try `suffices ‖u+v‖^2 ≤ (‖u‖ + ‖v‖)^2 by exact le_of_sq_le_sq this (add_nonneg (norm_nonneg_v u) (norm_nonneg_v v))`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level08
+msgid "Try `exact le_of_sq_le_sq this (add_nonneg (norm_nonneg_v u) (norm_nonneg_v v))`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level08
 msgid "Expand using the inner product and apply Cauchy-Schwarz."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level08
+msgid "Try `rw [norm_sq_eq, add_sq, norm_sq_eq, norm_sq_eq]`"
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level08
@@ -3574,6 +3919,14 @@ msgid "This will give us ⟪u,u⟫ + ⟪v,v⟫ + ⟪u,v⟫ + ⟪v,u⟫."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level08
+msgid "Try `have inner_expansion : ⟪u+v, u+v⟫.re = ⟪u,u⟫.re + ⟪v,v⟫.re + 2*⟪u,v⟫.re := by rw [InnerProductSpace_v.inner_add_left, inner_add_right_v, inner_add_right_v]; simp only [Complex.add_re]; rw [InnerProductSpace_v.inner_conj_symm v u, Complex.conj_re]; ring`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level08
+msgid "Try `rw [inner_expansion]`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level08
 msgid "Now we bound the cross term 2*⟪u,v⟫.re using Cauchy-Schwarz."
 msgstr ""
 
@@ -3582,7 +3935,15 @@ msgid "We know |⟪u,v⟫| ≤ ‖u‖ * ‖v‖, so ⟪u,v⟫.re ≤ ‖u‖ * 
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level08
+msgid "Try `have cross_bound : ⟪u,v⟫.re ≤ ‖u‖ * ‖v‖ := by have cs := Cauchy_Schwarz u v; rw [norm_inner_eq_abs] at cs; exact le_trans (re_le_abs ⟪u,v⟫) cs`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level08
 msgid "Finally, use linear arithmetic to complete the proof."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level08
+msgid "Try `linarith [cross_bound]`"
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level08
@@ -3613,17 +3974,19 @@ msgid "In this level, we introduce the fundamental concept of a **linear map** b
 "\n"
 "## Mathematical Definition\n"
 "\n"
-"Given vector spaces $V$ and $W$ over a field $K$, a function $T : V \\to W$ is called **linear** if it satisfies these two properties:\n"
+"Given vector spaces $V$ and $W$ over a field $K$, a function $T : V \\to W$ is called linear if it satisfies these two properties:\n"
 "\n"
-"1. **Additivity:** $T(u + v) = T(u) + T(v)$ for all $u, v \\in V$\n"
-"2. **Homogeneity:** $T(a \\cdot v) = a \\cdot T(v)$ for all $a \\in K$ and $v \\in V$\n"
+"• Additivity: $T(u + v) = T(u) + T(v)$ for all $u, v \\in V$\n"
+"• Homogeneity: $T(a \\cdot v) = a \\cdot T(v)$ for all $a \\in K$ and $v \\in V$\n"
 "\n"
 "## Why This Matters\n"
 "\n"
-"Linear maps are the structure-preserving functions of linear algebra. They respect the vector space structure, making them the natural morphisms to study between vector spaces.\n"
+"Linear maps are the structure-preserving functions of linear algebra. They respect the vector space structure, making them the natural morphisms between vector spaces.\n"
 "\n"
 "### Your Goal\n"
-"Prove that our definition captures exactly these two fundamental properties."
+"Prove that our definition captures exactly these two fundamental properties. \n"
+"\n"
+"In Lean, we define `is_linear_map_v K V W T` (see Definitions panel) to formalize exactly what it means for a function T to be linear."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level01
@@ -3640,6 +4003,14 @@ msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level01
 msgid "Try unfold is_linear_map_v to see the definition directly."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level01
+msgid "Try `unfold is_linear_map_v`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level01
+msgid "Try `rfl`"
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level01
@@ -3685,11 +4056,27 @@ msgid "Unfold the definition of null_space_v and show T 0 = 0."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level02
+msgid "Try `show T 0 = 0`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level02
 msgid "Use the homogeneity property of linear maps with a = 0."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level02
+msgid "Try `have h : T (0 • (0 : V)) = 0 • T 0 := hT.2 0 0`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level02
 msgid "Simplify: 0 • v = 0 for any vector v."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level02
+msgid "Try `simp at h`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level02
+msgid "Try `exact h`"
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level02
@@ -3739,7 +4126,15 @@ msgid "Show there exists some vector that T maps to w."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level03
+msgid "Try `show ∃ u : V, T u = w`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level03
 msgid "Use v as the witness and apply hypothesis h."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level03
+msgid "Try `use v, h`"
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level03
@@ -3776,11 +4171,27 @@ msgid "Every linear map maps the zero vector to the zero vector."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level04
-msgid "Use the homogeneity property with scalar 0."
+msgid "Use the homogeneity property with scalar 0. Apply hT.2 with scalar 0 and vector 0."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level04
-msgid "Simplify: 0 • v = 0 for any vector v."
+msgid "Try `have h : T (0 • (0 : V)) = 0 • T 0 := hT.2 0 0`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level04
+msgid "Simplify: 0 • v = 0 for any vector v. Use simp to clean up the zeros."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level04
+msgid "Try `simp at h`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level04
+msgid "Now h gives us exactly what we need: T 0 = 0."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level04
+msgid "Try `exact h`"
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level04
@@ -3828,7 +4239,35 @@ msgid "We need to verify the three subspace properties."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level05
+msgid "Try `constructor`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level05
 msgid "First, show the range is non-empty by proving 0 is in it."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level05
+msgid "Try `use 0`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level05
+msgid "Try `use 0`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level05
+msgid "Try `have h := hT.2 (0 : K) (0 : V)`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level05
+msgid "Try `simp only [zero_smul, smul_zero] at h`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level05
+msgid "Try `exact h`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level05
+msgid "Try `constructor`"
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level05
@@ -3836,7 +4275,43 @@ msgid "For closure under addition, if w₁ = T(v₁) and w₂ = T(v₂), then w�
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level05
+msgid "Try `intro w1 w2 hw1 hw2`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level05
+msgid "Try `obtain ⟨v1, hv1⟩ := hw1`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level05
+msgid "Try `obtain ⟨v2, hv2⟩ := hw2`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level05
+msgid "Try `use v1 + v2`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level05
+msgid "Try `rw [hT.1 v1 v2, hv1, hv2]`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level05
 msgid "For scalar multiplication, if w = T(v), then a•w = T(a•v)."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level05
+msgid "Try `intro a w hw`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level05
+msgid "Try `obtain ⟨v, hv⟩ := hw`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level05
+msgid "Try `use a • v`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level05
+msgid "Try `rw [hT.2 a v, hv]`"
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level05
@@ -3859,6 +4334,12 @@ msgid "Now we'll prove that linear maps preserve not just addition and scalar mu
 "\n"
 "This shows that linear maps preserve the fundamental operation of linear algebra: taking linear combinations.\n"
 "\n"
+"## Strategy\n"
+"\n"
+"This proof uses both defining properties of linear maps:\n"
+"1. **Additivity**: T(u + v) = T(u) + T(v) - to split the sum\n"
+"2. **Homogeneity**: T(a • v) = a • T(v) - to factor out scalars\n"
+"\n"
 "## Why This Matters\n"
 "\n"
 "This property is what makes linear maps so powerful - they preserve all the structure we care about in linear algebra. Any relationship expressed as a linear combination in the domain is preserved in the codomain.\n"
@@ -3876,11 +4357,19 @@ msgid "Linear maps preserve linear combinations of two vectors."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level06
-msgid "Use additivity to split T(a₁ • v₁ + a₂ • v₂)."
+msgid "Use additivity to split T(a₁ • v₁ + a₂ • v₂). The additivity property says T(u + v) = T(u) + T(v)."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level06
-msgid "Now use homogeneity on each term."
+msgid "Try `rw [hT.1 (a1 • v1) (a2 • v2)]`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level06
+msgid "Now use homogeneity on each term. The homogeneity property says T(a • v) = a • T(v)."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level06
+msgid "Try `rw [hT.2 a1 v1, hT.2 a2 v2]`"
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level06
@@ -3928,15 +4417,51 @@ msgid "If T is surjective, then every element of W is in the range of T."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level07
-msgid "Show both directions of the equivalence."
+msgid "Show both directions of the equivalence. A ↔ B means we need to prove both A → B and B → A."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level07
-msgid "First direction: if T is surjective, then every w is in the range."
+msgid "Try `constructor`"
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level07
-msgid "Second direction: if every w is in the range, then T is surjective."
+msgid "First direction: if T is surjective, then every w is in the range. We assume surjectivity and show any w ∈ W is in the range."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level07
+msgid "Introduce the surjectivity hypothesis and an arbitrary element w ∈ W."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level07
+msgid "Try `intro h_surj w`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level07
+msgid "Since T is surjective, by definition there exists v such that T v = w. Use the surjectivity hypothesis directly."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level07
+msgid "Try `exact h_surj w`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level07
+msgid "Second direction: if every w is in the range, then T is surjective. We assume every w is in the range and show surjectivity."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level07
+msgid "Introduce the range hypothesis and an arbitrary element w ∈ W to show surjectivity."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level07
+msgid "Try `intro h_range w`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level07
+msgid "The range hypothesis gives us exactly what we need - that w ∈ range means ∃ v, T v = w."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level07
+msgid "Try `exact h_range w`"
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level07

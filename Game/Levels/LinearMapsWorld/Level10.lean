@@ -71,9 +71,13 @@ Statement fundamental_theorem_insight (T : V → W) (hT : is_linear_map_v K V W 
     ∀ v₁ v₂ : V, (v₁ ≠ v₂) → (T v₁ ≠ T v₂) := by
   Hint "This captures the essence of the Fundamental Theorem."
   Hint "Injectivity means different inputs give different outputs."
+  Hint (hidden := true) "Try `intros v₁ v₂ h_diff`"
   intros v₁ v₂ h_diff
+  Hint (hidden := true) "Try `intro h_same`"
   intro h_same
+  Hint (hidden := true) "Try `have h_eq : v₁ = v₂ := h_inj v₁ v₂ h_same`"
   have h_eq : v₁ = v₂ := h_inj v₁ v₂ h_same
+  Hint (hidden := true) "Try `exact h_diff h_eq`"
   exact h_diff h_eq
 
 /--
@@ -85,16 +89,22 @@ Statement fundamental_theorem_educational (T : V → W) (hT : is_linear_map_v K 
     -- The key insight: injective linear maps preserve structure
     ∀ v : V, v ∈ null_space_v K V W T → v = 0 := by
   Hint "This shows the connection between injectivity and trivial null space."
+  Hint (hidden := true) "Try `intro v hv`"
   intro v hv
+  Hint (hidden := true) "Try `unfold null_space_v at hv`"
   unfold null_space_v at hv
+  Hint (hidden := true) "Try `simp at hv`"
   simp at hv
   -- We know T v = 0 and T 0 = 0
+  Hint (hidden := true) "Try `have h_T_zero : T 0 = 0 := by have h := hT.2 (0 : K) (0 : V); simp at h; exact h`"
   have h_T_zero : T 0 = 0 := by
     have h := hT.2 (0 : K) (0 : V)
     simp at h
     exact h
   -- Since T is injective and T v = T 0 = 0
+  Hint (hidden := true) "Try `have h_eq : v = 0 := h_inj v 0 (by rw [hv, h_T_zero])`"
   have h_eq : v = 0 := h_inj v 0 (by rw [hv, h_T_zero])
+  Hint (hidden := true) "Try `exact h_eq`"
   exact h_eq
 
 /--

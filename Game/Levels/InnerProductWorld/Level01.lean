@@ -14,8 +14,8 @@ with itself must be a nonnegative real number. Secondly, a vector's inner produc
 equal zero if and only if the vector is itself 0. The third and fourth axioms are that you can distribute
 vector addition and commute vector multiplication through the first element of the product. Lastly, the
 inner product has conjugate symmetry, that is that `⟪u, v⟫ = conj ⟪v, u⟫. Also, note that in any inner
-product space, our field `K` must be `ℂ`. This is what allows us to commute multiplication through the
-inner product.
+product space, our field K must be a subfield of ℂ. For convenience we will assume K is equal to ℂ.
+This is what allows us to commute multiplication through the inner product.
 
 ```
 -- Inner product space definition for complex vector spaces
@@ -31,7 +31,7 @@ class InnerProductSpace_v (V : Type) [AddCommGroup V] [VectorSpace ℂ V] where
 
 Once we have the inner product, vector norms are easy to define. We simply let `‖v‖ = sqrt ⟪v, v⟫.re`,
 which means that the norm of `v` is the square root of it's inner product with itself (we take `.re`)
-to make sure that `⟪v, v⟫` is a real number, although we already garuntee this with the first axiom).
+to make sure that `⟪v, v⟫` is a real number, although we already guarantee this with the first axiom).
 Note that the norm is called `norm_v`, which is what you should use if you try to `unfold`.
 
 ```
@@ -129,7 +129,7 @@ DefinitionDoc norm_v as "Norm"
 
 NewDefinition InnerProductSpace_v norm_v
 
-NewTheorem Real.sqrt_nonneg
+NewTheorem Real.sqrt_nonneg LinearAlgebraGame.inner_self_im_zero LinearAlgebraGame.inner_self_nonneg LinearAlgebraGame.inner_self_eq_zero LinearAlgebraGame.inner_add_left LinearAlgebraGame.inner_smul_left LinearAlgebraGame.inner_conj_symm
 
 TheoremTab "Inner Product"
 TheoremTab "ℝ"

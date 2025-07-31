@@ -214,11 +214,11 @@ f = g := by
   specialize hS (union_subset hs ht)
 
   Hint "Now, we have to show that `(Finset.sum (s ∪ t) fun v => (f - g) v • v) = 0`. This will
-  be difficult, so try proving it with a `have` statement"
+  be difficult, so try proving it with a `have` statement. Remember to add braces after `by`."
   Hint (hidden := true) "Try `have lemmaSumDiffEqZero : (Finset.sum (s ∪ t) fun v => (f - g) v • v) = 0 := by`"
   have lemmaSumDiffEqZero : (Finset.sum (s ∪ t) fun v => (f - g) v • v) = 0 := by
     Hint "It would be nice if we could distribute the `f - g` through the `•` operator. Try proving
-    `(fun v => (f - g) v • v) = (fun (v : V) => ((f v) • v) - ((g v) • v))` with another `have` statement"
+    `(fun v => (f - g) v • v) = (fun (v : V) => ((f v) • v) - ((g v) • v))` with another `have` statement. Remember to add braces after `by`."
     Hint (hidden := true) "Try `  have fun_dist : (fun v => (f - g) v • v) = (fun (v : V) => ((f v) • v) - ((g v) • v)) := by`"
     have fun_dist : (fun v => (f - g) v • v) = (fun (v : V) => ((f v) • v) - ((g v) • v)) := by
       Hint (hidden := true) "Try `    funext v`"
@@ -236,7 +236,7 @@ f = g := by
     Hint "We now have two sums. The first one should be equivalent to our first linear combination,
     and the second should be equivalent to our second linear combination. We need to change the sets
     they are being summed over. We have a theorem that can do this, but it needs a hypothesis that we
-    don't have. Try proving these hypotheses with a `have` statement."
+    don't have. Try proving these hypotheses with a `have` statement. Remember to add braces after `by`."
     Hint (hidden := true) "Try `  have hfprod0 : ∀ v ∈ s ∪ t,  v ∉ s → f v • v = 0 := by`"
     have hfprod0 : ∀ v ∈ s ∪ t,  v ∉ s → f v • v = 0 := by
       Hint (hidden := true) "Try `intros v _hv1 hv2; rw[hf0 v hv2]; exact zero_smul_v K V v`"
@@ -272,7 +272,10 @@ f = g := by
   Hint (hidden := true) "Try `exact sub_eq_zero.1 hS`"
   exact sub_eq_zero.1 hS
 
-  Hint (hidden := true) "Try `rw[not_mem_union] at h; cases' h with hxs hxt; rw[hf0 x hxs, hg0 x hxt]`"
+  Hint (hidden := true) "Try `rw[not_mem_union] at h`"
+  Hint (hidden := true) "Try `cases' h with hxs hxt`"
+  Hint "Note: The game may appear to stall after the next step. If it does, you can proceed to the next level - the proof is complete."
+  Hint (hidden := true) "Try `rw[hf0 x hxs, hg0 x hxt]`"
   rw[not_mem_union] at h
   cases' h with hxs hxt
   rw[hf0 x hxs, hg0 x hxt]

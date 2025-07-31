@@ -50,6 +50,7 @@ but there is an easy way to prove that they are equal.
 
 Statement (G : Type) (hg : Group G) (a b c : G)  : a * a⁻¹ * 1 * b = b * c * c⁻¹ := by
   Hint "Just typing `simp` will solve the goal"
+  Hint (hidden := true) "Try `simp`"
   simp
 
 Conclusion "`simp` will be very useful when solving simple equations in future worlds. You can always

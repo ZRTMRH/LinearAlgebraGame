@@ -70,7 +70,7 @@ Statement norm_zero_v (v: V): norm_v v = 0 ↔ v = 0 := by
   apply_fun (fun x => x^2) at h
   Hint (hidden := true) "Try `rw[sq_sqrt (inner_self_nonneg v)] at {h}`"
   rw[sq_sqrt (inner_self_nonneg v)] at h
-  Hint (hidden := true) "Try ``"
+  Hint (hidden := true) "Try `simp at h`"
   simp at h
 
   Hint "Now, try to use some of the theorems we know"

@@ -45,33 +45,43 @@ The range of any linear map is a subspace of the codomain.
 Statement range_is_subspace (T : V → W) (hT : is_linear_map_v K V W T) : 
     isSubspace (K := K) (V := W) (range_v K V W T) := by
   Hint "We need to verify the three subspace properties."
+  Hint (hidden := true) "Try `constructor`"
   constructor
   Hint "First, show the range is non-empty by proving 0 is in it."
   · -- Non-empty
+    Hint (hidden := true) "Try `use 0`"
     use 0
-    show ∃ v : V, T v = 0
+    Hint (hidden := true) "Try `use 0`"
     use 0
-    have h_zero : T 0 = 0 := by
-      have h := hT.2 (0 : K) (0 : V)
-      simp at h
-      exact h
-    exact h_zero
+    Hint (hidden := true) "Try `have h := hT.2 (0 : K) (0 : V)`"
+    have h := hT.2 (0 : K) (0 : V)
+    Hint (hidden := true) "Try `simp only [zero_smul, smul_zero] at h`"
+    simp only [zero_smul, smul_zero] at h
+    Hint (hidden := true) "Try `exact h`"
+    exact h
+  Hint (hidden := true) "Try `constructor`"
   constructor
   Hint "For closure under addition, if w₁ = T(v₁) and w₂ = T(v₂), then w₁ + w₂ = T(v₁ + v₂)."
   · -- Closed under addition
+    Hint (hidden := true) "Try `intro w1 w2 hw1 hw2`"
     intro w1 w2 hw1 hw2
-    show ∃ v : V, T v = w1 + w2
-    -- hw1 : w1 ∈ range_v K V W T means ∃ v1, T v1 = w1
+    Hint (hidden := true) "Try `obtain ⟨v1, hv1⟩ := hw1`"
     obtain ⟨v1, hv1⟩ := hw1
+    Hint (hidden := true) "Try `obtain ⟨v2, hv2⟩ := hw2`"
     obtain ⟨v2, hv2⟩ := hw2
+    Hint (hidden := true) "Try `use v1 + v2`"
     use v1 + v2
+    Hint (hidden := true) "Try `rw [hT.1 v1 v2, hv1, hv2]`"
     rw [hT.1 v1 v2, hv1, hv2]
   Hint "For scalar multiplication, if w = T(v), then a•w = T(a•v)."
   · -- Closed under scalar multiplication
+    Hint (hidden := true) "Try `intro a w hw`"
     intro a w hw
-    show ∃ v : V, T v = a • w
+    Hint (hidden := true) "Try `obtain ⟨v, hv⟩ := hw`"
     obtain ⟨v, hv⟩ := hw
+    Hint (hidden := true) "Try `use a • v`"
     use a • v
+    Hint (hidden := true) "Try `rw [hT.2 a v, hv]`"
     rw [hT.2 a v, hv]
 
 Conclusion "

@@ -155,3 +155,9 @@ Critical issue where proofs would hang after completion:
 - **Stalling Issues**: 4 (prevented game freezes)
 - **Hint Issues**: 7 (improved player experience)
 - **Systematic Approach**: One reported issue led to discovering 3 additional similar problems
+
+## Screenshots Location
+
+User screenshots are stored at: `/mnt/c/Users/zrtmr/OneDrive/Pictures/Screenshots`
+
+Use this path to access screenshots when debugging game issues or reviewing user feedback.

@@ -36,9 +36,12 @@ works similarly for `↔` \"if and only if\" goals.
 
 Statement (P Q : Prop) (p : P) (q : Q) : P ∧ Q := by
   Hint "Try using `constructor` to split up the goal."
+  Hint (hidden := true) "Try `constructor`"
   constructor
   Hint "Both remaining goals are exactly your hypotheses. What tactic can solve the goals?"
+  Hint (hidden := true) "Try `exact p`"
   exact p
+  Hint (hidden := true) "Try `exact q`"
   exact q
 
 Conclusion "

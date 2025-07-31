@@ -56,11 +56,15 @@ Zero is always in the null space of any linear map.
 Statement zero_in_null_space (T : V → W) (hT : is_linear_map_v K V W T) : 
     (0 : V) ∈ null_space_v K V W T := by
   Hint "Unfold the definition of null_space_v and show T 0 = 0."
+  Hint (hidden := true) "Try `show T 0 = 0`"
   show T 0 = 0
   Hint "Use the homogeneity property of linear maps with a = 0."
+  Hint (hidden := true) "Try `have h : T (0 • (0 : V)) = 0 • T 0 := hT.2 0 0`"
   have h : T (0 • (0 : V)) = 0 • T 0 := hT.2 0 0
   Hint "Simplify: 0 • v = 0 for any vector v."
+  Hint (hidden := true) "Try `simp at h`"
   simp at h
+  Hint (hidden := true) "Try `exact h`"
   exact h
 
 Conclusion "
