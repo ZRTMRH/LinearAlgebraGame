@@ -7,6 +7,7 @@ import Game.Levels.LinearIndependenceSpanWorld.Level06
 import Game.Levels.LinearIndependenceSpanWorld.Level07
 import Game.Levels.LinearIndependenceSpanWorld.Level08
 import Game.Levels.LinearIndependenceSpanWorld.Level09
+import Game.Levels.LinearIndependenceSpanWorld.Level10
 
 namespace LinearAlgebraGame
 

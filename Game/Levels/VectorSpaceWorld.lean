@@ -3,6 +3,7 @@ import Game.Levels.VectorSpaceWorld.Level02
 import Game.Levels.VectorSpaceWorld.Level03
 import Game.Levels.VectorSpaceWorld.Level04
 import Game.Levels.VectorSpaceWorld.Level05
+import Game.Levels.VectorSpaceWorld.Level06
 
 namespace LinearAlgebraGame
 

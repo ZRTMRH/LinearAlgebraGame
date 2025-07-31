@@ -5,73 +5,68 @@ namespace LinearAlgebraGame
 World "LinearIndependenceSpanWorld"
 Level 4
 
-Title "Linear Independence"
+Title "Monotonicity of Span"
 
 Introduction "
-This level will introduce linear independence of a set of vectors. A set `S` of vectors is linearly
-independent if no vector in `S` can be written as a linear combination of the others. Equivalently,
-we can say that `S` is linearly independent if any combination of vectors in `S` summing to `0` must
-be all `0`s. In Lean, it is written as:
-
-```
-def linear_independent_v (S : Set V) : Prop :=
-∀ (s : Finset V) (f : V → K),
-(↑s ⊆ S) → (Finset.sum s (fun v ↦ f v • v) = 0) → (∀ v ∈ s, f v = 0)
-```
-
-Note that we use the same idea as in linear combinations, where we have a Finset `s`, a function
-mapping vectors to the scalars that multiply those vectors, and use `Finset.sum`.
-
 ### The Goal
-The goal of this level is to prove that the empty set is linearly independent. This makes sense,
-because there are no vectors in the empty set that can be scaled be a non-zero factor.
+In this level, you will prove that the span of a set of vectors is monotonic. That is, that if `A ⊆ B`,
+then `span K V A ⊆ span K V B`. To understand why this is true, think about any arbitrary vector `x ∈ span K V A`.
+`x` must be a linear combination of vectors of `A`, and since all those vectors are in `A`, they must
+also be in `B`, so `x` is a linear combination of vectors in `B`, and must be in `span K V B`.
+
+### `subset_trans`
+To solve this level, we need a theorem `subset_trans`. This theorem shows that subsets are transitive,
+so if you have `h1 : A ⊆ B` and `h2 : B ⊆ C`, then `subset_trans h1 h2` is a proof that `A ⊆ C`. This can be proven quite easily, but since we have
+a theorem already proving it, why not use it?
 "
 
 /--
-This is a proof that the empty set is linearly independent.
+`subset_trans` is a proof that subsets are transitive. The syntax is that if you have `h1 : A ⊆ B`
+and `h2 : B ⊆ C`, then `subset_trans h1 h2` is a proof that `A ⊆ C`.
 -/
-TheoremDoc LinearAlgebraGame.linear_independent_empty as "linear_independent_empty" in "Vector Spaces"
+TheoremDoc subset_trans as "subset_trans" in "Sets"
 
 /--
-`linear_independent_v` means that a set of vectors is linearly independent. To say a set `S : Set V`
-is linearly independent, we write `linear_independent_v K V S`. This is defined that any finite set of scalar
-multiples of vectors in `S` that sum to `0` must all be `0`. It is written in Lean as
-
-```
-def linear_independent_v (S : Set V) : Prop :=
-∀ (s : Finset V) (f : V → K),
-(↑s ⊆ S) → (Finset.sum s (fun v ↦ f v • v) = 0) → (∀ v ∈ s, f v = 0)
-```
-
-Note that we use `Finset` here, which means that even though `S` can be infinite, `s` must be finite.
+`span_mono` is a proof that the span of sets is monotonic. Simply, this means that if you have `h : A ⊆ B`,
+then `span_mono K V h` is a proof that `span K V A ⊆ span K V B`.
 -/
-DefinitionDoc linear_independent_v as "linear_independent_v"
+TheoremDoc LinearAlgebraGame.span_mono as "span_mono" in "Vector Spaces"
 
-NewDefinition linear_independent_v
+NewTheorem subset_trans
+
+TheoremTab "Sets"
 
 open VectorSpace
 variable (K V : Type) [Field K] [AddCommGroup V] [DecidableEq V] [VectorSpace K V]
 
-/-- A set of vectors $S$ is **linearly independent** if no vector in $S$ can be written as a linear combination of the others. Equivalently, the only solution to a linear combination of elements of $S$ equaling zero is the trivial solution (all coefficients zero). Here we formalize this condition. -/
-def linear_independent_v (S : Set V) : Prop :=
-∀ (s : Finset V) (f : V → K),
-(↑s ⊆ S) → (Finset.sum s (fun v ↦ f v • v) = 0) → (∀ v ∈ s, f v = 0)
+/-- The span of sets is monotonic. Simply, this means that if you have `h : A ⊆ B`,
+then `span_mono K V h` is a proof that `span K V A ⊆ span K V B`. -/
+Statement span_mono {A B : Set V} (hAB : A ⊆ B) : span K V A ⊆ span K V B := by
+  Hint "First, I would take an arbitrary `x`, then unfold and simplify our goals."
+  Hint (hidden := true) "Try `intro x hxA`"
+  intro x hxA
+  Hint (hidden := true) "Try `unfold span at *`"
+  unfold span at *
+  Hint (hidden := true) "Try `unfold is_linear_combination at *`"
+  unfold is_linear_combination at *
+  Hint (hidden := true) "Try `simp at *`"
+  simp at *
+  Hint "Now, what information can we get out of {hxA}?"
+  Hint (hidden := true) "Try `obtain ⟨s, hsA, f, h1, h2⟩ := hxA`"
+  obtain ⟨s, hsA, f, h1, h2⟩ := hxA
+  Hint "What set should we be summing over?"
+  Hint (hidden := true) "Try `use s`"
+  use s
+  Hint (hidden := true) "Try `constructor`"
+  constructor
+  Hint (hidden := true) "Try `exact subset_trans hsA hAB`"
+  exact subset_trans hsA hAB
+  Hint "What function should we be using?"
+  Hint (hidden := true) "Try `use f`"
+  use f
 
-/-- The empty set is linearly independent. -/
-Statement linear_independent_empty : linear_independent_v K V (∅ : Set V) := by
-  Hint (hidden := true) "Try `unfold linear_independent_v`"
-  unfold linear_independent_v
-  Hint "Here, we have many ∀ and → statements in the goal. Try to move these variables to the hypotheses"
-  Hint (hidden := true) "Try `intros s f hs sum_zero v hv`"
-  intros _s f hs _sum_zero v hv
-  Hint "We now have a hypothesis `{hv}: v ∈ {_s}` and `{hs} : `↑{_s} ⊆ ∅`. This may be a contradiction,
-  so maybe we can chang eour goal to `False` and prove that"
-  Hint (hidden := true) "Try `exfalso`"
-  exfalso
-  Hint "If you can figure out a way to get a proof of the form `{v} ∈ ∅`, that statement is equivalent
-  to `False`, so an `exact` statement could work. (Actually, `exact?` should solve the goal)"
-  Hint (hidden := true) "Try `exact hs hv`"
-  exact hs hv
+Conclusion "The idea of unfolding all the definitions and then using `simp at *` is very helpful. I
+would recommend using this sequence of tactics at the start of most levels.
 
-Conclusion "We won't prove it in this game (although it isn't too difficult), but any set containing
-a single vector is also linearly independent."
+Also, note that `use f` closed the goal. This is because the `use` tactic attempts `rfl` after it
+executes, similarly to `rw`."

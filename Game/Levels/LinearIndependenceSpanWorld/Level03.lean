@@ -5,68 +5,56 @@ namespace LinearAlgebraGame
 World "LinearIndependenceSpanWorld"
 Level 3
 
-Title "Monotonicity of Span"
+Title "Introducing Span"
 
 Introduction "
-### The Goal
-In this level, you will prove that the span of a set of vectors is monotonic. That is, that if `A ⊆ B`,
-then `span K V A ⊆ span K V B`. To understand why this is true, think about any arbitrary vector `x ∈ span K V A`.
-`x` must be a linear combination of vectors of `A`, and since all those vectors are in `A`, they must
-also be in `B`, so `x` is a linear combination of vectors in `B`, and must be in `span K V B`.
+In this level, we will introduce the span of a set of vectors. The span of a set of vectors is simply
+all the vectors that can be written as a linear combination of that set. In Lean, we define it as such:
 
-### `subset_trans`
-To solve this level, we need a theorem `subset_trans`. This theorem shows that subsets are transitive,
-so if you have `h1 : A ⊆ B` and `h2 : B ⊆ C`, then `subset_trans h1 h2` is a proof that `A ⊆ C`. This can be proven quite easily, but since we have
-a theorem already proving it, why not use it?
+```
+def span (S : Set V) : Set V :=
+  { x : V | is_linear_combination K V S x }
+```
+
+### The Goal
+The goal of this level is to prove that if a vector `v ∈ S`, then `v` is in the span of `S`. This feels
+very similar to the previous level, so you can use the theorem proved in the previous level in this one.
 "
 
 /--
-`subset_trans` is a proof that subsets are transitive. The syntax is that if you have `h1 : A ⊆ B`
-and `h2 : B ⊆ C`, then `subset_trans h1 h2` is a proof that `A ⊆ C`.
+`mem_span_of_mem` is a proof that if a vector `v ∈ S`, then `v ∈ span K V S`
 -/
-TheoremDoc subset_trans as "subset_trans" in "Sets"
+TheoremDoc LinearAlgebraGame.mem_span_of_mem as "mem_span_of_mem" in "Vector Spaces"
 
 /--
-`span_mono` is a proof that the span of sets is monotonic. Simply, this means that if you have `h : A ⊆ B`,
-then `span_mono K V h` is a proof that `span K V A ⊆ span K V B`.
+The span of a set of vectors `S`, denoted `span K V S` is the set of all vectors that are a linear
+combination of `S`. It is represented in Lean as
+
+``` { x : V | is_linear_combination K V S x } ```
 -/
-TheoremDoc LinearAlgebraGame.span_mono as "span_mono" in "Vector Spaces"
+DefinitionDoc span as "span"
 
-NewTheorem subset_trans
-
-TheoremTab "Sets"
+NewDefinition span
 
 open VectorSpace
 variable (K V : Type) [Field K] [AddCommGroup V] [DecidableEq V] [VectorSpace K V]
 
-/-- The span of sets is monotonic. Simply, this means that if you have `h : A ⊆ B`,
-then `span_mono K V h` is a proof that `span K V A ⊆ span K V B`. -/
-Statement span_mono {A B : Set V} (hAB : A ⊆ B) : span K V A ⊆ span K V B := by
-  Hint "First, I would take an arbitrary `x`, then unfold and simplify our goals."
-  Hint (hidden := true) "Try `intro x hxA`"
-  intro x hxA
-  Hint (hidden := true) "Try `unfold span at *`"
-  unfold span at *
-  Hint (hidden := true) "Try `unfold is_linear_combination at *`"
-  unfold is_linear_combination at *
-  Hint (hidden := true) "Try `simp at *`"
-  simp at *
-  Hint "Now, what information can we get out of {hxA}?"
-  Hint (hidden := true) "Try `obtain ⟨s, hsA, f, h1, h2⟩ := hxA`"
-  obtain ⟨s, hsA, f, h1, h2⟩ := hxA
-  Hint "What set should we be summing over?"
-  Hint (hidden := true) "Try `use s`"
-  use s
-  Hint (hidden := true) "Try `constructor`"
-  constructor
-  Hint (hidden := true) "Try `exact subset_trans hsA hAB`"
-  exact subset_trans hsA hAB
-  Hint "What function should we be using?"
-  Hint (hidden := true) "Try `use f`"
-  use f
+def span (S : Set V) : Set V :=
+  { x : V | is_linear_combination K V S x }
 
-Conclusion "The idea of unfolding all the definitions and then using `simp at *` is very helpful. I
-would recommend using this sequence of tactics at the start of most levels.
+/-- If `v ∈ S`, then `v ∈ span K V S`-/
+Statement mem_span_of_mem {S : Set V} {v : V} (hv : v ∈ S) : v ∈ span K V S := by
+  Hint "Once again, we have a definition we are unfamiliar with in the goal. Try to change it to terms
+  we are familiar with"
+  Hint (hidden := true) "Try `unfold span`"
+  unfold span
+  Hint "The `simp` tactic is very helpful when dealing with sets."
+  Hint (hidden := true) "Try `simp`"
+  simp
+  Hint "This seems familiar"
+  Hint (hidden := true) "Try 'exact linear_combination_of_mem K V hv`"
+  exact linear_combination_of_mem K V hv
 
-Also, note that `use f` closed the goal. This is because the `use` tactic attempts `rfl` after it
-executes, similarly to `rw`."
+Conclusion "You could have actually solved this level with simply an `exact linear_combination_of_mem K V hv`.
+This is because the way set-builder notation is defined in lean is that `x ∈ { x : V | is_linear_combination K V S x }`
+is the same as saying `is_linear_combination K V S x`. The `simp` tactic only directly shows you this."
