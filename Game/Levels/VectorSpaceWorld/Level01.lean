@@ -26,10 +26,10 @@ Vector spaces are fundamental structures in linear algebra. You will learn:
 
 We define a vector space `V` over a field `K` as an abelian group with four fundamental axioms:
 
-1. **Distributivity over vector addition:** `a • (x + y) = a • x + a • y`
-2. **Distributivity over scalar addition:** `(a + b) • x = a • x + b • x`  
-3. **Associativity:** `(a * b) • x = a • (b • x)`
-4. **Identity:** `1 • x = x`
+- **Distributivity over vector addition:** `a • (x + y) = a • x + a • y`
+- **Distributivity over scalar addition:** `(a + b) • x = a • x + b • x`  
+- **Associativity:** `(a * b) • x = a • (b • x)`
+- **Identity:** `1 • x = x`
 
 In this game, `VectorSpace K V` is built on Mathlib's robust `Module K V` over a field, which provides standard mathematical notation and many helpful theorems.
 
