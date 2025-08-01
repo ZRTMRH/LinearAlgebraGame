@@ -15,17 +15,13 @@ cd /home/node/game
 echo "Game directory contents:"
 ls -la
 
-# Update and build the Lean project
-echo "=== Building Lean project ==="
-lake update -R
-echo "Getting mathlib cache..."
-lake exe cache get || echo "Cache get failed, continuing with build..."
-echo "Building game..."
-if lake build; then
-    echo "Lean build completed successfully!"
+# Check if game was pre-built, if not try a quick build
+echo "=== Checking Lean project build status ==="
+if [ -d ".lake/build" ]; then
+    echo "Lean project appears to be pre-built during Docker build!"
 else
-    echo "ERROR: Lake build failed!"
-    echo "Attempting to continue anyway..."
+    echo "Lean project not pre-built, attempting quick build..."
+    lake build --no-update || echo "Build failed, continuing anyway..."
 fi
 
 # Check lean4game directory

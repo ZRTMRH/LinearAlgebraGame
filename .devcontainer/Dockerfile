@@ -37,6 +37,11 @@ WORKDIR /home/node/game
 # Copy the entire game project
 COPY --chown=node:node . .
 
+# Pre-build the Lean project during Docker build
+RUN lake update -R || echo "Lake update failed, continuing..."
+RUN lake exe cache get || echo "Cache get failed, continuing..."
+RUN lake build || echo "Lake build failed, will try again at runtime..."
+
 EXPOSE 3000
 
 CMD ["/home/node/start-server.sh"]
