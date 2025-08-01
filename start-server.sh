@@ -80,8 +80,9 @@ else
     echo "❌ Relay server not found - this shouldn't happen!"
     exit 1
 fi
-echo "Starting production server with: npm run production"
+echo "Starting server with local games enabled..."
 cd /home/node/lean4game
 export NODE_ENV=production
+export LEAN4GAME_LOCAL_GAMES=true
 export PORT=$ASSIGNED_PORT
 exec npm run production
