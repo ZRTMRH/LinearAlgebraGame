@@ -1,5 +1,6 @@
 .git
-.lake
+.lake/build
+.lake/packages
 node_modules
 blueprint
 blueprint_env
@@ -10,3 +11,4 @@ lean4game-world-display-bug
 home_page
 .devcontainer
 .vscode
+build.log
