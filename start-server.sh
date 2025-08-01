@@ -91,4 +91,4 @@ fi
 echo "Starting server with local games enabled..."
 cd /home/node/lean4game
 export PORT=$ASSIGNED_PORT
-exec npm run production
+exec node relay/index.mjs
