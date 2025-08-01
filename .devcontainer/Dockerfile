@@ -61,6 +61,10 @@ RUN echo "Pre-building lean4game server and client..." && \
 # Apply port binding fix to relay server
 COPY relay-patch.mjs /home/node/lean4game/relay/index.mjs
 
+# Create games directory and link our game for lean4game to find it
+RUN mkdir -p /home/node/lean4game/games/local && \
+    ln -sf /home/node/game /home/node/lean4game/games/local/LinearAlgebraGame
+
 EXPOSE 3000
 
 CMD ["/home/node/start-server.sh"]
