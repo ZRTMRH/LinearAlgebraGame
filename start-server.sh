@@ -59,8 +59,7 @@ echo "ASSIGNED_PORT=$ASSIGNED_PORT"
 echo "PORT (from Render)=${PORT:-'not set'}"
 
 echo "Starting server in production mode for memory efficiency..."
-echo "Building client for production..."
-cd /home/node/lean4game && npm run build_client
+echo "Client should be pre-built during Docker build phase..."
 echo "Verifying lean4game relay server exists..."
 if [ -f "/home/node/lean4game/relay/index.mjs" ]; then
     echo "✅ Relay server found!"

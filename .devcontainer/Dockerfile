@@ -52,9 +52,11 @@ COPY --chown=node:node . .
 # Build the project (only this step runs if game files change)
 RUN echo "Building Lean project..." && lake build
 
-# Pre-build lean4game server to avoid runtime delays (client builds at runtime)
-RUN echo "Pre-building lean4game server..." && \
-    cd /home/node/lean4game && npm run build_server
+# Pre-build lean4game server and client to avoid runtime memory issues
+RUN echo "Pre-building lean4game server and client..." && \
+    cd /home/node/lean4game && \
+    npm run build_server && \
+    npm run build_client
 
 # Apply port binding fix to relay server
 COPY relay-patch.mjs /home/node/lean4game/relay/index.mjs
