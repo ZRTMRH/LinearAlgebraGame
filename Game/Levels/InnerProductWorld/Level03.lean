@@ -14,6 +14,8 @@ you multiply by the complex norm of the scalar. The proof here takes multiple st
 is to square each side, getting rid of the square roots. Then, you can use multiple theorems to rewrite
 the goal to be solved by an exact statement.
 
+**Note:** This level may experience a hint display issue where hints repeat. If you see the same hint multiple times, the level is still working correctly - just continue with your proof as normal.
+
 ## The `ring` tactic
 `ring` again acts very similar to `linarith`, but it works for equations using rings. Rings are basically
 objects where you can multiply and divide, for example, the complex numbers.
@@ -92,6 +94,14 @@ The square of the norm equals the real part of the inner product with itself:
 TheoremDoc LinearAlgebraGame.norm_sq_eq as "norm_sq_eq" in "Inner Product"
 
 NewTactic ring
+
+LemmaDoc Complex.add_re as "Complex.add_re" in "Complex Numbers"
+LemmaDoc Complex.conj_re as "Complex.conj_re" in "Complex Numbers"
+LemmaDoc add_nonneg as "add_nonneg" in "Real Numbers"
+LemmaDoc le_trans as "le_trans" in "Inequalities"
+LemmaDoc mul_nonneg as "mul_nonneg" in "Real Numbers"
+LemmaDoc add_sq as "add_sq" in "Algebra"
+LemmaDoc Real.sqrt_pos as "Real.sqrt_pos" in "Real Numbers"
 
 NewTheorem norm_nonneg Left.mul_nonneg sq_eq_sq mul_assoc Complex.mul_conj Complex.normSq_eq_norm_sq Complex.re_ofReal_mul Complex.add_re Complex.conj_re add_nonneg le_trans mul_nonneg add_sq Real.sqrt_pos
 

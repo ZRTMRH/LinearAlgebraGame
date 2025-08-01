@@ -76,11 +76,11 @@ Statement linear_combination_of_mem {S : Set V} {v : V} (hv : v ∈ S) : is_line
   Hint "Now, you have to specify what set you are summing over"
   Hint (hidden := true) "Try `use \{v}`"
   use {v}
-  Hint "Now, you have to specify the function you are using to map vectors to the scalars they will be multiplied by"
-  Hint (hidden := true) "Try `use (fun x => 1)`"
+  Hint "Now, you have to specify the function you are using to map vectors to the scalars they will be multiplied by. After this step, you'll need to use `simp` to simplify the goal."
+  Hint (hidden := true) "Try `use (fun _x => 1)`"
   use (fun _x => 1)
+  Hint "Now you need to show that this construction satisfies the required properties."
   Hint "This is an and statement, so you could use the `constructor` tactic and work from there. Instead, try `simp` and see what happens"
-  Hint (hidden := true) "Try `simp`"
   simp
   Hint (hidden := true) "Try `exact hv`"
   exact hv

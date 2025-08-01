@@ -61,6 +61,7 @@ var socketCounter = 0
 
 const environment = process.env.NODE_ENV
 const isDevelopment = environment === 'development'
+const allowLocalGames = process.env.ALLOW_LOCAL_GAMES === 'true'
 
 /** We keep queues of started Lean Server processes to be ready when a user arrives */
 const queue = {}
@@ -72,7 +73,7 @@ function getTag(owner, repo) {
 function getGameDir(owner, repo) {
   owner = owner.toLowerCase()
   if (owner == 'local') {
-    if(!isDevelopment) {
+    if(!isDevelopment && !allowLocalGames) {
       console.error(`No local games in production mode.`)
       return ""
     }

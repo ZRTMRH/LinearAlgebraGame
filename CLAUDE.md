@@ -54,6 +54,7 @@ Each world:
 2. **Level Structure**: Each level includes `World`, `Level`, `Title`, `Introduction`, `Statement`, `Conclusion`
 3. **Tactic Documentation**: Use `TacticDoc` and `NewTactic` commands to document tactics
 4. **World Dependencies**: Configure in `Game.lean` (e.g., VectorSpaceWorld → LinearIndependenceSpanWorld)
+5. **REQUIRED**: Always run `lake build` after making any fixes or changes to ensure changes are visible in the local game
 
 ## Mathematical Content
 
