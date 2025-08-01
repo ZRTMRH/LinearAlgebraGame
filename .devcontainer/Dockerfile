@@ -54,7 +54,10 @@ RUN echo "Building Lean project..." && lake build
 
 # Build lean4game production bundle during Docker build to avoid runtime timeouts
 RUN echo "Building lean4game production bundle..." && \
-    cd /home/node/lean4game && npm run build
+    cd /home/node/lean4game && \
+    npm run build_server && \
+    npm run build_relay && \
+    npm run build_client
 
 EXPOSE 3000
 
