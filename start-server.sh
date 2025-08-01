@@ -59,8 +59,13 @@ echo "ASSIGNED_PORT=$ASSIGNED_PORT"
 echo "PORT (from Render)=${PORT:-'not set'}"
 
 echo "Starting server in production mode for memory efficiency..."
-echo "Building complete lean4game production bundle..."
-npm run build
+echo "Verifying lean4game production bundle was built during Docker build..."
+if [ -f "/home/node/lean4game/relay/dist/src/index.js" ]; then
+    echo "✅ Production server found!"
+else
+    echo "❌ Production server not found - this shouldn't happen!"
+    exit 1
+fi
 echo "Starting production server with: NODE_ENV=production node relay/dist/src/index.js"
 cd /home/node/lean4game
 export NODE_ENV=production

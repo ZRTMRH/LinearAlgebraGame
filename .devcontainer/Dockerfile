@@ -52,6 +52,10 @@ COPY --chown=node:node . .
 # Build the project (only this step runs if game files change)
 RUN echo "Building Lean project..." && lake build
 
+# Build lean4game production bundle during Docker build to avoid runtime timeouts
+RUN echo "Building lean4game production bundle..." && \
+    cd /home/node/lean4game && npm run build
+
 EXPOSE 3000
 
 CMD ["/home/node/start-server.sh"]
