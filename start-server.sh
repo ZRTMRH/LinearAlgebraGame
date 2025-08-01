@@ -58,6 +58,10 @@ echo "Environment variables:"
 echo "VITE_LEAN4GAME_SINGLE=$VITE_LEAN4GAME_SINGLE"
 echo "VITE_LEAN4GAME_OWNER=$VITE_LEAN4GAME_OWNER"
 echo "VITE_LEAN4GAME_REPO=$VITE_LEAN4GAME_REPO"
+echo "NODE_ENV=$NODE_ENV"
+echo "LEAN4GAME_LOCAL_GAMES=$LEAN4GAME_LOCAL_GAMES"
+echo "VITE_LEAN4GAME_LOCAL_GAMES=$VITE_LEAN4GAME_LOCAL_GAMES"
+echo "ALLOW_LOCAL_GAMES=$ALLOW_LOCAL_GAMES"
 echo "HOST=$HOST"
 echo "ASSIGNED_PORT=$ASSIGNED_PORT"
 echo "PORT (from Render)=${PORT:-'not set'}"
@@ -84,5 +88,7 @@ echo "Starting server with local games enabled..."
 cd /home/node/lean4game
 export NODE_ENV=production
 export LEAN4GAME_LOCAL_GAMES=true
+export VITE_LEAN4GAME_LOCAL_GAMES=true
+export ALLOW_LOCAL_GAMES=true
 export PORT=$ASSIGNED_PORT
 exec npm run production
