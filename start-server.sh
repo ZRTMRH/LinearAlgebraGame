@@ -47,6 +47,10 @@ echo "=== Starting game server ==="
 export VITE_LEAN4GAME_SINGLE=true
 export VITE_LEAN4GAME_OWNER=local
 export VITE_LEAN4GAME_REPO=game
+export NODE_ENV=production
+export LEAN4GAME_LOCAL_GAMES=true
+export VITE_LEAN4GAME_LOCAL_GAMES=true
+export ALLOW_LOCAL_GAMES=true
 export HOST=0.0.0.0
 
 # Use Render's assigned PORT or fallback to 3000 for local development
@@ -86,9 +90,5 @@ else
 fi
 echo "Starting server with local games enabled..."
 cd /home/node/lean4game
-export NODE_ENV=production
-export LEAN4GAME_LOCAL_GAMES=true
-export VITE_LEAN4GAME_LOCAL_GAMES=true
-export ALLOW_LOCAL_GAMES=true
 export PORT=$ASSIGNED_PORT
 exec npm run production
