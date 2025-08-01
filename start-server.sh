@@ -45,6 +45,8 @@ npm run || true
 
 echo "=== Starting game server ==="
 export VITE_LEAN4GAME_SINGLE=true
+export VITE_LEAN4GAME_OWNER=local
+export VITE_LEAN4GAME_REPO=LinearAlgebraGame
 export HOST=0.0.0.0
 
 # Use Render's assigned PORT or fallback to 3000 for local development
