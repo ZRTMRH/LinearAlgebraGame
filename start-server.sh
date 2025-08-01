@@ -46,7 +46,7 @@ npm run || true
 echo "=== Starting game server ==="
 export VITE_LEAN4GAME_SINGLE=true
 export VITE_LEAN4GAME_OWNER=local
-export VITE_LEAN4GAME_REPO=LinearAlgebraGame
+export VITE_LEAN4GAME_REPO=game
 export HOST=0.0.0.0
 
 # Use Render's assigned PORT or fallback to 3000 for local development
@@ -68,11 +68,11 @@ echo "Checking games directory structure..."
 ls -la /home/node/lean4game/games/
 ls -la /home/node/lean4game/games/local/ || echo "local directory not found"
 echo "Checking if our game symlink exists..."
-ls -la /home/node/lean4game/games/local/LinearAlgebraGame || echo "LinearAlgebraGame symlink not found"
+ls -la /home/node/lean4game/games/local/game || echo "game symlink not found"
 echo "Checking game directory contents..."
 ls -la /home/node/game/
 echo "Checking if Game.lean exists at symlink target..."
-ls -la /home/node/lean4game/games/local/LinearAlgebraGame/Game.lean || echo "Game.lean not found through symlink"
+ls -la /home/node/lean4game/games/local/game/Game.lean || echo "Game.lean not found through symlink"
 echo "Verifying lean4game relay server exists..."
 if [ -f "/home/node/lean4game/relay/index.mjs" ]; then
     echo "✅ Relay server found!"

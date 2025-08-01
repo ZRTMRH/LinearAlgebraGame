@@ -56,14 +56,14 @@ RUN echo "Building Lean project..." && lake build
 RUN echo "Pre-building lean4game server and client..." && \
     cd /home/node/lean4game && \
     npm run build_server && \
-    VITE_LEAN4GAME_SINGLE=true VITE_LEAN4GAME_OWNER=local VITE_LEAN4GAME_REPO=LinearAlgebraGame npm run build_client
+    VITE_LEAN4GAME_SINGLE=true VITE_LEAN4GAME_OWNER=local VITE_LEAN4GAME_REPO=game npm run build_client
 
 # Apply port binding fix to relay server
 COPY relay-patch.mjs /home/node/lean4game/relay/index.mjs
 
 # Create games directory and link our game for lean4game to find it
 RUN mkdir -p /home/node/lean4game/games/local && \
-    ln -sf /home/node/game /home/node/lean4game/games/local/LinearAlgebraGame && \
+    ln -sf /home/node/game /home/node/lean4game/games/local/game && \
     echo "Verifying symlink was created..." && \
     ls -la /home/node/lean4game/games/local/
 
