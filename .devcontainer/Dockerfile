@@ -52,12 +52,12 @@ COPY --chown=node:node . .
 # Build the project (only this step runs if game files change)
 RUN echo "Building Lean project..." && lake build
 
-# Build lean4game production bundle during Docker build to avoid runtime timeouts
-RUN echo "Building lean4game production bundle..." && \
-    cd /home/node/lean4game && \
-    npm run build_server && \
-    npm run build_relay && \
-    npm run build_client
+# Pre-build lean4game server to avoid runtime delays (client builds at runtime)
+RUN echo "Pre-building lean4game server..." && \
+    cd /home/node/lean4game && npm run build_server
+
+# Apply port binding fix to relay server
+COPY relay-patch.mjs /home/node/lean4game/relay/index.mjs
 
 EXPOSE 3000
 
