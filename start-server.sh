@@ -47,7 +47,7 @@ echo "=== Starting game server ==="
 export VITE_LEAN4GAME_SINGLE=true
 export VITE_LEAN4GAME_OWNER=local
 export VITE_LEAN4GAME_REPO=game
-export NODE_ENV=production
+export NODE_ENV=development
 export LEAN4GAME_LOCAL_GAMES=true
 export VITE_LEAN4GAME_LOCAL_GAMES=true
 export ALLOW_LOCAL_GAMES=true
