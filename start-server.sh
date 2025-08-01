@@ -59,7 +59,10 @@ echo "ASSIGNED_PORT=$ASSIGNED_PORT"
 echo "PORT (from Render)=${PORT:-'not set'}"
 
 echo "Starting server in production mode for memory efficiency..."
-echo "Building production client..."
-npm run build_client
-echo "Starting production server with: npm run production"
-exec npm run production
+echo "Building complete lean4game production bundle..."
+npm run build
+echo "Starting production server with: NODE_ENV=production node relay/dist/src/index.js"
+cd /home/node/lean4game
+export NODE_ENV=production
+export PORT=$ASSIGNED_PORT
+exec node relay/dist/src/index.js
