@@ -69,6 +69,10 @@ ls -la /home/node/lean4game/games/
 ls -la /home/node/lean4game/games/local/ || echo "local directory not found"
 echo "Checking if our game symlink exists..."
 ls -la /home/node/lean4game/games/local/LinearAlgebraGame || echo "LinearAlgebraGame symlink not found"
+echo "Checking game directory contents..."
+ls -la /home/node/game/
+echo "Checking if Game.lean exists at symlink target..."
+ls -la /home/node/lean4game/games/local/LinearAlgebraGame/Game.lean || echo "Game.lean not found through symlink"
 echo "Verifying lean4game relay server exists..."
 if [ -f "/home/node/lean4game/relay/index.mjs" ]; then
     echo "✅ Relay server found!"
