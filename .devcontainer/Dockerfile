@@ -1,5 +1,8 @@
 FROM node:20
 
+# Install bubblewrap for lean4game security sandboxing in production
+RUN apt-get update && apt-get install -y bubblewrap && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /
 
 COPY ./lean-toolchain /lean-toolchain
