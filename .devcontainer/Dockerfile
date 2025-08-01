@@ -34,6 +34,9 @@ RUN chmod +x /home/node/start-server.sh
 USER node
 WORKDIR /home/node/game
 
+# Copy the entire game project
+COPY --chown=node:node . .
+
 EXPOSE 3000
 
 CMD ["/home/node/start-server.sh"]

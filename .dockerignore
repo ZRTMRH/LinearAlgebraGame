@@ -1,0 +1,12 @@
+.git
+.lake
+node_modules
+blueprint
+blueprint_env
+*.md
+uploads
+backups
+lean4game-world-display-bug
+home_page
+.devcontainer
+.vscode
