@@ -58,5 +58,8 @@ echo "HOST=$HOST"
 echo "ASSIGNED_PORT=$ASSIGNED_PORT"
 echo "PORT (from Render)=${PORT:-'not set'}"
 
-echo "Starting server with: npm start -- --host 0.0.0.0 --port $ASSIGNED_PORT"
-exec npm start -- --host 0.0.0.0 --port $ASSIGNED_PORT
+echo "Starting server in production mode for memory efficiency..."
+echo "Building production client..."
+npm run build_client
+echo "Starting production server with: npm run production"
+exec npm run production
