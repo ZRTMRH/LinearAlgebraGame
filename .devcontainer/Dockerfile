@@ -26,3 +26,14 @@ RUN export LEAN_VERSION="$(cat /lean-toolchain)" && \
     lean --version; \
     leanc --version; \
     lake --version;
+
+# Copy the startup script
+COPY start-server.sh /home/node/start-server.sh
+RUN chmod +x /home/node/start-server.sh
+
+USER node
+WORKDIR /home/node/game
+
+EXPOSE 3000
+
+CMD ["/home/node/start-server.sh"]
