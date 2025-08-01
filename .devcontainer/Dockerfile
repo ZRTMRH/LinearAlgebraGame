@@ -42,6 +42,10 @@ RUN echo "Updating Lake dependencies..." && lake update -R
 RUN echo "Getting mathlib cache (this should speed up build significantly)..." && \
     lake exe cache get --force || echo "Cache get failed, will build from source (slower)"
 
+# Pre-install npm dependencies during Docker build to avoid runtime timeouts
+RUN echo "Pre-installing npm dependencies for lean4game..." && \
+    cd /home/node/lean4game && npm install
+
 # Now copy the rest of the project
 COPY --chown=node:node . .
 

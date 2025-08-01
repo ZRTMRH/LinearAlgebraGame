@@ -29,10 +29,15 @@ echo "=== Checking lean4game directory ==="
 ls -la /home/node/lean4game
 cd /home/node/lean4game
 
-# Install npm dependencies
-echo "=== Installing npm dependencies ==="
-npm install
-echo "npm install completed!"
+# Check if npm dependencies are pre-installed
+echo "=== Checking npm dependencies ==="
+if [ -d "node_modules" ]; then
+    echo "npm dependencies already installed during Docker build!"
+else
+    echo "npm dependencies not found, installing now..."
+    npm install
+    echo "npm install completed!"
+fi
 
 # Check package.json scripts
 echo "Available npm scripts:"
