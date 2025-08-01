@@ -60,6 +60,11 @@ echo "PORT (from Render)=${PORT:-'not set'}"
 
 echo "Starting server in production mode for memory efficiency..."
 echo "Client should be pre-built during Docker build phase..."
+echo "Checking games directory structure..."
+ls -la /home/node/lean4game/games/
+ls -la /home/node/lean4game/games/local/ || echo "local directory not found"
+echo "Checking if our game symlink exists..."
+ls -la /home/node/lean4game/games/local/LinearAlgebraGame || echo "LinearAlgebraGame symlink not found"
 echo "Verifying lean4game relay server exists..."
 if [ -f "/home/node/lean4game/relay/index.mjs" ]; then
     echo "✅ Relay server found!"
