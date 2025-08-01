@@ -15,4 +15,9 @@ npm install
 
 echo "Starting game server..."
 export VITE_LEAN4GAME_SINGLE=true
-exec npm start
+export HOST=0.0.0.0
+export PORT=3000
+# Also try Vite-specific environment variables
+export VITE_HOST=0.0.0.0
+export VITE_PORT=3000
+exec npm start -- --host 0.0.0.0 --port 3000
