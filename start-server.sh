@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e  # Exit on any error
+# Removed set -e to allow continuing after non-critical failures
 
 echo "=== Starting Linear Algebra Game Deployment ==="
 
@@ -21,8 +21,12 @@ lake update -R
 echo "Getting mathlib cache..."
 lake exe cache get || echo "Cache get failed, continuing with build..."
 echo "Building game..."
-lake build
-echo "Lean build completed successfully!"
+if lake build; then
+    echo "Lean build completed successfully!"
+else
+    echo "ERROR: Lake build failed!"
+    echo "Attempting to continue anyway..."
+fi
 
 # Check lean4game directory
 echo "=== Checking lean4game directory ==="
@@ -41,14 +45,17 @@ npm run || true
 echo "=== Starting game server ==="
 export VITE_LEAN4GAME_SINGLE=true
 export HOST=0.0.0.0
-export PORT=3000
+
+# Use Render's assigned PORT or fallback to 3000 for local development
+ASSIGNED_PORT=${PORT:-3000}
 export VITE_HOST=0.0.0.0
-export VITE_PORT=3000
+export VITE_PORT=$ASSIGNED_PORT
 
 echo "Environment variables:"
 echo "VITE_LEAN4GAME_SINGLE=$VITE_LEAN4GAME_SINGLE"
 echo "HOST=$HOST"
-echo "PORT=$PORT"
+echo "ASSIGNED_PORT=$ASSIGNED_PORT"
+echo "PORT (from Render)=${PORT:-'not set'}"
 
-echo "Starting server with: npm start -- --host 0.0.0.0 --port 3000"
-exec npm start -- --host 0.0.0.0 --port 3000
+echo "Starting server with: npm start -- --host 0.0.0.0 --port $ASSIGNED_PORT"
+exec npm start -- --host 0.0.0.0 --port $ASSIGNED_PORT
