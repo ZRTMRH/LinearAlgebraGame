@@ -1,10 +1,11 @@
 import Game.Levels.TutorialWorld
 import Game.Levels.VectorSpaceWorld
-import Game.Levels.LinearIndependenceSpanWorld
-import Game.Levels.InnerProductWorld
-import Game.Levels.LinearMapsWorld
+-- Memory-optimized version for Render deployment - temporarily disable larger worlds
+-- import Game.Levels.LinearIndependenceSpanWorld
+-- import Game.Levels.InnerProductWorld
+-- import Game.Levels.LinearMapsWorld
 -- Explicit import for InnerProductSpace_v class and theorem aliases  
-import Game.Levels.InnerProductWorld.LemmasAndDefs
+-- import Game.Levels.InnerProductWorld.LemmasAndDefs
 
 -- Here's what we'll put on the title screen
 Title "Linear Algebra Game"
@@ -53,8 +54,9 @@ CaptionLong "You should use this game as a template for your own game and add yo
 -- Prerequisites "" -- add this if your game depends on other games
 -- CoverImage "images/cover.png"
 
-Dependency VectorSpaceWorld → LinearIndependenceSpanWorld
-Dependency LinearIndependenceSpanWorld → InnerProductWorld
+-- Memory-optimized dependencies for Render deployment
+-- Dependency VectorSpaceWorld → LinearIndependenceSpanWorld
+-- Dependency LinearIndependenceSpanWorld → InnerProductWorld
 
 namespace LinearAlgebraGame
 
