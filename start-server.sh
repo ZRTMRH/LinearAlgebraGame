@@ -92,32 +92,23 @@ echo "Starting server with local games enabled..."
 cd /home/node/lean4game
 export PORT=$ASSIGNED_PORT
 
-# Aggressive workarounds for Lean server finalizeExtensions deadlock in Render
-export LEAN_SERVER_ARGS="--server --no-worker --memory=1024"
-export LEAN_NO_CACHE=1
-export LEAN_WATCHDOG_TIMEOUT=30
-export NODE_OPTIONS="--max-old-space-size=1024 --no-warnings"
+# Debug finalizeExtensions deadlock - need to identify root cause
+echo "=== DEBUGGING LEAN SERVER INITIALIZATION ==="
+echo "System info:"
+uname -a
+echo "Available file descriptors: $(ulimit -n)"
+echo "Available processes: $(ulimit -u)" 
+echo "Temp directory permissions:"
+ls -la /tmp
+echo "Current directory permissions:"
+ls -la .
+echo "Lake directory permissions:"
+ls -la .lake || echo "No .lake directory"
 
-echo "Applied Lean server deadlock workarounds for Render environment..."
+# Enable verbose Lean server logging
+export LEAN_SERVER_ARGS="--server -v"
+export LEAN_TRACE="all"
+export NODE_OPTIONS="--max-old-space-size=2048"
 
-# Create a restart loop to handle finalizeExtensions hangs
-echo "Starting automatic restart loop to handle Lean server hangs..."
-while true; do
-    echo "[$(date)] Starting Lean4Game server (attempt $((++attempt)))"
-    
-    # Start server with 2-minute timeout
-    timeout 120 node relay/index.mjs
-    exit_code=$?
-    
-    if [ $exit_code -eq 124 ]; then
-        echo "[$(date)] Server timed out (likely finalizeExtensions hang), restarting..."
-    elif [ $exit_code -eq 0 ]; then
-        echo "[$(date)] Server exited normally"
-        break
-    else
-        echo "[$(date)] Server crashed with exit code $exit_code, restarting..."
-    fi
-    
-    # Brief pause before restart
-    sleep 2
-done
+echo "Starting server with full debug logging..."
+exec node relay/index.mjs
