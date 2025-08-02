@@ -1,6 +1,6 @@
+-- Ultra-aggressive memory optimization: Only 1 world for stable Render deployment
 import Game.Levels.TutorialWorld
-import Game.Levels.VectorSpaceWorld
--- Aggressive memory optimization: Only 2 worlds for stable Render deployment
+-- import Game.Levels.VectorSpaceWorld
 -- import Game.Levels.LinearIndependenceSpanWorld
 -- import Game.Levels.InnerProductWorld
 -- import Game.Levels.LinearMapsWorld
@@ -54,9 +54,10 @@ CaptionLong "You should use this game as a template for your own game and add yo
 -- Prerequisites "" -- add this if your game depends on other games
 -- CoverImage "images/cover.png"
 
--- Memory-optimized dependencies for Render deployment
--- Dependency VectorSpaceWorld → LinearIndependenceSpanWorld
--- Dependency LinearIndependenceSpanWorld → InnerProductWorld
+-- Ultra-aggressive memory optimization for Render deployment: Only TutorialWorld active
+-- All other worlds disabled to prevent finalizeExtensions timeout
+-- Dependency VectorSpaceWorld → LinearIndependenceSpanWorld (disabled)
+-- Dependency LinearIndependenceSpanWorld → InnerProductWorld (disabled)
 
 namespace LinearAlgebraGame
 
