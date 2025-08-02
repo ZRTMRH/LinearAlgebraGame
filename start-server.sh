@@ -91,10 +91,11 @@ fi
 echo "Starting server with local games enabled..."
 cd /home/node/lean4game
 export PORT=$ASSIGNED_PORT
-# Add timeout and debugging environment variables for Lean server
-export LEAN_TIMEOUT=30000  # 30 second timeout instead of infinite hang
-export LEAN_MEMORY_LIMIT=2048  # 2GB memory limit
-export LEAN_TRACE_SERVER=1  # Enable Lean server tracing
-export NODE_OPTIONS="--max-old-space-size=2048"  # Limit Node.js memory
-echo "Added Lean server debugging configuration..."
-exec timeout 600 node relay/index.mjs  # 10 minute total timeout
+# Workaround for Lean server finalizeExtensions deadlock in Render environment
+export LEAN_SERVER_ARGS="--server --no-worker"  # Disable threading that may cause deadlocks
+export LEAN_NO_CACHE=1  # Disable problematic caching that might hang
+export LEAN_WATCHDOG_TIMEOUT=30  # 30 second watchdog timeout
+export NODE_OPTIONS="--max-old-space-size=2048 --no-warnings"
+echo "Applied Lean server deadlock workarounds for Render environment..."
+# Use timeout to force restart if hanging
+exec timeout 300 node relay/index.mjs  # 5 minute timeout to force restart

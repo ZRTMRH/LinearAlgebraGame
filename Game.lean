@@ -1,30 +1,27 @@
--- Simple test: Only TutorialWorld to isolate the issue
-import Game.Levels.TutorialWorld
--- Temporarily disable all other worlds to test if the issue is world-specific
+-- Bypass problematic imports that cause finalizeExtensions deadlock
+-- Create minimal game configuration for Render deployment
+-- import Game.Levels.TutorialWorld
 -- import Game.Levels.VectorSpaceWorld
 -- import Game.Levels.LinearIndependenceSpanWorld
 -- import Game.Levels.InnerProductWorld
 -- import Game.Levels.LinearMapsWorld
--- Explicit import for InnerProductSpace_v class and theorem aliases  
--- import Game.Levels.InnerProductWorld.LemmasAndDefs
 
--- Here's what we'll put on the title screen
-Title "Linear Algebra Game"
+-- Minimal configuration to bypass finalizeExtensions deadlock on Render
+Title "Linear Algebra Game - Deployment Test"
 Introduction
 "
-# Welcome to the Linear Algebra Game!
+# Linear Algebra Game - Render Deployment Test
 
-This game works as a learning tool for linear algebra,
-based on the textbook \"Linear Algebra Done Right\" by Sheldon Axler. It also serves as an
-introduction to Lean 4, a proof assistant that provides an environment to encode proofs formally.
+This is a test deployment to resolve server initialization issues on Render.
 
-Proofs in Lean can are written in precise syntax, using tactics and theorems, and can be algorithmically
-checked for correctness by a computer.
+The complete game with all levels is available at:
+https://github.com/ZRTMRH/LinearAlgebraGame
 
-This game covers many areas of linear algebra, including vector spaces, linear independence, bases,
-linear mappings, and isomorphisms.
+**Issue**: The Lean server hangs during the finalizeExtensions phase in the Render 
+cloud environment, preventing the game from loading properly.
 
-To start, click on \"Tutorial World\"
+**Next Steps**: Once the deployment infrastructure is stable, all worlds and levels 
+will be re-enabled for the full educational experience.
 "
 
 Info "
@@ -55,10 +52,9 @@ CaptionLong "You should use this game as a template for your own game and add yo
 -- Prerequisites "" -- add this if your game depends on other games
 -- CoverImage "images/cover.png"
 
--- Ultra-aggressive memory optimization for Render deployment: Only TutorialWorld active
--- All other worlds disabled to prevent finalizeExtensions timeout
--- Dependency VectorSpaceWorld → LinearIndependenceSpanWorld (disabled)
--- Dependency LinearIndependenceSpanWorld → InnerProductWorld (disabled)
+-- No world imports to test if the issue is import-related
+-- This should create an empty game that just displays the title screen
+-- If this works, we can gradually add worlds back
 
 namespace LinearAlgebraGame
 
