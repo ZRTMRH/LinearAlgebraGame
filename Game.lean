@@ -1,5 +1,6 @@
--- Ultra-aggressive memory optimization: Only 1 world for stable Render deployment
+-- Simple test: Only TutorialWorld to isolate the issue
 import Game.Levels.TutorialWorld
+-- Temporarily disable all other worlds to test if the issue is world-specific
 -- import Game.Levels.VectorSpaceWorld
 -- import Game.Levels.LinearIndependenceSpanWorld
 -- import Game.Levels.InnerProductWorld

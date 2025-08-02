@@ -91,4 +91,10 @@ fi
 echo "Starting server with local games enabled..."
 cd /home/node/lean4game
 export PORT=$ASSIGNED_PORT
-exec node relay/index.mjs
+# Add timeout and debugging environment variables for Lean server
+export LEAN_TIMEOUT=30000  # 30 second timeout instead of infinite hang
+export LEAN_MEMORY_LIMIT=2048  # 2GB memory limit
+export LEAN_TRACE_SERVER=1  # Enable Lean server tracing
+export NODE_OPTIONS="--max-old-space-size=2048"  # Limit Node.js memory
+echo "Added Lean server debugging configuration..."
+exec timeout 600 node relay/index.mjs  # 10 minute total timeout
