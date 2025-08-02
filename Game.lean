@@ -1,27 +1,26 @@
--- Bypass problematic imports that cause finalizeExtensions deadlock
--- Create minimal game configuration for Render deployment
--- import Game.Levels.TutorialWorld
+-- Test with minimal single world to reproduce finalizeExtensions deadlock
+import Game.Levels.TutorialWorld
+-- Other worlds disabled to isolate the issue
 -- import Game.Levels.VectorSpaceWorld
 -- import Game.Levels.LinearIndependenceSpanWorld
 -- import Game.Levels.InnerProductWorld
 -- import Game.Levels.LinearMapsWorld
 
--- Minimal configuration to bypass finalizeExtensions deadlock on Render
-Title "Linear Algebra Game - Deployment Test"
+Title "Linear Algebra Game"  
 Introduction
 "
-# Linear Algebra Game - Render Deployment Test
+# Welcome to the Linear Algebra Game!
 
-This is a test deployment to resolve server initialization issues on Render.
+**Note**: This is currently running with only TutorialWorld enabled due to deployment issues.
 
-The complete game with all levels is available at:
-https://github.com/ZRTMRH/LinearAlgebraGame
+Click on \"Tutorial World\" to test if the levels load properly.
 
-**Issue**: The Lean server hangs during the finalizeExtensions phase in the Render 
-cloud environment, preventing the game from loading properly.
+**Expected behavior**: 
+- You should be able to click into Tutorial World 
+- Then click on Level 1 to test the Lean server
+- If it hangs with a blue loading circle, that's the finalizeExtensions bug we're trying to fix
 
-**Next Steps**: Once the deployment infrastructure is stable, all worlds and levels 
-will be re-enabled for the full educational experience.
+The complete game with all worlds is available at: https://github.com/ZRTMRH/LinearAlgebraGame
 "
 
 Info "
