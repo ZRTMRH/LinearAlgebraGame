@@ -1,7 +1,7 @@
 import Game.Levels.TutorialWorld
 import Game.Levels.VectorSpaceWorld
-import Game.Levels.LinearIndependenceSpanWorld
--- Memory optimization: Commenting out memory-intensive worlds for Render deployment
+-- Aggressive memory optimization: Only 2 worlds for stable Render deployment
+-- import Game.Levels.LinearIndependenceSpanWorld
 -- import Game.Levels.InnerProductWorld
 -- import Game.Levels.LinearMapsWorld
 -- Explicit import for InnerProductSpace_v class and theorem aliases  
