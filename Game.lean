@@ -1,10 +1,11 @@
 import Game.Levels.TutorialWorld
 import Game.Levels.VectorSpaceWorld
-import Game.Levels.LinearIndependenceSpanWorld
-import Game.Levels.InnerProductWorld
-import Game.Levels.LinearMapsWorld
+-- Aggressive memory optimization: Only 2 worlds for stable Render deployment
+-- import Game.Levels.LinearIndependenceSpanWorld
+-- import Game.Levels.InnerProductWorld
+-- import Game.Levels.LinearMapsWorld
 -- Explicit import for InnerProductSpace_v class and theorem aliases  
-import Game.Levels.InnerProductWorld.LemmasAndDefs
+-- import Game.Levels.InnerProductWorld.LemmasAndDefs
 
 -- Here's what we'll put on the title screen
 Title "Linear Algebra Game"
