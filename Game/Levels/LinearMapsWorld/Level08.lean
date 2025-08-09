@@ -71,6 +71,7 @@ Statement injective_implies_trivial_null (T : V → W) (hT : is_linear_map_v K V
   · Hint (hidden := true) "Try `intro hv`"
     intro hv
     -- hv : v ∈ null_space_v K V W T means T v = 0
+    Hint (hidden := true) "Try `show v = 0`"
     show v = 0
     Hint "Use injectivity: since T(v) = T(0) = 0, we get v = 0."
     -- We'll show T v = T 0, then use injectivity
@@ -82,18 +83,23 @@ Statement injective_implies_trivial_null (T : V → W) (hT : is_linear_map_v K V
       exact h_inj v 0 h_eq
     -- Now prove T v = T 0
     Hint "Show T v = T 0 by using T v = 0 and T 0 = 0."
-    Hint (hidden := true) "Try `rw [hv]; simp [hT.2]`"
+    Hint (hidden := true) "Try `rw [hv]`"
     rw [hv]
-    simp [hT.2]
+    Hint (hidden := true) "Try `symm`"
+    symm
+    Hint (hidden := true) "Try `exact linear_map_preserves_zero K V W T hT`"
+    exact linear_map_preserves_zero K V W T hT
   Hint "Second direction: if v = 0, then v ∈ null space."
   · Hint (hidden := true) "Try `intro hv`"
     intro hv
     -- hv : v = 0
+    Hint (hidden := true) "Try `show T v = 0`"
     show T v = 0
     Hint "Substitute v = 0 and use the fact that linear maps preserve zero."
-    Hint (hidden := true) "Try `rw [hv]; simp [hT.2]`"
+    Hint (hidden := true) "Try `rw [hv]`"
     rw [hv]
-    simp [hT.2]
+    Hint (hidden := true) "Try `exact linear_map_preserves_zero K V W T hT`"
+    exact linear_map_preserves_zero K V W T hT
 
 Conclusion "
 You've proven half of Axler's fundamental theorem!

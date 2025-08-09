@@ -68,6 +68,7 @@ Statement surjective_iff_range_eq (T : V → W) :
   · Hint "Introduce the surjectivity hypothesis and an arbitrary element w ∈ W."
     Hint (hidden := true) "Try `intro h_surj w`"
     intro h_surj w
+    Hint (hidden := true) "Try `show ∃ v : V, T v = w`"
     show ∃ v : V, T v = w
     Hint "Since T is surjective, by definition there exists v such that T v = w. Use the surjectivity hypothesis directly."
     Hint (hidden := true) "Try `exact h_surj w`"

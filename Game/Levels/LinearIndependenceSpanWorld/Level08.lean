@@ -23,6 +23,8 @@ are zero outside of their domain. This helps us prove `f = g`, since otherwise w
 the values of `f` and `g` would be outside of `s` and `t`. Lastly, we have `heq : Finset.sum s (fun v => f v • v) = Finset.sum t (fun v => g v • v)`,
 which shows that the two linear combinations are equal. We then must pove that `f = g`
 
+**Note:** This level may experience a hint display issue where hints repeat. If you see the same hint multiple times, the level is still working correctly - just continue with your proof as normal.
+
 ### The `specialize` tactic
 The `specialize` tactic can be thought of as the opposite of `use`. While `use` helps specify a value
 for a `∃` in the goal, `specialize` specifies a value for a `∀` in a hypothesis. For example, if you

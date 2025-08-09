@@ -62,6 +62,7 @@ A linear map is an isomorphism if and only if it's both injective and surjective
 Statement isomorphism_iff_bijective_linear (T : V → W) (hT : is_linear_map_v K V W T) :
     isomorphism_v K V W T ↔ (injective_v K V W T ∧ surjective_v K V W T) := by
   Hint "Unfold the definition of isomorphism_v."
+  Hint (hidden := true) "Try `unfold isomorphism_v`"
   unfold isomorphism_v
   Hint "The definition already includes linearity, so extract the injectivity and surjectivity."
   Hint (hidden := true) "Try `constructor`"
@@ -78,39 +79,39 @@ Statement isomorphism_iff_bijective_linear (T : V → W) (hT : is_linear_map_v K
 /--
 Every isomorphism preserves vector space structure completely.
 -/
-Statement isomorphism_preserves_structure (T : V → W) (h_iso : isomorphism_v K V W T) 
+lemma isomorphism_preserves_structure (T : V → W) (h_iso : isomorphism_v K V W T) 
     (v₁ v₂ : V) (a : K) :
     T (a • v₁ + v₂) = a • T v₁ + T v₂ := by
-  Hint "Use the linearity part of the isomorphism."
-  Hint (hidden := true) "Try `have h_linear := h_iso.1`"
   have h_linear := h_iso.1
-  Hint (hidden := true) "Try `rw [h_linear.1 (a • v₁) v₂]`"
   rw [h_linear.1 (a • v₁) v₂]
-  Hint (hidden := true) "Try `rw [h_linear.2 a v₁]`"
   rw [h_linear.2 a v₁]
+
+TheoremDoc LinearAlgebraGame.isomorphism_preserves_structure as "isomorphism_preserves_structure" in "Linear Maps"
 
 Conclusion "
 **Congratulations!** You have completed LinearMapsWorld!
 
-You've mastered the fundamental concepts of linear map theory:
+You've mastered the fundamental concepts of linear map theory through 11 levels:
 
-- **Definition**: What makes a map linear
-- **Null Space**: The kernel of information loss  
-- **Range**: The image of transformation
-- **Injectivity**: One-to-one preservation
-- **Surjectivity**: Complete coverage
-- **Isomorphisms**: Perfect structure preservation
+- **Definition**: What makes a map linear (additivity and homogeneity)
+- **Null Space**: The set of vectors mapped to zero
+- **Range**: The image of the transformation  
+- **Key Properties**: Linear maps preserve zero and linear combinations
+- **Subspace Structure**: The range forms a subspace
+- **Injectivity**: Characterized by trivial null space (Axler 3.16)
+- **Surjectivity**: When the range equals the codomain
+- **Dimension Theory**: How linear maps interact with dimensions
+- **Isomorphisms**: Bijective linear maps that preserve structure
 
-You've encountered some of the most important theorems in linear algebra, including the **Fundamental Theorem of Linear Algebra** (Axler 3.21).
+You've proven several important theorems, including:
+- Linear maps always preserve zero
+- The null space characterization of injectivity
+- The range is always a subspace
+- Isomorphisms are exactly the bijective linear maps
 
-These concepts form the foundation for understanding:
-- **Matrix theory**
-- **Eigenvalue problems**  
-- **Linear systems**
-- **Change of basis**
-- **Advanced linear algebra**
+These concepts form the foundation for deeper topics in linear algebra like eigentheory, matrix representations, and the full rank-nullity theorem.
 
-Well done on mastering this beautiful mathematical theory!
+Well done on completing this journey through linear map theory!
 "
 
 end LinearAlgebraGame

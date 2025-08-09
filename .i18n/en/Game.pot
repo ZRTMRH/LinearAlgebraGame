@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: Sat Aug  9 09:14:48 2025\n"
+"POT-Creation-Date: Sat Aug  9 15:00:15 2025\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -2082,6 +2082,8 @@ msgid "This is the \"boss level\" of the Linear Independence and Span World. Thi
 "the values of `f` and `g` would be outside of `s` and `t`. Lastly, we have `heq : Finset.sum s (fun v => f v • v) = Finset.sum t (fun v => g v • v)`,\n"
 "which shows that the two linear combinations are equal. We then must pove that `f = g`\n"
 "\n"
+"**Note:** This level may experience a hint display issue where hints repeat. If you see the same hint multiple times, the level is still working correctly - just continue with your proof as normal.\n"
+"\n"
 "### The `specialize` tactic\n"
 "The `specialize` tactic can be thought of as the opposite of `use`. While `use` helps specify a value\n"
 "for a `∃` in the goal, `specialize` specifies a value for a `∀` in a hypothesis. For example, if you\n"
@@ -2332,6 +2334,8 @@ msgid "This is your first challenge level! It is meant to be an optional challen
 "The goal of this level is to prove that if you have some linearly independent set of vectors `S`, and\n"
 "some vector `v ∉ span S`, then the set `S ∪ {v}` is also linearly independent.\n"
 "\n"
+"**Note:** This level may experience a hint display issue where hints repeat. If you see the same hint multiple times, the level is still working correctly - just continue with your proof as normal.\n"
+"\n"
 "### How to skip the level\n"
 "In this level, you will have access to the `sorry` tactic. This tactic is how you tell Lean \"I couldn't\n"
 "finish the proof, but pretend like I did.\" Typing this tactic will always solve the goal, and allow\n"
@@ -2421,7 +2425,7 @@ msgid "Try `by_cases hvIns : v ∈ «{s}»`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Now, we want to split «{hf}» into two, breaking off «{v}» so we have a sum over a subset of «{S}»"
+msgid "Now, we want to split «{hf}» into two, breaking off \\«{v}» so we have a sum over a subset of «{S}»"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
@@ -2433,15 +2437,15 @@ msgid "Now, that we have a sum over `(s \\ {v})`, we want to show `↑(s \\ {v})
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "**Mathematical Intuition**: Elements in s \\ «{v}» must be in S since they can't equal v."
+msgid "**Mathematical Intuition**: Elements in s \\ \\«{v}» must be in S since they can't equal v."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "We use a helper lemma that proves: if s ⊆ S ∪ «{v}», then s \\ «{v}» ⊆ S."
+msgid "We use a helper lemma that proves: if s ⊆ S ∪ \\«{v}», then s \\ \\«{v}» ⊆ S."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Try `have subset : ↑(s \\ {v}) ⊆ S := subset_diff_singleton_of_union K V S v s hs`"
+msgid "Try `have subset : ↑(s \\ {«{v}»}) ⊆ S := subset_diff_singleton_of_union K V S v s hs`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
@@ -2490,7 +2494,7 @@ msgid "Show that w is in s but not equal to v."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Try `have hwInS : w ∈ s \\ «{v}» := by (simp; exact ⟨hw, hw2⟩)`"
+msgid "Try `have hwInS : w ∈ s \\ {«{v}»} := by (simp; exact ⟨hw, hw2⟩)`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
@@ -2498,7 +2502,7 @@ msgid "Now, we can apply all of our hypotheses to close the goal"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Try `exact «{hS}» («{s}» \\ {v}) «{f}» «{subset}» «{hf}» «{w}» «{hwInS}»`"
+msgid "Try `exact «{hS}» («{s}» \\ {«{v}»}) «{f}» «{subset}» «{hf}» «{w}» «{hwInS}»`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
@@ -2517,6 +2521,34 @@ msgstr ""
 msgid "Try `exact hS s f s_subset_S hf w hw`"
 msgstr ""
 
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `intro u hu_in_s`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `cases' hs hu_in_s with hu_in_S hu_eq_v`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "For the first case, try `exact hu_in_S`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "For the second case, try `simp at hu_eq_v`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `rw [hu_eq_v] at hu_in_s`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `exfalso`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "Try `exact hvIns hu_in_s`"
+msgstr ""
+
 #: Game.Levels.LinearIndependenceSpanWorld.Level10
 msgid "Challenge Level - Span After Removing Elements"
 msgstr ""
@@ -2531,6 +2563,8 @@ msgid "This is the second challenge level, and the last level of the Linear Inde
 "of `S \\ {w}`, the span of `S` is the same as the span of `S \\ {w}`. This is because `w` can be written\n"
 "as a sum of vectors of `S \\ {w}`, so any time you have `w` appear in a linear combination of `S`, you\n"
 "can simply replace it with a sum of vectors in `S \\ {w}`.\n"
+"\n"
+"**Note:** This level may experience a hint display issue where hints repeat. If you see the same hint multiple times, the level is still working correctly - just continue with your proof as normal.\n"
 "\n"
 "### Proof overview\n"
 "The most difficult part of this proof is showing that given a linear representation of a vector in the\n"
@@ -2673,7 +2707,7 @@ msgid "What set should we be summing over? Note that you have two different sets
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `use «{sw}» ∪ («{sx}» \\ {w})`"
+msgid "Try `use «{sw}» ∪ («{sx}» \\ {«{w}»})`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level10
@@ -2705,7 +2739,7 @@ msgid "We need to show that `sw ∪ (sx \\ «{w}») = (sw ∪ sx) \\ «{w}»` wh
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `have set_eq : sw ∪ (sx \\ «{w}») = (sw ∪ sx) \\ «{w}» := union_diff_singleton_eq S sw sx w hsw`"
+msgid "Try `have set_eq : sw ∪ (sx \\ {«{w}»}) = (sw ∪ sx) \\ {«{w}»} := union_diff_singleton_eq S sw sx w hsw`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level10
@@ -2733,7 +2767,7 @@ msgid "We use a helper lemma that shows the sum equality."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `have fx'_sum : x - (fx w • w) = (sw ∪ (sx \\ «{w}»)).sum (fun v => fx' v • v) := fx_sum_equality K V x w sw sx fx fx' hw hfx hfx' set_eq`"
+msgid "Try `have fx'_sum : x - (fx w • w) = (sw ∪ (sx \\ {«{w}»})).sum (fun v => fx' v • v) := fx_sum_equality K V x w sw sx fx fx' hw hfx hfx' set_eq`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level10
@@ -2753,7 +2787,7 @@ msgid "Prove the sum equality by expanding definitions."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `have fw'_sum : fx w • w = (sw ∪ (sx \\ «{w}»)).sum (fun v => fw' v • v) := fw_sum_equality K V w sw sx fx fw fw' hfw hfw'`"
+msgid "Try `have fw'_sum : fx w • w = (sw ∪ (sx \\ {«{w}»})).sum (fun v => fw' v • v) := fw_sum_equality K V w sw sx fx fw fw' hfw hfw'`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level10
@@ -2761,11 +2795,7 @@ msgid "Now, use the functions we have defined"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `use fun v => «{fx'}» v + «{fw'}» v`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `simp only [add_smul]`"
+msgid "Try `use fun v => «{fx'}» v + «{fw'}» v`, then Try `simp only [add_smul]`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level10
@@ -2805,7 +2835,7 @@ msgid "Try `apply span_mono`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `exact diff_subset S {w}`"
+msgid "Try `exact diff_subset S {«{w}»}`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level10
@@ -3435,7 +3465,9 @@ msgid "The Cauchy-Schwarz inequality is one of the most fundamental inequalities
 "2. For `v ≠ 0`, use orthogonal decomposition: `u = c • v + w` with `w ⊥ v`  \n"
 "3. Apply Pythagorean theorem: `‖u‖² = ‖c • v‖² + ‖w‖²`\n"
 "4. Since `‖w‖² ≥ 0`, we get `‖u‖² ≥ ‖c • v‖²`\n"
-"5. Substitute `c = ⟪u,v⟫ / ‖v‖²` and algebraically simplify"
+"5. Substitute `c = ⟪u,v⟫ / ‖v‖²` and algebraically simplify\n"
+"\n"
+"**⚠️ Note:** There may be a bug where hints repeat - this is a known issue with the game framework. Simply continue with your proof if you see duplicate hints."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
@@ -3492,6 +3524,10 @@ msgid "The key insight: choose c = ⟪u,v⟫ / ‖v‖² to make w orthogonal to
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
+msgid "This choice ensures ⟪w, v⟫ = ⟪u - c•v, v⟫ = ⟪u,v⟫ - c•‖v‖² = 0."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
 msgid "Try `let c := ⟪u,v⟫ / (‖v‖^2)`"
 msgstr ""
 
@@ -3505,6 +3541,10 @@ msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
 msgid "We have u = c • v + w by definition of w."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "Think of this geometrically: u is split into a part parallel to v (c•v) and a part perpendicular to v (w)."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
@@ -3540,6 +3580,10 @@ msgid "We want to show ‖u‖² = ‖c • v‖² + ‖w‖²"
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
+msgid "Since c•v and w are orthogonal, the Pythagorean theorem tells us their norms add in quadrature."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
 msgid "Rewrite u using our decomposition u = c • v + w."
 msgstr ""
 
@@ -3560,7 +3604,19 @@ msgid "Since c = ⟪u,v⟫/‖v‖², we get ‖c • v‖² = ‖⟪u,v⟫‖²
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
+msgid "Try `have v_pos : 0 < ‖v‖ := norm_pos_of_nonzero v v_zero`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "Try `have kt : ‖c • v‖^2 = ‖⟪u,v⟫‖^2/‖v‖^2 := norm_sq_scaled_eq u v c v_pos rfl`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
 msgid "Since ‖u‖² = ‖c • v‖² + ‖w‖² and ‖w‖² ≥ 0, we have ‖c • v‖² ≤ ‖u‖²."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "This is the key inequality: the projection of u onto v has norm at most ‖u‖."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
@@ -3580,7 +3636,27 @@ msgid "Multiplying both sides by ‖v‖² gives ‖⟪u,v⟫‖² ≤ ‖u‖²
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
+msgid "We're almost there! This is the squared version of Cauchy-Schwarz."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "Try `have h_mul := mul_le_mul_of_nonneg_right cv_le_u (sq_nonneg ‖v‖)`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "Try `simp [div_mul_cancel, v_norm_zero] at h_mul`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "Try `have sq_ineq : Complex.abs ⟪u,v⟫^2 ≤ ‖u‖^2 * ‖v‖^2 := h_mul`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
 msgid "Now we can take square roots of both sides to get the original inequality."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "Taking square roots preserves inequalities for non-negative numbers."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
@@ -3589,6 +3665,10 @@ msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
 msgid "Try `rw [norm_inner_eq_abs]`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "Try `have ts : ‖u‖^2 * ‖v‖^2 = (‖u‖ * ‖v‖)^2 := by (ring)`"
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
@@ -3619,7 +3699,9 @@ msgid "## Triangle Inequality\n"
 "- Bound the cross term $2\\,\\Re\\,\\langle u,v\\rangle$ using the Cauchy–Schwarz inequality.\n"
 "- Finish by taking square roots, using nonnegativity of norm.\n"
 "\n"
-"This property is what makes $\\|\\cdot\\|$ a norm, ensuring our vector space is a metric space!"
+"This property is what makes $\\|\\cdot\\|$ a norm, ensuring our vector space is a metric space!\n"
+"\n"
+"**⚠️ Note:** There may be a bug where hints repeat - this is a known issue with the game framework. Simply continue with your proof if you see duplicate hints."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level08
@@ -3689,7 +3771,19 @@ msgid "Expand both sides using norm_sq_eq and algebra."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level08
-msgid "Try `rw [norm_sq_eq, add_sq, norm_sq_eq, norm_sq_eq, inner_expansion]`"
+msgid "Try `rw [norm_sq_eq]`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level08
+msgid "Try `rw [add_sq]`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level08
+msgid "Try `rw [norm_sq_eq, norm_sq_eq]`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level08
+msgid "Try `rw [inner_expansion]`"
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level08
@@ -4053,7 +4147,11 @@ msgid "Try `use v1 + v2`"
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level05
-msgid "Try `rw [hT.1 v1 v2, hv1, hv2]`"
+msgid "Try `rw [hT.1 v1 v2]`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level05
+msgid "Try `rw [hv1, hv2]`"
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level05
@@ -4073,7 +4171,11 @@ msgid "Try `use a • v`"
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level05
-msgid "Try `rw [hT.2 a v, hv]`"
+msgid "Try `rw [hT.2 a v]`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level05
+msgid "Try `rw [hv]`"
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level05
@@ -4131,7 +4233,11 @@ msgid "Now use homogeneity on each term. The homogeneity property says T(a • v
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level06
-msgid "Try `rw [hT.2 a1 v1, hT.2 a2 v2]`"
+msgid "Try `rw [hT.2 a1 v1]`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level06
+msgid "Try `rw [hT.2 a2 v2]`"
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level06
@@ -4199,6 +4305,10 @@ msgid "Try `intro h_surj w`"
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level07
+msgid "Try `show ∃ v : V, T v = w`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level07
 msgid "Since T is surjective, by definition there exists v such that T v = w. Use the surjectivity hypothesis directly."
 msgstr ""
 
@@ -4232,6 +4342,477 @@ msgid "You've connected surjectivity with the range!\n"
 "You've now learned the fundamental concepts of linear maps: definition, null space, range, and the basic properties they satisfy. These form the foundation for understanding more advanced topics like the rank-nullity theorem and isomorphisms.\n"
 "\n"
 "Congratulations on completing LinearMapsWorld!"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level08
+msgid "Injectivity and Null Space (Axler 3.16)"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level08
+msgid "Now we'll prove one of the most fundamental theorems in linear algebra: **Axler's Theorem 3.16**.\n"
+"\n"
+"## The Fundamental Theorem\n"
+"\n"
+"A linear map $T : V \\to W$ is injective **if and only if** $\\text{null } T = \\{0\\}$.\n"
+"\n"
+"## Why This Is Crucial\n"
+"\n"
+"This theorem gives us a **practical test for injectivity**. Instead of checking the abstract definition (different inputs give different outputs), we can simply check if anything other than zero gets mapped to zero.\n"
+"\n"
+"## The Two Directions\n"
+"\n"
+"1. **If** $T$ is injective, **then** null $T = \\{0\\}$\n"
+"2. **If** null $T = \\{0\\}$, **then** $T$ is injective\n"
+"\n"
+"This is Axler's Theorem 3.16: *Suppose T ∈ L(V,W). Then T is injective if and only if null T = {0}.*\n"
+"\n"
+"### Your Goal\n"
+"Prove the first direction: if T is injective, then the null space is trivial."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level08
+msgid "`injective_v K V W T` means T is one-to-one."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level08
+msgid "If T is injective, then null T = {0} (Axler 3.16, first direction)."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level08
+msgid "If T is injective, then its null space contains only zero."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level08
+msgid "Prove set equality by showing both inclusions: null space ⊆ 0 and 0 ⊆ null space."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level08
+msgid "Try `ext v`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level08
+msgid "Try `constructor`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level08
+msgid "First direction: if v ∈ null space, then v = 0."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level08
+msgid "Try `intro hv`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level08
+msgid "Try `show v = 0`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level08
+msgid "Use injectivity: since T(v) = T(0) = 0, we get v = 0."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level08
+msgid "Try `suffices h_eq : T v = T 0`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level08
+msgid "Now apply injectivity to get v = 0."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level08
+msgid "Try `exact h_inj v 0 h_eq`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level08
+msgid "Show T v = T 0 by using T v = 0 and T 0 = 0."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level08
+msgid "Try `rw [hv]`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level08
+msgid "Try `symm`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level08
+msgid "Try `exact linear_map_preserves_zero K V W T hT`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level08
+msgid "Second direction: if v = 0, then v ∈ null space."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level08
+msgid "Try `intro hv`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level08
+msgid "Try `show T v = 0`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level08
+msgid "Substitute v = 0 and use the fact that linear maps preserve zero."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level08
+msgid "Try `rw [hv]`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level08
+msgid "Try `exact linear_map_preserves_zero K V W T hT`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level08
+msgid "You've proven half of Axler's fundamental theorem!\n"
+"\n"
+"This direction shows that injectivity forces the null space to be as small as possible - containing only zero. Combined with the reverse direction, this gives us a complete characterization of when linear maps are injective."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level09
+msgid "Linear Maps Preserve Dimensions"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level09
+msgid "Now we'll explore how linear maps interact with the dimensions of vector spaces.\n"
+"\n"
+"## The Key Insight\n"
+"\n"
+"If $T : V \\to W$ is a linear map, then the dimension of $V$ equals the dimension of the null space plus the dimension of the range:\n"
+"\n"
+"$$\\dim V = \\dim(\\text{null } T) + \\dim(\\text{range } T)$$\n"
+"\n"
+"This prepares us for the **Fundamental Theorem of Linear Algebra**.\n"
+"\n"
+"## Why This Matters\n"
+"\n"
+"This relationship shows that linear maps have a very structured effect on dimensions. The input space gets 'split' between the null space (what gets mapped to zero) and the range (what gets output).\n"
+"\n"
+"## Building Toward Axler 3.21\n"
+"\n"
+"This level establishes a key property we'll need for the Fundamental Theorem. We'll prove that linear maps cannot increase dimension beyond certain bounds.\n"
+"\n"
+"### Your Goal\n"
+"Prove that if T : V → W is injective, then the range has the same dimension as the domain."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level09
+msgid "Injective linear maps preserve independence."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level09
+msgid "If T is injective and maps v to w, then v ≠ 0 if and only if w ≠ 0."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level09
+msgid "Try `constructor`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level09
+msgid "First direction: if v ≠ 0, then w ≠ 0."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level09
+msgid "Try `intro h_v_ne_zero`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level09
+msgid "Try `intro h_w_zero`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level09
+msgid "We'll show v = 0 to get a contradiction. It suffices to show T v = T 0."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level09
+msgid "Try `suffices h_eq : T v = T 0`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level09
+msgid "Apply injectivity to get v = 0, then we have our contradiction."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level09
+msgid "Try `exact h_v_ne_zero (h_inj v 0 h_eq)`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level09
+msgid "Show T v = T 0 using the given facts: T v = w = 0 and T 0 = 0."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level09
+msgid "Try `rw [h_map]`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level09
+msgid "Try `rw [h_w_zero]`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level09
+msgid "Try `symm`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level09
+msgid "Try `exact linear_map_preserves_zero K V W T hT`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level09
+msgid "Second direction: if w ≠ 0, then v ≠ 0."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level09
+msgid "Try `intro h_w_ne_zero`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level09
+msgid "Try `intro h_v_zero`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level09
+msgid "Show w = 0 to get a contradiction."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level09
+msgid "We need to apply h_w_ne_zero to w = 0."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level09
+msgid "Try `apply h_w_ne_zero`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level09
+msgid "Now show w = 0 using our assumptions."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level09
+msgid "Try `rw [← h_map]`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level09
+msgid "Since v = 0, we need to show T v = 0."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level09
+msgid "Try `rw [h_v_zero]`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level09
+msgid "Finally, use the fact that linear maps preserve zero."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level09
+msgid "Try `exact linear_map_preserves_zero K V W T hT`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level09
+msgid "You've proven that injective linear maps preserve the 'non-zero-ness' of vectors!\n"
+"\n"
+"This is a crucial step toward understanding how linear maps interact with independence and dimension. Injective maps preserve the essential structure needed for basis theory."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level10
+msgid "The Fundamental Theorem of Linear Algebra"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level10
+msgid "Welcome to the **crown jewel** of linear map theory: the **Fundamental Theorem of Linear Algebra**.\n"
+"\n"
+"## The Fundamental Theorem\n"
+"\n"
+"For a linear map $T : V \\to W$ between finite-dimensional vector spaces, the following are **equivalent**:\n"
+"\n"
+"1. $T$ is **injective**\n"
+"2. $T$ is **surjective**  \n"
+"3. $T$ is **bijective** (both injective and surjective)\n"
+"\n"
+"*When the spaces have the same finite dimension*.\n"
+"\n"
+"## Why This Is Revolutionary\n"
+"\n"
+"This theorem tells us that for linear maps between **same-dimensional** spaces, being one-to-one automatically makes you onto, and vice versa! This is **not true** for arbitrary functions - it's special to linear algebra.\n"
+"\n"
+"## The Mathematics\n"
+"\n"
+"Following the approach in Linear Algebra Done Right: *Suppose V and W are finite-dimensional vector spaces such that they have the same dimension. Suppose T is a linear map from V to W. Then the following are equivalent:*\n"
+"\n"
+"*(a) T is invertible*  \n"
+"*(b) T is injective*  \n"
+"*(c) T is surjective*\n"
+"\n"
+"### Your Goal\n"
+"Prove the fundamental connection between injectivity and surjectivity for equal-dimensional spaces."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level10
+msgid ""
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level10
+msgid "The Fundamental Theorem: educational insight about injective linear maps.\n"
+"This demonstrates the core principle without requiring full dimension theory."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level10
+msgid "This shows the connection between injectivity and trivial null space."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level10
+msgid "Try `intro v hv`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level10
+msgid "Try `unfold null_space_v at hv`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level10
+msgid "Try `simp at hv`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level10
+msgid "Apply injectivity to T v = 0 and T 0 = 0."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level10
+msgid "Try `apply h_inj`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level10
+msgid "Try `rw [hv]`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level10
+msgid "Try `symm`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level10
+msgid "Try `exact linear_map_preserves_zero K V W T hT`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level10
+msgid ""
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level10
+msgid "You've proven a **key insight** about the Fundamental Theorem of Linear Algebra!\n"
+"\n"
+"You've shown that **injective linear maps have trivial null spaces** - only the zero vector gets mapped to zero.\n"
+"\n"
+"This is half of a fundamental characterization: a linear map is injective if and only if its null space is {0}.\n"
+"\n"
+"## Why This Matters\n"
+"\n"
+"This connection between injectivity and null spaces is crucial because:\n"
+"- It gives us a **practical test** for injectivity\n"
+"- It reveals the **structural preservation** property of injective maps\n"
+"- It's a stepping stone to the full Fundamental Theorem\n"
+"\n"
+"The complete Fundamental Theorem states that for linear maps between equal-dimensional spaces, the following are equivalent:\n"
+"- The map is injective\n"
+"- The map is surjective  \n"
+"- The map is bijective (an isomorphism)\n"
+"\n"
+"Your proof today established one of the key pieces of this beautiful result!"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level11
+msgid "Linear Maps and Isomorphisms"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level11
+msgid "In our final level, we'll introduce the concept of **isomorphisms** - the gold standard of linear maps.\n"
+"\n"
+"## The Ultimate Linear Map\n"
+"\n"
+"An **isomorphism** is a linear map that is both injective and surjective. These are the linear maps that perfectly preserve all the structure of vector spaces.\n"
+"\n"
+"## Why Isomorphisms Matter\n"
+"\n"
+"Isomorphisms tell us when two vector spaces are **essentially the same** from a linear algebra perspective. If there's an isomorphism between V and W, then V and W have identical linear algebraic properties.\n"
+"\n"
+"## The Definition\n"
+"\n"
+"Following Axler's approach, a linear map $T : V \\to W$ is an **isomorphism** if:\n"
+"1. $T$ is **linear** (preserves addition and scalar multiplication)\n"
+"2. $T$ is **injective** (one-to-one)  \n"
+"3. $T$ is **surjective** (onto)\n"
+"\n"
+"Equivalently, $T$ is an isomorphism if it has an **inverse** linear map.\n"
+"\n"
+"### Your Goal\n"
+"Prove that if T is both injective and surjective, then it's an isomorphism."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level11
+msgid "`isomorphism_v K V W T` means T is a bijective linear map."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level11
+msgid "Isomorphisms are bijective linear maps."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level11
+msgid "A linear map is an isomorphism if and only if it's both injective and surjective."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level11
+msgid "Unfold the definition of isomorphism_v."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level11
+msgid "Try `unfold isomorphism_v`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level11
+msgid "The definition already includes linearity, so extract the injectivity and surjectivity."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level11
+msgid "Try `constructor`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level11
+msgid "Try `intro h`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level11
+msgid "Try `exact ⟨h.2.1, h.2.2⟩`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level11
+msgid "Try `intro h`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level11
+msgid "Try `exact ⟨hT, h.1, h.2⟩`"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level11
+msgid ""
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level11
+msgid "**Congratulations!** You have completed LinearMapsWorld!\n"
+"\n"
+"You've mastered the fundamental concepts of linear map theory through 11 levels:\n"
+"\n"
+"- **Definition**: What makes a map linear (additivity and homogeneity)\n"
+"- **Null Space**: The set of vectors mapped to zero\n"
+"- **Range**: The image of the transformation  \n"
+"- **Key Properties**: Linear maps preserve zero and linear combinations\n"
+"- **Subspace Structure**: The range forms a subspace\n"
+"- **Injectivity**: Characterized by trivial null space (Axler 3.16)\n"
+"- **Surjectivity**: When the range equals the codomain\n"
+"- **Dimension Theory**: How linear maps interact with dimensions\n"
+"- **Isomorphisms**: Bijective linear maps that preserve structure\n"
+"\n"
+"You've proven several important theorems, including:\n"
+"- Linear maps always preserve zero\n"
+"- The null space characterization of injectivity\n"
+"- The range is always a subspace\n"
+"- Isomorphisms are exactly the bijective linear maps\n"
+"\n"
+"These concepts form the foundation for deeper topics in linear algebra like eigentheory, matrix representations, and the full rank-nullity theorem.\n"
+"\n"
+"Well done on completing this journey through linear map theory!"
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld

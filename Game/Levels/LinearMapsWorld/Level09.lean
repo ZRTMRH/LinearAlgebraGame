@@ -65,17 +65,32 @@ Statement injective_preserves_independence (T : V → W) (hT : is_linear_map_v K
       exact h_v_ne_zero (h_inj v 0 h_eq)
     -- Now prove T v = T 0
     Hint "Show T v = T 0 using the given facts: T v = w = 0 and T 0 = 0."
-    Hint (hidden := true) "Try `rw [h_map, h_w_zero]; simp [hT.2]`"
-    rw [h_map, h_w_zero]
-    simp [hT.2]
+    Hint (hidden := true) "Try `rw [h_map]`"
+    rw [h_map]
+    Hint (hidden := true) "Try `rw [h_w_zero]`"
+    rw [h_w_zero]
+    Hint (hidden := true) "Try `symm`"
+    symm
+    Hint (hidden := true) "Try `exact linear_map_preserves_zero K V W T hT`"
+    exact linear_map_preserves_zero K V W T hT
   Hint "Second direction: if w ≠ 0, then v ≠ 0."
   · Hint (hidden := true) "Try `intro h_w_ne_zero`"
     intro h_w_ne_zero
     Hint (hidden := true) "Try `intro h_v_zero`"
     intro h_v_zero
     Hint "Show w = 0 to get a contradiction."
-    Hint (hidden := true) "Try `exact h_w_ne_zero (h_map.symm ▸ h_v_zero ▸ (by simp [hT.2]))`"
-    exact h_w_ne_zero (h_map.symm ▸ h_v_zero ▸ (by simp [hT.2]))
+    Hint "We need to apply h_w_ne_zero to w = 0."
+    Hint (hidden := true) "Try `apply h_w_ne_zero`"
+    apply h_w_ne_zero
+    Hint "Now show w = 0 using our assumptions."
+    Hint (hidden := true) "Try `rw [← h_map]`"
+    rw [← h_map]
+    Hint "Since v = 0, we need to show T v = 0."
+    Hint (hidden := true) "Try `rw [h_v_zero]`"
+    rw [h_v_zero]
+    Hint "Finally, use the fact that linear maps preserve zero."
+    Hint (hidden := true) "Try `exact linear_map_preserves_zero K V W T hT`"
+    exact linear_map_preserves_zero K V W T hT
 
 Conclusion "
 You've proven that injective linear maps preserve the 'non-zero-ness' of vectors!

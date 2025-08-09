@@ -36,6 +36,8 @@ of `S \\ {w}`, the span of `S` is the same as the span of `S \\ {w}`. This is be
 as a sum of vectors of `S \\ {w}`, so any time you have `w` appear in a linear combination of `S`, you
 can simply replace it with a sum of vectors in `S \\ {w}`.
 
+**Note:** This level may experience a hint display issue where hints repeat. If you see the same hint multiple times, the level is still working correctly - just continue with your proof as normal.
+
 ### Proof overview
 The most difficult part of this proof is showing that given a linear representation of a vector in the
 span of `S`, we can represent it as a sum of vectors in `S \\ {w}`. You are able to represent a sum over
@@ -47,8 +49,8 @@ open VectorSpace Finset Set
 variable (K V : Type) [Field K] [AddCommGroup V] [DecidableEq V] [VectorSpace K V]
 
 /-- Helper lemma: Union of sets minus singleton equals union minus singleton when w ∉ sw -/
-lemma union_diff_singleton_eq {V : Type} [DecidableEq V] 
-  (S : Set V) (sw sx : Finset V) (w : V) (hsw : ↑sw ⊆ S \ {w}) : 
+lemma union_diff_singleton_eq {V : Type} [DecidableEq V]
+  (S : Set V) (sw sx : Finset V) (w : V) (hsw : ↑sw ⊆ S \ {w}) :
   sw ∪ (sx \ {w}) = (sw ∪ sx) \ {w} := by
   apply Finset.Subset.antisymm_iff.2
   constructor
@@ -226,7 +228,7 @@ Statement remove_redundant_span
 
   Hint "What set should we be summing over? Note that you have two different sets where functions are
   defined, {sw} and {sx}"
-  Hint (hidden := true) "Try `use {sw} ∪ ({sx} \\ \{w})`"
+  Hint (hidden := true) "Try `use {sw} ∪ ({sx} \\ \{{w}})`"
   use sw ∪ (sx \ {w})
 
   Hint (hidden := true) "Try `constructor`"
@@ -243,7 +245,7 @@ Statement remove_redundant_span
 
   Hint "In order to manipulate the sum better, it would be nice to rewrite the set you are summing over."
   Hint "We need to show that `sw ∪ (sx \\ {w}) = (sw ∪ sx) \\ {w}` when `w ∉ sw`."
-  Hint (hidden := true) "Try `have set_eq : sw ∪ (sx \\ {w}) = (sw ∪ sx) \\ {w} := union_diff_singleton_eq S sw sx w hsw`"
+  Hint (hidden := true) "Try `have set_eq : sw ∪ (sx \\ \{{w}}) = (sw ∪ sx) \\ \{{w}} := union_diff_singleton_eq S sw sx w hsw`"
   have set_eq : sw ∪ (sx \ {w}) = (sw ∪ sx) \ {w} := union_diff_singleton_eq S sw sx w hsw
 
   Hint "Now, let's consider the function we will be summing. To get a sum of `{x}`, we need two parts:
@@ -258,8 +260,8 @@ Statement remove_redundant_span
 
   Hint "Now, you can prove that summing `{fx'}` over our set gives the correct value."
   Hint "We use a helper lemma that shows the sum equality."
-  Hint (hidden := true) "Try `have fx'_sum : x - (fx w • w) = (sw ∪ (sx \\ {w})).sum (fun v => fx' v • v) := fx_sum_equality K V x w sw sx fx fx' hw hfx hfx' set_eq`"
-  have fx'_sum : x - (fx w • w) = (sw ∪ (sx \ {w})).sum (fun v => fx' v • v) := 
+  Hint (hidden := true) "Try `have fx'_sum : x - (fx w • w) = (sw ∪ (sx \\ \{{w}})).sum (fun v => fx' v • v) := fx_sum_equality K V x w sw sx fx fx' hw hfx hfx' set_eq`"
+  have fx'_sum : x - (fx w • w) = (sw ∪ (sx \ {w})).sum (fun v => fx' v • v) :=
     fx_sum_equality K V x w sw sx fx fx' hw hfx hfx' set_eq
 
   Hint "Now, we can create the second function, which will be added to get the missing `{fx} w • w`"
@@ -269,15 +271,13 @@ Statement remove_redundant_span
   have hfw' : fw' = (fun v => ite (v ∈ sw) (fx w * fw v) 0) := rfl
 
   Hint "Prove the sum equality by expanding definitions."
-  Hint (hidden := true) "Try `have fw'_sum : fx w • w = (sw ∪ (sx \\ {w})).sum (fun v => fw' v • v) := fw_sum_equality K V w sw sx fx fw fw' hfw hfw'`"
-  have fw'_sum : fx w • w = (sw ∪ (sx \ {w})).sum (fun v => fw' v • v) := 
+  Hint (hidden := true) "Try `have fw'_sum : fx w • w = (sw ∪ (sx \\ \{{w}})).sum (fun v => fw' v • v) := fw_sum_equality K V w sw sx fx fw fw' hfw hfw'`"
+  have fw'_sum : fx w • w = (sw ∪ (sx \ {w})).sum (fun v => fw' v • v) :=
     fw_sum_equality K V w sw sx fx fw fw' hfw hfw'
 
   Hint "Now, use the functions we have defined"
-  Hint (hidden := true) "Try `use fun v => {fx'} v + {fw'} v`"
+  Hint (hidden := true) "Try `use fun v => {fx'} v + {fw'} v`, then Try `simp only [add_smul]`"
   use fun v => fx' v + fw' v
-
-  Hint (hidden := true) "Try `simp only [add_smul]`"
   simp only [add_smul]
   Hint (hidden := true) "Try `rw[sum_add_distrib, {fx'_sum}.symm, {fw'_sum}.symm]`"
   rw[sum_add_distrib, fx'_sum.symm, fw'_sum.symm]
@@ -297,7 +297,7 @@ Statement remove_redundant_span
   Hint "Lastly, we must prove that `span K V (S \\ \{w}) ⊆ span K V S`. This is simple with span_mono"
   Hint (hidden := true) "Try `apply span_mono`"
   apply span_mono
-  Hint (hidden := true) "Try `exact diff_subset S \{w}`"
+  Hint (hidden := true) "Try `exact diff_subset S \{{w}}`"
   exact diff_subset S {w}
 
 Conclusion "You have now finished the Linear Independence and Span World!"

@@ -14,6 +14,8 @@ who want to have more practice proving difficult theorems in Lean.
 The goal of this level is to prove that if you have some linearly independent set of vectors `S`, and
 some vector `v ∉ span S`, then the set `S ∪ {v}` is also linearly independent.
 
+**Note:** This level may experience a hint display issue where hints repeat. If you see the same hint multiple times, the level is still working correctly - just continue with your proof as normal.
+
 ### How to skip the level
 In this level, you will have access to the `sorry` tactic. This tactic is how you tell Lean \"I couldn't
 finish the proof, but pretend like I did.\" Typing this tactic will always solve the goal, and allow
@@ -139,14 +141,14 @@ Statement linear_independent_insert_of_not_in_span
     Hint (hidden := true) "Try `by_cases hvIns : v ∈ {s}`"
     by_cases hvIns : v ∈ s
 
-    Hint "Now, we want to split {hf} into two, breaking off {v} so we have a sum over a subset of {S}"
+    Hint "Now, we want to split {hf} into two, breaking off \\{v} so we have a sum over a subset of {S}"
     Hint (hidden := true) "Try `rw [sum_eq_sum_diff_singleton_add {hvIns}] at {hf}`"
     rw [sum_eq_sum_diff_singleton_add hvIns] at hf
 
     Hint "Now, that we have a sum over `(s \\ \{v})`, we want to show `↑(s \\ \{v}) ⊆ S`."
-    Hint "**Mathematical Intuition**: Elements in s \\ {v} must be in S since they can't equal v."
-    Hint "We use a helper lemma that proves: if s ⊆ S ∪ {v}, then s \\ {v} ⊆ S."
-    Hint (hidden := true) "Try `have subset : ↑(s \\ \{v}) ⊆ S := subset_diff_singleton_of_union K V S v s hs`"
+    Hint "**Mathematical Intuition**: Elements in s \\ \\{v} must be in S since they can't equal v."
+    Hint "We use a helper lemma that proves: if s ⊆ S ∪ \\{v}, then s \\ \\{v} ⊆ S."
+    Hint (hidden := true) "Try `have subset : ↑(s \\ \{{v}}) ⊆ S := subset_diff_singleton_of_union K V S v s hs`"
     have subset : ↑(s \ {v}) ⊆ S := subset_diff_singleton_of_union K V S v s hs
 
     Hint "Now, we can prove our important lemma, that `{f} v = 0`."
@@ -170,11 +172,11 @@ Statement linear_independent_insert_of_not_in_span
     simp at hf
 
     Hint "Show that w is in s but not equal to v."
-    Hint (hidden := true) "Try `have hwInS : w ∈ s \\ {v} := by (simp; exact ⟨hw, hw2⟩)`"
+    Hint (hidden := true) "Try `have hwInS : w ∈ s \\ \{{v}} := by (simp; exact ⟨hw, hw2⟩)`"
     have hwInS : w ∈ s \ {v} := by (simp; exact ⟨hw, hw2⟩)
 
     Hint "Now, we can apply all of our hypotheses to close the goal"
-    Hint (hidden := true) "Try `exact {hS} ({s} \\ \{v}) {f} {subset} {hf} {w} {hwInS}`"
+    Hint (hidden := true) "Try `exact {hS} ({s} \\ \{{v}}) {f} {subset} {hf} {w} {hwInS}`"
     exact hS (s \ {v}) f subset hf w hwInS
 
     -- Case 2: v ∉ s
@@ -186,12 +188,19 @@ Statement linear_independent_insert_of_not_in_span
       Hint (hidden := true) "Try `exact hS s f s_subset_S hf w hw`"
       exact hS s f s_subset_S hf w hw
     -- Prove the sufficient condition
+    Hint (hidden := true) "Try `intro u hu_in_s`"
     intro u hu_in_s
+    Hint (hidden := true) "Try `cases' hs hu_in_s with hu_in_S hu_eq_v`"
     cases' hs hu_in_s with hu_in_S hu_eq_v
+    Hint (hidden := true) "For the first case, try `exact hu_in_S`"
     · exact hu_in_S
+    Hint (hidden := true) "For the second case, try `simp at hu_eq_v`"
     · simp at hu_eq_v
+      Hint (hidden := true) "Try `rw [hu_eq_v] at hu_in_s`"
       rw [hu_eq_v] at hu_in_s
+      Hint (hidden := true) "Try `exfalso`"
       exfalso
+      Hint (hidden := true) "Try `exact hvIns hu_in_s`"
       exact hvIns hu_in_s
 
     -- The proof is completed by the suffices approach above

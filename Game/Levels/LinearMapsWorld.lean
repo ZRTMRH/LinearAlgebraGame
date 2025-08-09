@@ -5,6 +5,10 @@ import Game.Levels.LinearMapsWorld.Level04
 import Game.Levels.LinearMapsWorld.Level05
 import Game.Levels.LinearMapsWorld.Level06
 import Game.Levels.LinearMapsWorld.Level07
+import Game.Levels.LinearMapsWorld.Level08
+import Game.Levels.LinearMapsWorld.Level09
+import Game.Levels.LinearMapsWorld.Level10
+import Game.Levels.LinearMapsWorld.Level11
 
 namespace LinearAlgebraGame
 

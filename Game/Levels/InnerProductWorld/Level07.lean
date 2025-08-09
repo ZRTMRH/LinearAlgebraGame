@@ -23,6 +23,8 @@ We prove this using orthogonal decomposition. The key insight is to decompose `u
 3. Apply Pythagorean theorem: `‖u‖² = ‖c • v‖² + ‖w‖²`
 4. Since `‖w‖² ≥ 0`, we get `‖u‖² ≥ ‖c • v‖²`
 5. Substitute `c = ⟪u,v⟫ / ‖v‖²` and algebraically simplify
+
+**⚠️ Note:** There may be a bug where hints repeat - this is a known issue with the game framework. Simply continue with your proof if you see duplicate hints.
 "
 
 /--
@@ -102,6 +104,7 @@ Statement Cauchy_Schwarz (u v : V) : ‖⟪u,v⟫‖ ≤ ‖u‖ * ‖v‖ := by
     -- Set up orthogonal decomposition manually
     Hint "We'll decompose u as c•v + w where w is orthogonal to v."
     Hint "The key insight: choose c = ⟪u,v⟫ / ‖v‖² to make w orthogonal to v."
+    Hint "This choice ensures ⟪w, v⟫ = ⟪u - c•v, v⟫ = ⟪u,v⟫ - c•‖v‖² = 0."
     Hint (hidden := true) "Try `let c := ⟪u,v⟫ / (‖v‖^2)`"
     let c := ⟪u,v⟫ / (‖v‖^2)
     Hint (hidden := true) "Try `let w := u - c • v`"
@@ -110,6 +113,7 @@ Statement Cauchy_Schwarz (u v : V) : ‖⟪u,v⟫‖ ≤ ‖u‖ * ‖v‖ := by
     -- Get the decomposition properties directly 
     Hint "Now we establish the key properties of our decomposition."
     Hint "We have u = c • v + w by definition of w."
+    Hint "Think of this geometrically: u is split into a part parallel to v (c•v) and a part perpendicular to v (w)."
     Hint (hidden := true) "Try `have h3 : u = c • v + w := by simp [w]`"
     have h3 : u = c • v + w := by simp [w]
     Hint "The orthogonality follows from our choice of c."
@@ -128,6 +132,7 @@ Statement Cauchy_Schwarz (u v : V) : ‖⟪u,v⟫‖ ≤ ‖u‖ * ‖v‖ := by
     -- Apply Pythagorean theorem
     Hint "Apply the Pythagorean theorem using orthogonality."
     Hint "We want to show ‖u‖² = ‖c • v‖² + ‖w‖²"
+    Hint "Since c•v and w are orthogonal, the Pythagorean theorem tells us their norms add in quadrature."
     Hint "Rewrite u using our decomposition u = c • v + w."
     Hint (hidden := true) "Try `have u_norm_sq : ‖u‖^2 = ‖c • v‖^2 + ‖w‖^2 := norm_sq_decomposition u v w c h3 h5`"
     have u_norm_sq : ‖u‖^2 = ‖c • v‖^2 + ‖w‖^2 := norm_sq_decomposition u v w c h3 h5
@@ -140,11 +145,14 @@ Statement Cauchy_Schwarz (u v : V) : ‖⟪u,v⟫‖ ≤ ‖u‖ * ‖v‖ := by
     Hint "The crucial step: express ‖c • v‖² in terms of the inner product."
     Hint "Since c = ⟪u,v⟫/‖v‖², we get ‖c • v‖² = ‖⟪u,v⟫‖²/‖v‖²."
     -- Get positivity of norm and the key transformation
+    Hint (hidden := true) "Try `have v_pos : 0 < ‖v‖ := norm_pos_of_nonzero v v_zero`"
     have v_pos : 0 < ‖v‖ := norm_pos_of_nonzero v v_zero
+    Hint (hidden := true) "Try `have kt : ‖c • v‖^2 = ‖⟪u,v⟫‖^2/‖v‖^2 := norm_sq_scaled_eq u v c v_pos rfl`"
     have kt : ‖c • v‖^2 = ‖⟪u,v⟫‖^2/‖v‖^2 := norm_sq_scaled_eq u v c v_pos rfl
     
     -- From ‖u‖² = ‖c • v‖² + ‖w‖², and since ‖w‖² ≥ 0, we get ‖u‖² ≥ ‖c • v‖²
     Hint "Since ‖u‖² = ‖c • v‖² + ‖w‖² and ‖w‖² ≥ 0, we have ‖c • v‖² ≤ ‖u‖²."
+    Hint "This is the key inequality: the projection of u onto v has norm at most ‖u‖."
     Hint (hidden := true) "Try `have cv_le_u : ‖c • v‖^2 ≤ ‖u‖^2 := scaled_norm_le_original u v w c u_norm_sq`"
     have cv_le_u : ‖c • v‖^2 ≤ ‖u‖^2 := scaled_norm_le_original u v w c u_norm_sq
     
@@ -155,19 +163,25 @@ Statement Cauchy_Schwarz (u v : V) : ‖⟪u,v⟫‖ ≤ ‖u‖ * ‖v‖ := by
     
     -- Multiply both sides by ‖v‖² to get ‖⟪u,v⟫‖² ≤ ‖u‖² * ‖v‖²
     Hint "Multiplying both sides by ‖v‖² gives ‖⟪u,v⟫‖² ≤ ‖u‖² * ‖v‖²."
+    Hint "We're almost there! This is the squared version of Cauchy-Schwarz."
     -- Since cv_le_u says Complex.abs ⟪u,v⟫^2 / ‖v‖^2 ≤ ‖u‖^2
     -- Multiplying by ‖v‖^2 gives Complex.abs ⟪u,v⟫^2 ≤ ‖u‖^2 * ‖v‖^2
     -- Get the squared inequality by multiplying both sides by ‖v‖^2
+    Hint (hidden := true) "Try `have h_mul := mul_le_mul_of_nonneg_right cv_le_u (sq_nonneg ‖v‖)`"
     have h_mul := mul_le_mul_of_nonneg_right cv_le_u (sq_nonneg ‖v‖)
+    Hint (hidden := true) "Try `simp [div_mul_cancel, v_norm_zero] at h_mul`"
     simp [div_mul_cancel, v_norm_zero] at h_mul
+    Hint (hidden := true) "Try `have sq_ineq : Complex.abs ⟪u,v⟫^2 ≤ ‖u‖^2 * ‖v‖^2 := h_mul`"
     have sq_ineq : Complex.abs ⟪u,v⟫^2 ≤ ‖u‖^2 * ‖v‖^2 := h_mul
     
     -- Convert squared inequality to original
     Hint "Now we can take square roots of both sides to get the original inequality."
+    Hint "Taking square roots preserves inequalities for non-negative numbers."
     Hint "First, rewrite the goal using the fact that ‖⟪u,v⟫‖ = Complex.abs ⟪u,v⟫."
     Hint (hidden := true) "Try `rw [norm_inner_eq_abs]`"
     rw [norm_inner_eq_abs]
     -- Convert to the product squared
+    Hint (hidden := true) "Try `have ts : ‖u‖^2 * ‖v‖^2 = (‖u‖ * ‖v‖)^2 := by (ring)`"
     have ts : ‖u‖^2 * ‖v‖^2 = (‖u‖ * ‖v‖)^2 := by (ring)
     Hint (hidden := true) "Try `rw [ts] at sq_ineq`"
     rw [ts] at sq_ineq

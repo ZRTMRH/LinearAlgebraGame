@@ -24,6 +24,8 @@ The triangle inequality is a cornerstone of normed spaces. For any vectors $u$ a
 - Finish by taking square roots, using nonnegativity of norm.
 
 This property is what makes $\\|\\cdot\\|$ a norm, ensuring our vector space is a metric space!
+
+**⚠️ Note:** There may be a bug where hints repeat - this is a known issue with the game framework. Simply continue with your proof if you see duplicate hints.
 "
 
 /--
@@ -82,8 +84,14 @@ Statement triangle_v (u v : V) : ‖u+v‖ ≤ ‖u‖ + ‖v‖ := by
   -- First prove the squared inequality
   Hint "First we prove ‖u+v‖² ≤ (‖u‖ + ‖v‖)²."
   · Hint "Expand both sides using norm_sq_eq and algebra."
-    Hint (hidden := true) "Try `rw [norm_sq_eq, add_sq, norm_sq_eq, norm_sq_eq, inner_expansion]`"
-    rw [norm_sq_eq, add_sq, norm_sq_eq, norm_sq_eq, inner_expansion]
+    Hint (hidden := true) "Try `rw [norm_sq_eq]`"
+    rw [norm_sq_eq]
+    Hint (hidden := true) "Try `rw [add_sq]`"
+    rw [add_sq]
+    Hint (hidden := true) "Try `rw [norm_sq_eq, norm_sq_eq]`"
+    rw [norm_sq_eq, norm_sq_eq]
+    Hint (hidden := true) "Try `rw [inner_expansion]`"
+    rw [inner_expansion]
     
     Hint "Use the cross term bound from Cauchy-Schwarz."
     Hint (hidden := true) "Try `linarith [cross_bound]`"

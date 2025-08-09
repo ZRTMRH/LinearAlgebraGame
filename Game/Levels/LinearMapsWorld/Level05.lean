@@ -71,8 +71,10 @@ Statement range_is_subspace (T : V → W) (hT : is_linear_map_v K V W T) :
     obtain ⟨v2, hv2⟩ := hw2
     Hint (hidden := true) "Try `use v1 + v2`"
     use v1 + v2
-    Hint (hidden := true) "Try `rw [hT.1 v1 v2, hv1, hv2]`"
-    rw [hT.1 v1 v2, hv1, hv2]
+    Hint (hidden := true) "Try `rw [hT.1 v1 v2]`"
+    rw [hT.1 v1 v2]
+    Hint (hidden := true) "Try `rw [hv1, hv2]`"
+    rw [hv1, hv2]
   Hint "For scalar multiplication, if w = T(v), then a•w = T(a•v)."
   · -- Closed under scalar multiplication
     Hint (hidden := true) "Try `intro a w hw`"
@@ -81,8 +83,10 @@ Statement range_is_subspace (T : V → W) (hT : is_linear_map_v K V W T) :
     obtain ⟨v, hv⟩ := hw
     Hint (hidden := true) "Try `use a • v`"
     use a • v
-    Hint (hidden := true) "Try `rw [hT.2 a v, hv]`"
-    rw [hT.2 a v, hv]
+    Hint (hidden := true) "Try `rw [hT.2 a v]`"
+    rw [hT.2 a v]
+    Hint (hidden := true) "Try `rw [hv]`"
+    rw [hv]
 
 Conclusion "
 You've proven that the range is always a subspace!
