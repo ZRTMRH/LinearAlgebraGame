@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.7.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: Wed Jul 30 22:52:42 2025\n"
+"POT-Creation-Date: Sat Aug  9 09:14:48 2025\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -1654,19 +1654,19 @@ msgid "Try `use {v}`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level02
-msgid "Now, you have to specify the function you are using to map vectors to the scalars they will be multiplied by"
+msgid "Now, you have to specify the function you are using to map vectors to the scalars they will be multiplied by. After this step, you'll need to use `simp` to simplify the goal."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level02
-msgid "Try `use (fun x => 1)`"
+msgid "Try `use (fun _x => 1)`"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level02
+msgid "Now you need to show that this construction satisfies the required properties."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level02
 msgid "This is an and statement, so you could use the `constructor` tactic and work from there. Instead, try `simp` and see what happens"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level02
-msgid "Try `simp`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level02
@@ -2266,80 +2266,15 @@ msgid "Try `specialize hS (union_subset hs ht)`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level08
-msgid "Now, we have to show that `(Finset.sum (s ∪ t) fun v => (f - g) v • v) = 0`. This will\n"
-"be difficult, so try proving it with a `have` statement. Remember to add braces after `by`."
+msgid "We need to show that the sum of the difference function equals zero."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level08
-msgid "Try `have lemmaSumDiffEqZero : (Finset.sum (s ∪ t) fun v => (f - g) v • v) = 0 := by`"
+msgid "This follows from our helper lemma about equal linear combinations."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level08
-msgid "It would be nice if we could distribute the `f - g` through the `•` operator. Try proving\n"
-"`(fun v => (f - g) v • v) = (fun (v : V) => ((f v) • v) - ((g v) • v))` with another `have` statement. Remember to add braces after `by`."
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level08
-msgid "Try `  have fun_dist : (fun v => (f - g) v • v) = (fun (v : V) => ((f v) • v) - ((g v) • v)) := by`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level08
-msgid "Try `    funext v`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level08
-msgid "Try `    exact sub_smul (f v) (g v) v`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level08
-msgid "Try `  rw[fun_dist]`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level08
-msgid "Now, we can split the sum in two"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level08
-msgid "Try `  rw[sum_sub_distrib]`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level08
-msgid "We now have two sums. The first one should be equivalent to our first linear combination,\n"
-"and the second should be equivalent to our second linear combination. We need to change the sets\n"
-"they are being summed over. We have a theorem that can do this, but it needs a hypothesis that we\n"
-"don't have. Try proving these hypotheses with a `have` statement. Remember to add braces after `by`."
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level08
-msgid "Try `  have hfprod0 : ∀ v ∈ s ∪ t,  v ∉ s → f v • v = 0 := by`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level08
-msgid "Try `intros v _hv1 hv2; rw[hf0 v hv2]; exact zero_smul_v K V v`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level08
-msgid "Try `have hgprod0 : ∀ v ∈ s ∪ t,  v ∉ t → g v • v = 0 := by`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level08
-msgid "Try `intros v _hv1 hv2; rw[hg0 v hv2]; exact zero_smul_v K V v`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level08
-msgid "Try `  rw [(sum_subset (f := fun v => f v • v) (subset_union_left s t) hfprod0).symm]`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level08
-msgid "Try `  rw [(sum_subset (f := fun v => g v • v) (subset_union_right s t) hgprod0).symm]`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level08
-msgid "Now, we use the fact that the two sums are equal to finish the proof of the lemma"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level08
-msgid "Try `rw[heq]; simp`"
+msgid "Try `have lemmaSumDiffEqZero := sum_diff_eq_zero_of_equal_combinations K V s t f g hf0 hg0 heq`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level08
@@ -2494,124 +2429,31 @@ msgid "Try `rw [sum_eq_sum_diff_singleton_add «{hvIns}»] at «{hf}»`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Now, that we have a sum over `(s \\ {v})`, we want to show `↑(s \\ {v}) ⊆ S`. Remember to add braces after `by`."
+msgid "Now, that we have a sum over `(s \\ {v})`, we want to show `↑(s \\ {v}) ⊆ S`."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Try `have subset : ↑(«{s}» \\ {v}) ⊆ S := by`"
+msgid "**Mathematical Intuition**: Elements in s \\ «{v}» must be in S since they can't equal v."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Try `intros x hx`"
+msgid "We use a helper lemma that proves: if s ⊆ S ∪ «{v}», then s \\ «{v}» ⊆ S."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Try `simp at «{hx}»`"
+msgid "Try `have subset : ↑(s \\ {v}) ⊆ S := subset_diff_singleton_of_union K V S v s hs`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Try `cases' «{hx}» with xs xNev`"
+msgid "Now, we can prove our important lemma, that `«{f}» v = 0`."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Try `have xInUnion := «{hs}» «{xs}»`"
+msgid "We'll use proof by contradiction. If f v ≠ 0, we can express v as a linear combination of elements in S."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Try `simp at «{xInUnion}»`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Try `cases' «{xInUnion}» with xEqv xInS`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Try `exfalso`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Try `exact «{xNev}» «{xEqv}»`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Try `exact «{xInS}»`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Now, we can prove our important lemma, that `«{f}» v = 0`. Remember to add braces after `by`."
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Try `have lemma_fv_zero : «{f}» v = 0 := by`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "A good way to prove this is by contradiction"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Try `by_contra hfv_ne_zero`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "In order to use «{hv_not_span}», we need to show «{v}» as a linear combination of a subset of «{S}».\n"
-"This can be done with a `have` statement. Remember to add braces after `by`."
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Try `have hvLinearCombo : v = («{s}» \\ {v}).sum (fun x => (-(«{f}» v)⁻¹ * («{f}» x)) • x) := by`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Not that the `simp only [theorem]` tactic allows us to rewrite using theorems inside a function, which cannot be done with just rw"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Try `simp only [mul_smul]`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Now, use some of the theorems we have to simplify the goal to an equality"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Try `rw[(smul_sum (r := -(«{f}» v)⁻¹) (f := fun x => «{f}» x • x) (s := («{s}» \\ {v}))).symm]`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Try `rw [(neg_add_self ((«{f}» v) • v)).symm] at «{hf}»`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Try `rw[add_right_cancel «{hf}»]`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Try `simp`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Try `rw[(mul_smul («{f}» v)⁻¹ («{f}» v) v).symm]`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Try `rw[inv_mul_cancel «{hfv_ne_zero}», one_smul]`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Now, we can use «{hv_not_span}» to find our contradiction"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Try `specialize «{hv_not_span}» («{s}» \\ {v})`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Try `specialize «{hv_not_span}» «{subset}» (fun x => -(«{f}» v)⁻¹ * («{f}» x))`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Try `exact «{hv_not_span}» «{hvLinearCombo}»`"
+msgid "Try `have lemma_fv_zero : f v = 0 := zero_coeff_from_not_in_span K V S v s f hv_not_span hvIns subset hf`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
@@ -2644,27 +2486,11 @@ msgid "Try `simp at «{hf}»`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "We want to show that `«{w}» ∈ «{s}» \\ {«{v}»}`. Remember to add braces after `by`."
+msgid "Show that w is in s but not equal to v."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Try `have hwInS : «{w}» ∈ «{s}» \\ {v} := by`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Try `simp`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Try `constructor`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Try `exact hw`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Try `exact hw2`"
+msgid "Try `have hwInS : w ∈ s \\ «{v}» := by (simp; exact ⟨hw, hw2⟩)`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
@@ -2676,51 +2502,19 @@ msgid "Try `exact «{hS}» («{s}» \\ {v}) «{f}» «{subset}» «{hf}» «{w}�
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "We now need to show that s ⊆ S, and we can use the linear independence of S to show s is linearly independent. Remember to add braces after `by`."
+msgid "Show that s is a subset of S using case analysis."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Try `have s_subset_S : ↑«{s}» ⊆ S := by`"
+msgid "Try `suffices s_subset_S : ↑s ⊆ S`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Try `intro u hu_in_s`"
+msgid "Apply linear independence to finish the proof."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Try `cases' «{hs}» «{hu_in_s}» with hu_in_S hu_eq_v`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Try `exact «{hu_in_S}»`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Try `simp at «{hu_eq_v}»`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Try `rw [«{hu_eq_v}»] at «{hu_in_s}»`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Try `exfalso`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Try `exact «{hvIns}» «{hu_in_s}»`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Now, we can use the linear independence of S to finish the proof"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Note: The game may appear to stall after the next step. If it does, you can proceed to the next level - the proof is complete."
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level09
-msgid "Try `exact «{hS}» «{s}» «{f}» «{s_subset_S}» «{hf}» «{w}» «{hw}»`"
+msgid "Try `exact hS s f s_subset_S hf w hw`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level10
@@ -2903,108 +2697,15 @@ msgid "Try `exact subset_trans «{hsx}» (subset_insert w S)`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "In order to manipulate the sum better, it would be nice to rewrite the set you are summing over.\n"
-"You can use a `have` statement to show that this set is equal to `(«{sw}» ∪ «{sw}» \\ {w})`. Remember to add braces after `by`."
+msgid "In order to manipulate the sum better, it would be nice to rewrite the set you are summing over."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `have set_eq : «{sw}» ∪ («{sx}» \\ {w}) = («{sw}» ∪ «{sx}») \\ {w} := by`"
+msgid "We need to show that `sw ∪ (sx \\ «{w}») = (sw ∪ sx) \\ «{w}»` when `w ∉ sw`."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `apply Finset.Subset.antisymm_iff.2`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `constructor`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `intro x hx`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `simp`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `simp at «{hx}»`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `constructor`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `tauto`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `cases' «{hx}» with hInsw hInsx`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `intro hEqW`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `rw[«{hEqW}»] at «{hInsw}»`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `have hContra := «{hsw}» «{hInsw}»`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try simp at «{hContra}»``"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `exact «{hInsx}».2`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `intro x hx`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `simp`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `simp at «{hx}»`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `cases' «{hx}» with hl hr`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `cases' «{hl}» with hInsw hInsx`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `left`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `exact «{hInsw}»`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `right`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `constructor`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `exact «{hInsx}»`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `exacr «{hr}»`"
+msgid "Try `have set_eq : sw ∪ (sx \\ «{w}») = (sw ∪ sx) \\ «{w}» := union_diff_singleton_eq S sw sx w hsw`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level10
@@ -3024,60 +2725,15 @@ msgid "Try `have hfx' : «{fx'}» = (fun v => (ite (v ∈ «{sx}») («{fx}» v)
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Now, you can prove that summing `«{fx'}»` over our set gives the correct value. Prove this with\n"
-"a `have` statement. Remember to add braces after `by`."
+msgid "Now, you can prove that summing `«{fx'}»` over our set gives the correct value."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `have fx'_sum : «{x}» - («{fx}» w • w) = («{sw}» ∪ («{sx}» \\ {w})).sum (fun v => «{fx'}» v • v) := by`"
+msgid "We use a helper lemma that shows the sum equality."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `rw[set_eq]`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `apply add_right_cancel (b := «{fx}» w • w)`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `simp`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `have hfx'w : «{fx}» w = «{fx'}» w := by`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `rw[«{hfx'}»]`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `simp only [«{hw}»]`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `simp`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `rw[«{hfx'w}»]`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `rw[(sum_eq_sum_diff_singleton_add (mem_union_right «{sw}» «{hw}») (fun v => «{fx'}» v • v)).symm]`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `rw[«{hfx'}»]`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `simp`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `exact «{hfx}»`"
+msgid "Try `have fx'_sum : x - (fx w • w) = (sw ∪ (sx \\ «{w}»)).sum (fun v => fx' v • v) := fx_sum_equality K V x w sw sx fx fx' hw hfx hfx' set_eq`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level10
@@ -3093,31 +2749,11 @@ msgid "Try `have hfw' : «{fw'}» = (fun v => ite (v ∈ «{sw}») («{fx}» w *
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Again, prove that the function sums to the correct value. Remember to add braces after `by`."
+msgid "Prove the sum equality by expanding definitions."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `have fw'_sum : «{fx}» w • w = («{sw}» ∪ («{sx}» \\ {w})).sum (fun v => «{fw'}» v • v) := by`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `rw[«{hfw'}»]`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `simp`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `simp only [mul_smul]`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `rw[(smul_sum (r := «{fx}» w) (s := «{sw}») (f := fun v => «{fw}» v • v)).symm]`"
-msgstr ""
-
-#: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `rw[«{hfw}»]`"
+msgid "Try `have fw'_sum : fx w • w = (sw ∪ (sx \\ «{w}»)).sum (fun v => fw' v • v) := fw_sum_equality K V w sw sx fx fw fw' hfw hfw'`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level10
@@ -3153,7 +2789,7 @@ msgid "Try `constructor`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level10
-msgid "Try `exact subset_diff_singleton «{hsx}» «{hw}»`"
+msgid "Try `exact Set.subset_diff_singleton hsx hw`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level10
@@ -3442,6 +3078,8 @@ msgid "## The Goal\n"
 "you multiply by the complex norm of the scalar. The proof here takes multiple steps. The first idea\n"
 "is to square each side, getting rid of the square roots. Then, you can use multiple theorems to rewrite\n"
 "the goal to be solved by an exact statement.\n"
+"\n"
+"**Note:** This level may experience a hint display issue where hints repeat. If you see the same hint multiple times, the level is still working correctly - just continue with your proof as normal.\n"
 "\n"
 "## The `ring` tactic\n"
 "`ring` again acts very similar to `linarith`, but it works for equations using rings. Rings are basically\n"
@@ -3866,7 +3504,11 @@ msgid "Now we establish the key properties of our decomposition."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
-msgid "Try `have h3 : u = c • v + w := by simp [c, w]`"
+msgid "We have u = c • v + w by definition of w."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "Try `have h3 : u = c • v + w := by simp [w]`"
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
@@ -3886,23 +3528,7 @@ msgid "Try `have g3 : 0 ≤ ‖u‖ * ‖v‖ := mul_nonneg (norm_nonneg_v u) (n
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
-msgid "We reduce to proving the squared version of the inequality."
-msgstr ""
-
-#: Game.Levels.InnerProductWorld.Level07
-msgid "Try `suffices ‖⟪u,v⟫‖^2 ≤ ‖u‖^2 * ‖v‖^2 by exact le_of_sq_le_sq this g3`"
-msgstr ""
-
-#: Game.Levels.InnerProductWorld.Level07
-msgid "Try `have ts : ‖u‖^2 * ‖v‖^2 = (‖u‖ * ‖v‖)^2 := by ring`"
-msgstr ""
-
-#: Game.Levels.InnerProductWorld.Level07
-msgid "Try `rw [ts] at this`"
-msgstr ""
-
-#: Game.Levels.InnerProductWorld.Level07
-msgid "Try `exact le_of_sq_le_sq this g3`"
+msgid "We'll prove the squared version ‖⟪u,v⟫‖² ≤ ‖u‖² * ‖v‖² and then take square roots."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
@@ -3910,19 +3536,19 @@ msgid "Apply the Pythagorean theorem using orthogonality."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
-msgid "Try `have h6 := pythagorean (c• v) w h5`"
+msgid "We want to show ‖u‖² = ‖c • v‖² + ‖w‖²"
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
-msgid "Try `nth_rw 2 [h3]`"
+msgid "Rewrite u using our decomposition u = c • v + w."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
-msgid "Try `rw [h6]`"
+msgid "Try `have u_norm_sq : ‖u‖^2 = ‖c • v‖^2 + ‖w‖^2 := norm_sq_decomposition u v w c h3 h5`"
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
-msgid "Try `have v_norm_zero : ‖v‖ ≠ 0 := by by_contra h; rw [norm_zero_v v] at h; contradiction`"
+msgid "Try `have v_norm_zero : ‖v‖ ≠ 0 := norm_nonzero_of_nonzero v v_zero`"
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
@@ -3934,31 +3560,43 @@ msgid "Since c = ⟪u,v⟫/‖v‖², we get ‖c • v‖² = ‖⟪u,v⟫‖²
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
-msgid "Now substitute our expression for ‖c • v‖²."
+msgid "Since ‖u‖² = ‖c • v‖² + ‖w‖² and ‖w‖² ≥ 0, we have ‖c • v‖² ≤ ‖u‖²."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
-msgid "Try `rw [kt]`"
+msgid "Try `have cv_le_u : ‖c • v‖^2 ≤ ‖u‖^2 := scaled_norm_le_original u v w c u_norm_sq`"
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
-msgid "Distribute the multiplication and simplify fractions."
+msgid "Substituting our expression for ‖c • v‖², we get ‖⟪u,v⟫‖²/‖v‖² ≤ ‖u‖²."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
-msgid "Try `rw [add_mul]`"
+msgid "Try `rw [kt] at cv_le_u`"
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
-msgid "Try `field_simp [v_norm_zero]`"
+msgid "Multiplying both sides by ‖v‖² gives ‖⟪u,v⟫‖² ≤ ‖u‖² * ‖v‖²."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
-msgid "The final step: ‖w‖² ≥ 0 always holds since norms are non-negative."
+msgid "Now we can take square roots of both sides to get the original inequality."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
-msgid "Try `exact norm_sq_nonneg w`"
+msgid "First, rewrite the goal using the fact that ‖⟪u,v⟫‖ = Complex.abs ⟪u,v⟫."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "Try `rw [norm_inner_eq_abs]`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "Try `rw [ts] at sq_ineq`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "Try `exact le_of_sq_le_sq sq_ineq g3`"
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level08
@@ -3991,39 +3629,23 @@ msgid "The triangle inequality is a fundamental property of norms in inner produ
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level08
-msgid "It's easier to prove the squared version first."
+msgid "We'll prove the squared version first, then take square roots."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level08
-msgid "Try `suffices ‖u+v‖^2 ≤ (‖u‖ + ‖v‖)^2 by exact le_of_sq_le_sq this (add_nonneg (norm_nonneg_v u) (norm_nonneg_v v))`"
+msgid "Try `have rhs_nonneg : 0 ≤ ‖u‖ + ‖v‖ := add_nonneg (norm_nonneg_v u) (norm_nonneg_v v)`"
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level08
-msgid "Try `exact le_of_sq_le_sq this (add_nonneg (norm_nonneg_v u) (norm_nonneg_v v))`"
+msgid "We'll work with the squared versions of both sides."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level08
-msgid "Expand using the inner product and apply Cauchy-Schwarz."
+msgid "First get the inner product expansion for ⟪u+v, u+v⟫."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level08
-msgid "Try `rw [norm_sq_eq, add_sq, norm_sq_eq, norm_sq_eq]`"
-msgstr ""
-
-#: Game.Levels.InnerProductWorld.Level08
-msgid "First expand the inner product ⟪u+v, u+v⟫ using linearity."
-msgstr ""
-
-#: Game.Levels.InnerProductWorld.Level08
-msgid "This will give us ⟪u,u⟫ + ⟪v,v⟫ + ⟪u,v⟫ + ⟪v,u⟫."
-msgstr ""
-
-#: Game.Levels.InnerProductWorld.Level08
-msgid "Try `have inner_expansion : ⟪u+v, u+v⟫.re = ⟪u,u⟫.re + ⟪v,v⟫.re + 2*⟪u,v⟫.re := by rw [InnerProductSpace_v.inner_add_left, inner_add_right_v, inner_add_right_v]; simp only [Complex.add_re]; rw [InnerProductSpace_v.inner_conj_symm v u, Complex.conj_re]; ring`"
-msgstr ""
-
-#: Game.Levels.InnerProductWorld.Level08
-msgid "Try `rw [inner_expansion]`"
+msgid "Try `have inner_expansion := inner_product_expansion u v`"
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level08
@@ -4035,15 +3657,55 @@ msgid "We know |⟪u,v⟫| ≤ ‖u‖ * ‖v‖, so ⟪u,v⟫.re ≤ ‖u‖ * 
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level08
-msgid "Try `have cross_bound : ⟪u,v⟫.re ≤ ‖u‖ * ‖v‖ := by have cs := Cauchy_Schwarz u v; rw [norm_inner_eq_abs] at cs; exact le_trans (re_le_abs ⟪u,v⟫) cs`"
+msgid "Use Cauchy-Schwarz to bound the real part of the inner product."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level08
-msgid "Finally, use linear arithmetic to complete the proof."
+msgid "This follows from our helper lemma for cross term bounds."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level08
+msgid "Try `have cross_bound := cross_term_bound u v`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level08
+msgid "Now we'll prove the squared inequality and take square roots."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level08
+msgid "We'll show ‖u+v‖² ≤ (‖u‖ + ‖v‖)² using the expansion and Cauchy-Schwarz."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level08
+msgid "Try `apply le_of_sq_le_sq`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level08
+msgid "First we prove ‖u+v‖² ≤ (‖u‖ + ‖v‖)²."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level08
+msgid "Expand both sides using norm_sq_eq and algebra."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level08
+msgid "Try `rw [norm_sq_eq, add_sq, norm_sq_eq, norm_sq_eq, inner_expansion]`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level08
+msgid "Use the cross term bound from Cauchy-Schwarz."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level08
 msgid "Try `linarith [cross_bound]`"
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level08
+msgid "The right-hand side ‖u‖ + ‖v‖ is non-negative."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level08
+msgid "Try `exact rhs_nonneg`"
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level08

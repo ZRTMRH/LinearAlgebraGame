@@ -95,17 +95,12 @@ Statement fundamental_theorem_educational (T : V → W) (hT : is_linear_map_v K 
   unfold null_space_v at hv
   Hint (hidden := true) "Try `simp at hv`"
   simp at hv
-  -- We know T v = 0 and T 0 = 0
-  Hint (hidden := true) "Try `have h_T_zero : T 0 = 0 := by have h := hT.2 (0 : K) (0 : V); simp at h; exact h`"
-  have h_T_zero : T 0 = 0 := by
-    have h := hT.2 (0 : K) (0 : V)
-    simp at h
-    exact h
-  -- Since T is injective and T v = T 0 = 0
-  Hint (hidden := true) "Try `have h_eq : v = 0 := h_inj v 0 (by rw [hv, h_T_zero])`"
-  have h_eq : v = 0 := h_inj v 0 (by rw [hv, h_T_zero])
-  Hint (hidden := true) "Try `exact h_eq`"
-  exact h_eq
+  -- Apply injectivity: since T v = 0 = T 0, we get v = 0
+  Hint "Apply injectivity to T v = 0 and T 0 = 0."
+  Hint (hidden := true) "Try `apply h_inj; rw [hv]; simp [hT.2]`"
+  apply h_inj
+  rw [hv]
+  simp [hT.2]
 
 /--
 Educational demonstration: the principle that makes the Fundamental Theorem work.

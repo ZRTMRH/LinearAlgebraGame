@@ -46,6 +46,62 @@ in `S \\ {w}`, and recombine the sums.
 open VectorSpace Finset Set
 variable (K V : Type) [Field K] [AddCommGroup V] [DecidableEq V] [VectorSpace K V]
 
+/-- Helper lemma: Union of sets minus singleton equals union minus singleton when w ∉ sw -/
+lemma union_diff_singleton_eq {V : Type} [DecidableEq V] 
+  (S : Set V) (sw sx : Finset V) (w : V) (hsw : ↑sw ⊆ S \ {w}) : 
+  sw ∪ (sx \ {w}) = (sw ∪ sx) \ {w} := by
+  apply Finset.Subset.antisymm_iff.2
+  constructor
+  · intro x hx
+    simp
+    simp at hx
+    constructor
+    · tauto
+    · cases' hx with hInsw hInsx
+      · intro hEqW
+        rw[hEqW] at hInsw
+        have hContra := hsw hInsw
+        simp at hContra
+      · exact hInsx.2
+  · intro x hx
+    simp
+    simp at hx
+    cases' hx with hl hr
+    cases' hl with hInsw hInsx
+    · left
+      exact hInsw
+    · right
+      constructor
+      · exact hInsx
+      · exact hr
+
+/-- Helper lemma: Sum over union equals x minus fx(w)•w when fx' is zero outside sx -/
+lemma fx_sum_equality (K V : Type) [Field K] [AddCommGroup V] [DecidableEq V] [VectorSpace K V]
+  (x w : V) (sw sx : Finset V) (fx : V → K) (fx' : V → K)
+  (hw : w ∈ sx) (hfx : x = sx.sum (fun v => fx v • v))
+  (hfx' : fx' = fun v => ite (v ∈ sx) (fx v) 0)
+  (set_eq : sw ∪ (sx \ {w}) = (sw ∪ sx) \ {w}) :
+  x - (fx w • w) = (sw ∪ (sx \ {w})).sum (fun v => fx' v • v) := by
+  rw[set_eq]
+  apply add_right_cancel (b := fx w • w)
+  simp
+  have hfx'w : fx w = fx' w := by rw[hfx']; simp only [hw]; simp
+  rw[hfx'w]
+  rw[(sum_eq_sum_diff_singleton_add (mem_union_right sw hw) (fun v => fx' v • v)).symm]
+  rw[hfx']
+  simp
+  exact hfx
+
+/-- Helper lemma: fx(w)•w equals sum of fw' over union -/
+lemma fw_sum_equality (K V : Type) [Field K] [AddCommGroup V] [DecidableEq V] [VectorSpace K V]
+  (w : V) (sw sx : Finset V) (fx fw : V → K) (fw' : V → K)
+  (hfw : w = sw.sum (fun v => fw v • v))
+  (hfw' : fw' = fun v => ite (v ∈ sw) (fx w * fw v) 0) :
+  fx w • w = (sw ∪ (sx \ {w})).sum (fun v => fw' v • v) := by
+  rw[hfw']; simp; simp only [mul_smul]
+  rw[(smul_sum (r := fx w) (s := sw) (f := fun v => fw v • v)).symm]
+  rw[hfw]
+
 /--
 `subset_insert` is a proof that any set is a subset of itself with an element inserted. In Lean, the
 syntax is as follows: if `s : Set T` is a set, and you have `x : T`, then `s ⊆ Set.insert x s`
@@ -185,68 +241,10 @@ Statement remove_redundant_span
   Hint (hidden := true) "Try `exact subset_trans {hsx} (subset_insert w S)`"
   exact subset_trans hsx (subset_insert w S)
 
-  Hint "In order to manipulate the sum better, it would be nice to rewrite the set you are summing over.
-  You can use a `have` statement to show that this set is equal to `({sw} ∪ {sw} \\ \{w})`. Remember to add braces after `by`."
-  Hint (hidden := true) "Try `have set_eq : {sw} ∪ ({sx} \\ \{w}) = ({sw} ∪ {sx}) \\ \{w} := by`"
-  have set_eq : sw ∪ (sx \ {w}) = (sw ∪ sx) \ {w} := by
-    Hint (hidden := true) "Try `apply Finset.Subset.antisymm_iff.2`"
-    apply Finset.Subset.antisymm_iff.2
-    Hint (hidden := true) "Try `constructor`"
-    constructor
-
-    Hint (hidden := true) "Try `intro x hx`"
-    intro x hx
-
-    Hint (hidden := true) "Try `simp`"
-    simp
-    Hint (hidden := true) "Try `simp at {hx}`"
-    simp at hx
-
-    Hint (hidden := true) "Try `constructor`"
-    constructor
-    Hint (hidden := true) "Try `tauto`"
-    tauto
-
-    Hint (hidden := true) "Try `cases' {hx} with hInsw hInsx`"
-    cases' hx with hInsw hInsx
-
-    Hint (hidden := true) "Try `intro hEqW`"
-    intro hEqW
-    Hint (hidden := true) "Try `rw[{hEqW}] at {hInsw}`"
-    rw[hEqW] at hInsw
-    Hint (hidden := true) "Try `have hContra := {hsw} {hInsw}`"
-    have hContra := hsw hInsw
-    Hint (hidden := true) "Try simp at {hContra}``"
-    simp at hContra
-
-    Hint (hidden := true) "Try `exact {hInsx}.2`"
-    exact hInsx.2
-
-    Hint (hidden := true) "Try `intro x hx`"
-    intro x hx
-    Hint (hidden := true) "Try `simp`"
-    simp
-    Hint (hidden := true) "Try `simp at {hx}`"
-    simp at hx
-
-    Hint (hidden := true) "Try `cases' {hx} with hl hr`"
-    cases' hx with hl hr
-    Hint (hidden := true) "Try `cases' {hl} with hInsw hInsx`"
-    cases' hl with hInsw hInsx
-
-    Hint (hidden := true) "Try `left`"
-    left
-    Hint (hidden := true) "Try `exact {hInsw}`"
-    exact hInsw
-
-    Hint (hidden := true) "Try `right`"
-    right
-    Hint (hidden := true) "Try `constructor`"
-    constructor
-    Hint (hidden := true) "Try `exact {hInsx}`"
-    exact hInsx
-    Hint (hidden := true) "Try `exacr {hr}`"
-    exact hr
+  Hint "In order to manipulate the sum better, it would be nice to rewrite the set you are summing over."
+  Hint "We need to show that `sw ∪ (sx \\ {w}) = (sw ∪ sx) \\ {w}` when `w ∉ sw`."
+  Hint (hidden := true) "Try `have set_eq : sw ∪ (sx \\ {w}) = (sw ∪ sx) \\ {w} := union_diff_singleton_eq S sw sx w hsw`"
+  have set_eq : sw ∪ (sx \ {w}) = (sw ∪ sx) \ {w} := union_diff_singleton_eq S sw sx w hsw
 
   Hint "Now, let's consider the function we will be summing. To get a sum of `{x}`, we need two parts:
   the sum over `S` getting `{x}`, and the sum over `S \\ \{w}` to get `w`. This can be thought of as
@@ -258,38 +256,11 @@ Statement remove_redundant_span
   Hint (hidden := true) "Try `have hfx' : {fx'} = (fun v => (ite (v ∈ {sx}) ({fx} v) 0)) := rfl`"
   have hfx' : fx' = (fun v => (ite (v ∈ sx) (fx v) 0)) := rfl
 
-  Hint "Now, you can prove that summing `{fx'}` over our set gives the correct value. Prove this with
-  a `have` statement. Remember to add braces after `by`."
-  Hint (hidden := true) "Try `have fx'_sum : {x} - ({fx} w • w) = ({sw} ∪ ({sx} \\ \{w})).sum (fun v => {fx'} v • v) := by`"
-  have fx'_sum : x - (fx w • w) = (sw ∪ (sx \ {w})).sum (fun v => fx' v • v) := by
-
-    Hint (hidden := true) "Try `rw[set_eq]`"
-    rw[set_eq]
-
-    Hint (hidden := true) "Try `apply add_right_cancel (b := {fx} w • w)`"
-    apply add_right_cancel (b := fx w • w)
-    Hint (hidden := true) "Try `simp`"
-    simp
-
-    Hint (hidden := true) "Try `have hfx'w : {fx} w = {fx'} w := by`"
-    have hfx'w : fx w = fx' w := by
-      Hint (hidden := true) "Try `rw[{hfx'}]`"
-      rw[hfx']
-      Hint (hidden := true) "Try `simp only [{hw}]`"
-      simp only [hw]
-      Hint (hidden := true) "Try `simp`"
-      simp
-
-    Hint (hidden := true) "Try `rw[{hfx'w}]`"
-    rw[hfx'w]
-    Hint (hidden := true) "Try `rw[(sum_eq_sum_diff_singleton_add (mem_union_right {sw} {hw}) (fun v => {fx'} v • v)).symm]`"
-    rw[(sum_eq_sum_diff_singleton_add (mem_union_right sw hw) (fun v => fx' v • v)).symm]
-    Hint (hidden := true) "Try `rw[{hfx'}]`"
-    rw[hfx']
-    Hint (hidden := true) "Try `simp`"
-    simp
-    Hint (hidden := true) "Try `exact {hfx}`"
-    exact hfx
+  Hint "Now, you can prove that summing `{fx'}` over our set gives the correct value."
+  Hint "We use a helper lemma that shows the sum equality."
+  Hint (hidden := true) "Try `have fx'_sum : x - (fx w • w) = (sw ∪ (sx \\ {w})).sum (fun v => fx' v • v) := fx_sum_equality K V x w sw sx fx fx' hw hfx hfx' set_eq`"
+  have fx'_sum : x - (fx w • w) = (sw ∪ (sx \ {w})).sum (fun v => fx' v • v) := 
+    fx_sum_equality K V x w sw sx fx fx' hw hfx hfx' set_eq
 
   Hint "Now, we can create the second function, which will be added to get the missing `{fx} w • w`"
   Hint (hidden := true) "Try `let fw' := fun v => ite (v ∈ {sw}) ({fx} w * {fw} v) 0`"
@@ -297,20 +268,10 @@ Statement remove_redundant_span
   Hint (hidden := true) "Try `have hfw' : {fw'} = (fun v => ite (v ∈ {sw}) ({fx} w * {fw} v) 0) := rfl`"
   have hfw' : fw' = (fun v => ite (v ∈ sw) (fx w * fw v) 0) := rfl
 
-  Hint "Again, prove that the function sums to the correct value. Remember to add braces after `by`."
-  Hint (hidden := true) "Try `have fw'_sum : {fx} w • w = ({sw} ∪ ({sx} \\ \{w})).sum (fun v => {fw'} v • v) := by`"
-  have fw'_sum : fx w • w = (sw ∪ (sx \ {w})).sum (fun v => fw' v • v) := by
-    Hint (hidden := true) "Try `rw[{hfw'}]`"
-    rw[hfw']
-    Hint (hidden := true) "Try `simp`"
-    simp
-    Hint (hidden := true) "Try `simp only [mul_smul]`"
-    simp only [mul_smul]
-
-    Hint (hidden := true) "Try `rw[(smul_sum (r := {fx} w) (s := {sw}) (f := fun v => {fw} v • v)).symm]`"
-    rw[(smul_sum (r := fx w) (s := sw) (f := fun v => fw v • v)).symm]
-    Hint (hidden := true) "Try `rw[{hfw}]`"
-    rw[hfw]
+  Hint "Prove the sum equality by expanding definitions."
+  Hint (hidden := true) "Try `have fw'_sum : fx w • w = (sw ∪ (sx \\ {w})).sum (fun v => fw' v • v) := fw_sum_equality K V w sw sx fx fw fw' hfw hfw'`"
+  have fw'_sum : fx w • w = (sw ∪ (sx \ {w})).sum (fun v => fw' v • v) := 
+    fw_sum_equality K V w sw sx fx fw fw' hfw hfw'
 
   Hint "Now, use the functions we have defined"
   Hint (hidden := true) "Try `use fun v => {fx'} v + {fw'} v`"
@@ -328,8 +289,8 @@ Statement remove_redundant_span
   use sx
   Hint (hidden := true) "Try `constructor`"
   constructor
-  Hint (hidden := true) "Try `exact subset_diff_singleton {hsx} {hw}`"
-  exact subset_diff_singleton hsx hw
+  Hint (hidden := true) "Try `exact Set.subset_diff_singleton hsx hw`"
+  exact Set.subset_diff_singleton hsx hw
   Hint (hidden := true) "Try `use fx`"
   use fx
 

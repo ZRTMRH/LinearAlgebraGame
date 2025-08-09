@@ -1,4 +1,5 @@
 import Game.Levels.LinearIndependenceSpanWorld.Level07
+import Game.Levels.LinearIndependenceSpanWorld.Lemmas
 
 namespace LinearAlgebraGame
 
@@ -213,51 +214,10 @@ f = g := by
   Hint (hidden := true) "Try `specialize hS (union_subset hs ht)`"
   specialize hS (union_subset hs ht)
 
-  Hint "Now, we have to show that `(Finset.sum (s ∪ t) fun v => (f - g) v • v) = 0`. This will
-  be difficult, so try proving it with a `have` statement. Remember to add braces after `by`."
-  Hint (hidden := true) "Try `have lemmaSumDiffEqZero : (Finset.sum (s ∪ t) fun v => (f - g) v • v) = 0 := by`"
-  have lemmaSumDiffEqZero : (Finset.sum (s ∪ t) fun v => (f - g) v • v) = 0 := by
-    Hint "It would be nice if we could distribute the `f - g` through the `•` operator. Try proving
-    `(fun v => (f - g) v • v) = (fun (v : V) => ((f v) • v) - ((g v) • v))` with another `have` statement. Remember to add braces after `by`."
-    Hint (hidden := true) "Try `  have fun_dist : (fun v => (f - g) v • v) = (fun (v : V) => ((f v) • v) - ((g v) • v)) := by`"
-    have fun_dist : (fun v => (f - g) v • v) = (fun (v : V) => ((f v) • v) - ((g v) • v)) := by
-      Hint (hidden := true) "Try `    funext v`"
-      funext v
-      Hint (hidden := true) "Try `    exact sub_smul (f v) (g v) v`"
-      exact sub_smul (f v) (g v) v
-
-    Hint (hidden := true) "Try `  rw[fun_dist]`"
-    rw[fun_dist]
-
-    Hint "Now, we can split the sum in two"
-    Hint (hidden := true) "Try `  rw[sum_sub_distrib]`"
-    rw[sum_sub_distrib]
-
-    Hint "We now have two sums. The first one should be equivalent to our first linear combination,
-    and the second should be equivalent to our second linear combination. We need to change the sets
-    they are being summed over. We have a theorem that can do this, but it needs a hypothesis that we
-    don't have. Try proving these hypotheses with a `have` statement. Remember to add braces after `by`."
-    Hint (hidden := true) "Try `  have hfprod0 : ∀ v ∈ s ∪ t,  v ∉ s → f v • v = 0 := by`"
-    have hfprod0 : ∀ v ∈ s ∪ t,  v ∉ s → f v • v = 0 := by
-      Hint (hidden := true) "Try `intros v _hv1 hv2; rw[hf0 v hv2]; exact zero_smul_v K V v`"
-      intros v _hv1 hv2
-      rw[hf0 v hv2, zero_smul_v]
-
-    Hint (hidden := true) "Try `have hgprod0 : ∀ v ∈ s ∪ t,  v ∉ t → g v • v = 0 := by`"
-    have hgprod0 : ∀ v ∈ s ∪ t,  v ∉ t → g v • v = 0 := by
-      Hint (hidden := true) "Try `intros v _hv1 hv2; rw[hg0 v hv2]; exact zero_smul_v K V v`"
-      intros v _hv1 hv2
-      rw[hg0 v hv2, zero_smul_v]
-
-    Hint (hidden := true) "Try `  rw [(sum_subset (f := fun v => f v • v) (subset_union_left s t) hfprod0).symm]`"
-    rw [(sum_subset (f := fun v => f v • v) (subset_union_left s t) hfprod0).symm]
-    Hint (hidden := true) "Try `  rw [(sum_subset (f := fun v => g v • v) (subset_union_right s t) hgprod0).symm]`"
-    rw [(sum_subset (f := fun v => g v • v) (subset_union_right s t) hgprod0).symm]
-
-    Hint "Now, we use the fact that the two sums are equal to finish the proof of the lemma"
-    Hint (hidden := true) "Try `rw[heq]; simp`"
-    rw[heq]
-    simp
+  Hint "We need to show that the sum of the difference function equals zero."
+  Hint "This follows from our helper lemma about equal linear combinations."
+  Hint (hidden := true) "Try `have lemmaSumDiffEqZero := sum_diff_eq_zero_of_equal_combinations K V s t f g hf0 hg0 heq`"
+  have lemmaSumDiffEqZero := sum_diff_eq_zero_of_equal_combinations K V s t f g hf0 hg0 heq
 
   Hint "Now, we simply have to prove the requirements of hS"
   Hint (hidden := true) "Try `specialize hS lemmaSumDiffEqZero`"

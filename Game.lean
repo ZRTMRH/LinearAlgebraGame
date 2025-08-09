@@ -1,9 +1,9 @@
 import Game.Levels.TutorialWorld
 import Game.Levels.VectorSpaceWorld
 -- Aggressive memory optimization: Only 2 worlds for stable Render deployment
--- import Game.Levels.LinearIndependenceSpanWorld
--- import Game.Levels.InnerProductWorld
--- import Game.Levels.LinearMapsWorld
+import Game.Levels.LinearIndependenceSpanWorld
+import Game.Levels.InnerProductWorld
+import Game.Levels.LinearMapsWorld
 -- Explicit import for InnerProductSpace_v class and theorem aliases  
 -- import Game.Levels.InnerProductWorld.LemmasAndDefs
 
@@ -55,8 +55,8 @@ CaptionLong "You should use this game as a template for your own game and add yo
 -- CoverImage "images/cover.png"
 
 -- Memory-optimized dependencies for Render deployment
--- Dependency VectorSpaceWorld → LinearIndependenceSpanWorld
--- Dependency LinearIndependenceSpanWorld → InnerProductWorld
+Dependency VectorSpaceWorld → LinearIndependenceSpanWorld
+Dependency LinearIndependenceSpanWorld → InnerProductWorld
 
 namespace LinearAlgebraGame
 

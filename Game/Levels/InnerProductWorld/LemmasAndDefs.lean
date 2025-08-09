@@ -234,4 +234,5 @@ theorem norm_inner_eq_abs (u v : V) : ‖⟪u,v⟫‖ = Complex.abs ⟪u,v⟫ :=
   -- This needs to be established based on how norm_v is defined for complex numbers
   rfl  -- This should work if norm_v is defined correctly for complex numbers
 
+
 end LinearAlgebraGame

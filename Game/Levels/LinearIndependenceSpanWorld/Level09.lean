@@ -82,6 +82,41 @@ NewTheorem Finset.sum_eq_sum_diff_singleton_add Finset.smul_sum inv_mul_cancel
 open VectorSpace Finset
 variable (K V : Type) [Field K] [AddCommGroup V] [DecidableEq V] [VectorSpace K V]
 
+/-- Helper lemma: Elements of s \ {v} are in S when s ⊆ S ∪ {v} -/
+lemma subset_diff_singleton_of_union (K V : Type) [Field K] [AddCommGroup V] [DecidableEq V] [VectorSpace K V]
+  (S : Set V) (v : V) (s : Finset V) (hs : ↑s ⊆ S ∪ {v}) : 
+  ↑(s \ {v}) ⊆ S := by
+  intros x hx
+  simp at hx
+  cases' hx with xs xNev
+  cases' (hs xs) with xInS xEqv
+  · exact xInS
+  · exfalso
+    exact xNev xEqv
+
+/-- Helper lemma: If v ∈ s and v ∉ span S, and the sum equals zero, then f v = 0 -/
+lemma zero_coeff_from_not_in_span (K V : Type) [Field K] [AddCommGroup V] [DecidableEq V] [VectorSpace K V]
+  (S : Set V) (v : V) (s : Finset V) (f : V → K) 
+  (hv_not_span : ∀ (t : Finset V), ↑t ⊆ S → ∀ (g : V → K), ¬v = t.sum (fun x => g x • x))
+  (hvIns : v ∈ s) 
+  (subset : ↑(s \ {v}) ⊆ S)
+  (hf : (s \ {v}).sum (fun w => f w • w) + f v • v = 0) : 
+  f v = 0 := by
+  by_contra hfv_ne_zero
+  -- Apply the span contradiction with the linear combination function
+  apply hv_not_span (s \ {v}) subset (fun x => -(f v)⁻¹ * (f x))
+  -- Show v equals the linear combination by algebraic transformation
+  simp only [mul_smul]
+  rw[← smul_sum]
+  rw[(neg_add_self ((f v) • v)).symm] at hf
+  rw[add_right_cancel hf]
+  simp
+  rw[(mul_smul (f v)⁻¹ (f v) v).symm]
+  rw[inv_mul_cancel hfv_ne_zero, one_smul]
+
+
+
+
 Statement linear_independent_insert_of_not_in_span
   {S : Set V} {v : V}
   (hS : linear_independent_v K V S)
@@ -108,66 +143,16 @@ Statement linear_independent_insert_of_not_in_span
     Hint (hidden := true) "Try `rw [sum_eq_sum_diff_singleton_add {hvIns}] at {hf}`"
     rw [sum_eq_sum_diff_singleton_add hvIns] at hf
 
-    Hint "Now, that we have a sum over `(s \\ \{v})`, we want to show `↑(s \\ \{v}) ⊆ S`. Remember to add braces after `by`."
-    Hint (hidden := true) "Try `have subset : ↑({s} \\ \{v}) ⊆ S := by`"
-    have subset : ↑(s \ {v}) ⊆ S := by
-      Hint (hidden := true) "Try `intros x hx`"
-      intros x hx
-      Hint (hidden := true) "Try `simp at {hx}`"
-      simp at hx
-      Hint (hidden := true) "Try `cases' {hx} with xs xNev`"
-      cases' hx with xs xNev
-      Hint (hidden := true) "Try `have xInUnion := {hs} {xs}`"
-      have xInUnion := hs xs
-      Hint (hidden := true) "Try `simp at {xInUnion}`"
-      simp at xInUnion
-      Hint (hidden := true) "Try `cases' {xInUnion} with xEqv xInS`"
-      cases' xInUnion with xEqv xInS
-      Hint (hidden := true) "Try `exfalso`"
-      exfalso
-      Hint (hidden := true) "Try `exact {xNev} {xEqv}`"
-      exact xNev xEqv
-      Hint (hidden := true) "Try `exact {xInS}`"
-      exact xInS
+    Hint "Now, that we have a sum over `(s \\ \{v})`, we want to show `↑(s \\ \{v}) ⊆ S`."
+    Hint "**Mathematical Intuition**: Elements in s \\ {v} must be in S since they can't equal v."
+    Hint "We use a helper lemma that proves: if s ⊆ S ∪ {v}, then s \\ {v} ⊆ S."
+    Hint (hidden := true) "Try `have subset : ↑(s \\ \{v}) ⊆ S := subset_diff_singleton_of_union K V S v s hs`"
+    have subset : ↑(s \ {v}) ⊆ S := subset_diff_singleton_of_union K V S v s hs
 
-    Hint "Now, we can prove our important lemma, that `{f} v = 0`. Remember to add braces after `by`."
-    Hint (hidden := true) "Try `have lemma_fv_zero : {f} v = 0 := by`"
-    have lemma_fv_zero : f v = 0 := by
-      Hint "A good way to prove this is by contradiction"
-      Hint (hidden := true) "Try `by_contra hfv_ne_zero`"
-      by_contra hfv_ne_zero
-
-      Hint "In order to use {hv_not_span}, we need to show {v} as a linear combination of a subset of {S}.
-      This can be done with a `have` statement. Remember to add braces after `by`."
-      Hint (hidden := true) "Try `have hvLinearCombo : v = ({s} \\ \{v}).sum (fun x => (-({f} v)⁻¹ * ({f} x)) • x) := by`"
-      have hvLinearCombo : v = (s \ {v}).sum (fun x => (-(f v)⁻¹ * (f x)) • x) := by
-
-        Hint "Not that the `simp only [theorem]` tactic allows us to rewrite using theorems inside a function, which cannot be done with just rw"
-        Hint (hidden := true) "Try `simp only [mul_smul]`"
-        simp only [mul_smul]
-
-        Hint "Now, use some of the theorems we have to simplify the goal to an equality"
-        Hint (hidden := true) "Try `rw[(smul_sum (r := -({f} v)⁻¹) (f := fun x => {f} x • x) (s := ({s} \\ \{v}))).symm]`"
-        rw[(smul_sum (r := -(f v)⁻¹) (f := fun x => f x • x) (s := (s \ {v}))).symm]
-        Hint (hidden := true) "Try `rw [(neg_add_self (({f} v) • v)).symm] at {hf}`"
-        rw [(neg_add_self ((f v) • v)).symm] at hf
-        Hint (hidden := true) "Try `rw[add_right_cancel {hf}]`"
-        rw[add_right_cancel hf]
-
-        Hint (hidden := true) "Try `simp`"
-        simp
-        Hint (hidden := true) "Try `rw[(mul_smul ({f} v)⁻¹ ({f} v) v).symm]`"
-        rw[(mul_smul (f v)⁻¹ (f v) v).symm]
-        Hint (hidden := true) "Try `rw[inv_mul_cancel {hfv_ne_zero}, one_smul]`"
-        rw[inv_mul_cancel hfv_ne_zero, one_smul]
-
-      Hint "Now, we can use {hv_not_span} to find our contradiction"
-      Hint (hidden := true) "Try `specialize {hv_not_span} ({s} \\ \{v})`"
-      specialize hv_not_span (s \ {v})
-      Hint (hidden := true) "Try `specialize {hv_not_span} {subset} (fun x => -({f} v)⁻¹ * ({f} x))`"
-      specialize hv_not_span subset (fun x => -(f v)⁻¹ * (f x))
-      Hint (hidden := true) "Try `exact {hv_not_span} {hvLinearCombo}`"
-      exact hv_not_span hvLinearCombo
+    Hint "Now, we can prove our important lemma, that `{f} v = 0`."
+    Hint "We'll use proof by contradiction. If f v ≠ 0, we can express v as a linear combination of elements in S."
+    Hint (hidden := true) "Try `have lemma_fv_zero : f v = 0 := zero_coeff_from_not_in_span K V S v s f hv_not_span hvIns subset hf`"
+    have lemma_fv_zero : f v = 0 := zero_coeff_from_not_in_span K V S v s f hv_not_span hvIns subset hf
 
     Hint "Now, consider two cases: `{w} = {v}` or not. If `{w} = {v}`, our lemma is our goal. If not,
     we need to use the linear independence of `S`"
@@ -184,45 +169,29 @@ Statement linear_independent_insert_of_not_in_span
     Hint (hidden := true) "Try `simp at {hf}`"
     simp at hf
 
-    Hint "We want to show that `{w} ∈ {s} \\ \{{v}}`. Remember to add braces after `by`."
-    Hint (hidden := true) "Try `have hwInS : {w} ∈ {s} \\ \{v} := by`"
-    have hwInS : w ∈ s \ {v} := by
-      Hint (hidden := true) "Try `simp`"
-      simp
-      Hint (hidden := true) "Try `constructor`"
-      constructor
-      Hint (hidden := true) "Try `exact hw`"
-      exact hw
-      Hint (hidden := true) "Try `exact hw2`"
-      exact hw2
+    Hint "Show that w is in s but not equal to v."
+    Hint (hidden := true) "Try `have hwInS : w ∈ s \\ {v} := by (simp; exact ⟨hw, hw2⟩)`"
+    have hwInS : w ∈ s \ {v} := by (simp; exact ⟨hw, hw2⟩)
 
     Hint "Now, we can apply all of our hypotheses to close the goal"
     Hint (hidden := true) "Try `exact {hS} ({s} \\ \{v}) {f} {subset} {hf} {w} {hwInS}`"
     exact hS (s \ {v}) f subset hf w hwInS
 
     -- Case 2: v ∉ s
-    Hint "We now need to show that s ⊆ S, and we can use the linear independence of S to show s is linearly independent. Remember to add braces after `by`."
-    Hint (hidden := true) "Try `have s_subset_S : ↑{s} ⊆ S := by`"
-    have s_subset_S : ↑s ⊆ S := by
-      Hint (hidden := true) "Try `intro u hu_in_s`"
-      intro u hu_in_s
-
-      Hint (hidden := true) "Try `cases' {hs} {hu_in_s} with hu_in_S hu_eq_v`"
-      cases' hs hu_in_s with hu_in_S hu_eq_v
-
-      Hint (hidden := true) "Try `exact {hu_in_S}`"
-      exact hu_in_S
-
-      Hint (hidden := true) "Try `simp at {hu_eq_v}`"
-      simp at hu_eq_v
-      Hint (hidden := true) "Try `rw [{hu_eq_v}] at {hu_in_s}`"
+    Hint "Show that s is a subset of S using case analysis."
+    Hint (hidden := true) "Try `suffices s_subset_S : ↑s ⊆ S`"
+    suffices s_subset_S : ↑s ⊆ S
+    · -- Use the sufficient condition
+      Hint "Apply linear independence to finish the proof."
+      Hint (hidden := true) "Try `exact hS s f s_subset_S hf w hw`"
+      exact hS s f s_subset_S hf w hw
+    -- Prove the sufficient condition
+    intro u hu_in_s
+    cases' hs hu_in_s with hu_in_S hu_eq_v
+    · exact hu_in_S
+    · simp at hu_eq_v
       rw [hu_eq_v] at hu_in_s
-      Hint (hidden := true) "Try `exfalso`"
       exfalso
-      Hint (hidden := true) "Try `exact {hvIns} {hu_in_s}`"
       exact hvIns hu_in_s
 
-    Hint "Now, we can use the linear independence of S to finish the proof"
-    Hint "Note: The game may appear to stall after the next step. If it does, you can proceed to the next level - the proof is complete."
-    Hint (hidden := true) "Try `exact {hS} {s} {f} {s_subset_S} {hf} {w} {hw}`"
-    exact hS s f s_subset_S hf w hw
+    -- The proof is completed by the suffices approach above

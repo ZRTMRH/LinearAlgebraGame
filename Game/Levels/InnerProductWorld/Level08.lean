@@ -36,42 +36,63 @@ TheoremDoc LinearAlgebraGame.triangle_v as "Triangle Inequality" in "Norms"
 variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [DecidableEq V] [InnerProductSpace_v V]
 open Function Set VectorSpace Real InnerProductSpace_v Complex
 
+-- Helper lemmas to eliminate have...by blocks in web interface
+lemma inner_product_expansion (u v : V) :
+  ⟪u+v, u+v⟫.re = ⟪u,u⟫.re + ⟪v,v⟫.re + 2*⟪u,v⟫.re := by
+  rw [InnerProductSpace_v.inner_add_left, inner_add_right_v, inner_add_right_v]
+  simp only [Complex.add_re]
+  rw [InnerProductSpace_v.inner_conj_symm v u, Complex.conj_re]
+  ring
+
+lemma cross_term_bound (u v : V) : 
+  ⟪u,v⟫.re ≤ ‖u‖ * ‖v‖ := 
+le_trans (re_le_abs ⟪u,v⟫) (by 
+  have cs := Cauchy_Schwarz u v
+  rwa [norm_inner_eq_abs] at cs)
+
 Statement triangle_v (u v : V) : ‖u+v‖ ≤ ‖u‖ + ‖v‖ := by
-  Hint "It's easier to prove the squared version first."
-  Hint (hidden := true) "Try `suffices ‖u+v‖^2 ≤ (‖u‖ + ‖v‖)^2 by exact le_of_sq_le_sq this (add_nonneg (norm_nonneg_v u) (norm_nonneg_v v))`"
-  suffices ‖u+v‖^2 ≤ (‖u‖ + ‖v‖)^2 by
-    Hint (hidden := true) "Try `exact le_of_sq_le_sq this (add_nonneg (norm_nonneg_v u) (norm_nonneg_v v))`"
-    exact le_of_sq_le_sq this (add_nonneg (norm_nonneg_v u) (norm_nonneg_v v))
+  Hint "We'll prove the squared version first, then take square roots."
   
-  Hint "Expand using the inner product and apply Cauchy-Schwarz."
-  Hint (hidden := true) "Try `rw [norm_sq_eq, add_sq, norm_sq_eq, norm_sq_eq]`"
-  rw [norm_sq_eq, add_sq, norm_sq_eq, norm_sq_eq]
+  -- First establish that the RHS is non-negative (needed for le_of_sq_le_sq)
+  Hint (hidden := true) "Try `have rhs_nonneg : 0 ≤ ‖u‖ + ‖v‖ := add_nonneg (norm_nonneg_v u) (norm_nonneg_v v)`"
+  have rhs_nonneg : 0 ≤ ‖u‖ + ‖v‖ := add_nonneg (norm_nonneg_v u) (norm_nonneg_v v)
   
-  -- Expand ⟪u+v, u+v⟫.re
-  Hint "First expand the inner product ⟪u+v, u+v⟫ using linearity."
-  Hint "This will give us ⟪u,u⟫ + ⟪v,v⟫ + ⟪u,v⟫ + ⟪v,u⟫."
-  Hint (hidden := true) "Try `have inner_expansion : ⟪u+v, u+v⟫.re = ⟪u,u⟫.re + ⟪v,v⟫.re + 2*⟪u,v⟫.re := by rw [InnerProductSpace_v.inner_add_left, inner_add_right_v, inner_add_right_v]; simp only [Complex.add_re]; rw [InnerProductSpace_v.inner_conj_symm v u, Complex.conj_re]; ring`"
-  have inner_expansion : ⟪u+v, u+v⟫.re = ⟪u,u⟫.re + ⟪v,v⟫.re + 2*⟪u,v⟫.re := by
-    rw [InnerProductSpace_v.inner_add_left, inner_add_right_v, inner_add_right_v]
-    simp only [Complex.add_re]
-    rw [InnerProductSpace_v.inner_conj_symm v u, Complex.conj_re]
-    ring
-    
-  Hint (hidden := true) "Try `rw [inner_expansion]`"
-  rw [inner_expansion]
+  Hint "We'll work with the squared versions of both sides."
+  
+  -- Get the expansion for later use
+  Hint "First get the inner product expansion for ⟪u+v, u+v⟫."
+  Hint (hidden := true) "Try `have inner_expansion := inner_product_expansion u v`"
+  have inner_expansion := inner_product_expansion u v
   
   -- Use Cauchy-Schwarz to bound the cross term
   Hint "Now we bound the cross term 2*⟪u,v⟫.re using Cauchy-Schwarz."
   Hint "We know |⟪u,v⟫| ≤ ‖u‖ * ‖v‖, so ⟪u,v⟫.re ≤ ‖u‖ * ‖v‖."
-  Hint (hidden := true) "Try `have cross_bound : ⟪u,v⟫.re ≤ ‖u‖ * ‖v‖ := by have cs := Cauchy_Schwarz u v; rw [norm_inner_eq_abs] at cs; exact le_trans (re_le_abs ⟪u,v⟫) cs`"
-  have cross_bound : ⟪u,v⟫.re ≤ ‖u‖ * ‖v‖ := by
-    have cs := Cauchy_Schwarz u v
-    rw [norm_inner_eq_abs] at cs
-    exact le_trans (re_le_abs ⟪u,v⟫) cs
+  Hint "Use Cauchy-Schwarz to bound the real part of the inner product."
+  Hint "This follows from our helper lemma for cross term bounds."
+  Hint (hidden := true) "Try `have cross_bound := cross_term_bound u v`"
+  have cross_bound := cross_term_bound u v
   
-  Hint "Finally, use linear arithmetic to complete the proof."
-  Hint (hidden := true) "Try `linarith [cross_bound]`"
-  linarith [cross_bound]
+  Hint "Now we'll prove the squared inequality and take square roots."
+  Hint "We'll show ‖u+v‖² ≤ (‖u‖ + ‖v‖)² using the expansion and Cauchy-Schwarz."
+  
+  -- Use le_of_sq_le_sq: need to provide the squared inequality and then the non-negativity
+  Hint (hidden := true) "Try `apply le_of_sq_le_sq`"
+  apply le_of_sq_le_sq
+  
+  -- First prove the squared inequality
+  Hint "First we prove ‖u+v‖² ≤ (‖u‖ + ‖v‖)²."
+  · Hint "Expand both sides using norm_sq_eq and algebra."
+    Hint (hidden := true) "Try `rw [norm_sq_eq, add_sq, norm_sq_eq, norm_sq_eq, inner_expansion]`"
+    rw [norm_sq_eq, add_sq, norm_sq_eq, norm_sq_eq, inner_expansion]
+    
+    Hint "Use the cross term bound from Cauchy-Schwarz."
+    Hint (hidden := true) "Try `linarith [cross_bound]`"
+    linarith [cross_bound]
+  
+  -- Then provide the non-negativity
+  Hint "The right-hand side ‖u‖ + ‖v‖ is non-negative."
+  · Hint (hidden := true) "Try `exact rhs_nonneg`"
+    exact rhs_nonneg
 
 Conclusion "
 You have proven the triangle inequality!  
