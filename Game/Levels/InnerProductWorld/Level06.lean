@@ -71,6 +71,7 @@ Statement ortho_decom (u v : V) (h : v ≠ 0) : orthogonal (u - (⟪u,v⟫ / (�
   suffices h_nonzero : ⟪v, v⟫ ≠ 0
   Hint (hidden := true) "Try `field_simp [h_nonzero]`"
   · field_simp [h_nonzero]
+    Hint (hidden := true) "Try `ring`"
     ring
   Hint "Now prove that ⟪v,v⟫ ≠ 0 when v ≠ 0"
   Hint (hidden := true) "Try `intro contr`"
