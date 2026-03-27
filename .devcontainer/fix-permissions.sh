@@ -23,19 +23,19 @@ fi
 if [ ! -d "/home/node/lean4game" ]; then
     echo "Cloning lean4game repository..."
     cd /home/node
-    git clone https://github.com/leanprover-community/lean4game.git --branch v4.21.0 || echo "Failed to clone lean4game"
+    git clone https://github.com/leanprover-community/lean4game.git --branch v4.28.0 || echo "Failed to clone lean4game"
 fi
 
 # Ensure lean toolchain is installed
 echo "Checking Lean toolchain..."
-if ! elan toolchain list | grep -q "v4.21.0"; then
-    echo "Installing Lean toolchain v4.21.0..."
-    elan toolchain install leanprover/lean4:v4.21.0 || echo "Failed to install toolchain"
+if ! elan toolchain list | grep -q "v4.28.0"; then
+    echo "Installing Lean toolchain v4.28.0..."
+    elan toolchain install leanprover/lean4:v4.28.0 || echo "Failed to install toolchain"
 fi
 
 # Set default toolchain
 echo "Setting default toolchain..."
-elan default leanprover/lean4:v4.21.0 || echo "Failed to set default toolchain"
+elan default leanprover/lean4:v4.28.0 || echo "Failed to set default toolchain"
 
 # Test that everything works
 echo "Testing Lean installation..."

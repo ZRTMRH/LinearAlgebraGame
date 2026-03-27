@@ -204,7 +204,9 @@ theorem ortho_decom_parts (u v : V) (h : v ≠ 0) :
   let c := ⟪u,v⟫ / (‖v‖^2)  
   let w := u - c • v
   constructor
-  · simp [w]
+  · show u = c • v + w
+    simp only [w]
+    abel
   · -- Prove orthogonality directly (same as Level06 ortho_decom)
     unfold orthogonal
     rw[inner_minus_left]
@@ -220,6 +222,7 @@ theorem ortho_decom_parts (u v : V) (h : v ≠ 0) :
       apply h
       exact (inner_self_eq_zero v).1 contr
     field_simp [h_nonzero]
+    ring
 
 -- Lemma that the real part of a complex number is bounded by its norm
 theorem re_le_abs (z : ℂ) : z.re ≤ ‖z‖ := by

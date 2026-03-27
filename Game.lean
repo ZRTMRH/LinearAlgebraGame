@@ -58,6 +58,10 @@ CoverImage "images/cover.png"
 
 namespace LinearAlgebraGame
 
+Dependency TutorialWorld → VectorSpaceWorld
+Dependency VectorSpaceWorld → LinearIndependenceSpanWorld
+Dependency LinearIndependenceSpanWorld → LinearMapsWorld
+
 MakeGame
 
 end LinearAlgebraGame

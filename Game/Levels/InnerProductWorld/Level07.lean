@@ -94,7 +94,6 @@ lemma norm_sq_scaled_eq {V : Type} [AddCommGroup V] [VectorSpace ℂ V]  [InnerP
   ring_nf
   simp [c_def]
   field_simp [ne_of_gt v_pos]
-  ring
 
 
 

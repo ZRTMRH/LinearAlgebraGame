@@ -292,7 +292,7 @@ theorem sca_mul (a : ℂ) (v: V) : ‖a • v‖=‖a‖ * ‖v‖ := by
   have h2 : 0≤ ‖a‖ := norm_nonneg a
   have g1 : 0≤ ‖a‖ * ‖v‖ := Left.mul_nonneg h2 h1
   have g2 : 0≤ ‖a• v‖ := by exact norm_nonneg_v (a • v)
-  have h3 : ‖a• v‖=‖a‖ * ‖v‖ ↔ (‖a• v‖)^2=(‖a‖ * ‖v‖)^2 :=Iff.symm (sq_eq_sq g2 g1)
+  have h3 : ‖a• v‖=‖a‖ * ‖v‖ ↔ (‖a• v‖)^2=(‖a‖ * ‖v‖)^2 :=Iff.symm (sq_eq_sq₀ g2 g1)
   rw[h3]
   have h4 : (‖a‖ * ‖v‖)^2=‖a‖^2 * ‖v‖^2 := by ring
   have h5 := InnerProductSpace_v.inner_self_nonneg v

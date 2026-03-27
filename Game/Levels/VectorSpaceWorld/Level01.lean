@@ -181,7 +181,7 @@ TheoremDoc add_smul as "add_smul" in "Vector Spaces"
 then `∀ (a b : K) (x : V), (a * b) • x = a • (b • x)`. It can be considered as associativity of scalar
 multiplication.
 -/
-TheoremDoc MulAction.mul_smul as "mul_smul" in "Vector Spaces"
+TheoremDoc SemigroupAction.mul_smul as "mul_smul" in "Vector Spaces"
 
 /--
 `one_smul` is one of the axioms of a vector space. It is a proof that if we know `vs : VectorSpace K V`,
@@ -204,7 +204,7 @@ TheoremDoc zero_add as "zero_add" in "Groups"
 -/
 TheoremDoc add_zero as "add_zero" in "Groups"
 
-NewTheorem add_right_cancel add_left_cancel smul_add add_smul MulAction.mul_smul one_smul symm zero_add add_zero
+NewTheorem add_right_cancel add_left_cancel smul_add add_smul SemigroupAction.mul_smul one_smul symm zero_add add_zero
 
 TheoremTab "Groups"
 

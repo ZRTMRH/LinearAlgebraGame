@@ -47,11 +47,11 @@ RUN echo "Updating Lake dependencies..." && lake update -R
 RUN echo "Getting mathlib cache (this should speed up build significantly)..." && \
     lake exe cache get --force || echo "Cache get failed, will build from source (slower)"
 
-# Clone lean4game repository
-RUN git clone https://github.com/leanprover-community/lean4game.git --branch v4.21.0 /home/node/lean4game && \
+# Clone lean4game repository (v4.28.0 monorepo - no gitpkg dependencies)
+RUN git clone https://github.com/leanprover-community/lean4game.git --branch v4.28.0 /home/node/lean4game && \
     chown -R node:node /home/node/lean4game
 
-# Pre-install npm dependencies during Docker build to avoid runtime timeouts
+# Pre-install npm dependencies during Docker build (npm workspaces: installs client + relay)
 RUN echo "Pre-installing npm dependencies for lean4game..." && \
     cd /home/node/lean4game && npm install
 
@@ -61,14 +61,11 @@ COPY --chown=node:node . .
 # Build the project (only this step runs if game files change)
 RUN echo "Building Lean project..." && lake build
 
-# Pre-build lean4game server and client to avoid runtime memory issues
-RUN echo "Pre-building lean4game server and client..." && \
+# Pre-build lean4game relay and client
+RUN echo "Pre-building lean4game relay and client..." && \
     cd /home/node/lean4game && \
-    npm run build_server && \
-    VITE_LEAN4GAME_SINGLE=true VITE_LEAN4GAME_OWNER=local VITE_LEAN4GAME_REPO=game npm run build_client
-
-# Apply port binding fix to relay server
-COPY relay-patch.mjs /home/node/lean4game/relay/index.mjs
+    npm run build:relay && \
+    VITE_LEAN4GAME_SINGLE=true VITE_LEAN4GAME_OWNER=local VITE_LEAN4GAME_REPO=game npm run build:client
 
 # Create games directory and link our game for lean4game to find it
 RUN mkdir -p /home/node/lean4game/games/local && \

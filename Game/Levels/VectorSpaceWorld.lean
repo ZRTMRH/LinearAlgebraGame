@@ -9,7 +9,6 @@ namespace LinearAlgebraGame
 World "VectorSpaceWorld"
 Title "Vector Space World"
 
-Dependency TutorialWorld → VectorSpaceWorld
 
 Introduction
 "

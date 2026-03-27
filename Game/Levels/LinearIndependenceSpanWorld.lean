@@ -13,7 +13,6 @@ namespace LinearAlgebraGame
 World "LinearIndependenceSpanWorld"
 Title "Linear Independence and Span World"
 
-Dependency VectorSpaceWorld → LinearIndependenceSpanWorld
 
 Introduction
 "

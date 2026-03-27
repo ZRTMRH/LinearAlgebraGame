@@ -47,11 +47,12 @@ echo "=== Starting game server ==="
 export VITE_LEAN4GAME_SINGLE=true
 export VITE_LEAN4GAME_OWNER=local
 export VITE_LEAN4GAME_REPO=game
-export NODE_ENV=development
+export NODE_ENV=production
 export LEAN4GAME_LOCAL_GAMES=true
 export VITE_LEAN4GAME_LOCAL_GAMES=true
 export ALLOW_LOCAL_GAMES=true
 export HOST=0.0.0.0
+export NO_BWRAP=true
 
 # Use Render's assigned PORT or fallback to 3000 for local development
 ASSIGNED_PORT=${PORT:-3000}
@@ -67,10 +68,11 @@ echo "LEAN4GAME_LOCAL_GAMES=$LEAN4GAME_LOCAL_GAMES"
 echo "VITE_LEAN4GAME_LOCAL_GAMES=$VITE_LEAN4GAME_LOCAL_GAMES"
 echo "ALLOW_LOCAL_GAMES=$ALLOW_LOCAL_GAMES"
 echo "HOST=$HOST"
+echo "NO_BWRAP=$NO_BWRAP"
 echo "ASSIGNED_PORT=$ASSIGNED_PORT"
 echo "PORT (from Render)=${PORT:-'not set'}"
 
-echo "Starting server in production mode for memory efficiency..."
+echo "Starting server in production mode..."
 echo "Client should be pre-built during Docker build phase..."
 echo "Checking games directory structure..."
 ls -la /home/node/lean4game/games/
@@ -82,13 +84,13 @@ ls -la /home/node/game/
 echo "Checking if Game.lean exists at symlink target..."
 ls -la /home/node/lean4game/games/local/game/Game.lean || echo "Game.lean not found through symlink"
 echo "Verifying lean4game relay server exists..."
-if [ -f "/home/node/lean4game/relay/index.mjs" ]; then
-    echo "✅ Relay server found!"
+if [ -f "/home/node/lean4game/relay/dist/src/index.js" ]; then
+    echo "Relay server found!"
 else
-    echo "❌ Relay server not found - this shouldn't happen!"
+    echo "Relay server not found - this shouldn't happen!"
     exit 1
 fi
 echo "Starting server with local games enabled..."
 cd /home/node/lean4game
 export PORT=$ASSIGNED_PORT
-exec node relay/index.mjs
+exec node relay/dist/src/index.js

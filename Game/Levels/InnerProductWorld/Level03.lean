@@ -54,10 +54,10 @@ If you have hypotheses `h1 : 0 ≤ a`, `h2 : 0 ≤ b`, then `Left.mul_nonneg h1 
 TheoremDoc Left.mul_nonneg as "Left.mul_nonneg" in "ℂ"
 
 /--
-`sq_eq_sq` is a proof that if `a` and `b` are nonnegative, `a^2 = b^2` if and only if `a = b`. If you
-have hypotheses `h1 : 0 ≤ a`, `h2 : 0 ≤ b`, then `sq_eq_sq h1 h2` is a proof that `a ^ 2 = b ^ 2 ↔ a = b`.
+`sq_eq_sq₀` is a proof that if `a` and `b` are nonnegative, `a^2 = b^2` if and only if `a = b`. If you
+have hypotheses `h1 : 0 ≤ a`, `h2 : 0 ≤ b`, then `sq_eq_sq₀ h1 h2` is a proof that `a ^ 2 = b ^ 2 ↔ a = b`.
 -/
-TheoremDoc sq_eq_sq as "sq_eq_sq" in "ℝ"
+TheoremDoc sq_eq_sq₀ as "sq_eq_sq₀" in "ℝ"
 
 /--
 `mul_assoc` is a proof that multiplication is associative. That is, that if you have `a, b, c`, then
@@ -130,7 +130,7 @@ The square root of a positive real number is positive.
 -/
 TheoremDoc Real.sqrt_pos as "Real.sqrt_pos" in "Real Numbers"
 
-NewTheorem norm_nonneg Left.mul_nonneg sq_eq_sq sq_eq_sq₀ mul_assoc Complex.mul_conj Complex.normSq_eq_norm_sq Complex.re_ofReal_mul Complex.add_re Complex.conj_re add_nonneg le_trans mul_nonneg add_sq Real.sqrt_pos LinearAlgebraGame.norm_nonneg_v LinearAlgebraGame.norm_sq_eq
+NewTheorem norm_nonneg Left.mul_nonneg sq_eq_sq₀ mul_assoc Complex.mul_conj Complex.normSq_eq_norm_sq Complex.re_ofReal_mul Complex.add_re Complex.conj_re add_nonneg le_trans mul_nonneg add_sq Real.sqrt_pos LinearAlgebraGame.norm_nonneg_v LinearAlgebraGame.norm_sq_eq
 
 DisabledTheorem LinearAlgebraGame.sca_mul sca_mul
 
