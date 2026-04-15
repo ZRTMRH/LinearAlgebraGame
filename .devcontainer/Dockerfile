@@ -48,6 +48,13 @@ RUN echo "Getting mathlib cache (this should speed up build significantly)..." &
     lake exe cache get --force || echo "Cache get failed, will build from source (slower)"
 
 # Clone lean4game repository (v4.28.0 monorepo - no gitpkg dependencies)
+# NOTE (2026-04-15): The v4.28.0 branch has known browser-side regressions tracked in
+# leanprover-community/lean4game#451, #445, #485 (missing files-service-override in
+# LeanMonaco.start, and an uncaught rejection from updateVSCodeOptions). We patch them
+# below. Pinning to the maintainer-cited commit `1eec1eb6` was attempted but fails at
+# `npm install` because that commit still has a gitpkg.vercel.app git dep that now
+# returns 402 — see memory/docker_gitpkg_issue.md. The v4.28.0 tag is currently the
+# only buildable target.
 RUN git clone https://github.com/leanprover-community/lean4game.git --branch v4.28.0 /home/node/lean4game && \
     chown -R node:node /home/node/lean4game
 
@@ -55,11 +62,48 @@ RUN git clone https://github.com/leanprover-community/lean4game.git --branch v4.
 RUN echo "Pre-installing npm dependencies for lean4game..." && \
     cd /home/node/lean4game && npm install
 
+# Patch lean4monaco v1.1.9: its LeanMonaco.start() calls vscode/services `initialize(...)`
+# without a files service override. The default (read-only) file service then rejects
+# `createModelReference(...)` inside LeanMonacoEditor.start() with
+# `FileOperationError: Unable to write file '...' (NoPermissions)`. That throw prevents
+# the Monaco editor from mounting, so no Lean LSP client ever registers for the URI and
+# the infoview is stuck on "No active Lean client" forever.
+# Fix: inject `getFilesServiceOverride()` into the initialize() service overrides. The
+# override's default in-memory filesystem provider (registered at priority 0) makes
+# writes to file:// URIs succeed.
+RUN echo "Patching lean4monaco to include files-service-override..." && \
+    LM=/home/node/lean4game/node_modules/lean4monaco/dist/leanmonaco.js && \
+    grep -q "monaco-vscode-files-service-override" "$LM" || { \
+      sed -i "s|^import getModelServiceOverride from '@codingame/monaco-vscode-model-service-override';|&\nimport getFilesServiceOverride from '@codingame/monaco-vscode-files-service-override';|" "$LM" && \
+      sed -i "s|\.\.\.getModelServiceOverride()|...getModelServiceOverride(),\n                ...getFilesServiceOverride()|" "$LM" ; \
+    } && \
+    grep -n "FilesServiceOverride" "$LM"
+
+# Second patch: `updateVSCodeOptions` in lean4monaco calls `workspace.getConfiguration().update(key, value)`
+# without a ConfigurationTarget argument. Because `LeanMonaco.start()` sets a workspace
+# (`workspaceUri: Uri.file('/workspace.code-workspace')`), this defaults to Workspace scope
+# and triggers a write-through to `/workspace.code-workspace`. The codingame in-memory
+# ConfigurationEditing path rejects that write with `NoPermissions`, which surfaces as an
+# Uncaught promise rejection and prevents the Lean extension from activating — leaving the
+# infoview stuck on "No active Lean client". The config value is already applied in-memory
+# by the time the write-through runs, so swallowing the rejection is safe.
+RUN echo "Patching lean4monaco updateVSCodeOptions to swallow config-write errors..." && \
+    LM=/home/node/lean4game/node_modules/lean4monaco/dist/leanmonaco.js && \
+    grep -q "update(key, vsCodeOptions\[key\])\.catch" "$LM" || \
+      sed -i "s|workspace\.getConfiguration()\.update(key, vsCodeOptions\[key\]);|workspace.getConfiguration().update(key, vsCodeOptions[key]).catch(()=>{});|" "$LM" && \
+    grep -n "vsCodeOptions\[key\]" "$LM"
+
 # Now copy the rest of the project
 COPY --chown=node:node . .
 
 # Build the project (only this step runs if game files change)
 RUN echo "Building Lean project..." && lake build
+
+# Pre-build GameServer.Runner so first level open isn't blocked compiling it.
+# `lake serve` (used by lean4game v4.28.0 in fallback mode) elaborates a synthetic
+# `import GameServer.Runner` for every didOpen; without this, the browser tab
+# freezes ("page not responding") while it compiles on demand.
+RUN echo "Pre-building GameServer.Runner..." && lake build GameServer.Runner
 
 # Pre-build lean4game relay and client
 RUN echo "Pre-building lean4game relay and client..." && \
