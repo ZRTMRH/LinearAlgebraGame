@@ -30,16 +30,7 @@ goal before you can access the second one.
 -/
 TacticDoc induction
 
-/--
-'add_succ' is a proof that `n + Nat.succ m = Nat.succ (n + m)`.
-
-The reason for the name is that the theorem proves that adding the successor of a number is equal to
-the successor of addind that number.
--/
-TheoremDoc Nat.add_succ as "add_succ" in "ℕ"
-
 NewTactic induction
-NewTheorem Nat.add_succ
 
 Introduction "
 The `induction` tactic is a powerful tool to help you to prove statements involving natural numbers.
@@ -53,9 +44,6 @@ dimension can be described by a natural number.
 The syntax for the `induction` tactic in Lean 4 is `induction n with | zero => ... | succ n h => ...`.
 As long as `n` is an arbitrary natural number in the proof, this will do induction on `n`, where
 `zero` handles the base case, `succ n` is the successor case, and `h` is the induction hypothesis.
-
-This level also uses a new theorem: `add_succ`. `add_succ` is a proof that
-`n + Nat.succ m = Nat.succ (n + m)`, for any `n, m : ℕ`.
 
 **Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints.
 "
