@@ -49,7 +49,7 @@ Statement span_mono {A B : Set V} (hAB : A ⊆ B) : span K V A ⊆ span K V B :=
   Hint (hidden := true) "Try `intro x hxA`"
   intro x hxA
   Hint "Now we have `x ∈ span K V A` and need to show `x ∈ span K V B`."
-  Hint "Let's unfold the definition of span to see what it means for x to be in the span of A."
+  Hint "Let's unfold the definition of span everywhere to see what it means for x to be in the span of A."
   Hint (hidden := true) "Try `unfold span at *`"
   unfold span at *
   Hint "The span consists of all linear combinations. Let's unfold that definition too."

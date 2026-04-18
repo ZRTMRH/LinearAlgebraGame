@@ -8,8 +8,10 @@ Title "The `unfold` and `apply` tactics"
 ## Summary
 
 If we have some object or function with some definition, `unfold object` will rewrite the object
-with its definition everywhere. Lean often unfolds terms automatically, but some tactics and definitions
+with its definition in the goal. Lean often unfolds terms automatically, but some tactics and definitions
 are not unfolded automatically. The `unfold` tactic also helps make it easier to take the next steps.
+
+`unfold object at h` unfolds at the assumption `h` whereas `unfold object at *` unfolds everywhere.
 
 ## Example:
 
