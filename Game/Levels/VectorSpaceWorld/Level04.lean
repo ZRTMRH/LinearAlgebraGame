@@ -82,14 +82,14 @@ Statement subspace_contains_zero {W : Set V} (hW : isSubspace (K := K) (V := V) 
   Hint "Start by expanding the subspace definition using obtain. This will give you the three properties: nonempty, closed under addition, and closed under scalar multiplication."
   Hint (hidden := true) "Try `obtain ⟨h1, h2, h3⟩ := hW`"
   obtain ⟨h1, _h2, h3⟩ := hW
-  Hint "The nonempty property h1 means there exists some element in W. Use obtain to extract this element."
+  Hint "The nonempty property {h1} means there exists some element in W. Use obtain to extract this element."
   Hint (hidden := true) "Try `obtain ⟨w, hw⟩ := h1`"
   obtain ⟨w, hw⟩ := h1
   Hint "We want to show 0 ∈ W, but we know that 0 = 0 • w (from Level 1). Rewrite the goal using this fact."
   Hint (hidden := true) "Try `rw [(zero_smul_v K V w).symm]`"
   rw [(zero_smul_v K V w).symm]
   Hint "Now apply the scalar multiplication closure property h3. Since w ∈ W and subspaces are closed under scalar multiplication, 0 • w ∈ W."
-  Hint (hidden := true) "Try `apply h3`"
+  Hint (hidden := true) "Try `apply {h3}`"
   apply h3
   Hint "Finally, provide the proof that w ∈ W, which we have from our obtain step."
   Hint (hidden := true) "Try `exact hw`"
