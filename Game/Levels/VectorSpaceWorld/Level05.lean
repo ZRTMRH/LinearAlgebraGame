@@ -54,6 +54,12 @@ Statement subspace_neg {W : Set V} (hW : isSubspace (K := K) (V := V) W) : ∀ (
   exact hx
 
 -- Add set theory theorems needed by LinearIndependenceSpanWorld
+/--
+`union_subset` is a proof that if `a ⊆ c` and `b ⊆ c`, then `a ∪ b ⊆ c`. This means that if you
+have two sets that are subsets of the same set, their union is also a subset of that set.
+-/
+TheoremDoc Set.union_subset as "union_subset" in "Sets"
+
 NewTheorem Set.union_subset Finset.subset_union_left Finset.subset_union_right
 
 Conclusion "You have now completed Vector Space World! The theorems proven here will be very helpful

@@ -98,17 +98,17 @@ NewTactic ring
 /--
 The real part of a sum of complex numbers equals the sum of their real parts.
 -/
-TheoremDoc Complex.add_re as "Complex.add_re" in "Complex Numbers"
+TheoremDoc Complex.add_re as "Complex.add_re" in "ℂ"
 
 /--
 The real part of a complex conjugate equals the real part of the original number.
 -/
-TheoremDoc Complex.conj_re as "Complex.conj_re" in "Complex Numbers"
+TheoremDoc Complex.conj_re as "Complex.conj_re" in "ℂ"
 
 /--
 The sum of two non-negative real numbers is non-negative.
 -/
-TheoremDoc add_nonneg as "add_nonneg" in "Real Numbers"
+TheoremDoc add_nonneg as "add_nonneg" in "ℝ"
 
 /--
 Transitivity of the less-than-or-equal relation.
@@ -118,7 +118,7 @@ TheoremDoc le_trans as "le_trans" in "Inequalities"
 /--
 The product of two non-negative real numbers is non-negative.
 -/
-TheoremDoc mul_nonneg as "mul_nonneg" in "Real Numbers"
+TheoremDoc mul_nonneg as "mul_nonneg" in "ℝ"
 
 /--
 The square of a sum: (a + b)² = a² + 2ab + b².
@@ -128,7 +128,7 @@ TheoremDoc add_sq as "add_sq" in "Algebra"
 /--
 The square root of a positive real number is positive.
 -/
-TheoremDoc Real.sqrt_pos as "Real.sqrt_pos" in "Real Numbers"
+TheoremDoc Real.sqrt_pos as "Real.sqrt_pos" in "ℝ"
 
 NewTheorem norm_nonneg Left.mul_nonneg sq_eq_sq sq_eq_sq₀ mul_assoc Complex.mul_conj Complex.normSq_eq_norm_sq Complex.re_ofReal_mul Complex.add_re Complex.conj_re add_nonneg le_trans mul_nonneg add_sq Real.sqrt_pos LinearAlgebraGame.norm_nonneg_v LinearAlgebraGame.norm_sq_eq
 

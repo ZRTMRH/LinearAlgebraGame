@@ -118,12 +118,6 @@ theorem shows that type casting passes through unions.
 TheoremDoc Finset.coe_union as "coe_union" in "Sets"
 
 /--
-`union_subset` is a proof that if `a ⊆ c` and `b ⊆ c`, then `a ∪ b ⊆ c`. This means that if you
-have two sets that are subsets of the same set, their union is also a subset of that set.
--/
-TheoremDoc Set.union_subset as "union_subset" in "Sets"
-
-/--
 `sum_add_distrib` is a proof that you can distribute addition over sums. This means that if
 you have functions `f : A → B`, and `g : A → B`, and some set `s : Finset A`, then
 `Finset.sum s (fun x => f x + g x) = Finset.sum s (fun x => f x) + Finset.sum s (fun x => g x).
