@@ -26,13 +26,13 @@ Given vector spaces $V$ and $W$ over a field $K$, a function $T : V \\to W$ is c
 Linear maps are the structure-preserving functions of linear algebra. They respect the vector space structure, making them the natural morphisms between vector spaces.
 
 ### Your Goal
-Prove that our definition captures exactly these two fundamental properties. 
+Prove that our definition captures exactly these two fundamental properties.
 
 In Lean, we define `is_linear_map_v K V W T` (see Definitions panel) to formalize exactly what it means for a function T to be linear.
 "
 
 open VectorSpace
-variable (K V W : Type) [Field K] [AddCommGroup V] [AddCommGroup W] 
+variable (K V W : Type) [Field K] [AddCommGroup V] [AddCommGroup W]
 variable [DecidableEq V] [DecidableEq W] [VectorSpace K V] [VectorSpace K W]
 
 /--
@@ -45,11 +45,21 @@ This follows Axler's Definition 3.1: A function T : V → W is called a linear m
 T(u + v) = Tu + Tv and T(av) = aTv for all u, v ∈ V and all a ∈ F.
 -/
 def is_linear_map_v (T : V → W) : Prop :=
-  (∀ u v : V, T (u + v) = T u + T v) ∧ 
+  (∀ u v : V, T (u + v) = T u + T v) ∧
   (∀ a : K, ∀ v : V, T (a • v) = a • T v)
 
 /--
 `is_linear_map_v K V W T` means T preserves addition and scalar multiplication.
+
+# Mathematically
+• Additivity: $T(u + v) = T(u) + T(v)$ for all $u, v \\in V$
+
+• Homogeneity: $T(a \\cdot v) = a \\cdot T(v)$ for all $a \\in K$ and $v \\in V$
+
+# Lean
+```
+((∀ (u v : V), T (u + v) = T u + T v) ∧ ∀ (a : K) (v : V), T (a • v) = a • T v)
+```
 -/
 DefinitionDoc is_linear_map_v as "is_linear_map_v"
 
@@ -66,7 +76,7 @@ TheoremTab "Linear Maps"
 The definition of a linear map is exactly additivity and homogeneity.
 -/
 Statement linear_map_def (T : V → W) :
-    is_linear_map_v K V W T ↔ 
+    is_linear_map_v K V W T ↔
     (∀ u v : V, T (u + v) = T u + T v) ∧ (∀ a : K, ∀ v : V, T (a • v) = a • T v) := by
   Hint "Try unfold is_linear_map_v to see the definition directly."
   Hint (hidden := true) "Try `unfold is_linear_map_v`"
