@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.21.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-29\n"
+"POT-Creation-Date: 2026-04-30\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -2247,12 +2247,6 @@ msgstr ""
 msgid "Transitivity of the less-than-or-equal relation."
 msgstr ""
 
-#: Game.Levels.LinearMapsWorld.Level04
-msgid "You've proven that the null space is always a subspace!\n"
-"\n"
-"For any linear map $T : V \\to W$, the set of vectors that $T$ sends to zero forms a subspace of $V$. Combined with the upcoming result for the range, we'll have a complete picture of how linear maps interact with subspace structure."
-msgstr ""
-
 #: Game.Levels.LinearIndependenceSpanWorld.Level04
 msgid "We won't prove it in this game (although it isn't too difficult), but any set containing\n"
 "a single vector is also linearly independent."
@@ -2290,6 +2284,10 @@ msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level05
 msgid "Linear Independence of Subsets"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level04
+msgid "You've proven that the null space of any linear map $T : V \\to W$ is a subspace of $V$! Next, we'll show the same for the range of $T$."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld

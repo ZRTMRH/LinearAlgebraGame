@@ -95,9 +95,7 @@ Statement null_space_is_subspace (T : V → W) (hT : is_linear_map_v K V W T) :
     simp
 
 Conclusion "
-You've proven that the null space is always a subspace!
-
-For any linear map $T : V \\to W$, the set of vectors that $T$ sends to zero forms a subspace of $V$. Combined with the upcoming result for the range, we'll have a complete picture of how linear maps interact with subspace structure.
+You've proven that the null space of any linear map $T : V \\to W$ is a subspace of $V$! Next, we'll show the same for the range of $T$.
 "
 
 end LinearAlgebraGame
