@@ -41,8 +41,6 @@ The range of a linear map is a subspace.
 -/
 TheoremDoc LinearAlgebraGame.range_is_subspace as "range_is_subspace" in "Linear Maps"
 
-NewTheorem LinearAlgebraGame.linear_map_preserves_zero
-
 /--
 The range of any linear map is a subspace of the codomain.
 -/
