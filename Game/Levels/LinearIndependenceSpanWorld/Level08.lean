@@ -103,6 +103,23 @@ then `linear_independent_insert_of_not_in_span hS hv_not_span` is a proof of `li
 -/
 TheoremDoc LinearAlgebraGame.linear_independent_insert_of_not_in_span as "linear_independent_insert_of_not_in_span" in "Vector Spaces"
 
+/--
+`subset_diff_singleton_of_union` is a helper proof that if a finset `s` is a subset of `S ∪ {v}`,
+then `s \ {v}` is a subset of `S`. The syntax is as follows: if you have a hypothesis
+`hs : ↑s ⊆ S ∪ {v}`, then `subset_diff_singleton_of_union K V S v s hs` is a proof of
+`↑(s \ {v}) ⊆ S`.
+-/
+TheoremDoc LinearAlgebraGame.subset_diff_singleton_of_union as "subset_diff_singleton_of_union" in "Sets"
+
+/--
+`zero_coeff_from_not_in_span` is a helper proof that if `v` is not in the span of `S`, `v ∈ s`,
+`s \ {v} ⊆ S`, and a linear combination over `s` with coefficient function `f` sums to zero,
+then `f v = 0`. The syntax is as follows: given the hypotheses described above named
+`hv_not_span`, `hvIns`, `subset`, and `hf`, the term
+`zero_coeff_from_not_in_span K V S v s f hv_not_span hvIns subset hf` is a proof of `f v = 0`.
+-/
+TheoremDoc LinearAlgebraGame.zero_coeff_from_not_in_span as "zero_coeff_from_not_in_span" in "Vector Spaces"
+
 NewTactic by_contra «suffices»
 
 NewTheorem Finset.sum_eq_sum_diff_singleton_add Finset.smul_sum inv_mul_cancel₀
@@ -158,6 +175,8 @@ lemma zero_coeff_from_not_in_span (K V : Type) [Field K] [AddCommGroup V] [Vecto
   have g_v : v = ∑ w ∈ s \ {v}, (g w) • w := by exact rearranged
   specialize hv_not_span (s \ {v}) subset g
   exact hv_not_span g_v
+
+NewTheorem LinearAlgebraGame.subset_diff_singleton_of_union LinearAlgebraGame.zero_coeff_from_not_in_span
 
 Statement linear_independent_insert_of_not_in_span
   {S : Set V} {v : V}
