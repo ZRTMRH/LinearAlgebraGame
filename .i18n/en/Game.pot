@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.21.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-14\n"
+"POT-Creation-Date: 2026-05-15\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -1809,6 +1809,14 @@ msgid "`smul_add` is one of the axioms of a vector space. It is a proof that if 
 "of scalar multiplication"
 msgstr ""
 
+#: Game.Levels.LinearIndependenceSpanWorld.Level08
+msgid "`zero_coeff_from_not_in_span` is a helper proof that if `v` is not in the span of `S`, `v ∈ s`,\n"
+"`s \\ {v} ⊆ S`, and a linear combination over `s` with coefficient function `f` sums to zero,\n"
+"then `f v = 0`. The syntax is as follows: given the hypotheses described above named\n"
+"`hv_not_span`, `hvIns`, `subset`, and `hf`, the term\n"
+"`zero_coeff_from_not_in_span K V S v s f hv_not_span hvIns subset hf` is a proof of `f v = 0`."
+msgstr ""
+
 #: Game.Levels.InnerProductWorld.Level03
 msgid "The real part of a complex conjugate equals the real part of the original number."
 msgstr ""
@@ -2907,6 +2915,13 @@ msgid "## Welcome to Vector Space World!\n"
 "Note that to write the scalar multiplication symbol `•`, type `\\smul`.\n"
 "\n"
 "Ready to begin your journey into vector spaces? Let's start proving theorems!"
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level08
+msgid "`subset_diff_singleton_of_union` is a helper proof that if a finset `s` is a subset of `S ∪ {v}`,\n"
+"then `s \\ {v}` is a subset of `S`. The syntax is as follows: if you have a hypothesis\n"
+"`hs : ↑s ⊆ S ∪ {v}`, then `subset_diff_singleton_of_union K V S v s hs` is a proof of\n"
+"`↑(s \\ {v}) ⊆ S`."
 msgstr ""
 
 #: Game.Levels.TutorialWorld.Level03
