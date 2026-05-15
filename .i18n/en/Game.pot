@@ -769,12 +769,12 @@ msgid "## Vector Space Definition\n"
 "**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints."
 msgstr ""
 
-#: Game.Levels.LinearIndependenceSpanWorld.Level07
-msgid "`Finset.subset_union_right` is a proof that if `a b : Finset S` are sets, then `b ⊆ a ∪ b`."
-msgstr ""
-
 #: Game.Levels.LinearMapsWorld.Level03
 msgid "Images are in the range."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level07
+msgid "`Finset.subset_union_right` is a proof that if `a b : Finset S` are sets, then `b ⊆ a ∪ b`."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level09
@@ -1012,6 +1012,11 @@ msgid "`subset_diff_singleton` is a proof that if `h : s ⊆ t`, and `hx : x ∉
 "is `subset_diff_singleton h hx`."
 msgstr ""
 
+#: Game.Levels.InnerProductWorld.Level07
+msgid "`scaled_norm_le_original` is a helper proof that if `‖u‖^2 = ‖c • v‖^2 + ‖w‖^2`, then\n"
+"`‖c • v‖^2 ≤ ‖u‖^2`. The syntax is `scaled_norm_le_original u v w c h_eq`."
+msgstr ""
+
 #: Game.Levels.LinearMapsWorld.Level05
 msgid "The Range is a Subspace"
 msgstr ""
@@ -1053,6 +1058,12 @@ msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level01
 msgid "The `linarith` tactic solves linear arithmetic goals."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "`norm_sq_decomposition` is a helper proof that if `u = c • v + w` and `c • v` is orthogonal\n"
+"to `w`, then `‖u‖^2 = ‖c • v‖^2 + ‖w‖^2`. The syntax is\n"
+"`norm_sq_decomposition u v w c h_decomp h_ortho`."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level02
@@ -1327,6 +1338,11 @@ msgid "## Summary\n"
 "\n"
 "If your goal is `∀ x : Nat, x ≥ 0`, `intro x` will create a variable `x : Nat`, and change the goal\n"
 "to `x ≥ 0`."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "`norm_sq_scaled_eq` is a helper proof that if `0 < ‖v‖` and `c = ⟪u,v⟫ / ‖v‖^2`, then\n"
+"`‖c • v‖^2 = ‖⟪u,v⟫‖^2 / ‖v‖^2`. The syntax is `norm_sq_scaled_eq u v c v_pos c_def`."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level04
@@ -1712,6 +1728,12 @@ msgstr ""
 #: Game.Levels.InnerProductWorld.Level06
 msgid "`inner_minus_left` extends linearity of the inner product in the first argument to subtraction:\n"
 "`⟪u - v, w⟫ = ⟪u, w⟫ - ⟪v, w⟫`."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "`union_diff_singleton_eq` is a helper proof that if `↑sw ⊆ S \\ {w}`, then\n"
+"`sw ∪ (sx \\ {w}) = (sw ∪ sx) \\ {w}`. The syntax is\n"
+"`union_diff_singleton_eq S sw sx w hsw`."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level01
@@ -2223,6 +2245,18 @@ msgid "`sum_eq_sum_diff_singleton_add` is a proof that if you have some set `s`,
 "`Finset.sum s (fun x => f x) = Finset.sum (s / {i}) (fun x => f x) + f i. The syntax is `sum_eq_sum_diff_singleton_add h f`."
 msgstr ""
 
+#: Game.Levels.InnerProductWorld.Level07
+msgid "`norm_nonzero_of_nonzero` is a helper proof that if `v ≠ 0`, then `‖v‖ ≠ 0`. The syntax is\n"
+"`norm_nonzero_of_nonzero v v_zero`."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "`fw_sum_equality` is a helper proof that, given `hfw : w = sw.sum (fun v => fw v • v)`\n"
+"and `hfw' : fw' = fun v => ite (v ∈ sw) (fx w * fw v) 0`, the equality\n"
+"`fx w • w = (sw ∪ (sx \\ {w})).sum (fun v => fw' v • v)` holds. The syntax is\n"
+"`fw_sum_equality K V w sw sx fx fw fw' hfw hfw'`."
+msgstr ""
+
 #: Game.Levels.InnerProductWorld.Level01
 msgid "`sq_nonneg` shows that squares are nonnegative."
 msgstr ""
@@ -2279,6 +2313,14 @@ msgid "## Summary\n"
 "\n"
 "If you have a goal `¬ P`, using `unfold Not` will change it to `P → False`.\n"
 "This often makes it easier to work with using `intro` and other tactics."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level09
+msgid "`fx_sum_equality` is a helper proof that, given `hw : w ∈ sx`,\n"
+"`hfx : x = sx.sum (fun v => fx v • v)`, `hfx' : fx' = fun v => ite (v ∈ sx) (fx v) 0`,\n"
+"and `set_eq : sw ∪ (sx \\ {w}) = (sw ∪ sx) \\ {w}`, the equality\n"
+"`x - (fx w • w) = (sw ∪ (sx \\ {w})).sum (fun v => fx' v • v)` holds. The syntax is\n"
+"`fx_sum_equality K V x w sw sx fx fx' hw hfx hfx' set_eq`."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level06
@@ -2695,6 +2737,11 @@ msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level04
 msgid "Linear maps preserve zero: $T(0) = 0$."
+msgstr ""
+
+#: Game.Levels.InnerProductWorld.Level07
+msgid "`norm_pos_of_nonzero` is a helper proof that if `v ≠ 0`, then `0 < ‖v‖`. The syntax is\n"
+"`norm_pos_of_nonzero v v_zero`."
 msgstr ""
 
 #: Game.Levels.TutorialWorld.Level06

@@ -50,6 +50,37 @@ TheoremDoc LinearAlgebraGame.le_of_sq_le_sq as "le_of_sq_le_sq" in "Inner Produc
 -/
 TheoremDoc LinearAlgebraGame.inner_zero_right_v as "inner_zero_right_v" in "Inner Product"
 
+/--
+`norm_nonzero_of_nonzero` is a helper proof that if `v ≠ 0`, then `‖v‖ ≠ 0`. The syntax is
+`norm_nonzero_of_nonzero v v_zero`.
+-/
+TheoremDoc LinearAlgebraGame.norm_nonzero_of_nonzero as "norm_nonzero_of_nonzero" in "Inner Product"
+
+/--
+`norm_sq_decomposition` is a helper proof that if `u = c • v + w` and `c • v` is orthogonal
+to `w`, then `‖u‖^2 = ‖c • v‖^2 + ‖w‖^2`. The syntax is
+`norm_sq_decomposition u v w c h_decomp h_ortho`.
+-/
+TheoremDoc LinearAlgebraGame.norm_sq_decomposition as "norm_sq_decomposition" in "Inner Product"
+
+/--
+`scaled_norm_le_original` is a helper proof that if `‖u‖^2 = ‖c • v‖^2 + ‖w‖^2`, then
+`‖c • v‖^2 ≤ ‖u‖^2`. The syntax is `scaled_norm_le_original u v w c h_eq`.
+-/
+TheoremDoc LinearAlgebraGame.scaled_norm_le_original as "scaled_norm_le_original" in "Inner Product"
+
+/--
+`norm_pos_of_nonzero` is a helper proof that if `v ≠ 0`, then `0 < ‖v‖`. The syntax is
+`norm_pos_of_nonzero v v_zero`.
+-/
+TheoremDoc LinearAlgebraGame.norm_pos_of_nonzero as "norm_pos_of_nonzero" in "Inner Product"
+
+/--
+`norm_sq_scaled_eq` is a helper proof that if `0 < ‖v‖` and `c = ⟪u,v⟫ / ‖v‖^2`, then
+`‖c • v‖^2 = ‖⟪u,v⟫‖^2 / ‖v‖^2`. The syntax is `norm_sq_scaled_eq u v c v_pos c_def`.
+-/
+TheoremDoc LinearAlgebraGame.norm_sq_scaled_eq as "norm_sq_scaled_eq" in "Inner Product"
+
 -- Helper theorem: taking square roots preserves inequalities for non-negative numbers
 theorem le_of_sq_le_sq {a : ℝ} {b : ℝ} (h : a^2 ≤ b ^2 ) (hb : 0≤ b) : a ≤ b :=
   le_abs_self a |>.trans <| abs_le_of_sq_le_sq h hb
@@ -96,6 +127,9 @@ lemma norm_sq_scaled_eq {V : Type} [AddCommGroup V] [VectorSpace ℂ V]  [InnerP
   field_simp [ne_of_gt v_pos]
   ring
 
+NewTheorem LinearAlgebraGame.norm_nonzero_of_nonzero LinearAlgebraGame.norm_sq_decomposition
+  LinearAlgebraGame.scaled_norm_le_original LinearAlgebraGame.norm_pos_of_nonzero
+  LinearAlgebraGame.norm_sq_scaled_eq
 
 
 Statement Cauchy_Schwarz (u v : V) : ‖⟪u,v⟫‖ ≤ ‖u‖ * ‖v‖ := by
