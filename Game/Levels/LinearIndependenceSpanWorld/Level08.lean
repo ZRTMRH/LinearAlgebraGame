@@ -90,10 +90,10 @@ TheoremDoc Finset.sum_eq_sum_diff_singleton_add as "sum_eq_sum_diff_singleton_ad
 TheoremDoc Finset.smul_sum as "smul_sum" in "Sets"
 
 /--
-`inv_mul_cancel` is a proof that multiplying a nonzero inverse gives 1. If you have a hypothesis `h : x ≠ 0`,
-then  `inv_mul_cancel h` is a proof that `x⁻¹ * x = 1`
+`inv_mul_cancel₀` is a proof that multiplying a nonzero inverse gives 1. If you have a hypothesis `h : x ≠ 0`,
+then  `inv_mul_cancel₀ h` is a proof that `x⁻¹ * x = 1`
 -/
-TheoremDoc inv_mul_cancel as "inv_mul_cancel" in "Groups"
+TheoremDoc inv_mul_cancel₀ as "inv_mul_cancel₀" in "Groups"
 
 /--
 `linear_independent_insert_of_not_in_span` is a proof that if you have a linearly independent set, and
@@ -105,7 +105,7 @@ TheoremDoc LinearAlgebraGame.linear_independent_insert_of_not_in_span as "linear
 
 NewTactic by_contra «suffices»
 
-NewTheorem Finset.sum_eq_sum_diff_singleton_add Finset.smul_sum inv_mul_cancel
+NewTheorem Finset.sum_eq_sum_diff_singleton_add Finset.smul_sum inv_mul_cancel₀
 
 open VectorSpace Finset
 variable (K V : Type) [Field K] [AddCommGroup V] [VectorSpace K V] [DecidableEq V]
@@ -135,8 +135,7 @@ lemma zero_coeff_from_not_in_span (K V : Type) [Field K] [AddCommGroup V] [Vecto
   Hint "From our assumption, we can get that f v is nonzero, so it has a multiplicative inverse."
   have f_v_inv : f v ≠ 0 := hfv_ne_zero
   let inv_fv : K := (f v)⁻¹
-  have g1 :inv_fv * (f v) = (1: K) := by
-    rw [propext (mul_eq_one_iff_eq_inv₀ hfv_ne_zero)]
+  have g1 : inv_fv * (f v) = (1 : K) := inv_mul_cancel₀ hfv_ne_zero
   have g2 :f v • v =-((s \ {v}).sum (fun w => f w • w)) := by
     exact Eq.symm (neg_eq_of_add_eq_zero_right hf)
   Hint "Now, we can rearrange our equation hf to isolate v."
