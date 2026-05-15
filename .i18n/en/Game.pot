@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.21.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-30\n"
+"POT-Creation-Date: 2026-05-14\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -1402,11 +1402,6 @@ msgstr ""
 msgid "In any vector space V over K, the scalar 0 multiplied by any vector gives the zero vector."
 msgstr ""
 
-#: Game.Levels.LinearIndependenceSpanWorld.Level08
-msgid "`inv_mul_cancel` is a proof that multiplying a nonzero inverse gives 1. If you have a hypothesis `h : x ≠ 0`,\n"
-"then  `inv_mul_cancel h` is a proof that `x⁻¹ * x = 1`"
-msgstr ""
-
 #: Game.Levels.LinearMapsWorld.Level01
 msgid "`smul_zero` says that scalar multiplication of zero gives zero: `a • 0 = 0`."
 msgstr ""
@@ -2309,6 +2304,11 @@ msgid "## Summary\n"
 "## Example\n"
 "\n"
 "If we have the goal`P ↔ Q`, `constructor` will change the goal into two goals: `P → Q`, and `Q → P`."
+msgstr ""
+
+#: Game.Levels.LinearIndependenceSpanWorld.Level08
+msgid "`inv_mul_cancel₀` is a proof that multiplying a nonzero inverse gives 1. If you have a hypothesis `h : x ≠ 0`,\n"
+"then  `inv_mul_cancel₀ h` is a proof that `x⁻¹ * x = 1`"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
