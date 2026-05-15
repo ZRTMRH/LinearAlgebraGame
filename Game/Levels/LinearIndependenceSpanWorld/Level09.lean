@@ -138,6 +138,30 @@ TheoremDoc Set.subset_diff_singleton as "subset_diff_singleton" in "Sets"
 -/
 TheoremDoc Set.diff_subset as "diff_subset" in "Sets"
 
+/--
+`union_diff_singleton_eq` is a helper proof that if `↑sw ⊆ S \ {w}`, then
+`sw ∪ (sx \ {w}) = (sw ∪ sx) \ {w}`. The syntax is
+`union_diff_singleton_eq S sw sx w hsw`.
+-/
+TheoremDoc LinearAlgebraGame.union_diff_singleton_eq as "union_diff_singleton_eq" in "Sets"
+
+/--
+`fx_sum_equality` is a helper proof that, given `hw : w ∈ sx`,
+`hfx : x = sx.sum (fun v => fx v • v)`, `hfx' : fx' = fun v => ite (v ∈ sx) (fx v) 0`,
+and `set_eq : sw ∪ (sx \ {w}) = (sw ∪ sx) \ {w}`, the equality
+`x - (fx w • w) = (sw ∪ (sx \ {w})).sum (fun v => fx' v • v)` holds. The syntax is
+`fx_sum_equality K V x w sw sx fx fx' hw hfx hfx' set_eq`.
+-/
+TheoremDoc LinearAlgebraGame.fx_sum_equality as "fx_sum_equality" in "Vector Spaces"
+
+/--
+`fw_sum_equality` is a helper proof that, given `hfw : w = sw.sum (fun v => fw v • v)`
+and `hfw' : fw' = fun v => ite (v ∈ sw) (fx w * fw v) 0`, the equality
+`fx w • w = (sw ∪ (sx \ {w})).sum (fun v => fw' v • v)` holds. The syntax is
+`fw_sum_equality K V w sw sx fx fw fw' hfw hfw'`.
+-/
+TheoremDoc LinearAlgebraGame.fw_sum_equality as "fw_sum_equality" in "Vector Spaces"
+
 
 /--
 ## Summary
@@ -196,6 +220,7 @@ TacticDoc ite
 NewTactic tauto left right «let» ite
 
 NewTheorem Set.subset_insert Finset.Subset.antisymm_iff Finset.sum_eq_sum_diff_singleton_add Finset.mem_union_right Finset.sum_add_distrib Set.subset_diff_singleton Set.diff_subset
+  LinearAlgebraGame.union_diff_singleton_eq LinearAlgebraGame.fx_sum_equality LinearAlgebraGame.fw_sum_equality
 
 TheoremDoc LinearAlgebraGame.remove_redundant_span as "remove_redundant_span" in "Vector Spaces"
 
