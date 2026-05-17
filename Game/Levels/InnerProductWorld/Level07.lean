@@ -85,8 +85,6 @@ TheoremDoc LinearAlgebraGame.norm_sq_scaled_eq as "norm_sq_scaled_eq" in "Inner 
 theorem le_of_sq_le_sq {a : ℝ} {b : ℝ} (h : a^2 ≤ b ^2 ) (hb : 0≤ b) : a ≤ b :=
   le_abs_self a |>.trans <| abs_le_of_sq_le_sq h hb
 
-NewTheorem LinearAlgebraGame.norm_zero_v LinearAlgebraGame.pythagorean LinearAlgebraGame.inner_self_nonneg LinearAlgebraGame.inner_self_eq_zero LinearAlgebraGame.sca_mul LinearAlgebraGame.ortho_decom LinearAlgebraGame.norm_nonneg_v LinearAlgebraGame.inner_zero_right_v mul_le_mul_of_nonneg_right div_mul_cancel sq_nonneg LinearAlgebraGame.le_of_sq_le_sq
-
 /-- Helper lemma: The norm of a nonzero vector is nonzero -/
 lemma norm_nonzero_of_nonzero {V : Type} [AddCommGroup V] [VectorSpace ℂ V]  [InnerProductSpace_v V]
   (v : V) (v_zero : v ≠ 0) : ‖v‖ ≠ 0 := by
@@ -127,7 +125,11 @@ lemma norm_sq_scaled_eq {V : Type} [AddCommGroup V] [VectorSpace ℂ V]  [InnerP
   field_simp [ne_of_gt v_pos]
   ring
 
-NewTheorem LinearAlgebraGame.norm_nonzero_of_nonzero LinearAlgebraGame.norm_sq_decomposition
+NewTheorem LinearAlgebraGame.norm_zero_v LinearAlgebraGame.pythagorean LinearAlgebraGame.inner_self_nonneg
+  LinearAlgebraGame.inner_self_eq_zero LinearAlgebraGame.sca_mul LinearAlgebraGame.ortho_decom
+  LinearAlgebraGame.norm_nonneg_v LinearAlgebraGame.inner_zero_right_v mul_le_mul_of_nonneg_right
+  div_mul_cancel sq_nonneg LinearAlgebraGame.le_of_sq_le_sq
+  LinearAlgebraGame.norm_nonzero_of_nonzero LinearAlgebraGame.norm_sq_decomposition
   LinearAlgebraGame.scaled_norm_le_original LinearAlgebraGame.norm_pos_of_nonzero
   LinearAlgebraGame.norm_sq_scaled_eq
 

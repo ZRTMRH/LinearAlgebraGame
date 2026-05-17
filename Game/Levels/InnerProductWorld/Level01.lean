@@ -239,8 +239,7 @@ TheoremDoc sq_nonneg as "sq_nonneg" in "Inner Product"
 
 NewTactic «case» ring_nf field_simp norm_cast
 NewTheorem mul_le_mul_of_nonneg_right div_mul_cancel sq_eq_sq₀ sq_nonneg
-
-NewTheorem Real.sqrt_nonneg LinearAlgebraGame.inner_self_im_zero LinearAlgebraGame.inner_self_nonneg LinearAlgebraGame.inner_self_eq_zero LinearAlgebraGame.inner_add_left LinearAlgebraGame.inner_smul_left LinearAlgebraGame.inner_conj_symm
+  Real.sqrt_nonneg LinearAlgebraGame.inner_self_im_zero LinearAlgebraGame.inner_self_nonneg LinearAlgebraGame.inner_self_eq_zero LinearAlgebraGame.inner_add_left LinearAlgebraGame.inner_smul_left LinearAlgebraGame.inner_conj_symm
 
 TheoremTab "Inner Product"
 TheoremTab "ℝ"
