@@ -122,8 +122,6 @@ TheoremDoc LinearAlgebraGame.zero_coeff_from_not_in_span as "zero_coeff_from_not
 
 NewTactic by_contra «suffices»
 
-NewTheorem Finset.sum_eq_sum_diff_singleton_add Finset.smul_sum inv_mul_cancel₀
-
 open VectorSpace Finset
 variable (K V : Type) [Field K] [AddCommGroup V] [VectorSpace K V] [DecidableEq V]
 
@@ -176,7 +174,8 @@ lemma zero_coeff_from_not_in_span (K V : Type) [Field K] [AddCommGroup V] [Vecto
   specialize hv_not_span (s \ {v}) subset g
   exact hv_not_span g_v
 
-NewTheorem LinearAlgebraGame.subset_diff_singleton_of_union LinearAlgebraGame.zero_coeff_from_not_in_span
+NewTheorem Finset.sum_eq_sum_diff_singleton_add Finset.smul_sum inv_mul_cancel₀
+  LinearAlgebraGame.subset_diff_singleton_of_union LinearAlgebraGame.zero_coeff_from_not_in_span
 
 Statement linear_independent_insert_of_not_in_span
   {S : Set V} {v : V}
