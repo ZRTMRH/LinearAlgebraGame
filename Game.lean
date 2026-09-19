@@ -15,7 +15,7 @@ This game works as a learning tool for linear algebra,
 based on the textbook \"Linear Algebra Done Right\" by Sheldon Axler. It also serves as an
 introduction to Lean 4, a proof assistant that provides an environment to encode proofs formally.
 
-Proofs in Lean can are written in precise syntax, using tactics and theorems, and can be algorithmically
+Proofs in Lean are written in precise syntax, using tactics and theorems, and can be algorithmically
 checked for correctness by a computer.
 
 This game covers many areas of linear algebra, including vector spaces, linear independence, bases,
