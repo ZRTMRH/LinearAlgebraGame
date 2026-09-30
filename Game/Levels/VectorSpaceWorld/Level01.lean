@@ -226,7 +226,7 @@ Statement zero_smul_v (w : V) : (0 : K) • w = (0 : V) := by
   Hint "Remember, we are trying to prove this backwards. The last step in the normal proof was to cancel out 0 • w from both sides, so what should the first step of the backwards proof be? Use add_right_cancel to add 0 • w to both sides."
   Hint (hidden := true) "Try `apply add_right_cancel (b := (0 : K) • w)`"
   apply add_right_cancel (b := (0 : K) • w)
-  Hint "Now use the distributivity property add_smul in reverse. We want to write (0 + 0) • w as 0 • w + 0 • w. Remember to use .symm to reverse the direction."
+  Hint "Now use the distributivity property add_smul in reverse. We want to write (0 + 0) • w as 0 • w + 0 • w. Remember to use `.symm` to reverse the direction."
   Hint (hidden := true) "Try `rw[(add_smul (0 : K) (0 : K) w).symm]`"
   rw[(add_smul (0 : K) (0 : K) w).symm]
   Hint "Now simplify the scalars using zero_add: 0 + 0 = 0."

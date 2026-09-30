@@ -202,7 +202,7 @@ Statement linear_independent_insert_of_not_in_span
     by_cases hvIns : v ∈ s
 
     Hint "Now, we want to split {hf} into two, breaking off \{{v}} so we have a sum over a subset of S"
-    Hint "We can rewrite the sum as: ∑(s\\\{{v}}) + f(v)•v = 0. This separation is key to our proof."
+    Hint "We can rewrite the sum as: ∑(s \\ \{{v}}) + f(v)•v = 0. This separation is key to our proof."
     Hint (hidden := true) "Try `rw [sum_eq_sum_diff_singleton_add {hvIns}] at {hf}`"
     rw [sum_eq_sum_diff_singleton_add hvIns] at hf
 
@@ -222,7 +222,7 @@ Statement linear_independent_insert_of_not_in_span
 
     Hint "Now, consider two cases: `w = v` or not. If `w = v`, our lemma is our goal. If not,
     we need to use the linear independence of `S`"
-    Hint "Since f(v) = 0, the equation becomes: ∑(s\\\{{v}}) f(w)•w = 0, which involves only vectors from S."
+    Hint "Since f(v) = 0, the equation becomes: ∑(s \\ \{{v}}) f(w)•w = 0, which involves only vectors from S."
     Hint (hidden := true) "Try `by_cases hw2 : w = v`"
     by_cases hw2 : w = v
     Hint (hidden := true) "Try `rw [{hw2}]`"
@@ -242,7 +242,7 @@ Statement linear_independent_insert_of_not_in_span
     have hwInS : w ∈ s \ {v} := by (simp; exact ⟨hw, hw2⟩)
 
     Hint "Now, we can apply all of our hypotheses to close the goal"
-    Hint "Since S is linearly independent and we have a zero sum over s\\\{{v}} ⊆ S, all coefficients (including f(w)) are zero."
+    Hint "Since S is linearly independent and we have a zero sum over s \\ \{{v}} ⊆ S, all coefficients (including f(w)) are zero."
     Hint (hidden := true) "Try `exact {hS} (s \\ \{{v}}) f subset {hf} w {hwInS}`"
     exact hS (s \ {v}) f subset hf w hwInS
 

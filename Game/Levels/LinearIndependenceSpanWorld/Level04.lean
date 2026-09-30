@@ -24,7 +24,7 @@ mapping vectors to the scalars that multiply those vectors, and use `Finset.sum`
 
 ### The Goal
 The goal of this level is to prove that the empty set is linearly independent. This makes sense,
-because there are no vectors in the empty set that can be scaled be a non-zero factor.
+because there are no vectors in the empty set that can be scaled by a non-zero factor.
 
 **Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints.
 "

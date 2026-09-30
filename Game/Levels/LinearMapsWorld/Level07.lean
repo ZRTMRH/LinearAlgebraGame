@@ -8,7 +8,7 @@ Level 7
 Title "Surjective Linear Maps"
 
 Introduction "
-In our final level of LinearMapsWorld, we'll introduce the concept of surjectivity and prove a basic property.
+In this level of LinearMapsWorld, we'll introduce the concept of surjectivity and prove a basic property.
 
 ## The Core Idea
 
@@ -32,7 +32,7 @@ Prove that if T is surjective, then every element of W is in the range of T.
 "
 
 open VectorSpace
-variable (K V W : Type) [Field K] [AddCommGroup V] [AddCommGroup W] 
+variable (K V W : Type) [Field K] [AddCommGroup V] [AddCommGroup W]
 variable [VectorSpace K V] [VectorSpace K W]
 
 /--
@@ -42,7 +42,7 @@ A linear map is surjective (onto) if every element in the target space is hit.
 
 Following Axler's approach: T is surjective if for every w ∈ W, there exists v ∈ V such that Tv = w.
 -/
-def surjective_v (K V W : Type) [Field K] [AddCommGroup V] [AddCommGroup W] 
+def surjective_v (K V W : Type) [Field K] [AddCommGroup V] [AddCommGroup W]
   [VectorSpace K V] [VectorSpace K W] (T : V → W) : Prop :=
   ∀ w : W, ∃ v : V, T v = w
 
@@ -61,7 +61,7 @@ TheoremDoc LinearAlgebraGame.surjective_iff_range_eq as "surjective_iff_range_eq
 /--
 If T is surjective, then every element of W is in the range of T.
 -/
-Statement surjective_iff_range_eq (T : V → W) : 
+Statement surjective_iff_range_eq (T : V → W) :
     surjective_v K V W T ↔ (∀ w : W, w ∈ range_v K V W T) := by
   Hint "Show both directions of the equivalence. A ↔ B means we need to prove both A → B and B → A."
   Hint (hidden := true) "Try `constructor`"
