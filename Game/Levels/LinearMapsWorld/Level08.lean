@@ -5,12 +5,12 @@ namespace LinearAlgebraGame
 World "LinearMapsWorld"
 Level 8
 
-Title "Injectivity and Null Space (Axler 3.16)"
+Title "Injectivity and Null Space"
 
 Introduction "
-Now we'll prove one of the most fundamental theorems in linear algebra: **Axler's Theorem 3.16**.
+Now we'll prove one of the most fundamental theorems about linear maps: the **injectivity criterion**.
 
-## The Fundamental Theorem
+## The Injectivity Criterion
 
 A linear map $T : V \\to W$ is injective **if and only if** $\\text{null } T = \\{0\\}$.
 
@@ -26,7 +26,7 @@ This theorem gives us a **practical test for injectivity**. Instead of checking 
 This is Axler's Theorem 3.16: *Suppose T ∈ L(V,W). Then T is injective if and only if null T = {0}.*
 
 ### Your Goal
-Prove the first direction: if T is injective, then the null space is trivial.
+Prove the first direction: if T is injective, then the null space is trivial. You'll prove the second direction in Level 10.
 
 **Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints.
 "
@@ -54,7 +54,7 @@ DefinitionDoc injective_v as "injective_v"
 NewDefinition injective_v
 
 /--
-If T is injective, then null T = {0} (Axler 3.16, first direction).
+If T is injective, then null T = {0} (first direction of the injectivity criterion).
 -/
 TheoremDoc LinearAlgebraGame.injective_implies_trivial_null as "injective_implies_trivial_null" in "Linear Maps"
 
@@ -106,9 +106,9 @@ Statement injective_implies_trivial_null (T : V → W) (hT : is_linear_map_v K V
     exact linear_map_preserves_zero K V W T hT
 
 Conclusion "
-You've proven half of Axler's fundamental theorem!
+You've proven half of the injectivity criterion!
 
-This direction shows that injectivity forces the null space to be as small as possible - containing only zero. Combined with the reverse direction, this gives us a complete characterization of when linear maps are injective.
+This direction shows that injectivity forces the null space to be as small as possible - containing only zero. In Level 10 you'll prove the reverse direction, completing the characterization of when linear maps are injective.
 "
 
 end LinearAlgebraGame
