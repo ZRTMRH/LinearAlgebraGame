@@ -1,7 +1,7 @@
 msgid ""
 msgstr "Project-Id-Version: Game v4.21.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-17\n"
+"POT-Creation-Date: 2026-10-05\n"
 "Last-Translator: \n"
 "Language-Team: none\n"
 "Language: en\n"
@@ -370,38 +370,8 @@ msgstr ""
 msgid "`injective_v K V W T` means T is one-to-one."
 msgstr ""
 
-#: Game.Levels.LinearMapsWorld.Level10
-msgid "The Fundamental Theorem of Linear Algebra"
-msgstr ""
-
 #: Game.Levels.LinearMapsWorld.Level01
 msgid "A linear map preserves vector addition and scalar multiplication."
-msgstr ""
-
-#: Game.Levels.LinearMapsWorld.Level11
-msgid "**Congratulations!** You have completed LinearMapsWorld!\n"
-"\n"
-"You've mastered the fundamental concepts of linear map theory through 11 levels:\n"
-"\n"
-"- **Definition**: What makes a map linear (additivity and homogeneity)\n"
-"- **Null Space**: The set of vectors mapped to zero\n"
-"- **Range**: The image of the transformation  \n"
-"- **Key Properties**: Linear maps preserve zero and linear combinations\n"
-"- **Subspace Structure**: The range forms a subspace\n"
-"- **Injectivity**: Characterized by trivial null space (Axler 3.16)\n"
-"- **Surjectivity**: When the range equals the codomain\n"
-"- **Dimension Theory**: How linear maps interact with dimensions\n"
-"- **Isomorphisms**: Bijective linear maps that preserve structure\n"
-"\n"
-"You've proven several important theorems, including:\n"
-"- Linear maps always preserve zero\n"
-"- The null space characterization of injectivity\n"
-"- The range is always a subspace\n"
-"- Isomorphisms are exactly the bijective linear maps\n"
-"\n"
-"These concepts form the foundation for deeper topics in linear algebra like eigentheory, matrix representations, and the full rank-nullity theorem.\n"
-"\n"
-"Well done on completing this journey through linear map theory!"
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level02
@@ -458,6 +428,10 @@ msgstr ""
 msgid "`Finset.sum` is how we define summing over a set. It uses Mathlib's `Finset` Type, which means that we\n"
 "can only sum over arbitrary finite sets. The syntax is as follows: With a additive group or field `K`, some Type `T`,\n"
 "some `s : Finset T`, and some `f : T → K`, `Finset.sum s (fun x => f x)` sums `f x` over all `x ∈ s`."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level10
+msgid "If the null space of a linear map T contains only zero, then T is injective."
 msgstr ""
 
 #: Game.Levels.TutorialWorld.Level04
@@ -550,6 +524,10 @@ msgid "The span of a set of vectors `S`, denoted `span K V S` is the set of all 
 "``` { x : V | is_linear_combination K V S x } ```"
 msgstr ""
 
+#: Game.Levels.LinearMapsWorld.Level10
+msgid "Trivial Null Space Implies Injective"
+msgstr ""
+
 #: Game.Levels.LinearMapsWorld.Level09
 msgid "Injective Maps Preserve Independence"
 msgstr ""
@@ -589,34 +567,7 @@ msgid "Welcome to the tutorial world! This world is designed to introduce you to
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level10
-msgid "Welcome to the **crown jewel** of linear map theory: the **Fundamental Theorem of Linear Algebra**.\n"
-"\n"
-"## The Fundamental Theorem\n"
-"\n"
-"For a linear map $T : V \\to W$ between finite-dimensional vector spaces, the following are **equivalent**:\n"
-"\n"
-"1. $T$ is **injective**\n"
-"2. $T$ is **surjective**  \n"
-"3. $T$ is **bijective** (both injective and surjective)\n"
-"\n"
-"*When the spaces have the same finite dimension*.\n"
-"\n"
-"## Why This Is Revolutionary\n"
-"\n"
-"This theorem tells us that for linear maps between **same-dimensional** spaces, being one-to-one automatically makes you onto, and vice versa! This is **not true** for arbitrary functions - it's special to linear algebra.\n"
-"\n"
-"## The Mathematics\n"
-"\n"
-"Following the approach in Linear Algebra Done Right: *Suppose V and W are finite-dimensional vector spaces such that they have the same dimension. Suppose T is a linear map from V to W. Then the following are equivalent:*\n"
-"\n"
-"*(a) T is invertible*  \n"
-"*(b) T is injective*  \n"
-"*(c) T is surjective*\n"
-"\n"
-"### Your Goal\n"
-"Prove the fundamental connection between injectivity and surjectivity for equal-dimensional spaces.\n"
-"\n"
-"**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints."
+msgid "If null T = {0}, then T is injective (second direction of the injectivity criterion)."
 msgstr ""
 
 #: Game.Levels.TutorialWorld.Level10
@@ -638,26 +589,29 @@ msgstr ""
 msgid "The sum of two non-negative real numbers is non-negative."
 msgstr ""
 
-#: Game.Levels.LinearMapsWorld.Level10
-msgid "You've proven a **key insight** about the Fundamental Theorem of Linear Algebra!\n"
+#: Game.Levels.LinearMapsWorld.Level11
+msgid "**Congratulations!** You have completed LinearMapsWorld!\n"
 "\n"
-"You've shown that **injective linear maps have trivial null spaces** - only the zero vector gets mapped to zero.\n"
+"You've mastered the fundamental concepts of linear map theory through 11 levels:\n"
 "\n"
-"This is half of a fundamental characterization: a linear map is injective if and only if its null space is {0}.\n"
+"- **Definition**: What makes a map linear (additivity and homogeneity)\n"
+"- **Null Space**: The set of vectors mapped to zero\n"
+"- **Range**: The image of the transformation  \n"
+"- **Key Properties**: Linear maps preserve zero and linear combinations\n"
+"- **Subspace Structure**: The range forms a subspace\n"
+"- **Injectivity**: Characterized by trivial null space (the injectivity criterion)\n"
+"- **Surjectivity**: When the range equals the codomain\n"
+"- **Isomorphisms**: Bijective linear maps that preserve structure\n"
 "\n"
-"## Why This Matters\n"
+"You've proven several important theorems, including:\n"
+"- Linear maps always preserve zero\n"
+"- The null space characterization of injectivity\n"
+"- The range is always a subspace\n"
+"- Isomorphisms are exactly the bijective linear maps\n"
 "\n"
-"This connection between injectivity and null spaces is crucial because:\n"
-"- It gives us a **practical test** for injectivity\n"
-"- It reveals the **structural preservation** property of injective maps\n"
-"- It's a stepping stone to the full Fundamental Theorem\n"
+"These concepts form the foundation for deeper topics in linear algebra like eigentheory, matrix representations, and the full rank-nullity theorem.\n"
 "\n"
-"The complete Fundamental Theorem states that for linear maps between equal-dimensional spaces, the following are equivalent:\n"
-"- The map is injective\n"
-"- The map is surjective  \n"
-"- The map is bijective (an isomorphism)\n"
-"\n"
-"Your proof today established one of the key pieces of this beautiful result!"
+"Well done on completing this journey through linear map theory!"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level04
@@ -835,6 +789,12 @@ msgstr ""
 msgid "Challenge Level - Span After Removing Elements"
 msgstr ""
 
+#: Game.Levels.LinearMapsWorld.Level09
+msgid "You've proven that injective linear maps preserve the 'non-zero-ness' of vectors!\n"
+"\n"
+"This is a crucial step toward understanding how linear maps interact with independence: injective maps never collapse a non-zero vector to zero."
+msgstr ""
+
 #: Game.Levels.VectorSpaceWorld.Level05
 msgid "`union_subset` is a proof that if `a ⊆ c` and `b ⊆ c`, then `a ∪ b ⊆ c`. This means that if you\n"
 "have two sets that are subsets of the same set, their union is also a subset of that set."
@@ -977,26 +937,28 @@ msgid "One of the most important theorems in linear algebra is orthogonal decomp
 "**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints."
 msgstr ""
 
-#: Game.Levels.LinearMapsWorld.Level08
-msgid "Now we'll prove one of the most fundamental theorems in linear algebra: **Axler's Theorem 3.16**.\n"
+#: Game.Levels.LinearMapsWorld.Level09
+msgid "Now we'll explore a crucial property of injective linear maps: they preserve the distinction between zero and non-zero vectors.\n"
 "\n"
-"## The Fundamental Theorem\n"
+"## The Key Insight\n"
 "\n"
-"A linear map $T : V \\to W$ is injective **if and only if** $\\text{null } T = \\{0\\}$.\n"
+"If $T : V \\to W$ is an injective linear map and $T(v) = w$, then:\n"
+"- $v \\neq 0$ if and only if $w \\neq 0$\n"
 "\n"
-"## Why This Is Crucial\n"
+"This shows that injective maps preserve the **structure** of vector spaces - they never collapse non-zero vectors to zero.\n"
 "\n"
-"This theorem gives us a **practical test for injectivity**. Instead of checking the abstract definition (different inputs give different outputs), we can simply check if anything other than zero gets mapped to zero.\n"
+"## Why This Matters\n"
 "\n"
-"## The Two Directions\n"
+"This property is fundamental because:\n"
+"- It shows injective maps preserve linear independence\n"
+"- Non-zero vectors stay non-zero under injective transformations\n"
 "\n"
-"1. **If** $T$ is injective, **then** null $T = \\{0\\}$\n"
-"2. **If** null $T = \\{0\\}$, **then** $T$ is injective\n"
+"## Building Toward Level 10\n"
 "\n"
-"This is Axler's Theorem 3.16: *Suppose T ∈ L(V,W). Then T is injective if and only if null T = {0}.*\n"
+"This level shows how injectivity interacts with the zero vector. In Level 10, you'll prove the converse of Level 8: a linear map whose null space is $\\{0\\}$ must be injective.\n"
 "\n"
 "### Your Goal\n"
-"Prove the first direction: if T is injective, then the null space is trivial.\n"
+"Prove that if T is injective and maps v to w, then v ≠ 0 if and only if w ≠ 0.\n"
 "\n"
 "**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints."
 msgstr ""
@@ -1054,6 +1016,12 @@ msgid "## The Goal\n"
 "Some of the axioms and theorems you have share names with other theorems. If you run into a bug saying\n"
 "\"Ambiguous, possible interpretations\", try specifying the exact name of your theorem by putting `InnerProductSpace_v.`\n"
 "in front of the theorem name (e.g., `InnerProductSpace_v.inner_smul_left`)."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld
+msgid "Welcome to Linear Maps World! This world will introduce you to formalizing proofs about linear maps\n"
+"in Lean. This world includes proofs about null spaces and ranges, and about injective, surjective, and\n"
+"bijective linear maps, for example a linear map is injective if and only if its null space contains only zero."
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level01
@@ -1256,12 +1224,6 @@ msgid "### The Goal\n"
 "**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints."
 msgstr ""
 
-#: Game.Levels.LinearMapsWorld.Level07
-msgid "You've connected surjectivity with the range!\n"
-"\n"
-"With injectivity and surjectivity now defined, we're ready to explore deeper properties of linear maps — how they interact with dimensions and when they become invertible."
-msgstr ""
-
 #: Game.Levels.LinearIndependenceSpanWorld.Level08
 msgid "`linear_independent_insert_of_not_in_span` is a proof that if you have a linearly independent set, and\n"
 "you insert an element not in the span of that set, the new set is also linearly independent. The syntax\n"
@@ -1288,12 +1250,6 @@ msgstr ""
 msgid "`div_mul_cancel` shows that division followed by multiplication cancels."
 msgstr ""
 
-#: Game.Levels.LinearMapsWorld.Level09
-msgid "You've proven that injective linear maps preserve the 'non-zero-ness' of vectors!\n"
-"\n"
-"This is a crucial step toward understanding how linear maps interact with independence and dimension. Injective maps preserve the essential structure needed for basis theory."
-msgstr ""
-
 #: Game.Levels.VectorSpaceWorld.Level01
 msgid "## Summary\n"
 "The `symm` tactic stands for symmetry of equality. It shows that if we know `a = b`, then `b = a`.\n"
@@ -1316,6 +1272,30 @@ msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
 msgid "`mem_union_right` is a proof that if `a ∈ t`, then `a ∈ s ∪ t`. The syntax is `mem_union_right s h`."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level08
+msgid "Now we'll prove one of the most fundamental theorems about linear maps: the **injectivity criterion**.\n"
+"\n"
+"## The Injectivity Criterion\n"
+"\n"
+"A linear map $T : V \\to W$ is injective **if and only if** $\\text{null } T = \\{0\\}$.\n"
+"\n"
+"## Why This Is Crucial\n"
+"\n"
+"This theorem gives us a **practical test for injectivity**. Instead of checking the abstract definition (different inputs give different outputs), we can simply check if anything other than zero gets mapped to zero.\n"
+"\n"
+"## The Two Directions\n"
+"\n"
+"1. **If** $T$ is injective, **then** null $T = \\{0\\}$\n"
+"2. **If** null $T = \\{0\\}$, **then** $T$ is injective\n"
+"\n"
+"This is Axler's Theorem 3.16: *Suppose T ∈ L(V,W). Then T is injective if and only if null T = {0}.*\n"
+"\n"
+"### Your Goal\n"
+"Prove the first direction: if T is injective, then the null space is trivial. You'll prove the second direction in Level 10.\n"
+"\n"
+"**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints."
 msgstr ""
 
 #: Game.Levels.TutorialWorld.Level03
@@ -1418,6 +1398,12 @@ msgstr ""
 msgid "In any vector space V over K, the scalar 0 multiplied by any vector gives the zero vector."
 msgstr ""
 
+#: Game.Levels.LinearMapsWorld.Level08
+msgid "You've proven half of the injectivity criterion!\n"
+"\n"
+"This direction shows that injectivity forces the null space to be as small as possible - containing only zero. In Level 10 you'll prove the reverse direction, completing the characterization of when linear maps are injective."
+msgstr ""
+
 #: Game.Levels.LinearMapsWorld.Level01
 msgid "`smul_zero` says that scalar multiplication of zero gives zero: `a • 0 = 0`."
 msgstr ""
@@ -1485,8 +1471,6 @@ msgid "## Summary\n"
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level09
-#: Game.Levels.LinearMapsWorld.Level10
-#: Game.Levels.LinearMapsWorld.Level10
 #: Game.Levels.LinearMapsWorld.Level11
 msgid ""
 msgstr ""
@@ -1539,6 +1523,12 @@ msgstr ""
 #: Game.Levels.InnerProductWorld.Level04
 msgid "`ortho_self_zero` is a proof that the only vector orthogonal to itself is the zero vector. If `v` is\n"
 "a vector, `ortho_self_zero v` is a proof that `ortho v v ↔ v = 0`."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level07
+msgid "You've connected surjectivity with the range!\n"
+"\n"
+"With injectivity and surjectivity now defined, we're ready to explore deeper properties of linear maps — how they interact with the null space and when they become invertible."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level05
@@ -1710,6 +1700,10 @@ msgstr ""
 #: Game.Levels.InnerProductWorld.Level03
 msgid "`sq_eq_sq` is a proof that if `a` and `b` are nonnegative, `a^2 = b^2` if and only if `a = b`. If you\n"
 "have hypotheses `h1 : 0 ≤ a`, `h2 : 0 ≤ b`, then `sq_eq_sq h1 h2` is a proof that `a ^ 2 = b ^ 2 ↔ a = b`."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level08
+msgid "If T is injective, then null T = {0} (first direction of the injectivity criterion)."
 msgstr ""
 
 #: Game.Levels.TutorialWorld.Level09
@@ -1999,6 +1993,10 @@ msgstr ""
 msgid "If T is injective and maps v to w, then v ≠ 0 if and only if w ≠ 0."
 msgstr ""
 
+#: Game.Levels.LinearMapsWorld.Level08
+msgid "Injectivity and Null Space"
+msgstr ""
+
 #: Game.Levels.TutorialWorld.Level02
 msgid "The second tactic we will look at is the rewrite tactic. This tactic is how you \"substitute in\"\n"
 "a value for something you know is equal. If you have an assumption `h: A=B`, and your goal is to\n"
@@ -2054,12 +2052,6 @@ msgstr ""
 #: Game.Levels.LinearIndependenceSpanWorld.Level08
 msgid "If you have some set s, where you know `h : i ∈ s`, then `sum_eq_sum_diff_singleton_add h` is a proof that\n"
 "`(Finset.sum s fun x => f x) = (Finset.sum (s \\ {i}) fun x => f x) + f i`"
-msgstr ""
-
-#: Game.Levels.LinearMapsWorld.Level08
-msgid "You've proven half of Axler's fundamental theorem!\n"
-"\n"
-"This direction shows that injectivity forces the null space to be as small as possible - containing only zero. Combined with the reverse direction, this gives us a complete characterization of when linear maps are injective."
 msgstr ""
 
 #: Game.Levels.VectorSpaceWorld.Level03
@@ -2162,6 +2154,22 @@ msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level05
 msgid "If `A` is a linearly independent set, and we have `B ⊆ A`, then `B` is also linearly independent."
+msgstr ""
+
+#: Game
+msgid "# Welcome to the Linear Algebra Game!\n"
+"\n"
+"This game works as a learning tool for linear algebra,\n"
+"based on the textbook \"Linear Algebra Done Right\" by Sheldon Axler. It also serves as an\n"
+"introduction to Lean 4, a proof assistant that provides an environment to encode proofs formally.\n"
+"\n"
+"Proofs in Lean are written in precise syntax, using tactics and theorems, and can be algorithmically\n"
+"checked for correctness by a computer.\n"
+"\n"
+"This game covers many areas of linear algebra, including vector spaces, linear independence, bases,\n"
+"linear mappings, and isomorphisms.\n"
+"\n"
+"To start, click on \"Tutorial World\""
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level02
@@ -2500,22 +2508,6 @@ msgid "The first level of this world will introduce the definition of a linear c
 "**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints."
 msgstr ""
 
-#: Game
-msgid "# Welcome to the Linear Algebra Game!\n"
-"\n"
-"This game works as a learning tool for linear algebra,\n"
-"based on the textbook \"Linear Algebra Done Right\" by Sheldon Axler. It also serves as an\n"
-"introduction to Lean 4, a proof assistant that provides an environment to encode proofs formally.\n"
-"\n"
-"Proofs in Lean are written in precise syntax, using tactics and theorems, and can be algorithmically\n"
-"checked for correctness by a computer.\n"
-"\n"
-"This game covers many areas of linear algebra, including vector spaces, linear independence, bases,\n"
-"linear mappings, and isomorphisms.\n"
-"\n"
-"To start, click on \"Tutorial World\""
-msgstr ""
-
 #: Game.Levels.TutorialWorld
 msgid "Tutorial World"
 msgstr ""
@@ -2572,6 +2564,28 @@ msgid "This is your first challenge level! It is meant to be an optional challen
 "### New tactics/theorems\n"
 "Similarly to the last level, there are new tactics and theorems you can read about to the right side.\n"
 "Also, something that may be useful is the `⁻¹` function. `x⁻¹` is the multiplicative inverse of `x`."
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level10
+msgid "In Level 8 we proved one direction of the **injectivity criterion**: if $T$ is injective, then $\\text{null } T = \\{0\\}$. Now we'll prove the other direction, completing the characterization.\n"
+"\n"
+"## The Converse\n"
+"\n"
+"If $\\text{null } T = \\{0\\}$, then $T$ is **injective**.\n"
+"\n"
+"## The Idea\n"
+"\n"
+"Suppose $T(u) = T(v)$. By linearity,\n"
+"$$T(u + (-1) \\cdot v) = T(u) + (-1) \\cdot T(v) = T(v) - T(v) = 0,$$\n"
+"so $u + (-1) \\cdot v$ lies in the null space. Since the null space is $\\{0\\}$, we get $u - v = 0$, i.e. $u = v$.\n"
+"\n"
+"## Why This Matters\n"
+"\n"
+"Together with Level 8, this gives the full theorem: *a linear map is injective if and only if its null space is $\\{0\\}$*. To check that a linear map is injective, it is enough to check that only $0$ is sent to $0$.\n"
+"\n"
+"### Your Goal\n"
+"\n"
+"Prove that if the null space of $T$ is $\\{0\\}$, then $T$ is injective."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level05
@@ -2639,10 +2653,6 @@ msgid "`norm_nonneg` is very similar to the vector space theorem `norm_nonneg_v`
 "complex number has nonnegative norm."
 msgstr ""
 
-#: Game.Levels.LinearMapsWorld.Level08
-msgid "Injectivity and Null Space (Axler 3.16)"
-msgstr ""
-
 #: Game.Levels.LinearMapsWorld.Level05
 msgid "Just as we proved that the null space is always a subspace, we'll now prove that the range is also always a subspace.\n"
 "\n"
@@ -2698,33 +2708,6 @@ msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level02
 msgid "Introducing Span"
-msgstr ""
-
-#: Game.Levels.LinearMapsWorld.Level09
-msgid "Now we'll explore a crucial property of injective linear maps: they preserve the distinction between zero and non-zero vectors.\n"
-"\n"
-"## The Key Insight\n"
-"\n"
-"If $T : V \\to W$ is an injective linear map and $T(v) = w$, then:\n"
-"- $v \\neq 0$ if and only if $w \\neq 0$\n"
-"\n"
-"This shows that injective maps preserve the **structure** of vector spaces - they never collapse non-zero vectors to zero.\n"
-"\n"
-"## Why This Matters\n"
-"\n"
-"This property is fundamental because:\n"
-"- It shows injective maps preserve linear independence\n"
-"- Non-zero vectors stay non-zero under injective transformations\n"
-"- This is a stepping stone to understanding how injective maps preserve dimensions\n"
-"\n"
-"## Building Toward the Fundamental Theorem\n"
-"\n"
-"This level establishes that injective linear maps preserve essential structural properties, which is crucial for the dimension theory in the Fundamental Theorem.\n"
-"\n"
-"### Your Goal\n"
-"Prove that if T is injective and maps v to w, then v ≠ 0 if and only if w ≠ 0.\n"
-"\n"
-"**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints."
 msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level04
@@ -2801,12 +2784,6 @@ msgstr ""
 msgid "`mul_conj` is a proof that `z * conj z = ↑(normSq z)`"
 msgstr ""
 
-#: Game.Levels.LinearMapsWorld
-msgid "Welcome to Linear Maps World! This world will introduce you to formalizing proofs about linear maps\n"
-"in Lean. This world includes proofs about bases and dimension, for example if a subspace has the same\n"
-"dimension as the whole space, it is the whole space."
-msgstr ""
-
 #: Game.Levels.LinearIndependenceSpanWorld.Level04
 msgid "`linear_independent_v` means that a set of vectors is linearly independent. To say a set `S : Set V`\n"
 "is linearly independent, we write `linear_independent_v K V S`. This is defined that any finite set of scalar\n"
@@ -2854,10 +2831,6 @@ msgstr ""
 msgid "Orthogonality With Self"
 msgstr ""
 
-#: Game.Levels.LinearMapsWorld.Level08
-msgid "If T is injective, then null T = {0} (Axler 3.16, first direction)."
-msgstr ""
-
 #: Game.Levels.InnerProductWorld.Level04
 msgid "`orthogonal` is how we say vectors are orthogonal. The syntax is `orthogonal v w`. This means that the\n"
 "inner product of `v` and `w` is `0`. In Lean, we define it by saying\n"
@@ -2869,6 +2842,14 @@ msgstr ""
 
 #: Game.Levels.LinearMapsWorld.Level06
 msgid "Linear Maps Preserve Linear Combinations"
+msgstr ""
+
+#: Game.Levels.LinearMapsWorld.Level10
+msgid "You've proven the second half of the injectivity criterion! Combined with Level 8:\n"
+"\n"
+"$$T \\text{ is injective} \\iff \\text{null } T = \\{0\\}$$\n"
+"\n"
+"This gives a practical test for injectivity: instead of comparing $T(u)$ and $T(v)$ for every pair of vectors, it is enough to check which vectors $T$ sends to $0$."
 msgstr ""
 
 #: Game.Levels.InnerProductWorld.Level07
@@ -2883,11 +2864,6 @@ msgid "You now know the two most basic tactics in Lean! Again, you can click on 
 "to see more about the tactic.\n"
 "\n"
 "Click on \"Next\" to go to the next level!"
-msgstr ""
-
-#: Game.Levels.LinearMapsWorld.Level10
-msgid "The Fundamental Theorem: educational insight about injective linear maps.\n"
-"This demonstrates the core principle without requiring full dimension theory."
 msgstr ""
 
 #: Game.Levels.LinearIndependenceSpanWorld.Level07

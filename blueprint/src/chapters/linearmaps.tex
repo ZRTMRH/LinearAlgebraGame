@@ -41,6 +41,13 @@ $$\text{null}(T) = \{v \in V : T(v) = 0\}$$
 For any linear map $T : V \to W$, the zero vector is in the null space: $0 \in \text{null}(T)$.
 \end{lemma}
 
+\begin{theorem}
+\label{null-space-subspace}
+\uses{LinearAlgebraGame.null_space_is_subspace}
+\lean{LinearAlgebraGame.null_space_is_subspace}
+The null space of a linear map $T : V \to W$ is a subspace of $V$.
+\end{theorem}
+
 \begin{definition}
 \label{range-def}
 \uses{LinearAlgebraGame.range_v}
@@ -86,8 +93,8 @@ A linear map $T : V \to W$ is surjective if and only if $\text{range}(T) = W$.
 
 \begin{theorem}
 \label{injective-characterization}
-\uses{LinearAlgebraGame.injective_implies_trivial_null}
-\lean{LinearAlgebraGame.injective_implies_trivial_null}
+\uses{LinearAlgebraGame.injective_implies_trivial_null, LinearAlgebraGame.trivial_null_implies_injective}
+\lean{LinearAlgebraGame.injective_implies_trivial_null, LinearAlgebraGame.trivial_null_implies_injective}
 A linear map $T : V \to W$ is injective if and only if $\text{null}(T) = \{0\}$.
 \end{theorem}
 
@@ -101,32 +108,7 @@ A linear map $T : V \to W$ is injective if and only if $\text{null}(T) = \{0\}$.
 \label{injective-independence}
 \uses{LinearAlgebraGame.injective_preserves_independence}
 \lean{LinearAlgebraGame.injective_preserves_independence}
-Injective linear maps preserve linear independence: If $T : V \to W$ is an injective linear map and $\{v_1, \ldots, v_n\}$ is linearly independent in $V$, then $\{T(v_1), \ldots, T(v_n)\}$ is linearly independent in $W$.
-\end{theorem}
-
-\section{The Fundamental Theorem}
-
-\begin{theorem}
-\label{fundamental-theorem-insight}
-\uses{LinearAlgebraGame.fundamental_theorem_insight}
-\lean{LinearAlgebraGame.fundamental_theorem_insight}
-If $T : V \to W$ is an injective linear map, then distinct vectors map to distinct vectors: if $v_1 \neq v_2$, then $T(v_1) \neq T(v_2)$.
-\end{theorem}
-
-\begin{theorem}
-\label{fundamental-theorem-educational}
-\uses{LinearAlgebraGame.fundamental_theorem_educational}
-\lean{LinearAlgebraGame.fundamental_theorem_educational}
-For a linear map $T : V \to W$ between finite-dimensional vector spaces:
-$$\dim V = \dim(\text{null}(T)) + \dim(\text{range}(T))$$
-This is the rank-nullity theorem, also known as the fundamental theorem of linear maps.
-\end{theorem}
-
-\begin{theorem}
-\label{fundamental-principle}
-\uses{LinearAlgebraGame.fundamental_principle_demo}
-\lean{LinearAlgebraGame.fundamental_principle_demo}
-A linear map $T : V \to W$ is both injective and surjective if and only if it is bijective.
+Injective linear maps never send a non-zero vector to zero: If $T : V \to W$ is an injective linear map and $T(v) = w$, then $v \neq 0$ if and only if $w \neq 0$.
 \end{theorem}
 
 \section{Isomorphisms}
@@ -148,5 +130,5 @@ A linear map $T : V \to W$ is an isomorphism if and only if it is bijective.
 \label{isomorphism-preserves}
 \uses{LinearAlgebraGame.isomorphism_preserves_structure}
 \lean{LinearAlgebraGame.isomorphism_preserves_structure}
-Isomorphisms preserve all vector space structure. In particular, if $T : V \to W$ is an isomorphism, then $T$ and $T^{-1}$ preserve linear combinations, linear independence, spanning sets, and bases.
+Isomorphisms preserve linear combinations: if $T : V \to W$ is an isomorphism, then $T(a v_1 + v_2) = a T(v_1) + T(v_2)$ for all $a \in K$ and $v_1, v_2 \in V$.
 \end{theorem}

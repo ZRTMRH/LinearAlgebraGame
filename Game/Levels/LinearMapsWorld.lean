@@ -19,8 +19,8 @@ Dependency LinearIndependenceSpanWorld → LinearMapsWorld
 
 Introduction "
 Welcome to Linear Maps World! This world will introduce you to formalizing proofs about linear maps
-in Lean. This world includes proofs about bases and dimension, for example if a subspace has the same
-dimension as the whole space, it is the whole space.
+in Lean. This world includes proofs about null spaces and ranges, and about injective, surjective, and
+bijective linear maps, for example a linear map is injective if and only if its null space contains only zero.
 "
 
 end LinearAlgebraGame
