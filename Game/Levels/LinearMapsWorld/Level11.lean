@@ -100,9 +100,8 @@ You've mastered the fundamental concepts of linear map theory through 11 levels:
 - **Range**: The image of the transformation  
 - **Key Properties**: Linear maps preserve zero and linear combinations
 - **Subspace Structure**: The range forms a subspace
-- **Injectivity**: Characterized by trivial null space (Axler 3.16)
+- **Injectivity**: Characterized by trivial null space (the injectivity criterion)
 - **Surjectivity**: When the range equals the codomain
-- **Dimension Theory**: How linear maps interact with dimensions
 - **Isomorphisms**: Bijective linear maps that preserve structure
 
 You've proven several important theorems, including:

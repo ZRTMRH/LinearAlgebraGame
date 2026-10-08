@@ -86,7 +86,7 @@ Statement surjective_iff_range_eq (T : V → W) :
 Conclusion "
 You've connected surjectivity with the range!
 
-With injectivity and surjectivity now defined, we're ready to explore deeper properties of linear maps — how they interact with dimensions and when they become invertible.
+With injectivity and surjectivity now defined, we're ready to explore deeper properties of linear maps — how they interact with the null space and when they become invertible.
 "
 
 end LinearAlgebraGame

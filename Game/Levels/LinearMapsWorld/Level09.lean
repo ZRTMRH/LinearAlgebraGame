@@ -22,11 +22,10 @@ This shows that injective maps preserve the **structure** of vector spaces - the
 This property is fundamental because:
 - It shows injective maps preserve linear independence
 - Non-zero vectors stay non-zero under injective transformations
-- This is a stepping stone to understanding how injective maps preserve dimensions
 
-## Building Toward the Fundamental Theorem
+## Building Toward Level 10
 
-This level establishes that injective linear maps preserve essential structural properties, which is crucial for the dimension theory in the Fundamental Theorem.
+This level shows how injectivity interacts with the zero vector. In Level 10, you'll prove the converse of Level 8: a linear map whose null space is $\\{0\\}$ must be injective.
 
 ### Your Goal
 Prove that if T is injective and maps v to w, then v ≠ 0 if and only if w ≠ 0.
@@ -101,7 +100,7 @@ Statement injective_preserves_independence (T : V → W) (hT : is_linear_map_v K
 Conclusion "
 You've proven that injective linear maps preserve the 'non-zero-ness' of vectors!
 
-This is a crucial step toward understanding how linear maps interact with independence and dimension. Injective maps preserve the essential structure needed for basis theory.
+This is a crucial step toward understanding how linear maps interact with independence: injective maps never collapse a non-zero vector to zero.
 "
 
 end LinearAlgebraGame
