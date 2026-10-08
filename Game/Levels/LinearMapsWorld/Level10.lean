@@ -27,6 +27,8 @@ Together with Level 8, this gives the full theorem: *a linear map is injective i
 ### Your Goal
 
 Prove that if the null space of $T$ is $\\{0\\}$, then $T$ is injective.
+
+**Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints.
 "
 
 open VectorSpace
