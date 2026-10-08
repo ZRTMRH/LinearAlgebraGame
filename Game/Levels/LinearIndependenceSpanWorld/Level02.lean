@@ -47,13 +47,13 @@ def span (S : Set V) : Set V :=
 /-- If `v ∈ S`, then `v ∈ span K V S`-/
 Statement mem_span_of_mem {S : Set V} {v : V} (hv : v ∈ S) : v ∈ span K V S := by
   Hint "Once again, we have a definition we are unfamiliar with in the goal. Try to change it to terms
-  we are familiar with"
+  we are familiar with."
   Hint (hidden := true) "Try `unfold span`"
   unfold span
   Hint "The `simp` tactic is very helpful when dealing with sets."
   Hint (hidden := true) "Try `simp`"
   simp
-  Hint "This seems familiar"
+  Hint "This seems familiar."
   Hint (hidden := true) "Try `exact linear_combination_of_mem K V hv`"
   exact linear_combination_of_mem K V hv
 

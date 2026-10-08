@@ -45,7 +45,7 @@ you must use the full namespace prefix `LinearAlgebraGame.`. For example, write
 
 ## The Goal
 This first level requires you to prove that `0 ≤ ‖v‖`. Since norm is defined as the square root of a
-nonnegative real number, it is inherenetly positive.
+nonnegative real number, it is inherently positive.
 
 **Note:** If you see hints appearing multiple times, this is a known issue with the game framework. Simply continue with your proof - the level will work correctly despite any duplicate hints.
 "
@@ -248,7 +248,7 @@ TheoremTab "ℝ"
 TheoremDoc LinearAlgebraGame.norm_nonneg_v as "norm_nonneg_v" in "Inner Product"
 
 Statement norm_nonneg_v (v: V): 0 ≤ ‖v‖ := by
-  Hint "Try unfolding the new definition"
+  Hint "Try unfolding the new definition."
   Hint (hidden := true) "Try `unfold norm_v`"
   unfold norm_v
   Hint (hidden := true) "Try `exact Real.sqrt_nonneg ⟪v,v⟫.re`"

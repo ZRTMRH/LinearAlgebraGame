@@ -75,10 +75,10 @@ is exactly the same as the goal, the exact tactic will solve the goal. For examp
 `P`, and you have a hypothesis `h: P`, `exact h` will solve the goal."
 
 Statement (P : Prop) : P → P := by
-  Hint "First use `intro` to give yourself a new assumption and simplify the goal"
+  Hint "First use `intro` to give yourself a new assumption and simplify the goal."
   Hint (hidden := true) "Try `intro h`"
   intro h
-  Hint "Now use `exact` to solve the goal"
+  Hint "Now use `exact` to solve the goal."
   Hint (hidden := true) "Try `exact h`"
   exact h
 

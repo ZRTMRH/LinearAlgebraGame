@@ -8,7 +8,7 @@ Level 5
 Title "Negatives in Subspace"
 
 Introduction "
-The last theorem we will prove in Vector Space World is that subspaces contain the additive inverses of each of their elements. 
+The last theorem we will prove in Vector Space World is that subspaces contain the additive inverses of each of their elements.
 
 ## The Mathematical Idea
 
@@ -16,10 +16,10 @@ If x ∈ W and W is a subspace, then -x ∈ W. This follows because -x = (-1) �
 
 ## Proof Strategy
 
-1. Break down the subspace definition using obtain
-2. Introduce the universal quantifier (∀) using intros
-3. Rewrite -x as (-1) • x using the theorem from Level 3
-4. Apply scalar multiplication closure
+1. Break down the subspace definition using obtain.
+2. Introduce the universal quantifier (∀) using intros.
+3. Rewrite -x as (-1) • x using the theorem from Level 3.
+4. Apply scalar multiplication closure.
 
 The proof combines ideas from the previous level with our theorem about -1 scaling.
 

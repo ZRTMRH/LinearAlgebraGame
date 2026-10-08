@@ -34,5 +34,5 @@ Statement (x y a b : ℝ) (h1 : x < y) (h2: a < b) : x + a < y + b := by
   linarith
 
 Conclusion "
-Linarith is very useful to simplify goals involving linear terms.
+Linarith is very useful for simplifying goals involving linear terms.
 "
