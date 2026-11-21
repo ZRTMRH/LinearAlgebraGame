@@ -60,22 +60,22 @@ notation "⟪" x "," y "⟫" => InnerProductSpace_v.inner x y
 variable {V : Type} [AddCommGroup V] [VectorSpace ℂ V] [InnerProductSpace_v V]
 
 -- Create theorem aliases for class fields that are used in TheoremDoc
-theorem inner_self_im_zero (v : V) : (⟪v, v⟫).im = 0 := 
+theorem inner_self_im_zero (v : V) : (⟪v, v⟫).im = 0 :=
   InnerProductSpace_v.inner_self_im_zero v
 
-theorem inner_self_nonneg (v : V) : 0 ≤ (⟪v, v⟫).re := 
+theorem inner_self_nonneg (v : V) : 0 ≤ (⟪v, v⟫).re :=
   InnerProductSpace_v.inner_self_nonneg v
 
-theorem inner_self_eq_zero (v : V) : ⟪v, v⟫ = 0 ↔ v = 0 := 
+theorem inner_self_eq_zero (v : V) : ⟪v, v⟫ = 0 ↔ v = 0 :=
   InnerProductSpace_v.inner_self_eq_zero v
 
-theorem inner_add_left (u v w : V) : ⟪u + v, w⟫ = ⟪u, w⟫ + ⟪v, w⟫ := 
+theorem inner_add_left (u v w : V) : ⟪u + v, w⟫ = ⟪u, w⟫ + ⟪v, w⟫ :=
   InnerProductSpace_v.inner_add_left u v w
 
-theorem inner_smul_left (a : ℂ) (v w : V) : ⟪a • v, w⟫ = a * ⟪v, w⟫ := 
+theorem inner_smul_left (a : ℂ) (v w : V) : ⟪a • v, w⟫ = a * ⟪v, w⟫ :=
   InnerProductSpace_v.inner_smul_left a v w
 
-theorem inner_conj_symm (v w : V) : ⟪v, w⟫ = conj (⟪w, v⟫) := 
+theorem inner_conj_symm (v w : V) : ⟪v, w⟫ = conj (⟪w, v⟫) :=
   InnerProductSpace_v.inner_conj_symm v w
 
 /--In a complex inner product space, `⟪v,v⟫` is always a real number. Here "real" means that its imaginary part is zero."-/
@@ -171,7 +171,7 @@ notation "‖" x "‖" => norm_v x
 
 def orthogonal (u v:V) : Prop := ⟪u, v⟫= (0:ℂ)
 
--- TODO: Make ℂ compatible with norm notation by extending norm_v to work on ℂ  
+-- TODO: Make ℂ compatible with norm notation by extending norm_v to work on ℂ
 -- For now, we'll use Complex.abs (the standard complex absolute value) instead of norm_v for complex numbers
 
 /-- If `u` is orthogonal to `v`, then any scalar multiple of `u` is also orthogonal to `v`. -/
@@ -197,11 +197,11 @@ theorem right_smul_ortho (u v : V) (c : ℂ) (h : orthogonal u v) : orthogonal u
 -- le_of_sq_le_sq moved to Level07.lean as a helper theorem
 
 -- Helper theorem for orthogonal decomposition that gives us the full structure needed for Cauchy-Schwarz
-theorem ortho_decom_parts (u v : V) (h : v ≠ 0) : 
+theorem ortho_decom_parts (u v : V) (h : v ≠ 0) :
   let c := ⟪u,v⟫ / (‖v‖^2)
   let w := u - c • v
   u = c • v + w ∧ orthogonal w v := by
-  let c := ⟪u,v⟫ / (‖v‖^2)  
+  let c := ⟪u,v⟫ / (‖v‖^2)
   let w := u - c • v
   constructor
   · simp [w]
@@ -220,6 +220,7 @@ theorem ortho_decom_parts (u v : V) (h : v ≠ 0) :
       apply h
       exact (inner_self_eq_zero v).1 contr
     field_simp [h_nonzero]
+    grind -- TODO
 
 -- Lemma that the real part of a complex number is bounded by its norm
 theorem re_le_abs (z : ℂ) : z.re ≤ ‖z‖ := by

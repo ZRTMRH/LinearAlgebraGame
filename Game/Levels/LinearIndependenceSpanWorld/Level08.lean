@@ -79,10 +79,10 @@ give you a hypothesis `h : isRational √2`.
 TacticDoc by_contra
 
 /--
-If you have some set s, where you know `h : i ∈ s`, then `sum_eq_sum_diff_singleton_add h` is a proof that
+If you have some set s, where you know `h : i ∈ s`, then `sum_eq_sum_sdiff_singleton_add h` is a proof that
 `(Finset.sum s fun x => f x) = (Finset.sum (s \ {i}) fun x => f x) + f i`
 -/
-TheoremDoc Finset.sum_eq_sum_diff_singleton_add as "sum_eq_sum_diff_singleton_add" in "Sets"
+TheoremDoc Finset.sum_eq_sum_sdiff_singleton_add as "sum_eq_sum_sdiff_singleton_add" in "Sets"
 
 /--
 `smul_sum` is a proof that you can distribute scalar multiplication through `Finset.sum`.
@@ -174,8 +174,9 @@ lemma zero_coeff_from_not_in_span (K V : Type) [Field K] [AddCommGroup V] [Vecto
   specialize hv_not_span (s \ {v}) subset g
   exact hv_not_span g_v
 
-NewTheorem Finset.sum_eq_sum_diff_singleton_add Finset.smul_sum inv_mul_cancel₀
+NewTheorem Finset.smul_sum inv_mul_cancel₀
   LinearAlgebraGame.subset_diff_singleton_of_union LinearAlgebraGame.zero_coeff_from_not_in_span
+  Finset.sum_eq_sum_sdiff_singleton_add
 
 Statement linear_independent_insert_of_not_in_span
   {S : Set V} {v : V}
@@ -203,8 +204,8 @@ Statement linear_independent_insert_of_not_in_span
 
     Hint "Now, we want to split {hf} into two, breaking off \{{v}} so we have a sum over a subset of S"
     Hint "We can rewrite the sum as: ∑(s \\ \{{v}}) + f(v)•v = 0. This separation is key to our proof."
-    Hint (hidden := true) "Try `rw [sum_eq_sum_diff_singleton_add {hvIns}] at {hf}`"
-    rw [sum_eq_sum_diff_singleton_add hvIns] at hf
+    Hint (hidden := true) "Try `rw [sum_eq_sum_sdiff_singleton_add {hvIns}] at {hf}`"
+    rw [sum_eq_sum_sdiff_singleton_add hvIns] at hf
 
     Hint "Now, that we have a sum over `(s \\ \{{v}})`, we want to show `↑(s \\ \{{v}}) ⊆ S`."
     Hint "**Mathematical Intuition**: Elements in s \\ \{{v}} must be in S since they can't equal v."
