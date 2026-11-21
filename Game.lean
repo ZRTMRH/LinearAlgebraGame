@@ -51,7 +51,7 @@ please file them at: https://github.com/ZRTMRH/LinearAlgebraGame/issues
 * **Cover Image:** Daniel Zhou, Nina Ma
 "
 
-Languages "English"
+Languages "en"
 CaptionShort "Linear Algebra Game"
 CaptionLong "Learn linear algebra through interactive theorem proving in Lean 4. Prove famous results like the Cauchy-Schwarz inequality and work through vector spaces, linear independence, and inner products based on Axler's 'Linear Algebra Done Right'."
 CoverImage "images/cover.png"
