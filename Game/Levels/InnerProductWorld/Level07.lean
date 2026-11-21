@@ -19,7 +19,7 @@ We prove this using orthogonal decomposition. The key insight is to decompose `u
 
 ## The Strategy
 1. Handle the case `v = 0` separately (trivial)
-2. For `v ≠ 0`, use orthogonal decomposition: `u = c • v + w` with `w ⊥ v`  
+2. For `v ≠ 0`, use orthogonal decomposition: `u = c • v + w` with `w ⊥ v`
 3. Apply Pythagorean theorem: `‖u‖² = ‖c • v‖² + ‖w‖²`
 4. Since `‖w‖² ≥ 0`, we get `‖u‖² ≥ ‖c • v‖²`
 5. Substitute `c = ⟪u,v⟫ / ‖v‖²` and algebraically simplify
@@ -123,7 +123,6 @@ lemma norm_sq_scaled_eq {V : Type} [AddCommGroup V] [VectorSpace ℂ V]  [InnerP
   ring_nf
   simp [c_def]
   field_simp [ne_of_gt v_pos]
-  ring
 
 NewTheorem LinearAlgebraGame.norm_zero_v LinearAlgebraGame.pythagorean LinearAlgebraGame.inner_self_nonneg
   LinearAlgebraGame.inner_self_eq_zero LinearAlgebraGame.sca_mul LinearAlgebraGame.ortho_decom
@@ -138,7 +137,7 @@ Statement Cauchy_Schwarz (u v : V) : ‖⟪u,v⟫‖ ≤ ‖u‖ * ‖v‖ := by
   Hint "We need to consider two cases: when `v = 0` and when `v ≠ 0`."
   Hint (hidden := true) "Try `by_cases v_zero : v = 0`"
   by_cases v_zero : v = 0
-  
+
   case pos =>
     Hint "First, let's handle the case when `v = 0`. When `v = 0`, both sides become 0."
     Hint (hidden := true) "Try `rw[v_zero]`"
@@ -153,10 +152,10 @@ Statement Cauchy_Schwarz (u v : V) : ‖⟪u,v⟫‖ ≤ ‖u‖ * ‖v‖ := by
     rw[h]
     Hint (hidden := true) "Try `simp`"
     simp
-    
+
   case neg =>
     Hint "Now for the main case where `v ≠ 0`. We'll use orthogonal decomposition."
-    
+
     -- Set up orthogonal decomposition manually
     Hint "We'll decompose u as c•v + w where w is orthogonal to v."
     Hint "The key insight: choose c = ⟪u,v⟫ / ‖v‖² to make w orthogonal to v."
@@ -165,8 +164,8 @@ Statement Cauchy_Schwarz (u v : V) : ‖⟪u,v⟫‖ ≤ ‖u‖ * ‖v‖ := by
     let c := ⟪u,v⟫ / (‖v‖^2)
     Hint (hidden := true) "Try `let w := u - c • v`"
     let w := u - c • v
-    
-    -- Get the decomposition properties directly 
+
+    -- Get the decomposition properties directly
     Hint "Now we establish the key properties of our decomposition."
     Hint "We have u = c • v + w by definition of w."
     Hint "Think of this geometrically: u is split into a part parallel to v (c•v) and a part perpendicular to v (w)."
@@ -177,14 +176,14 @@ Statement Cauchy_Schwarz (u v : V) : ‖⟪u,v⟫‖ ≤ ‖u‖ * ‖v‖ := by
     have h4 : orthogonal w v := ortho_decom u v v_zero
     Hint (hidden := true) "Try `have h5:= left_smul_ortho v w c (ortho_swap w v h4)`"
     have h5:= left_smul_ortho v w c (ortho_swap w v h4)
-    
-    -- Establish non-negativity 
+
+    -- Establish non-negativity
     Hint (hidden := true) "Try `have g3 : 0 ≤ ‖u‖ * ‖v‖ := mul_nonneg (norm_nonneg_v u) (norm_nonneg_v v)`"
     have g3 : 0 ≤ ‖u‖ * ‖v‖ := mul_nonneg (norm_nonneg_v u) (norm_nonneg_v v)
-    
+
     -- We'll prove the squared version first, then derive the original
     Hint "We'll prove the squared version ‖⟪u,v⟫‖² ≤ ‖u‖² * ‖v‖² and then take square roots."
-    
+
     -- Apply Pythagorean theorem
     Hint "Apply the Pythagorean theorem using orthogonality."
     Hint "We want to show ‖u‖² = ‖c • v‖² + ‖w‖²"
@@ -192,11 +191,11 @@ Statement Cauchy_Schwarz (u v : V) : ‖⟪u,v⟫‖ ≤ ‖u‖ * ‖v‖ := by
     Hint "Rewrite u using our decomposition u = c • v + w."
     Hint (hidden := true) "Try `have u_norm_sq : ‖u‖^2 = ‖c • v‖^2 + ‖w‖^2 := norm_sq_decomposition u v w c h3 h5`"
     have u_norm_sq : ‖u‖^2 = ‖c • v‖^2 + ‖w‖^2 := norm_sq_decomposition u v w c h3 h5
-    
+
     -- Establish that ‖v‖ ≠ 0 (needed for division)
     Hint (hidden := true) "Try `have v_norm_zero : ‖v‖ ≠ 0 := norm_nonzero_of_nonzero v v_zero`"
     have v_norm_zero : ‖v‖ ≠ 0 := norm_nonzero_of_nonzero v v_zero
-    
+
     -- Key transformation: ‖c • v‖² = ‖⟪u,v⟫‖²/‖v‖²
     Hint "The crucial step: express ‖c • v‖² in terms of the inner product."
     Hint "Since c = ⟪u,v⟫/‖v‖², we get ‖c • v‖² = ‖⟪u,v⟫‖²/‖v‖²."
@@ -205,18 +204,18 @@ Statement Cauchy_Schwarz (u v : V) : ‖⟪u,v⟫‖ ≤ ‖u‖ * ‖v‖ := by
     have v_pos : 0 < ‖v‖ := norm_pos_of_nonzero v v_zero
     Hint (hidden := true) "Try `have kt : ‖c • v‖^2 = ‖⟪u,v⟫‖^2/‖v‖^2 := norm_sq_scaled_eq u v c v_pos rfl`"
     have kt : ‖c • v‖^2 = ‖⟪u,v⟫‖^2/‖v‖^2 := norm_sq_scaled_eq u v c v_pos rfl
-    
+
     -- From ‖u‖² = ‖c • v‖² + ‖w‖², and since ‖w‖² ≥ 0, we get ‖u‖² ≥ ‖c • v‖²
     Hint "Since ‖u‖² = ‖c • v‖² + ‖w‖² and ‖w‖² ≥ 0, we have ‖c • v‖² ≤ ‖u‖²."
     Hint "This is the key inequality: the projection of u onto v has norm at most ‖u‖."
     Hint (hidden := true) "Try `have cv_le_u : ‖c • v‖^2 ≤ ‖u‖^2 := scaled_norm_le_original u v w c u_norm_sq`"
     have cv_le_u : ‖c • v‖^2 ≤ ‖u‖^2 := scaled_norm_le_original u v w c u_norm_sq
-    
+
     -- Substitute kt to get ‖⟪u,v⟫‖²/‖v‖² ≤ ‖u‖²
     Hint "Substituting our expression for ‖c • v‖², we get ‖⟪u,v⟫‖²/‖v‖² ≤ ‖u‖²."
     Hint (hidden := true) "Try `rw [kt] at cv_le_u`"
     rw [kt] at cv_le_u
-    
+
     -- Multiply both sides by ‖v‖² to get ‖⟪u,v⟫‖² ≤ ‖u‖² * ‖v‖²
     Hint "Multiplying both sides by ‖v‖² gives ‖⟪u,v⟫‖² ≤ ‖u‖² * ‖v‖²."
     Hint "We're almost there! This is the squared version of Cauchy-Schwarz."
@@ -229,7 +228,7 @@ Statement Cauchy_Schwarz (u v : V) : ‖⟪u,v⟫‖ ≤ ‖u‖ * ‖v‖ := by
     simp [div_mul_cancel, v_norm_zero] at h_mul
     Hint (hidden := true) "Try `have sq_ineq : ‖⟪u,v⟫‖^2 ≤ ‖u‖^2 * ‖v‖^2 := h_mul`"
     have sq_ineq : ‖⟪u,v⟫‖^2 ≤ ‖u‖^2 * ‖v‖^2 := h_mul
-    
+
     -- Convert squared inequality to original
     Hint "Now we can take square roots of both sides to get the original inequality."
     Hint "Taking square roots preserves inequalities for non-negative numbers."

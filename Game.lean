@@ -1,5 +1,5 @@
 -- Basic game configuration without levels for initial setup test
-import GameServer.Commands
+import GameApi
 import Game.Levels.TutorialWorld
 import Game.Levels.VectorSpaceWorld
 import Game.Levels.LinearIndependenceSpanWorld

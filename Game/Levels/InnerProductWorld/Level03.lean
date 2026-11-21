@@ -130,7 +130,8 @@ The square root of a positive real number is positive.
 -/
 TheoremDoc Real.sqrt_pos as "Real.sqrt_pos" in "ℝ"
 
-NewTheorem norm_nonneg Left.mul_nonneg sq_eq_sq sq_eq_sq₀ mul_assoc Complex.mul_conj Complex.normSq_eq_norm_sq Complex.re_ofReal_mul Complex.add_re Complex.conj_re add_nonneg le_trans mul_nonneg add_sq Real.sqrt_pos LinearAlgebraGame.norm_nonneg_v LinearAlgebraGame.norm_sq_eq
+NewTheorem norm_nonneg Left.mul_nonneg sq_eq_sq₀ mul_assoc Complex.mul_conj Complex.normSq_eq_norm_sq Complex.re_ofReal_mul Complex.add_re Complex.conj_re add_nonneg le_trans mul_nonneg add_sq Real.sqrt_pos LinearAlgebraGame.norm_nonneg_v LinearAlgebraGame.norm_sq_eq
+-- sq_eq_sq -- TODO
 
 DisabledTheorem LinearAlgebraGame.sca_mul sca_mul
 
@@ -144,15 +145,15 @@ Statement sca_mul (a : ℂ) (v: V) : ‖a • v‖= ‖a‖ * ‖v‖ := by
   have h1 := norm_nonneg a
   Hint (hidden := true) "Try `have h2 := norm_nonneg_v v`"
   have h2 := norm_nonneg_v v
-  
+
   Hint "Combine these to get non-negativity of the product."
   Hint (hidden := true) "Try `have g1 := Left.mul_nonneg h1 h2`"
   have g1 := Left.mul_nonneg h1 h2
-  
+
   Hint "Also get non-negativity of the left side."
   Hint (hidden := true) "Try `have g2 := norm_nonneg_v (a • v)`"
   have g2 := norm_nonneg_v (a • v)
-  
+
   Hint "Now apply the square equality theorem to reduce to proving the squared version."
   Hint (hidden := true) "Try `apply (sq_eq_sq₀ g2 g1).1`"
   apply (sq_eq_sq₀ g2 g1).1

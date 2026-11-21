@@ -204,7 +204,7 @@ TheoremDoc zero_add as "zero_add" in "Groups"
 -/
 TheoremDoc add_zero as "add_zero" in "Groups"
 
-NewTheorem add_right_cancel add_left_cancel smul_add add_smul MulAction.mul_smul one_smul symm zero_add add_zero
+NewTheorem add_right_cancel add_left_cancel smul_add add_smul one_smul symm zero_add add_zero -- TODO: MulAction.mul_smul
 
 TheoremTab "Groups"
 

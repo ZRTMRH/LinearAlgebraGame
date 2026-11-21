@@ -1,4 +1,4 @@
-import GameServer.Commands
+import GameApi
 import Game.Data
 import Game.MyTactic
 

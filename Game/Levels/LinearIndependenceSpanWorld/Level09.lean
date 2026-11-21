@@ -90,7 +90,7 @@ lemma fx_sum_equality (K V : Type) [Field K] [AddCommGroup V] [VectorSpace K V] 
   simp
   have hfx'w : fx w = fx' w := by rw[hfx']; simp only [hw]; simp
   rw[hfx'w]
-  rw[(sum_eq_sum_diff_singleton_add (mem_union_right sw hw) (fun v => fx' v • v)).symm]
+  rw[(sum_eq_sum_sdiff_singleton_add (mem_union_right sw hw) (fun v => fx' v • v)).symm]
   rw[hfx']
   simp
   exact hfx
@@ -117,10 +117,10 @@ TheoremDoc Set.subset_insert as "subset_insert" in "Sets"
 TheoremDoc Finset.Subset.antisymm_iff as "Finset.Subset.antisymm_iff" in "Sets"
 
 /--
-`sum_eq_sum_diff_singleton_add` is a proof that if you have some set `s`, with `h : i ∈ s`, then
-`Finset.sum s (fun x => f x) = Finset.sum (s / {i}) (fun x => f x) + f i. The syntax is `sum_eq_sum_diff_singleton_add h f`.
+`sum_eq_sum_sdiff_singleton_add` is a proof that if you have some set `s`, with `h : i ∈ s`, then
+`Finset.sum s (fun x => f x) = Finset.sum (s / {i}) (fun x => f x) + f i. The syntax is `sum_eq_sum_sdiff_singleton_add h f`.
 -/
-TheoremDoc Finset.sum_eq_sum_diff_singleton_add as "sum_eq_sum_diff_singleton_add" in "Sets"
+TheoremDoc Finset.sum_eq_sum_sdiff_singleton_add as "sum_eq_sum_sdiff_singleton_add" in "Sets"
 
 /--
 `mem_union_right` is a proof that if `a ∈ t`, then `a ∈ s ∪ t`. The syntax is `mem_union_right s h`.
@@ -219,7 +219,7 @@ TacticDoc ite
 
 NewTactic tauto left right «let» ite
 
-NewTheorem Set.subset_insert Finset.Subset.antisymm_iff Finset.sum_eq_sum_diff_singleton_add Finset.mem_union_right Finset.sum_add_distrib Set.subset_diff_singleton Set.diff_subset
+NewTheorem Set.subset_insert Finset.Subset.antisymm_iff Finset.sum_eq_sum_sdiff_singleton_add Finset.mem_union_right Finset.sum_add_distrib Set.subset_diff_singleton Set.diff_subset
   LinearAlgebraGame.union_diff_singleton_eq LinearAlgebraGame.fx_sum_equality LinearAlgebraGame.fw_sum_equality
 
 TheoremDoc LinearAlgebraGame.remove_redundant_span as "remove_redundant_span" in "Vector Spaces"
